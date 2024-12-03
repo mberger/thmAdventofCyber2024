@@ -215,7 +215,7 @@ AlphaBay Admin Takedown
 
 One of the most spectacular OPSEC failures involved Alexandre Cazes, the administrator of AlphaBay, one of the largest dark web marketplaces:
 
-```
+```markup
 Cazes used the email address "pimp_alex_91@hotmail.com" in early welcome emails from the site.
 This email included his year of birth and other identifying information.
 He cashed out using a Bitcoin account tied to his real name.
@@ -255,16 +255,47 @@ As McSkidy continued digging, a pattern emerged that didn't fit the persona she 
 "Who's MM?" McSkidy muttered, the mystery deepening.
 
 Even though all signs on the website seemed to point to Glitch as the author, it became clear that someone had gone to great lengths to ensure Glitch's name appeared everywhere. Yet, the scattered traces left by MM suggested a deliberate effort to shift the blame.
-Answer the questions below
+
+
+:::info
+Answers:
+
+:::
+
 
 Looks like the song.mp3 file is not what we expected! Run "exiftool song.mp3" in your terminal to find out the author of the song. Who is the author?
 
+
+:::tip
+Tyler Ramsbey
+
+:::
+
+
 The malicious PowerShell script sends stolen info to a C2 server. What is the URL of this C2 server?
+
+
+:::tip
+<http://papash3ll.thm/data>
+
+:::
+
 
 Who is M.M? Maybe his Github profile page would provide clues?
 
+
+:::tip
+Mayor Malware
+
+:::
+
+
 What is the number of commits on the GitHub repo where the issue was raised?
 
-If you enjoyed this task, feel free to check out the OPSEC room!
 
-What's with all these GitHub repos? Could they hide something else?
+:::tip
+1
+
+:::
+
+
