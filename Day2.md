@@ -2,8 +2,10 @@
 | \*\*Advent of Cyber: New Task Release!\*\*One man's false positive is another man's potpourri. |
 |----|
 
-|  ![](https://ci3.googleusercontent.com/meips/ADKq_NbjcwtpiqEZxM14rGt2ee0SnDMd64u1cObyR7kYo_0aYV3FIx2W3yTazUZiME6s2CUi_RhNMMpOT7UtA1rzS6QSR2zxrlotSiP4c6qRTqKG9G7o17ltlL_NOYxbTUjkkkS_gMrKIBQvpccHasqgDU-6i1nE6dA008-He3rpSpLfxm7x6Jo7HmW8Vsm6o1V-sM_7A8772Z7CpQCCvPXF5U2AZGkNsuYo55neUYfTaxaQ9Hjg=s0-d-e1-ft#https://userimg-assets.customeriomail.com/images/client-env-92874/1731074725184_McSkiddy%20-%20AoC%20Character%20Card%20326px_01JC61G5R9MD3M6SV23JW61WFK.png)In day 2 of Advent of Cyber, McSkidy and the SOC team investigate suspicious login attempts. But who was behind them? \*\*Topics Covered:\*\*Log Analysis (False VS True Positive) |
+|  ![](https://ci3.googleusercontent.com/meips/ADKq_NbjcwtpiqEZxM14rGt2ee0SnDMd64u1cObyR7kYo_0aYV3FIx2W3yTazUZiME6s2CUi_RhNMMpOT7UtA1rzS6QSR2zxrlotSiP4c6qRTqKG9G7o17ltlL_NOYxbTUjkkkS_gMrKIBQvpccHasqgDU-6i1nE6dA008-He3rpSpLfxm7x6Jo7HmW8Vsm6o1V-sM_7A8772Z7CpQCCvPXF5U2AZGkNsuYo55neUYfTaxaQ9Hjg=s0-d-e1-ft#https://userimg-assets.customeriomail.com/images/client-env-92874/1731074725184_McSkiddy%20-%20AoC%20Character%20Card%20326px_01JC61G5R9MD3M6SV23JW61WFK.png) \n  \n In day 2 of Advent of Cyber, McSkidy and the SOC team investigate suspicious login attempts. But who was behind them? \*\*Topics Covered:\*\*Log Analysis (False VS True Positive) |
 |----|
+|    |
+|    |
 
 # The Story
 
@@ -63,7 +65,7 @@ Once the machine is up and running, we can connect to the Elastic SIEM by visiti
 | **Username** | elastic |
 | **Password** | elastic |
 
-Once we log in, we can click the menu in the top-left corner and go to the `Discover` tab to see the events. 
+Once we log in, we can click the menu in the top-left corner and go to the `Discover` tab to see the events.
 
  ![Instructions to access the Discover console.](https://tryhackme-images.s3.amazonaws.com/user-uploads/5dbea226085ab6182a2ee0f7/room-content/5dbea226085ab6182a2ee0f7-1730130654839.png) \n 
 
@@ -158,11 +160,11 @@ The alarms have gone off, and McSkidy has been called to help take this incident
 
  ![New filter applied to view PowerShell commands.](https://tryhackme-images.s3.amazonaws.com/user-uploads/5dbea226085ab6182a2ee0f7/room-content/5dbea226085ab6182a2ee0f7-1730135920764.png) \n 
 
-We can see the PowerShell command in the `process.command_line` field. 
+We can see the PowerShell command in the `process.command_line` field.
 
 `C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -EncodedCommand SQBuAHMAdABhAGwAbAAtAFcAaQBuAGQAbwB3AHMAVQBwAGQAYQB0AGUAIAAtAEEAYwBjAGUAcAB0AEEAbABsACAALQBBAHUAdABvAFIAZQBiAG8AbwB0AA==`
 
-McSkidy knows that Encoded PowerShell commands are generally Base64 Encoded and can be decoded using tools such as [CyberChef](https://gchq.github.io/CyberChef/). Since the command might contain some sensitive information and, therefore, must not be submitted on a public portal, McSkidy spins up her own instance of CyberChef hosted locally. McSkidy started by pasting the encoded part of the command in the Input pane in CyberChef. 
+McSkidy knows that Encoded PowerShell commands are generally Base64 Encoded and can be decoded using tools such as [CyberChef](https://gchq.github.io/CyberChef/). Since the command might contain some sensitive information and, therefore, must not be submitted on a public portal, McSkidy spins up her own instance of CyberChef hosted locally. McSkidy started by pasting the encoded part of the command in the Input pane in CyberChef.
 
  ![Using CyberChef to decode the PowerShell command.](https://tryhackme-images.s3.amazonaws.com/user-uploads/5dbea226085ab6182a2ee0f7/room-content/5dbea226085ab6182a2ee0f7-1730131256096.png) \n 
 
@@ -194,6 +196,7 @@ What is the name of the account causing all the failed login attempts?
 
 :::
 
+service_admin
 
 
 
@@ -202,6 +205,7 @@ How many failed logon attempts were observed?
 
 :::
 
+6791
 
 
 
@@ -210,6 +214,8 @@ What is the IP address of Glitch?
 
 :::
 
+10\.0.255.1
+
 
 
 :::tip
@@ -217,12 +223,16 @@ When did Glitch successfully logon to ADM-01? Format: MMM D, YYYY HH:MM:SS.SSS
 
 :::
 
+Dec 1, 2024 08:54:39.000
+
 
 
 :::tip
 What is the decoded command executed by Glitch to fix the systems of Wareville?
 
 :::
+
+Install-WindowsUpdate -AcceptAll -AutoReboot
 
 
 
