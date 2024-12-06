@@ -1,20 +1,25 @@
-## layout: post 
 
-## title: Day 1 Advent of Cyber 2024 
+---
 
-## subtitle: Let’s start 
+## layout: post
 
-## gh-repo: daattali/beautiful-jekyll 
+## title: Day 1 Advent of Cyber 2024
+
+## subtitle: Let’s start
+
+## gh-repo: daattali/beautiful-jekyll
 
 ## gh-badge: \[star, fork, follow\]
 
-## tags: \[test\] 
+## tags: \[test\]
 
-## comments: true 
+## comments: true
 
-## mathjax: true 
+## mathjax: true
 
 ## author: Michael Berger
+
+{: .box-success}
 
 
 The Story
