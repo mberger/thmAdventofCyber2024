@@ -1,4 +1,20 @@
-## layout: post title: Sample blog post to learn markdown tips subtitle: There's lots to learn! gh-repo: daattali/beautiful-jekyll gh-badge: \[star, fork, follow\] tags: \[test\] comments: true mathjax: true author: Bill Smith
+## layout: post 
+
+## title: Day 1 Advent of Cyber 2024 
+
+## subtitle: Let’s start 
+
+## gh-repo: daattali/beautiful-jekyll 
+
+## gh-badge: \[star, fork, follow\]
+
+## tags: \[test\] 
+
+## comments: true 
+
+## mathjax: true 
+
+## author: Michael Berger
 
 
 The Story
