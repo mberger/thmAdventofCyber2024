@@ -1,3 +1,6 @@
+## layout: post title: Sample blog post to learn markdown tips subtitle: There's lots to learn! gh-repo: daattali/beautiful-jekyll gh-badge: \[star, fork, follow\] tags: \[test\] comments: true mathjax: true author: Bill Smith
+
+
 The Story
 
  ![Task banner for day DAY 1](https://tryhackme-images.s3.amazonaws.com/user-uploads/5fc2847e1bbebc03aa89fbf2/room-content/5fc2847e1bbebc03aa89fbf2-1730193392309.svg)
@@ -257,6 +260,7 @@ As McSkidy continued digging, a pattern emerged that didn't fit the persona she 
 Even though all signs on the website seemed to point to Glitch as the author, it became clear that someone had gone to great lengths to ensure Glitch's name appeared everywhere. Yet, the scattered traces left by MM suggested a deliberate effort to shift the blame.
 
 
+
 :::info
 Answers:
 
@@ -264,6 +268,7 @@ Answers:
 
 
 Looks like the song.mp3 file is not what we expected! Run "exiftool song.mp3" in your terminal to find out the author of the song. Who is the author?
+
 
 
 :::tip
@@ -275,6 +280,7 @@ Tyler Ramsbey
 The malicious PowerShell script sends stolen info to a C2 server. What is the URL of this C2 server?
 
 
+
 :::tip
 <http://papash3ll.thm/data>
 
@@ -284,6 +290,7 @@ The malicious PowerShell script sends stolen info to a C2 server. What is the UR
 Who is M.M? Maybe his Github profile page would provide clues?
 
 
+
 :::tip
 Mayor Malware
 
@@ -291,6 +298,7 @@ Mayor Malware
 
 
 What is the number of commits on the GitHub repo where the issue was raised?
+
 
 
 :::tip
