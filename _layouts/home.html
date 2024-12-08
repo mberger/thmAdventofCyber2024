@@ -1,0 +1,29 @@
+---
+layout: default
+title: Home
+---
+<br>
+<img src="../assets/img/christmas-lights-transparent-background-5-usagif-2976937114.gif" width="100%">
+<img src="../assets/img/Firefly cybersecurity christmas holiday computer desktop background 87900.jpg" align="top"> 
+<H2>Hello and Merry Christmas!</H2> 
+<p>
+  Welcome to my 2024 Try Hackme Advent of Cyber writeup site. Please feel free to read along and check yourselves with my answers.
+I hope you enjoyed this year's edition as much as I did. </p>
+
+{% for post in paginator.posts %}
+  {% include featured-post.html %}
+{% endfor %}
+
+<!-- Pagination links -->
+<div class="pagination">
+  {% if paginator.next_page %}
+    <a class="pagination-button pagination-active next" href="{{ site.github.url }}{{ paginator.next_page_path }}">{{ site.data.settings.pagination.previous_page }}</a>
+  {% else %}
+    <span class="pagination-button">{{ site.data.settings.pagination.previous_page }}</span>
+  {% endif %}
+  {% if paginator.previous_page %}
+    <a class="pagination-button pagination-active" href="{{ site.baseurl }}{{ paginator.previous_page_path }}">{{ site.data.settings.pagination.next_page }}</a>
+  {% else %}
+    <span class="pagination-button">{{ site.data.settings.pagination.next_page }}</span>
+  {% endif %}
+</div>

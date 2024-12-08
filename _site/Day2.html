@@ -1,0 +1,469 @@
+<!doctype html>
+<html>
+  <head>
+  <title>
+    
+      Try Hack Me Advent of Cyber - Day 2 | THM Advent of Cyber 2024
+    
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  <!-- Use Atom -->
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="THM Advent of Cyber 2024" />
+  <!-- RSS-v2.0
+  <link href="/rss-feed.xml" type="application/rss+xml" rel="alternate" title="THM Advent of Cyber 2024 | a minimalist Jekyll theme for running a blog or publication"/>
+  //-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Source+Code+Pro">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+  <!-- Google Analytics -->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  <!-- Use Jekyll SEO plugin -->
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Try Hack Me Advent of Cyber - Day 2 | THM Advent of Cyber 2024</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Try Hack Me Advent of Cyber - Day 2" />
+<meta name="author" content="Michael" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="| **Advent of Cyber: New Task Release!**One man’s false positive is another man’s potpourri. | |—-|" />
+<meta property="og:description" content="| **Advent of Cyber: New Task Release!**One man’s false positive is another man’s potpourri. | |—-|" />
+<link rel="canonical" href="http://localhost:4000/Day2" />
+<meta property="og:url" content="http://localhost:4000/Day2" />
+<meta property="og:site_name" content="THM Advent of Cyber 2024" />
+<meta property="og:image" content="http://localhost:4000/day2-logo.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-12-02T00:00:00-05:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="http://localhost:4000/day2-logo.png" />
+<meta property="twitter:title" content="Try Hack Me Advent of Cyber - Day 2" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Michael"},"dateModified":"2024-12-02T00:00:00-05:00","datePublished":"2024-12-02T00:00:00-05:00","description":"| **Advent of Cyber: New Task Release!**One man’s false positive is another man’s potpourri. | |—-|","headline":"Try Hack Me Advent of Cyber - Day 2","image":"http://localhost:4000/day2-logo.png","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/Day2"},"url":"http://localhost:4000/Day2"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+  <body>
+    <div class="container">
+      <header class="site-header">
+  <h3 class="site-title">
+    <a href="/">THM Advent of Cyber 2024</a>
+  </h3>
+  <nav class="menu-list">
+    
+      <a href="/about" class="menu-link">About</a>
+    
+      <a href="/contact" class="menu-link">Contact</a>
+    
+    
+      <a href="https://twitter.com/mberger" class="menu-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+    
+      <a href="feed.xml" class="menu-link" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+    
+  </nav>
+  <div class="dropdown">
+    <button class="dropbtn"><i class="fa fa-bars" aria-hidden="true"></i></button>
+    <div class="dropdown-content">
+      
+        <a href="/about" class="menu-link">About</a>
+      
+        <a href="/contact" class="menu-link">Contact</a>
+      
+      
+        <a href="https://twitter.com/mberger" class="menu-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+      
+        <a href="feed.xml" class="menu-link" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+      
+    </div>
+  </div>
+</header>
+
+      <div class="content-wrapper">
+        <div class="post-content">
+  <h1>
+    Try Hack Me Advent of Cyber - Day 2
+  </h1>
+  
+    <span class="post-date">
+  Written on
+  
+  December
+  2nd
+    ,
+  2024
+  by
+  
+    Michael
+  
+</span>
+
+  
+  
+    <div class="featured-image">
+      <img src="/assets/img/day2-logo.png">
+    </div>
+  
+  <article>
+    <p>| **Advent of Cyber: New Task Release!**One man’s false positive is another man’s potpourri. |
+|—-|</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><img src="https://ci3.googleusercontent.com/meips/ADKq_NbjcwtpiqEZxM14rGt2ee0SnDMd64u1cObyR7kYo_0aYV3FIx2W3yTazUZiME6s2CUi_RhNMMpOT7UtA1rzS6QSR2zxrlotSiP4c6qRTqKG9G7o17ltlL_NOYxbTUjkkkS_gMrKIBQvpccHasqgDU-6i1nE6dA008-He3rpSpLfxm7x6Jo7HmW8Vsm6o1V-sM_7A8772Z7CpQCCvPXF5U2AZGkNsuYo55neUYfTaxaQ9Hjg=s0-d-e1-ft#https://userimg-assets.customeriomail.com/images/client-env-92874/1731074725184_McSkiddy%20-%20AoC%20Character%20Card%20326px_01JC61G5R9MD3M6SV23JW61WFK.png" alt="" /> \n  \n In day 2 of Advent of Cyber, McSkidy and the SOC team investigate suspicious login attempts. But who was behind them? **Topics Covered:**Log Analysis (False VS True Positive)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="the-story">The Story</h1>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5dbea226085ab6182a2ee0f7/room-content/5dbea226085ab6182a2ee0f7-1730369227263.png" alt="Task banner for day 2." /></p>
+
+<p>It’s the most wonderful time of the year again, and it’s also the most stressful day for Wareville’s Security Operations Center (SOC) team. Despite the overwhelming alerts generated by the new and noisy rules deployed, Wareville’s SOC analysts have been processing them nonstop to ensure the safety of the town.</p>
+
+<p>However, the SOC analysts are now burning out of all the workload needed before Christmas. Numerous open cases are still pending, and similar alerts are still firing repeatedly, making them think of the possibility of false positives out of all this mess.</p>
+
+<p>Now, help the awesome Wareville’s SOC team analyse the alerts to determine whether the rumour is true—that Mayor Malware is instigating chaos within the town.</p>
+
+<h2 id="true-positives-or-false-positives">True Positives or False Positives?</h2>
+
+<p>In a SOC, events from different devices are sent to the SIEM, which is the single source of truth where all the information and events are aggregated. Certain rules (Detection Engineering rules) are defined to identify malicious or suspicious activity from these events. If an event or set of events fulfils the conditions of a rule, it triggers an alert. A SOC analyst then analyses the alert to identify if the alert is a True Positive (TP) or a False Positive (FP). An alert is considered a TP if it contains actual malicious activity. On the flip side, if the alert triggers because of an activity that is not actually malicious, it is considered an FP. This might seem very simple in theory, but practically, separating TPs from FPs can be a tedious job. It can sometimes become very confusing to differentiate between an attacker and a system administrator.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5dbea226085ab6182a2ee0f7/room-content/5dbea226085ab6182a2ee0f7-1730369255180.png" alt="Identifying true vs. false positives." /> \n</p>
+
+<h2 id="making-a-decision">Making a Decision</h2>
+
+<p>While it is confusing to differentiate between TPs and FPs, it is very crucial to get it right. If a TP is falsely classified as an FP, it can lead to a significant impact from a missed cyber attack. If an FP is falsely classified as a TP, precious time will be spent focusing on the FP, which might lead to less focus on an actual attack. So, how exactly do we ensure that we perform this crucial job effectively? We can use the below pointers to guide us.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5dbea226085ab6182a2ee0f7/room-content/5dbea226085ab6182a2ee0f7-1730369772259.png" alt="Monitoring dashboards." /><strong>Using the SOC Superpower</strong></p>
+
+<p>The SOC has a superpower. When they are unsure whether an activity is performed by a malicious actor or a legitimate user, they can just confirm with the user. This privilege is not available to the attacker. A SOC analyst, on the other hand, can just send an email or call the relevant person to get confirmation of a certain activity. In mature organisations, any changes that might trigger an alert in the SOC often require Change Requests to be created and approved through the IT change management process. Depending on the process, the SOC team can ask the users to share Change Request details for confirmation. Surely, if it is a legitimate and approved activity, it must have an approved Change Request.</p>
+
+<p><strong>Context</strong></p>
+
+<p>While it might seem like using the SOC superpower makes things super easy, that is not always the case. There are cases which can act as Kryptonite to the SOC superpower:</p>
+
+<ul>
+  <li>If an organisation doesn’t have a change request process in place.</li>
+  <li>The performed activity was outside the scope of the change request or was different from that of the approved change request.</li>
+  <li>The activity triggered an alert, such as copying files to a certain location, uploading a file to some website, or a failed login to a system.</li>
+  <li>An insider threat performed an activity they are not authorised to perform, whether intentionally or unintentionally.</li>
+  <li>A user performed a malicious activity via social engineering from a threat actor.</li>
+</ul>
+
+<p>In such scenarios, it is very important for the SOC analyst to understand the context of the activity and make a judgement call based on their analysis skills and security knowledge. While doing so, the analyst can look at the past behaviour of the user or the prevalence of a certain event or artefact throughout the organisation or a certain department. For example, if a certain user from the network team is using Wireshark, there is a chance that other users from the same team also use Wireshark. However, Wireshark seen on a machine belonging to someone from HR or finance should rightfully raise some eyebrows.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5dbea226085ab6182a2ee0f7/room-content/5dbea226085ab6182a2ee0f7-1730370031153.png" alt="Finding the needle in a haystack." /><strong>Correlation</strong></p>
+
+<p>When building the context, the analyst must correlate different events to make a story or a timeline. Correlation entails using the past and future events to recreate a timeline of events. When performing correlation, it is important to note down certain important artefacts that can then be used to connect the dots. These important artefacts can include IP addresses, machine names, user names, hashes, file paths, etc.</p>
+
+<p>Correlation requires a lot of hypothesis creation and ensuring that the evidence supports that hypothesis. A hypothesis can be something like the user downloaded malware from a spoofed domain. The evidence to support this can be proxy logs that support the hypothesis that a website was visited, the website used a spoofed domain name, and a certain file was downloaded from that website. Now, let’s say, we want to identify whether the malware executed through some vulnerability in an application or a user intentionally executed the malware. To see that, we might look at the parent process of the malware and the command line parameters used to execute the said malware. If the parent process is Windows Explorer, we can assume the user executed the malware intentionally (or they might have been tricked into executing it via social engineering), but if the parent process is a web browser or a word processor, we can assume that the malware was not intentionally executed, but it was executed because of a vulnerability in the said application.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5dbea226085ab6182a2ee0f7/room-content/5dbea226085ab6182a2ee0f7-1730369457912.png" alt="Analysts received an alert." /></p>
+
+<h2 id="is-this-a-tp-or-an-fp">Is this a TP or an FP?</h2>
+
+<p>Similar to every SOC, the analysts in the Wareville SOC also need to differentiate TPs from FPs. This becomes especially difficult for them near Christmas when the analysts face alert fatigue. High chances of misclassification of TPs into FPs and vice versa are present in such times. The analysts, therefore, appreciate any help they could get from us in this crucial time. To make matters worse, the office of the Mayor has sent the analysts an alert informing them of multiple encoded powershell commands run on their systems. Perhaps we can help with that.</p>
+
+<p>Once the machine is up and running, we can connect to the Elastic SIEM by visiting <a href="https://10-10-46-102.p.thmlabs.com">https://10-10-46-102.p.thmlabs.com</a> in your browser using the following credentials:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5dbea226085ab6182a2ee0f7/room-content/0cbfa0d0f3a7f16cefa9fddd04b6de8d.png" alt="TryHackMe Credentials" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>URL</strong></th>
+      <th>https://10-10-46-102.p.thmlabs.com</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Username</strong></td>
+      <td>elastic</td>
+    </tr>
+    <tr>
+      <td><strong>Password</strong></td>
+      <td>elastic</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Once we log in, we can click the menu in the top-left corner and go to the <code class="language-plaintext highlighter-rouge">Discover</code> tab to see the events.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5dbea226085ab6182a2ee0f7/room-content/5dbea226085ab6182a2ee0f7-1730130654839.png" alt="Instructions to access the Discover console." /> \n</p>
+
+<p>According to the alert sent by the Mayor’s office, the activity occurred on Dec 1st, 2024, between 0900 and 0930. We can set this as our time window by clicking the timeframe settings in the upper-right corner. Note that we need to click the <strong>Absolute</strong> tab and set the exact timeframe we want to view. Lastly, click the <strong>Update</strong> button to apply the changes.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5dbea226085ab6182a2ee0f7/room-content/5dbea226085ab6182a2ee0f7-1730130936812.png" alt="Instructions to configure the search timeframe." /> \n</p>
+
+<p>After updating the settings, we see 21 events in the mentioned timeframe.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/61306d87a330ed00419e22e7/room-content/61306d87a330ed00419e22e7-1728231315005.png" alt="Initial query results from the given timeframe." /> \n</p>
+
+<p>In their current form, these events don’t look very easily readable. We can use the fields in the left pane to add columns to the results and make them more readable. Hovering on the field name in the left pane will allow adding that field as a column, as shown below.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/61306d87a330ed00419e22e7/room-content/61306d87a330ed00419e22e7-1728121458086.png" alt="Instructions to add fields as table columns." /></p>
+
+<p>Since we are looking for events related to PowerShell, we would like to know the following details about the logs.</p>
+
+<ul>
+  <li>The hostname where the command was run. We can use the <code class="language-plaintext highlighter-rouge">host.hostname</code> field as a column for that.</li>
+  <li>The user who performed the activity. We can add the <code class="language-plaintext highlighter-rouge">user.name</code> field as a column for this information.</li>
+  <li>We will add the <code class="language-plaintext highlighter-rouge">event.category</code> field to ensure we are looking at the correct event category.</li>
+  <li>To know the actual commands run using PowerShell, we can add the <code class="language-plaintext highlighter-rouge">process.command_line</code> field.</li>
+  <li>Finally, to know if the activity succeeded, we will add the <code class="language-plaintext highlighter-rouge">event.outcome</code> field.</li>
+</ul>
+
+<p>Once we have added these fields as columns, we will see the results in a format like this.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/61306d87a330ed00419e22e7/room-content/61306d87a330ed00419e22e7-1728231315014.png" alt="View after adding the field columns." /> \n</p>
+
+<p>Interesting! So, it looks like someone ran the same encoded PowerShell command on multiple machines. Another thing to note here is that before each execution of the PowerShell command, we see an authentication event, which was successful.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5dbea226085ab6182a2ee0f7/room-content/5dbea226085ab6182a2ee0f7-1730132203152.png" alt="Authentication and PowerShell execution pattern." /> \n</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5dbea226085ab6182a2ee0f7/room-content/5dbea226085ab6182a2ee0f7-1730369342463.png" alt="It seems like Glitch is involved." />This activity is observed individually on each machine, and the time difference between the login and PowerShell commands looks very precise. Best practices dictate that named accounts are used for any kind of administrator activity so that there is accountability and attribution for each administrative activity performed. The usage of a generic admin account here also seems suspicious. On asking, the analysts informed us that this account is used by two administrators who were not in the office when this activity occurred. Hmmm, something is definitely not right. Are these some of Glitch’s shenanigans? Is Christmas in danger? We need to find out who ran these commands.</p>
+
+<p>Let’s also add the <code class="language-plaintext highlighter-rouge">source.ip</code> field as a column to find out who ran the PowerShell commands.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5dbea226085ab6182a2ee0f7/room-content/5dbea226085ab6182a2ee0f7-1730132260949.png" alt="Adding source.ip field column to the current view." /> \n</p>
+
+<p>Since the <code class="language-plaintext highlighter-rouge">source.ip</code> field is only available for the authentication events, we can filter out the process events to see if there is a pattern.  To do that, we can hover over the <code class="language-plaintext highlighter-rouge">event.category</code> field in one of the process events. We will see the option to filter only for this value (+ sign) or filter out the value (- sign), as seen below. Let’s filter for authentication events by clicking the plus (+) sign beside it to show only those in the results.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/61306d87a330ed00419e22e7/room-content/61306d87a330ed00419e22e7-1728123886843.png" alt="Filtering using the plus button." /></p>
+
+<p>As a result, you can see that the output only renders the authentication events. Since the result does not give useful insights, let’s remove it for now. You can do this by clicking the <code class="language-plaintext highlighter-rouge">x</code> beside the filter.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5dbea226085ab6182a2ee0f7/room-content/5dbea226085ab6182a2ee0f7-1730133793388.png" alt="Removing the filter using the x button." /> \n</p>
+
+<p>Since the timeframe we previously used was for the PowerShell events, and the authentication events might have been coming from before that, we will need to expand the search to understand the context and the historical events for this user. Let’s see if we have any events from the user from the 29th of November to the 1st of December. Updating the time filter for these days, the results look like this.</p>
+
+<p><strong>Note: Remember to remove the</strong> <code class="language-plaintext highlighter-rouge">event.category</code> filter before this step.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5dbea226085ab6182a2ee0f7/room-content/5dbea226085ab6182a2ee0f7-1730133980599.png" alt="Adjusting the timeframe to November 29 to December 1." /> \n</p>
+
+<p>Woah, there have been more than 6800 events in these three days, and we see a spike at the end of the logs. However, even though we used the time filter for the day end on the 1st of December, we see no events after successful PowerShell execution. There have also been a lot more authentication events in the previous days than on the 1st of December.</p>
+
+<p>To understand the events further, let’s filter for our <code class="language-plaintext highlighter-rouge">user.name</code> with <code class="language-plaintext highlighter-rouge">service_admin</code> and <code class="language-plaintext highlighter-rouge">source.ip</code> with <code class="language-plaintext highlighter-rouge">10.0.11.11</code> to narrow our search.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/61306d87a330ed00419e22e7/room-content/61306d87a330ed00419e22e7-1728233609356.png" alt="Applied source IP and username filters." /> \n</p>
+
+<p>Uh-oh! It looks like all these events have been coming from the same user and the same IP address. We definitely need to investigate further. This also does not explain the spike. Let’s filter for authentication events first by clicking the plus (+) button beside it.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5dbea226085ab6182a2ee0f7/room-content/5dbea226085ab6182a2ee0f7-1730134648151.png" alt="Filtering authentication events using the plus button." /> \n</p>
+
+<p>Moreover, let’s filter out the Source IP here to see if we can find the IP address that caused the spike. This can be done by clicking the minus (-) button beside it.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5dbea226085ab6182a2ee0f7/room-content/5dbea226085ab6182a2ee0f7-1730134648084.png" alt="Filtering out the source IP using the minus button." /> \n</p>
+
+<p>After applying the filters, the expected result will be similar to the image below.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5dbea226085ab6182a2ee0f7/room-content/5dbea226085ab6182a2ee0f7-1730134858251.png" alt="Updated results based on the new filters." /> \n</p>
+
+<p>Scrolling down, we see many events for failed logins. We also see that the IP address for the spike (ending in <strong>.255.1</strong>) differs from the one we saw for the events continuously coming in the previous days (10.0.11.11). The analysts have previously investigated this and found that a script with expired credentials was causing this issue. However, that script was updated with a fresh set of credentials. Anyhow, this might just be another script. Let’s find out.</p>
+
+<p>Let’s remove the <code class="language-plaintext highlighter-rouge">source IP</code> filter so we can focus on authentication events close to the spike. After applying the new filter, we see that the failed logins stopped a little while after the successful login from the new IP.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5dbea226085ab6182a2ee0f7/room-content/5dbea226085ab6182a2ee0f7-1730135308423.png" alt="Authentication patterns close to the spike." /> \n</p>
+
+<p>Our suspicions are rising. It seems that someone tried a brute-force attack on December 1st, as shown by the same filters applied above.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5dbea226085ab6182a2ee0f7/room-content/5dbea226085ab6182a2ee0f7-1730135585773.png" alt="Indicators of brute-forcing attempts." /> \n</p>
+
+<p>The results also showed that they succeeded with the brute-force attempt because of the successful authentication attempt and quickly ran some PowerShell commands on the affected machines. Once the PowerShell commands were run, we didn’t see any further login attempts. This looks like a TP, and there needs to be an escalation so that McSkidy can help us respond to this incident.</p>
+
+<h2 id="christmas-in-danger">Christmas in Danger?</h2>
+
+<p>The alarms have gone off, and McSkidy has been called to help take this incident further. The analysts have briefed McSkidy about the incident. McSkidy observed that nobody had actually looked at what the PowerShell command contained. Since the command was encoded, it needs to be decoded. McSkidy changed the filters with <code class="language-plaintext highlighter-rouge">event.category: process</code> to take a deeper look at the PowerShell commands.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5dbea226085ab6182a2ee0f7/room-content/5dbea226085ab6182a2ee0f7-1730135920764.png" alt="New filter applied to view PowerShell commands." /> \n</p>
+
+<p>We can see the PowerShell command in the <code class="language-plaintext highlighter-rouge">process.command_line</code> field.</p>
+
+<p><code class="language-plaintext highlighter-rouge">C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -EncodedCommand SQBuAHMAdABhAGwAbAAtAFcAaQBuAGQAbwB3AHMAVQBwAGQAYQB0AGUAIAAtAEEAYwBjAGUAcAB0AEEAbABsACAALQBBAHUAdABvAFIAZQBiAG8AbwB0AA==</code></p>
+
+<p>McSkidy knows that Encoded PowerShell commands are generally Base64 Encoded and can be decoded using tools such as <a href="https://gchq.github.io/CyberChef/">CyberChef</a>. Since the command might contain some sensitive information and, therefore, must not be submitted on a public portal, McSkidy spins up her own instance of CyberChef hosted locally. McSkidy started by pasting the encoded part of the command in the Input pane in CyberChef.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5dbea226085ab6182a2ee0f7/room-content/5dbea226085ab6182a2ee0f7-1730131256096.png" alt="Using CyberChef to decode the PowerShell command." /> \n</p>
+
+<p>Since it is a Base64 encoded command, McSkidy used two recipes, named <code class="language-plaintext highlighter-rouge">FromBase64</code> and <code class="language-plaintext highlighter-rouge">Decode text</code> from the left pane. Note that McSkidy configured the <strong>Decode text</strong> to <strong>UTF-16LE (1200)</strong> since it is the encoding used by PowerShell for Base64.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5dbea226085ab6182a2ee0f7/room-content/5dbea226085ab6182a2ee0f7-1730131884795.png" alt="Applying recipes to decode the PowerShell command." /> \n</p>
+
+<p>The result provided a sigh of relief to McSkidy, who had feared that the Christmas had been ruined. Someone had come in to help McSkidy and the team secure their defences, but who?</p>
+
+<h2 id="villain-or-hero">Villain or Hero?</h2>
+
+<p>McSkidy further analysed the secret hero and came to a startling revelation. The credentials for the script in the machines that ran the Windows updates were outdated. Someone brute-forced the systems and fixed the credentials after successfully logging in. This was evident from the fact that each executed PowerShell command was preceded by a successful login from the same Source IP, causing failed logins over the past few days. And what’s even more startling? It was Glitch who accessed <strong>ADM-01</strong> and fixed the credentials after McSkidy confirmed who owned the IP address.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5dbea226085ab6182a2ee0f7/room-content/5dbea226085ab6182a2ee0f7-1730136203704.png" alt="Evidence that Glitch fixed the recurring issue." /> \n</p>
+
+<p>This meant that the people of Wareville had misunderstood Glitch, who was just trying to help shore up the defences. But if Glitch was the one helping the defences, who was trying to sabotage it? Was it the Mayor who informed the SOC about these ‘suspicious’ PowerShell commands? Just like alerts aren’t always what they seem in a SOC, so was the case here at Wareville with people. As hard as it was to differentiate between a TP and an FP, so was the case with the Mayor and Glitch. However, McSkidy can perhaps use the evidence-based deduction skills learned in a SOC to make this difference easier for the people of Wareville.</p>
+
+<p>:::info
+Answers</p>
+
+<p>:::</p>
+
+<p>:::tip
+What is the name of the account causing all the failed login attempts?</p>
+
+<p>:::</p>
+
+<p>service_admin</p>
+
+<p>:::tip
+How many failed logon attempts were observed?</p>
+
+<p>:::</p>
+
+<p>6791</p>
+
+<p>:::tip
+What is the IP address of Glitch?</p>
+
+<p>:::</p>
+
+<p>10.0.255.1</p>
+
+<p>:::tip
+When did Glitch successfully logon to ADM-01? Format: MMM D, YYYY HH:MM:SS.SSS</p>
+
+<p>:::</p>
+
+<p>Dec 1, 2024 08:54:39.000</p>
+
+<p>:::tip
+What is the decoded command executed by Glitch to fix the systems of Wareville?</p>
+
+<p>:::</p>
+
+<p>Install-WindowsUpdate -AcceptAll -AutoReboot</p>
+
+<p>If you enjoyed this task, feel free to check out the <a href="https://tryhackme.com/r/room/investigatingwithelk101">Investigating with ELK 101</a> room.</p>
+
+  </article>
+  
+    <div class="post-share">
+  <div class="post-date">Feel free to share!</div>
+  <div class="sharing-icons">
+    <a href="https://twitter.com/intent/tweet?text=Try Hack Me Advent of Cyber - Day 2&amp;url=/Day2" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=/Day2&amp;title=Try Hack Me Advent of Cyber - Day 2" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+  
+  
+    <div class="related">
+  <h2>You may also enjoy...</h2>
+  
+  <ul class="related-posts">
+    
+      
+        
+          <li>
+            <h3>
+              <a href="/Day7">
+                <div class="related-thumbnail">
+                  
+                    <img src="http://localhost:4000/assets/img/Day7-logo.png">
+                  
+                </div>
+                <div class="related-title">
+                  Try Hackme Advent of Cyber - Day 7
+                </div>
+                <!--<small>December 7, 2024</small>-->
+              </a>
+            </h3>
+          </li>
+          
+        
+      
+        
+          <li>
+            <h3>
+              <a href="/Day6">
+                <div class="related-thumbnail">
+                  
+                    <img src="http://localhost:4000/assets/img/Day6-logo.png">
+                  
+                </div>
+                <div class="related-title">
+                  Try Hackme Advent of Cyber - Day 6
+                </div>
+                <!--<small>December 6, 2024</small>-->
+              </a>
+            </h3>
+          </li>
+          
+        
+      
+    
+      
+        
+        
+      
+        
+        
+      
+    
+      
+        
+        
+      
+    
+  </ul>
+</div>
+
+  
+  
+    <section class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname = "millennial-3";
+    var disqus_identifier = "/Day2";
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+  
+</div>
+
+      </div>
+      <footer class="footer">
+  
+    <a href="https://twitter.com/mberger" class="menu-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  
+    <a href="feed.xml" class="menu-link" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+  
+  <div class="footer-description"><a href="/">THM Advent of Cyber 2024 | a minimalist Jekyll theme for running a blog or publication by Michael</a></div>
+</footer>
+
+    </div>
+  </body>
+</html>

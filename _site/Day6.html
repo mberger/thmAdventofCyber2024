@@ -1,0 +1,492 @@
+<!doctype html>
+<html>
+  <head>
+  <title>
+    
+      Try Hackme Advent of Cyber - Day 6 | THM Advent of Cyber 2024
+    
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  <!-- Use Atom -->
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="THM Advent of Cyber 2024" />
+  <!-- RSS-v2.0
+  <link href="/rss-feed.xml" type="application/rss+xml" rel="alternate" title="THM Advent of Cyber 2024 | a minimalist Jekyll theme for running a blog or publication"/>
+  //-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Source+Code+Pro">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+  <!-- Google Analytics -->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  <!-- Use Jekyll SEO plugin -->
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Try Hackme Advent of Cyber - Day 6 | THM Advent of Cyber 2024</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Try Hackme Advent of Cyber - Day 6" />
+<meta name="author" content="Michael" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="a minimalist Jekyll theme for running a blog or publication" />
+<meta property="og:description" content="a minimalist Jekyll theme for running a blog or publication" />
+<link rel="canonical" href="http://localhost:4000/Day6" />
+<meta property="og:url" content="http://localhost:4000/Day6" />
+<meta property="og:site_name" content="THM Advent of Cyber 2024" />
+<meta property="og:image" content="http://localhost:4000/Day6-logo.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-12-06T00:00:00-05:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="http://localhost:4000/Day6-logo.png" />
+<meta property="twitter:title" content="Try Hackme Advent of Cyber - Day 6" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Michael"},"dateModified":"2024-12-06T00:00:00-05:00","datePublished":"2024-12-06T00:00:00-05:00","description":"a minimalist Jekyll theme for running a blog or publication","headline":"Try Hackme Advent of Cyber - Day 6","image":"http://localhost:4000/Day6-logo.png","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/Day6"},"url":"http://localhost:4000/Day6"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+  <body>
+    <div class="container">
+      <header class="site-header">
+  <h3 class="site-title">
+    <a href="/">THM Advent of Cyber 2024</a>
+  </h3>
+  <nav class="menu-list">
+    
+      <a href="/about" class="menu-link">About</a>
+    
+      <a href="/contact" class="menu-link">Contact</a>
+    
+    
+      <a href="https://twitter.com/mberger" class="menu-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+    
+      <a href="feed.xml" class="menu-link" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+    
+  </nav>
+  <div class="dropdown">
+    <button class="dropbtn"><i class="fa fa-bars" aria-hidden="true"></i></button>
+    <div class="dropdown-content">
+      
+        <a href="/about" class="menu-link">About</a>
+      
+        <a href="/contact" class="menu-link">Contact</a>
+      
+      
+        <a href="https://twitter.com/mberger" class="menu-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+      
+        <a href="feed.xml" class="menu-link" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+      
+    </div>
+  </div>
+</header>
+
+      <div class="content-wrapper">
+        <div class="post-content">
+  <h1>
+    Try Hackme Advent of Cyber - Day 6
+  </h1>
+  
+    <span class="post-date">
+  Written on
+  
+  December
+  6th,
+  2024
+  by
+  
+    Michael
+  
+</span>
+
+  
+  
+    <div class="featured-image">
+      <img src="/assets/img/Day6-logo.png">
+    </div>
+  
+  <article>
+    <p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63588b5ef586912c7d03c4f0/room-content/63588b5ef586912c7d03c4f0-1730728443161.png" alt="Task banner for day DAY 6" /></p>
+
+<p><em>Mayor Malware was scheming, quite full of delight, \n To ruin SOC-mas and frighten SOC teams. \n But Glitch and McSkidy had spoiled his plan, \n By uncovering secrets that exposed the man!</em></p>
+
+<p>Mayor Malware slammed his hand on the table, his eyes narrowing as the report flashed on his screen. Glitch and McSkidy had uncovered his trail. He took a deep breath, calming himself. <em>“No matter,”</em> he muttered, a sinister grin forming. <em>“They may have found me but haven’t stopped me.”</em> His confidence stemmed from the malware he had crafted—so devious and advanced that it would easily evade detection.</p>
+
+<p>But before unleashing it to wreak havoc on SOC teams and ruin SOC-mas, there was one final step. He needed to test it in a sandbox.</p>
+
+<h2 id="learning-objectives">Learning Objectives</h2>
+
+<ul>
+  <li>Analyze malware behaviour using sandbox tools.</li>
+  <li>Explore how to use YARA rules to detect malicious patterns.</li>
+  <li>Learn about various malware evasion techniques.</li>
+  <li>Implement an evasion technique to bypass YARA rule detection.</li>
+</ul>
+
+<h2 id="connecting-to-the-machine">Connecting to the Machine</h2>
+
+<p>Before moving forward, review the questions in the connection card shown below:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63588b5ef586912c7d03c4f0/room-content/63588b5ef586912c7d03c4f0-1730728927615.png" alt="Connection card" /> \n</p>
+
+<p>Click on the green <code class="language-plaintext highlighter-rouge">Start Machine</code> Button below to start the virtual machine in split-screen view.</p>
+
+<p>If the VM is not visible, use the blue <code class="language-plaintext highlighter-rouge">Show Split View</code> button at the top of the page. Alternatively, you can connect to the VM via Remote Desktop (RDP) using the credentials below:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63588b5ef586912c7d03c4f0/room-content/be629720b11a294819516c1d4e738c92.png" alt="THM credentials RDP" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Username</strong></th>
+      <th>administrator</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Password</strong></td>
+      <td>TryH@cKMe9#21</td>
+    </tr>
+    <tr>
+      <td><strong>IP</strong></td>
+      <td>MACHINE_IP</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>He slipped his malware into a sandbox to see, \n What tricks it could play and what flaws there might be. \n For sandboxes, you see, are used by the wise, \n Defenders inspect, but attackers revise!</em></p>
+
+<h2 id="detecting-sandboxes">Detecting Sandboxes</h2>
+
+<p>A sandbox is an isolated environment where (malicious) code is executed without affecting anything outside the system. Often, multiple tools are installed to monitor, record, and analyze the code’s behaviour.</p>
+
+<p>Mayor Malware knows that before his malware executes, it needs to check if it is running on a Sandbox environment. If it is, then it should not continue with its malicious activity.</p>
+
+<p>To do so, he has settled on one technique, which checks if the directory <code class="language-plaintext highlighter-rouge">C:\Program Files</code> is present by querying the Registry path <code class="language-plaintext highlighter-rouge">HKLM\\Software\\Microsoft\\Windows\\CurrentVersion</code>. The value can be confirmed by visiting the Registry path within the Registry Editor, as shown below:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5e8dd9a4a45e18443162feab/room-content/5e8dd9a4a45e18443162feab-1730152060596.png" alt="Registry editor" /></p>
+
+<p>To open the <code class="language-plaintext highlighter-rouge">Windows Registry Editor</code>, navigate to the <code class="language-plaintext highlighter-rouge">Start Menu</code> on the bottom, select <code class="language-plaintext highlighter-rouge">Run</code>, enter <code class="language-plaintext highlighter-rouge">regedit</code>, and press enter.</p>
+
+<p>This directory is often absent on sandboxes or other virtualized environments, which could indicate that the malware is running in a sandbox.</p>
+
+<p>Here’s what it looks like in the C Programming Language:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">void</span> <span class="nf">registryCheck</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">char</span> <span class="o">*</span><span class="nx">registryPath</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">HKLM</span><span class="se">\\</span><span class="s2">Software</span><span class="se">\\</span><span class="s2">Microsoft</span><span class="se">\\</span><span class="s2">Windows</span><span class="se">\\</span><span class="s2">CurrentVersion</span><span class="dl">"</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">char</span> <span class="o">*</span><span class="nx">valueName</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">ProgramFilesDir</span><span class="dl">"</span><span class="p">;</span>
+
+    <span class="c1">// Prepare the command string for reg.exe</span>
+    <span class="nx">char</span> <span class="nx">command</span><span class="p">[</span><span class="mi">512</span><span class="p">];</span>
+    <span class="nf">snprintf</span><span class="p">(</span><span class="nx">command</span><span class="p">,</span> <span class="nf">sizeof</span><span class="p">(</span><span class="nx">command</span><span class="p">),</span> <span class="dl">"</span><span class="s2">reg query </span><span class="se">\"</span><span class="s2">%s</span><span class="se">\"</span><span class="s2"> /v %s</span><span class="dl">"</span><span class="p">,</span> <span class="nx">registryPath</span><span class="p">,</span> <span class="nx">valueName</span><span class="p">);</span>
+    <span class="c1">// Run the command</span>
+    <span class="nx">int</span> <span class="nx">result</span> <span class="o">=</span> <span class="nf">system</span><span class="p">(</span><span class="nx">command</span><span class="p">);</span>
+    <span class="c1">// Check for successful execution</span>
+    <span class="k">if </span><span class="p">(</span><span class="nx">result</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">printf</span><span class="p">(</span><span class="dl">"</span><span class="s2">Registry query executed successfully.</span><span class="se">\n</span><span class="dl">"</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nf">fprintf</span><span class="p">(</span><span class="nx">stderr</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Failed to execute registry query.</span><span class="se">\n</span><span class="dl">"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">char</span> <span class="o">*</span><span class="nx">flag</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">[REDACTED]</span><span class="dl">"</span><span class="p">;</span>
+    <span class="nf">registryCheck</span><span class="p">();</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>\n Don’t worry—you don’t have to understand every detail of the code. All you need to know is that this function is designed to check the system’s registry for a specified directory path (ProgramFilesDir). This path’s presence or absence helps the malware determine whether it’s running in a typical or virtualized environment,like a sandbox.</p>
+
+<h2 id="can-yara-do-it">Can YARA Do It?</h2>
+
+<p>Mayor Malware knows that McSkidy is a big fan of YARA rules.</p>
+
+<p>YARA is a tool used to identify and classify malware based on patterns in its code. By writing custom rules, analysts can define specific characteristics to look for—such as particular strings, file headers, or behaviours—and YARA will scan files or processes to find matches, making it invaluable for detecting malicious code.</p>
+
+<p>Mayor Malware does not think such a simple tool can detect his malware. But just to be sure, he has to test it out himself.</p>
+
+<p>To do this, he wrote a small script that executes a YARA detection rule every time a new event is added to the System monitor log. This particular YARA rule detects any command that tries to access the registry. \n</p>
+
+<p>Let’s have a look at the rule:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">rule</span> <span class="nx">SANDBOXDETECTED</span>
+<span class="p">{</span>
+    <span class="nl">meta</span><span class="p">:</span>
+        <span class="nx">description</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Detects the sandbox by querying the registry key for Program Path</span><span class="dl">"</span>
+        <span class="nx">author</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">TryHackMe</span><span class="dl">"</span>
+        <span class="nx">date</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">2024-10-08</span><span class="dl">"</span>
+        <span class="nx">version</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">1.1</span><span class="dl">"</span>
+
+    <span class="nx">strings</span><span class="p">:</span>
+
+    <span class="nx">$cmd</span><span class="o">=</span> <span class="dl">"</span><span class="s2">Software</span><span class="se">\\</span><span class="s2">Microsoft</span><span class="se">\\</span><span class="s2">Windows</span><span class="se">\\</span><span class="s2">CurrentVersion</span><span class="se">\"</span><span class="s2"> /v ProgramFilesDir</span><span class="dl">"</span> <span class="nx">nocase</span>
+
+
+
+    <span class="nx">condition</span><span class="p">:</span>
+        <span class="nx">$cmd</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Let’s understand the contents:</p>
+
+<ul>
+  <li>In the <strong>strings</strong> section, we have defined variables that include the value to look out for: $cmd</li>
+  <li>In the <strong>condition</strong> section, we define when the rule will match the scanned file. In this case, if any of the specified strings are present.</li>
+</ul>
+
+<p>For his testing, Mayor Malware has set up a one-function script that runs the Yara rule and logs a true positive in <code class="language-plaintext highlighter-rouge">C:\Tools\YaraMatches.txt</code>.</p>
+
+<p>Open up a PowerShell window, navigate to the <code class="language-plaintext highlighter-rouge">C:\Tools</code> directory, and use the following command to start up the EDR:</p>
+
+<p>Administrator: Windows PowerShell</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>           <span class="nx">PS</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Tools</span><span class="o">&gt;</span> <span class="p">.</span><span class="err">\</span><span class="nx">JingleBells</span><span class="p">.</span><span class="nx">ps1</span>
+<span class="nx">No</span> <span class="nx">events</span> <span class="nx">found</span> <span class="k">in</span> <span class="nx">Sysmon</span> <span class="nx">log</span><span class="p">.</span>
+<span class="nx">Monitoring</span> <span class="nx">Sysmon</span> <span class="nx">events</span><span class="p">...</span> <span class="nx">Press</span> <span class="nx">Ctrl</span><span class="o">+</span><span class="nx">C</span> <span class="nx">to</span> <span class="nx">exit</span><span class="p">.</span>
+
+</code></pre></div></div>
+
+<p>This tool will run on the system and continuously monitor the generated Event Logs. It will alert you if it finds any activity/event that indicates the registry mentioned above key is being queried.</p>
+
+<p>Now run the malware by navigating to <code class="language-plaintext highlighter-rouge">C:\Tools\Malware</code>, and double-clicking on <code class="language-plaintext highlighter-rouge">MerryChristmas.exe</code>.</p>
+
+<p>If our custom script did its job, you should have witnessed a popup by our EDR with a flag included, as shown below. This will be the answer to Question 1 below. You can now exit the custom EDR by pressing <code class="language-plaintext highlighter-rouge">Ctrl+C</code>.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5e8dd9a4a45e18443162feab/room-content/5e8dd9a4a45e18443162feab-1730154020793.png" alt="PowerShell taskbar item" /></p>
+
+<p><strong><em>Note:</em></strong> <em>If the popup does not show up, hover over the PowerShell item in the taskbar. It should show the popup that was generated.</em></p>
+
+<h2 id="adding-more-evasion-techniques">Adding More Evasion Techniques</h2>
+
+<p>Ah, it seems that Yara can detect the evasion that Mayor Malware has added. No worries. Because we can make our malware even stealthier by introducing obfuscation.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">void</span> <span class="nf">registryCheck</span><span class="p">()</span> <span class="p">{</span>
+<span class="c1">// Encoded PowerShell command to query the registry</span>
+    <span class="kd">const</span> <span class="nx">char</span> <span class="o">*</span><span class="nx">encodedCommand</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">RwBlAHQALQBJAHQAZQBtAFAAcgBvAHAAZQByAHQAeQAgAC0AUABhAHQAaAAgACIASABLAEwATQA6AFwAUwBvAGYAdAB3AGEAcgBlAFwATQBpAGMAcgBvAHMAbwBmAHQAXABXAGkAbgBkAG8AdwBzAFwAQwB1AHIAcgBlAG4AdABWAGUAcgBzAGkAbwBuACIAIAAtAE4AYQBtAGUAIABQAHIAbwBnAHIAYQBtAEYAaQBsAGUAcwBEAGkAcgA=</span><span class="dl">"</span><span class="p">;</span>
+    <span class="c1">// Prepare the PowerShell execution command</span>
+    <span class="nx">char</span> <span class="nx">command</span><span class="p">[</span><span class="mi">512</span><span class="p">];</span>
+    <span class="nf">snprintf</span><span class="p">(</span><span class="nx">command</span><span class="p">,</span> <span class="nf">sizeof</span><span class="p">(</span><span class="nx">command</span><span class="p">),</span> <span class="dl">"</span><span class="s2">powershell -EncodedCommand %s</span><span class="dl">"</span><span class="p">,</span> <span class="nx">encodedCommand</span><span class="p">);</span>
+
+    <span class="c1">// Run the command</span>
+    <span class="nx">int</span> <span class="nx">result</span> <span class="o">=</span> <span class="nf">system</span><span class="p">(</span><span class="nx">command</span><span class="p">);</span>
+
+    <span class="c1">// Check for successful execution</span>
+    <span class="k">if </span><span class="p">(</span><span class="nx">result</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">printf</span><span class="p">(</span><span class="dl">"</span><span class="s2">Registry query executed successfully.</span><span class="se">\n</span><span class="dl">"</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nf">fprintf</span><span class="p">(</span><span class="nx">stderr</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Failed to execute registry query.</span><span class="se">\n</span><span class="dl">"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>Code Explanation</strong></p>
+
+<p>The above code does the same thing: query the same registry key to get the information about the Program Data. The only difference is that the query is now encoded using base64, and the code uses the PowerShell to execute the query. The encoded string can be checked by decoding it using a tool like <a href="https://gchq.github.io/CyberChef/">CyberChef</a>, as shown below: \n</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/66c44fd9733427ea1181ad58/room-content/66c44fd9733427ea1181ad58-1730911341730.png" alt="CyberChef GUI" /></p>
+
+<h2 id="beware-of-floss">Beware of Floss</h2>
+
+<p>While obfuscation is helpful, we also need to know that there are tools available that extract obfuscated strings from malware binaries. One such tool is Floss, a powerful tool developed by Mandiant that functions similarly to the Linux strings tool but is optimized for malware analysis, making it ideal for revealing any concealed details.</p>
+
+<p>To try out Floss, open a PowerShell Window and enter the following command:</p>
+
+<p>Administrator: Windows Powershell \n</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>           <span class="nx">PS</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Tools</span><span class="err">\</span><span class="nx">FLOSS</span><span class="o">&gt;</span> <span class="nx">floss</span><span class="p">.</span><span class="nx">exe</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Tools</span><span class="err">\</span><span class="nx">Malware</span><span class="err">\</span><span class="nx">MerryChristmas</span><span class="p">.</span><span class="nx">exe</span> <span class="o">|</span><span class="nx">Out</span><span class="o">-</span><span class="nx">file</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">tools</span><span class="err">\</span><span class="nx">malstrings</span><span class="p">.</span><span class="nx">txt</span>
+
+</code></pre></div></div>
+
+<p>The above command can take up to two minutes to complete. In the meantime, let’s break down the command:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">floss.exe C:\Tools\Malware\MerryChristmas.exe</code>: This command scans for strings in the binary MerryChrismas.exe. If any hardcoded variables were defined in the malware, Floss should find them.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">|</code>symbol redirects the output of the command in front of it to the input of the command behind it. \n</li>
+  <li><code class="language-plaintext highlighter-rouge">Out-file C:\tools\malstrings.txt</code>: We save the command results in a file called <code class="language-plaintext highlighter-rouge">malstrings.txt</code>.</li>
+</ul>
+
+<p>Once the command is done, open <code class="language-plaintext highlighter-rouge">malstrings.txt</code>, press <code class="language-plaintext highlighter-rouge">CTRL+F</code>, and search for the string Mayor Malware. Enter the flag as the answer to question two. The format of the string is <code class="language-plaintext highlighter-rouge">THM{}</code>.</p>
+
+<h2 id="using-yara-rules-on-sysmon-logs">Using YARA Rules on Sysmon Logs</h2>
+
+<p>These YARA rules are becoming a pain to Mayor Malware’s backside.</p>
+
+<p>If he wants his malware to be undetectable, he needs to research how YARA rules can be used to stop him. For example, his research tells him that YARA rules can also be used to check Sysmon logs for any artefacts left by malware! He’ll need to test this as well.</p>
+
+<p><strong>Sysmon</strong>, a tool from Microsoft’s Sysinternals suite, continuously monitors and logs system activity across reboots. This Windows service provides detailed event data on process creation, network connections, and file changes—valuable insights when tracing malware behaviour.</p>
+
+<p>A YARA rule will look for events with <code class="language-plaintext highlighter-rouge">event id 1: Process created</code> for this to work. There are many entries in the Sysmon log. To make it easier to find the event we are looking for, we will apply a custom filter using the <code class="language-plaintext highlighter-rouge">EventRecordID</code> that we can see in the log <code class="language-plaintext highlighter-rouge">YaraMatches.txt</code> located in <code class="language-plaintext highlighter-rouge">C:\Tools</code>.</p>
+
+<p>Open a PowerShell window and enter the following command to check the contents of the EDR log file:</p>
+
+<p><code class="language-plaintext highlighter-rouge">get-content C:\Tools\YaraMatches.txt</code></p>
+
+<p>You should get a result similar to the output below:</p>
+
+<p>Administrator: Windows PowerShell</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>           <span class="nx">PS</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Tools</span><span class="o">&gt;</span> <span class="kd">get</span><span class="o">-</span><span class="nx">content</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Tools</span><span class="err">\</span><span class="nx">YaraMatches</span><span class="p">.</span><span class="nx">txt</span>
+
+<span class="nx">Event</span> <span class="nx">Time</span><span class="p">:</span> <span class="mi">10</span><span class="o">/</span><span class="mi">11</span><span class="o">/</span><span class="mi">2024</span> <span class="mi">15</span><span class="p">:</span><span class="mi">06</span><span class="p">:</span><span class="mi">39</span>
+<span class="nx">Event</span> <span class="nx">ID</span><span class="p">:</span> <span class="mi">1</span>
+<span class="nx">Event</span> <span class="nx">Record</span> <span class="nx">ID</span><span class="p">:</span> <span class="mi">96517</span>
+<span class="nx">Command</span> <span class="nx">Line</span><span class="p">:</span> <span class="nx">reg</span>  <span class="nx">query</span> <span class="dl">"</span><span class="s2">HKLM</span><span class="se">\</span><span class="s2">Software</span><span class="se">\</span><span class="s2">Microsoft</span><span class="se">\</span><span class="s2">Windows</span><span class="se">\</span><span class="s2">CurrentVersion</span><span class="dl">"</span> <span class="o">/</span><span class="nx">v</span> <span class="nx">ProgramFilesDir</span>
+<span class="nx">YARA</span> <span class="nx">Result</span><span class="p">:</span> <span class="nx">DetectShutdownTimeQuery</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Users</span><span class="err">\</span><span class="nx">Administrator</span><span class="err">\</span><span class="nx">AppData</span><span class="err">\</span><span class="nx">Local</span><span class="err">\</span><span class="nx">Temp</span><span class="err">\</span><span class="mi">2</span><span class="err">\</span><span class="nx">tmp8D61</span><span class="p">.</span><span class="nx">tmp</span>
+
+</code></pre></div></div>
+
+<p>Note down the <code class="language-plaintext highlighter-rouge">Event Record ID value</code>. We will use this value to create a custom filter in the <code class="language-plaintext highlighter-rouge">Windows Event Viewer</code>.</p>
+
+<p>Next, open the <code class="language-plaintext highlighter-rouge">Windows Event Viewer</code> by clicking on its logo in the taskbar and, on the left-hand side, navigate to <code class="language-plaintext highlighter-rouge">Applications and Services Logs -&gt; Microsoft -&gt; Windows -&gt; Sysmon -&gt; Operational</code>.</p>
+
+<p>Continue by navigating to <code class="language-plaintext highlighter-rouge">Filter Current Log</code> on the right-hand side of the screen.</p>
+
+<p>You should see a window like the one below:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/66c44fd9733427ea1181ad58/room-content/66c44fd9733427ea1181ad58-1731059911377.png" alt="filter current log windows" /></p>
+
+<p>Navigate to XML and tick the checkbox <code class="language-plaintext highlighter-rouge">Edit query manually</code>. Click <code class="language-plaintext highlighter-rouge">Yes</code> to confirm. Finally, copy the following filter into the input box:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">QueryList</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nx">Query</span> <span class="nx">Id</span><span class="o">=</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span> <span class="nx">Path</span><span class="o">=</span><span class="dl">"</span><span class="s2">Microsoft-Windows-Sysmon/Operational</span><span class="dl">"</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">Select</span> <span class="nx">Path</span><span class="o">=</span><span class="dl">"</span><span class="s2">Microsoft-Windows-Sysmon/Operational</span><span class="dl">"</span><span class="o">&gt;</span>
+      <span class="o">*</span><span class="p">[</span><span class="nx">System</span><span class="p">[(</span><span class="nx">EventRecordID</span><span class="o">=</span><span class="dl">"</span><span class="s2">INSERT_EVENT_record_ID_HERE</span><span class="dl">"</span><span class="p">)]]</span>
+    <span class="o">&lt;</span><span class="sr">/Select</span><span class="err">&gt;
+</span>  <span class="o">&lt;</span><span class="sr">/Query</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="sr">/QueryList</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p>Replace the <code class="language-plaintext highlighter-rouge">EventRecordID</code> value with the one you recorded before. Apply the filter by clicking <code class="language-plaintext highlighter-rouge">OK</code>. Now you get the event related to the malware. Click on the event and then on the <code class="language-plaintext highlighter-rouge">Details</code> tab. You should get the following output:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/66c44fd9733427ea1181ad58/room-content/66c44fd9733427ea1181ad58-1730105846377.png" alt="Screenshot of details tab" /></p>
+
+<p>Let’s take a look at the <code class="language-plaintext highlighter-rouge">EventData</code> that is valuable to us:</p>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">ParentImage</code> key shows us which parent process spawned the cmd.exe process to execute the registry check. We can see it was our malware located at <code class="language-plaintext highlighter-rouge">C:\Tools\Malware\MerryChristmas.exe</code>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">ParentProcessId</code> and <code class="language-plaintext highlighter-rouge">ProcessId</code> keys are valuable for follow-up research. We could also use them to check other logs for related events.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">User</code> key can help us determine which privileges were used to run the <code class="language-plaintext highlighter-rouge">cmd.exe</code> command. The malware could have created a hidden account and used that to run commands.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">CommandLine</code> key shows which command was run in detail, helping us identify the malware’s actions.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">UtcTime</code> key is essential for creating a time frame for the malware’s operation. This time frame can help you focus your threat hunting efforts.</li>
+</ul>
+
+<h2 id="never-gonna-give-up">Never Gonna Give Up</h2>
+
+<p><em>His malware, it seemed, wasn’t quite ready for town. \n “There are watchers and scanners and rules by the ton! \n If I’m not careful, they’ll catch all my fun!”</em></p>
+
+<p>Mayor Malware leaned back, tapping his fingers thoughtfully on the table. All of this research had revealed an unsettling truth: his malware, as cunning as it was, wasn’t yet ready for the wild. There were too many tools and too many vigilant eyes—analysts armed with YARA rules, Sysmon, and a host of detection techniques that could expose his creation before it even had a chance to spread.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63588b5ef586912c7d03c4f0/room-content/63588b5ef586912c7d03c4f0-1730728611995.png" alt="Yeti playing in a sandbox" /> \n</p>
+
+<p>He clenched his fist, a determined glint in his eye. <em>“Just a little more fine-tuning,”</em> he murmured. He would study, adapt, and evolve his malware until it was truly undetectable. When the time was right, he would unleash it upon the unsuspecting SOC teams, striking when they least expected it.</p>
+
+<p>But for now, he would wait. Watching. Planning. And he was perfecting his craft in the shadows.</p>
+
+<h2 id="answer-the-questions-below">Answer the questions below</h2>
+
+<p>What is the flag displayed in the popup window after the EDR detects the malware?</p>
+
+<p>THM{GlitchWasHere}</p>
+
+<p>What is the flag found in the malstrings.txt document after running floss.exe, and opening the file in a text editor?</p>
+
+<p>THM{HiddenClue}</p>
+
+<p>If you want to more about sandboxes, have a look at the room <a href="https://tryhackme.com/r/room/flarevmarsenaloftools">FlareVM: Arsenal of Tools</a>.</p>
+
+
+  </article>
+  
+    <div class="post-share">
+  <div class="post-date">Feel free to share!</div>
+  <div class="sharing-icons">
+    <a href="https://twitter.com/intent/tweet?text=Try Hackme Advent of Cyber - Day 6&amp;url=/Day6" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=/Day6&amp;title=Try Hackme Advent of Cyber - Day 6" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+  
+  
+    <div class="related">
+  <h2>You may also enjoy...</h2>
+  
+  <ul class="related-posts">
+    
+      
+        
+          <li>
+            <h3>
+              <a href="/Day7">
+                <div class="related-thumbnail">
+                  
+                    <img src="http://localhost:4000/assets/img/Day7-logo.png">
+                  
+                </div>
+                <div class="related-title">
+                  Try Hackme Advent of Cyber - Day 7
+                </div>
+                <!--<small>December 7, 2024</small>-->
+              </a>
+            </h3>
+          </li>
+          
+        
+      
+        
+        
+      
+    
+      
+        
+        
+      
+        
+        
+      
+    
+  </ul>
+</div>
+
+  
+  
+    <section class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname = "millennial-3";
+    var disqus_identifier = "/Day6";
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+  
+</div>
+
+      </div>
+      <footer class="footer">
+  
+    <a href="https://twitter.com/mberger" class="menu-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  
+    <a href="feed.xml" class="menu-link" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+  
+  <div class="footer-description"><a href="/">THM Advent of Cyber 2024 | a minimalist Jekyll theme for running a blog or publication by Michael</a></div>
+</footer>
+
+    </div>
+  </body>
+</html>

