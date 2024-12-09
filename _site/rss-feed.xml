@@ -7,6 +7,17 @@
 		<atom:link href="/rss-feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title></title>
+				
+				
+					<description></description>
+				
+				<pubDate>Sun, 08 Dec 2024 15:40:56 -0500</pubDate>
+				<link>http://localhost:4000/2024-12-06-Day6</link>
+				<guid isPermaLink="true">http://localhost:4000/2024-12-06-Day6</guid>
+			</item>
+		
+			<item>
 				<title>Try Hackme Advent of Cyber - Day 7</title>
 				
 					<dc:creator>Michael</dc:creator>
@@ -19,20 +30,6 @@
 				<pubDate>Sat, 07 Dec 2024 00:00:00 -0500</pubDate>
 				<link>http://localhost:4000/Day7</link>
 				<guid isPermaLink="true">http://localhost:4000/Day7</guid>
-			</item>
-		
-			<item>
-				<title>Try Hackme Advent of Cyber - Day 6</title>
-				
-					<dc:creator>Michael</dc:creator>
-				
-				
-					<description>&lt;p&gt;&lt;img src=&quot;https://tryhackme-images.s3.amazonaws.com/user-uploads/63588b5ef586912c7d03c4f0/room-content/63588b5ef586912c7d03c4f0-1730728443161.png&quot; alt=&quot;Task banner for day DAY 6&quot; /&gt;&lt;/p&gt;
-</description>
-				
-				<pubDate>Fri, 06 Dec 2024 00:00:00 -0500</pubDate>
-				<link>http://localhost:4000/Day6</link>
-				<guid isPermaLink="true">http://localhost:4000/Day6</guid>
 			</item>
 		
 			<item>
