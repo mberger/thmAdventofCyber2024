@@ -1,0 +1,389 @@
+<!doctype html>
+<html>
+  <head>
+  <title>
+    
+      Day12 | THM Advent of Cyber 2024
+    
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  <!-- Use Atom -->
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="THM Advent of Cyber 2024" />
+  <!-- RSS-v2.0
+  <link href="/rss-feed.xml" type="application/rss+xml" rel="alternate" title="THM Advent of Cyber 2024 | a minimalist Jekyll theme for running a blog or publication"/>
+  //-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Source+Code+Pro">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+  <!-- Google Analytics -->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'G-MSZW3HWGH8', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  <!-- Use Jekyll SEO plugin -->
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Day12 | THM Advent of Cyber 2024</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Day12" />
+<meta name="author" content="Miuchael" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The Story" />
+<meta property="og:description" content="The Story" />
+<link rel="canonical" href="http://localhost:4000/Day12" />
+<meta property="og:url" content="http://localhost:4000/Day12" />
+<meta property="og:site_name" content="THM Advent of Cyber 2024" />
+<meta property="og:image" content="http://localhost:4000/Day12Header.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-12-12T00:00:00-05:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="http://localhost:4000/Day12Header.png" />
+<meta property="twitter:title" content="Day12" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Miuchael"},"dateModified":"2024-12-12T00:00:00-05:00","datePublished":"2024-12-12T00:00:00-05:00","description":"The Story","headline":"Day12","image":"http://localhost:4000/Day12Header.png","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/Day12"},"url":"http://localhost:4000/Day12"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+  <body>
+    <div class="container">
+      <header class="site-header">
+  <h3 class="site-title">
+    <a href="/">THM Advent of Cyber 2024</a>
+  </h3>
+  <nav class="menu-list">
+    
+      <a href="/about" class="menu-link">About</a>
+    
+      <a href="/contact" class="menu-link">Contact</a>
+    
+    
+      <a href="https://twitter.com/mberger" class="menu-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+    
+      <a href="feed.xml" class="menu-link" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+    
+  </nav>
+  <div class="dropdown">
+    <button class="dropbtn"><i class="fa fa-bars" aria-hidden="true"></i></button>
+    <div class="dropdown-content">
+      
+        <a href="/about" class="menu-link">About</a>
+      
+        <a href="/contact" class="menu-link">Contact</a>
+      
+      
+        <a href="https://twitter.com/mberger" class="menu-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+      
+        <a href="feed.xml" class="menu-link" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+      
+    </div>
+  </div>
+</header>
+
+      <div class="content-wrapper">
+        <div class="post-content">
+  <h1>
+    Day12
+  </h1>
+  
+    <span class="post-date">
+  Written on
+  
+  December
+  12th,
+  2024
+  by
+  
+    Miuchael
+  
+</span>
+
+  
+  
+    <div class="featured-image">
+      <img src="/assets/img/Day12Header.png">
+    </div>
+  
+  <article>
+    <p>The Story</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1730353204089.png" alt="Task banner for day 1" /></p>
+
+<p>:christmas_tree: Wareville’s bank had a huge turnover this year and expected a massive profit before the holiday season. They were eager to disclose this news to the town’s people during the SOC-mas celebrations. However, to their surprise, things went the other way around. After completing the annual calculations, the accountants were shocked to see a considerable loss. They observed discrepancies in the account balances.</p>
+
+<p>The bank called McSkidy to help investigate these users’ fraudulent transactions. Upon analysing the bank’s website’s transactional logs, McSkidy found some interesting transactions. Few users, including the <strong>Mayor’s team</strong> initiated multiple transactions from <strong>Wareville’s reserve accounts</strong> at once. Surprisingly, all these transactions succeeded despite exceeding the users’ current balance. Glitch was already aware of the critical vulnerability (allowing these fraudulent transactions) that Mayor Malware and his alliances exploited. :christmas_tree:</p>
+
+<p><img src="https://assets.tryhackme.com/additional/aoc2024/gifs/Webtiming1.gif" alt="an animation with the roof of the &quot;WareVille Bank&quot; lifting and coins floating out of it" /></p>
+
+<h2 id="learning-objectives">Learning Objectives</h2>
+
+<ul>
+  <li>Understand the concept of race condition vulnerabilities</li>
+  <li>Identify the gaps introduced by HTTP2</li>
+  <li>Exploit race conditions in a controlled environment</li>
+  <li>Learn how to fix the race</li>
+</ul>
+
+<h2 id="connecting-to-the-machine">Connecting to the Machine</h2>
+
+<p>Before moving forward, review the questions in the connection card shown below:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1730353335363.png" alt="Task connection card." /> \n</p>
+
+<p>Click on the green <code class="language-plaintext highlighter-rouge">Start Machine</code> button shown below this text to start the virtual machine. After the virtual machine starts, click on the <strong>Start AttackBox</strong> button at the top and browse the Wareville’s Bank application at <code class="language-plaintext highlighter-rouge">http://MACHINE_IP:5000/</code>. Please wait 1-2 minutes after the system boots completely to let the auto scripts run successfully.</p>
+
+<h2 id="web-timing-and-race-conditions">Web Timing and Race Conditions</h2>
+
+<p>Conventional web applications are relatively easy to understand, identify, and exploit. If there is an issue in the code of the web application, we can force the web application to perform an unintended action by sending specific inputs. These are easy to understand because there is usually a direct relationship between the input and output. We get bad output when we send bad data, indicating a vulnerability. But what if we can find vulnerabilities using only good data? What if it isn’t about the data but how we send it? This is where web timing and race condition attacks come into play! Let’s dive into this crazy world and often hidden attack surface! \n</p>
+
+<p>In its simplest form, a web timing attack means we glean information from a web application by reviewing how long it takes to process our request. By making tiny changes in what we send or how we send it and observing the response time, we can access information we are not authorised to have.</p>
+
+<p>Race conditions are a subset of web timing attacks that are even more special. With a race condition attack, we are no longer simply looking to gain access to information but can cause the web application to perform unintended actions on our behalf. \n</p>
+
+<p>Web timing vulnerabilities can be incredibly subtle. Based on the following <a href="https://portswigger.net/research/listen-to-the-whispers-web-timing-attacks-that-actually-work">research</a>, response time differences ranging from 1300ms to 5ns have been used to stage attacks. Because of their subtle nature, they can also be hard to detect and often require a wide range of testing techniques. However, with the increase in adoption of HTTP/2, they have become a bit easier to find and exploit.</p>
+
+<h2 id="the-rise-of-http2">The Rise of HTTP/2</h2>
+
+<p>HTTP/2 was created as a major update for HTTP, the protocol used for web applications. While most web applications still use HTTP/1.1, there has been a steady increase in the adoption of HTTP/2, as it is faster, better for web performance, and has several features that elevate the limitations of HTTP/1.1. However, if implemented incorrectly, some of these new features can be exploited by threat actors using new techniques.</p>
+
+<p>A key difference in web timing attacks between HTTP/1.1 and HTTP/2 is that HTTP/2 supports a feature called single-packet multi-requests. Network latency, the amount of time it takes for the request to reach the web server, made it difficult to identify web timing issues. It was hard to know whether the time difference was due to a web timing vulnerability or simply a network latency difference. However, with single-packet multi-requests, we can stack multiple requests in the same TCP packet, eliminating network latency from the equation, meaning time differences can be attributed to different processing times for the requests. This is explained more in the animation below:</p>
+
+<p><img src="https://assets.tryhackme.com/additional/aoc2024/gifs/Webtiming2.gif" alt="an animation showing how HTTP/1 and HTTP/2 deal with timing differences" /></p>
+
+<p>With network latency a thing of the past, only server latency remains, making it significantly easier to detect timing issues and exploit them to recover sensitive information. \n</p>
+
+<h2 id="typical-timing-attacks">Typical Timing Attacks</h2>
+
+<p>Timing attacks can often be divided into two main categories:</p>
+
+<ul>
+  <li>Information Disclosures</li>
+  <li>Leveraging the differences in response delays, a threat actor can uncover information they should not have access to. For example, timing differences can be used to enumerate the usernames of an application, making it easier to stage a password-guessing attack and gain access to accounts.</li>
+  <li>Race Conditions</li>
+  <li>Race conditions are similar to business logic flaws in that a threat actor can cause the application to perform unintended actions. However, the issue’s root cause is how the web application processes requests, making it possible to cause the race condition. For example, if we send the same coupon request several times simultaneously, it might be possible to apply it more than once.</li>
+</ul>
+
+<p>For the rest of this task, we will focus on race conditions. We will take a look at a <code class="language-plaintext highlighter-rouge">Time-of-Check to Time-of-Use (TOCTOU)</code> flaw. Let’s use an example to explain this, as shown in the animation below:</p>
+
+<p><img src="https://assets.tryhackme.com/additional/aoc2024/gifs/Webtiming3.gif" alt="Demonstrating a Time of Check to Time of Use vulnerability caused by a race condition" /></p>
+
+<p>When the user submits their coupon code, in the actual code of the web application, at some point, we perform a check that the coupon is valid and hasn’t been used before. We apply the discount, and only then do we update the coupon code to indicate that it has already been used. In this example, between our check if the coupon is valid and our update of the coupon being used, there are a couple of milliseconds where we apply the coupon. While this might seem small, if a threat actor can send two requests so close together in time, it might happen that before the coupon is updated in request 1, it has already been checked in request 2, meaning that both requests will apply the coupon! \n</p>
+
+<h2 id="winning-the-race">Winning the Race</h2>
+
+<ul>
+  <li>\</li>
+</ul>
+
+<p>Now that you understand basic concepts related to race conditions, let’s explore how this vulnerability occurs in a real-world scenario. For this, we will take the example of the Warville banking application hosted on <code class="language-plaintext highlighter-rouge">http://MACHINE_IP:5000/</code>. This application allows users to log in and transfer funds between accounts.</p>
+
+<h2 id="intercepting-the-request">Intercepting the Request</h2>
+
+<p>Before we start intercepting requests, we need to configure the environment so that, as a pentester, all web traffic from our browser is routed through Burp Suite. This allows us to see and manipulate the requests as we browse.</p>
+
+<p>We will use Burp Suite, a powerful web vulnerability scanner, to intercept and modify requests for this exploitation. You can access Burp Suite in the <code class="language-plaintext highlighter-rouge">AttackBox</code>. On the desktop of the AttackBox, you will see a Burp Suite icon as shown below:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1728456762740.png" alt="Burp suite icon" /> \n</p>
+
+<p>Once you click the icon, Burp Suite will open with an introductory screen. You will see a message like “<strong>Welcome to Burp Suite</strong>”.  Click on the <code class="language-plaintext highlighter-rouge">Next</code> button.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1728457165300.png" alt="Burp suite splash screen" /> \n</p>
+
+<p>On the next screen, you will have the option to <code class="language-plaintext highlighter-rouge">Start Burp</code>. Click on the <code class="language-plaintext highlighter-rouge">Start Burp</code> button to start the tool.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1728457184817.png" alt="Burp suite startup setting screen" /> \n</p>
+
+<p>Once Burp Suite has started, you will see its main interface with different tabs, such as <code class="language-plaintext highlighter-rouge">Proxy</code>, <code class="language-plaintext highlighter-rouge">Intruder</code>, <code class="language-plaintext highlighter-rouge">Repeater</code> and others.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1728630460840.png" alt="burp suite dashboard with options" /> \n</p>
+
+<p>Inside Burp Suite, click the <code class="language-plaintext highlighter-rouge">Settings</code> tab at the top right. You will see Burp’s browser option available under the <code class="language-plaintext highlighter-rouge">Tools</code>. Enable <code class="language-plaintext highlighter-rouge">Allow Burp's browser to run without a sandbox option</code> and click on the <strong>close icon</strong> on the top right corner of the <code class="language-plaintext highlighter-rouge">Settings</code> tab as shown below:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1728459438650.png" alt="Enabling Burp browser settings" /> \n</p>
+
+<p>After allowing the browser to run without a sandbox, we would now be able to start the browser with pre-configured Burp Suite’s proxy. Open the browser by clicking the <code class="language-plaintext highlighter-rouge">Open browser</code> located in the <code class="language-plaintext highlighter-rouge">Proxy</code> -&gt; <code class="language-plaintext highlighter-rouge">Intercept</code> tab and browse to the URL <code class="language-plaintext highlighter-rouge">http://MACHINE_IP:5000</code>, so that all requests are intercepted:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1728625481652.png" alt="opening browser with in Burp suite" /> \n</p>
+
+<p>Once you browse the URL, all the requests are intercepted and can be seen under the <code class="language-plaintext highlighter-rouge">Proxy-&gt;HTTP history</code> tab.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1728626881220.png" alt="bank app login page" /> \n</p>
+
+<h2 id="application-scanning">Application Scanning</h2>
+
+<p>As a penetration tester, one key step in identifying race conditions is to validate functions involving multiple transactions or operations that interact with shared resources, such as transferring funds between accounts, reading and writing to a database, updating balances inconsistently, etc.</p>
+
+<p>For this example, we will log in to the Warville banking application using the credentials:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63588b5ef586912c7d03c4f0/room-content/be629720b11a294819516c1d4e738c92.png" alt="THM key" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Account No</strong></th>
+      <th>110</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Password</strong></td>
+      <td>tester</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Once logged in, you will see the following dashboard that will contain the following two primary functions:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1728625199276.png" alt="bank app dashboard showing balance" /> \n</p>
+
+<p>You will see two functionalities: <strong>logout</strong>, which probably does not involve simultaneous tasks. The next is <strong>fund transfer</strong>, which includes deducting funds from the account and adding them to the other account. As a pentester, this could be an opportunity for an attack.  We will see in detail how, as a pentester, you can test/exploit the vulnerability. \n</p>
+
+<h2 id="verifying-the-fund-transfer-functionality">Verifying the Fund Transfer Functionality</h2>
+
+<p>We will browse the bank application and perform a sample transaction inside the browser. This will generate multiple <code class="language-plaintext highlighter-rouge">GET</code> and <code class="language-plaintext highlighter-rouge">POST</code> requests, and whatever request we make will be passed through the Burp Suite. As shown in the figure, our current balance is <code class="language-plaintext highlighter-rouge">$1000</code>. We will send <code class="language-plaintext highlighter-rouge">$500</code> to another bank account with the account number <code class="language-plaintext highlighter-rouge">111</code>, and while doing that, all our requests will be captured in the Burp Suite.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1728627164798.png" alt="bank app transfer fund form" /> \n</p>
+
+<p>Click on the Transfer button, and you will see the following message indicating that the amount has been transferred:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1733857967255.png" alt="bank app displaying message after successful transfer" /> \n</p>
+
+<p>Now, let’s review the fund transfer <code class="language-plaintext highlighter-rouge">HTTP POST</code> request logged in the Burp Suite’s <code class="language-plaintext highlighter-rouge">HTTP history</code> option under the <code class="language-plaintext highlighter-rouge">Proxy</code> tab.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1728627561119.png" alt="Burp suite with intercepted requests" /> \n</p>
+
+<p>The above figure shows that the <code class="language-plaintext highlighter-rouge">/transfer</code> endpoint accepts a POST request with parameters <code class="language-plaintext highlighter-rouge">account_number</code> and <code class="language-plaintext highlighter-rouge">amount</code>. The Burp Suite tool has a feature known as <code class="language-plaintext highlighter-rouge">Repeater</code> that allows you to send multiple HTTP requests. We will use this feature to duplicate our <code class="language-plaintext highlighter-rouge">HTTP POST</code> request and send it multiple times to exploit the race condition vulnerability. Right-click on the POST request and click on <code class="language-plaintext highlighter-rouge">Send to Repeater</code>.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1728627690791.png" alt="Burp suite with option to send request to repeater" />** \n **</p>
+
+<p>Now, navigate to the <code class="language-plaintext highlighter-rouge">Repeater</code> tab, where you will find the <code class="language-plaintext highlighter-rouge">POST</code> request that needs to be triggered multiple times. We can change the <code class="language-plaintext highlighter-rouge">account_number</code>, from <code class="language-plaintext highlighter-rouge">111</code>, and the <code class="language-plaintext highlighter-rouge">amount</code> value from <code class="language-plaintext highlighter-rouge">500</code> to any other value in the request as well, as shown below:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1728627837373.png" alt="Repeater option in Burp Suite" /> \n</p>
+
+<p>Place the mouse cursor inside the request inside the Repeater tab in Burp Suite and press <code class="language-plaintext highlighter-rouge">Ctrl+R</code> to duplicate the tab. Press <code class="language-plaintext highlighter-rouge">Ctrl+R</code> ten times to have 10 duplicate requests ready for testing.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1728628298525.png" alt="duplicate requests in Burp suite" /> \n</p>
+
+<p>Now that we have 10 requests ready, we want to send them simultaneously. While one option is to manually click the <code class="language-plaintext highlighter-rouge">Send</code> button in each tab individually, we aim to send them all in parallel. To do this, click the <code class="language-plaintext highlighter-rouge">+</code> icon next to <code class="language-plaintext highlighter-rouge">Request #10</code> and select Create tab group. This will allow us to group all the requests together for easier management and execution in parallel.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1728628589380.png" alt="Creating tab group in Burp suite" /> \n</p>
+
+<p>After clicking the <code class="language-plaintext highlighter-rouge">Create tab group</code>, a dialogue box will appear asking you to name the group and select the requests to include. For this example, we will name the group <code class="language-plaintext highlighter-rouge">funds</code>, select all the requests, and then click the <code class="language-plaintext highlighter-rouge">Create</code> button, as shown below.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1728629060003.png" alt="naming tab group in Burp suite" /> \n</p>
+
+<p>Now, we are ready to launch multiple copies of our HTTP POST requests simultaneously to exploit the race condition vulnerability. Select <code class="language-plaintext highlighter-rouge">Send group in parallel (last-byte sync)</code> in the dropdown next to the <code class="language-plaintext highlighter-rouge">Send</code> button. Once selected, the <code class="language-plaintext highlighter-rouge">Send</code> button will change to <code class="language-plaintext highlighter-rouge">Send group (parallel)</code>. Click this button to send all the duplicated requests in our tab group at the same time, as shown below:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1728629349449.png" alt="sending parallel requests in Burp suite" /> \n</p>
+
+<p>Once all the requests have been sent, navigate to the <code class="language-plaintext highlighter-rouge">tester</code> account in the browser and check the current balance. You will notice that the tester’s balance is negative because we successfully transferred more funds than were available in the account, exploiting the race condition vulnerability.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1728629858556.png" alt="dashboard showing negative balance in bank app" /> \n</p>
+
+<p>By duplicating ten requests and sending them in parallel, we are instructing the system to make ten simultaneous requests, each deducting $500 from the <code class="language-plaintext highlighter-rouge">tester</code> account and sending it to account <code class="language-plaintext highlighter-rouge">111</code>. In a correctly implemented system, the application should have processed the first request, locked the database, and processed the remaining requests individually. However, due to the race condition, the application handles these requests abruptly, resulting in a negative balance in the tester account and an inflated balance in account <code class="language-plaintext highlighter-rouge">111</code>. \n</p>
+
+<h2 id="verifying-through-source-code">Verifying Through Source Code</h2>
+
+<p>Suppose you are a penetration tester with access to the application’s source code (as in a white-box testing scenario). In that case, you can identify potential race condition vulnerabilities through a code review. By analysing the code, you can pinpoint areas where multiple database operations are performed without proper transaction handling. Below is the Python code that handles the fund transfer:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">if</span> <span class="nx">user</span><span class="p">[</span><span class="dl">'</span><span class="s1">balance</span><span class="dl">'</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="nx">amount</span><span class="p">:</span>
+        <span class="nx">conn</span><span class="p">.</span><span class="nf">execute</span><span class="p">(</span><span class="dl">'</span><span class="s1">UPDATE users SET balance = balance + ? WHERE account_number = ?</span><span class="dl">'</span><span class="p">,</span>
+                     <span class="p">(</span><span class="nx">amount</span><span class="p">,</span> <span class="nx">target_account_number</span><span class="p">))</span>
+        <span class="nx">conn</span><span class="p">.</span><span class="nf">commit</span><span class="p">()</span>
+
+        <span class="nx">conn</span><span class="p">.</span><span class="nf">execute</span><span class="p">(</span><span class="dl">'</span><span class="s1">UPDATE users SET balance = balance - ? WHERE account_number = ?</span><span class="dl">'</span><span class="p">,</span>
+                     <span class="p">(</span><span class="nx">amount</span><span class="p">,</span> <span class="nx">session</span><span class="p">[</span><span class="dl">'</span><span class="s1">user</span><span class="dl">'</span><span class="p">]))</span>
+        <span class="nx">conn</span><span class="p">.</span><span class="nf">commit</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>\n</p>
+
+<p>In the above code, if <code class="language-plaintext highlighter-rouge">user['balance'] &gt;= amount</code>, the application first updates the recipient’s balance with the command <code class="language-plaintext highlighter-rouge">UPDATE users SET balance = balance + ? WHERE account_number = ?</code>, followed by a commit. Then, it updates the sender’s balance using <code class="language-plaintext highlighter-rouge">UPDATE users SET balance = balance - ? WHERE account_number = ?</code> and commits again. Since these updates are committed separately and not part of a <strong>single atomic transaction</strong>, there’s no locking or proper synchronisation between these operations. This lack of a <strong>transaction or locking mechanism</strong> makes the code vulnerable to race conditions, as concurrent requests could interfere with the balance updates.</p>
+
+<h2 id="time-for-some-action">Time for Some Action</h2>
+
+<p>Now that you understand the vulnerability, can you assist Glitch in validating it using the account number: <code class="language-plaintext highlighter-rouge">101</code> and password: <code class="language-plaintext highlighter-rouge">glitch</code>? Attempt to exploit the vulnerability by transferring over <strong>$2000</strong> from his account to the account number: <code class="language-plaintext highlighter-rouge">111</code>. \n</p>
+
+<h2 id="fixing-the-race">Fixing the Race</h2>
+
+<p>The developer did not properly handle concurrent requests in the bank’s application, leading to a race condition vulnerability during fund transfers. When multiple requests were sent in parallel, each deducting and transferring funds, the application   <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1729666677410.png" alt="Glitch thinking how to fix the race" /> processed them simultaneously without ensuring proper synchronisation. This resulted in inconsistent account balances, such as negative balances in the sender’s account and excess funds in the recipient’s account. Here are some of the preventive measures to fix the race.</p>
+
+<ul>
+  <li><strong>Use Atomic Transactions</strong>: The developer should have implemented atomic database transactions to ensure that all steps of a fund transfer (deducting and crediting balances) are performed as a single unit. This would ensure that either all steps of the transaction succeed or none do, preventing partial updates that could lead to an inconsistent state.</li>
+  <li><strong>Implement Mutex Locks</strong>: By using Mutex Locks, the developer could have ensured that only one thread accesses the shared resource (such as the account balance) at a time. This would prevent multiple requests from interfering with each other during concurrent transactions.</li>
+  <li><strong>Apply Rate Limits</strong>: The developer should have implemented rate limiting on critical functions like funds transfers and withdrawals. This would limit the number of requests processed within a specific time frame, reducing the risk of abuse through rapid, repeated requests.</li>
+</ul>
+
+<p>After completing the exercise, you will be required to visit <code class="language-plaintext highlighter-rouge">http://MACHINE_IP:5000/dashboard</code> to get the flag.</p>
+
+<h2 id="answer-the-questions-below">Answer the questions below</h2>
+
+<p>What is the flag value after transferring over $2000 from Glitch’s account?</p>
+
+<p>If you enjoyed this task, feel free to check out the <a href="https://tryhackme.com/r/room/raceconditionsattacks">Race Conditions</a> room!</p>
+
+<p>Where balances shift and numbers soar, look for an entry - an open door!</p>
+
+
+  </article>
+  
+    <div class="post-share">
+  <div class="post-date">Feel free to share!</div>
+  <div class="sharing-icons">
+    <a href="https://twitter.com/intent/tweet?text=Day12&amp;url=/Day12" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=/Day12&amp;title=Day12" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+  
+  
+    <div class="related">
+  <h2>You may also enjoy...</h2>
+  
+  <ul class="related-posts">
+    
+  </ul>
+</div>
+
+  
+  
+    <section class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname = "millennial-3";
+    var disqus_identifier = "/Day12";
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+  
+</div>
+
+      </div>
+      <footer class="footer">
+  
+    <a href="https://twitter.com/mberger" class="menu-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  
+    <a href="feed.xml" class="menu-link" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+  
+  <div class="footer-description"><a href="/">THM Advent of Cyber 2024 | a minimalist Jekyll theme for running a blog or publication by Michael</a></div>
+</footer>
+
+    </div>
+  </body>
+</html>

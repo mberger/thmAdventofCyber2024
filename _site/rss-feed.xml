@@ -7,6 +7,20 @@
 		<atom:link href="/rss-feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Day12</title>
+				
+					<dc:creator>Miuchael</dc:creator>
+				
+				
+					<description>&lt;p&gt;The Story&lt;/p&gt;
+</description>
+				
+				<pubDate>Thu, 12 Dec 2024 00:00:00 -0500</pubDate>
+				<link>http://localhost:4000/Day12</link>
+				<guid isPermaLink="true">http://localhost:4000/Day12</guid>
+			</item>
+		
+			<item>
 				<title>TryHackMe Advent of Cyber - Day 11</title>
 				
 				
@@ -129,21 +143,6 @@
 				<pubDate>Tue, 03 Dec 2024 00:00:00 -0500</pubDate>
 				<link>http://localhost:4000/Day3</link>
 				<guid isPermaLink="true">http://localhost:4000/Day3</guid>
-			</item>
-		
-			<item>
-				<title>Try Hack Me Advent of Cyber - Day 2</title>
-				
-					<dc:creator>Michael</dc:creator>
-				
-				
-					<description>&lt;p&gt;| **Advent of Cyber: New Task Release!**One man’s false positive is another man’s potpourri. |
-|—-|&lt;/p&gt;
-</description>
-				
-				<pubDate>Mon, 02 Dec 2024 00:00:00 -0500</pubDate>
-				<link>http://localhost:4000/Day2</link>
-				<guid isPermaLink="true">http://localhost:4000/Day2</guid>
 			</item>
 		
 	</channel>
