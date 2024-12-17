@@ -7,7 +7,63 @@
 		<atom:link href="/rss-feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
-				<title>Day12</title>
+				<title>TryHackMe Advent of Cyber 2024 -Day 16</title>
+				
+					<dc:creator>Michael</dc:creator>
+				
+				
+					<description>&lt;h1 id=&quot;the-story&quot;&gt;The Story&lt;/h1&gt;
+</description>
+				
+				<pubDate>Mon, 16 Dec 2024 00:00:00 -0500</pubDate>
+				<link>http://localhost:4000/Day16</link>
+				<guid isPermaLink="true">http://localhost:4000/Day16</guid>
+			</item>
+		
+			<item>
+				<title>TryHackMe Advent of Cyber 2024 - Day 15</title>
+				
+					<dc:creator>Michael</dc:creator>
+				
+				
+					<description>&lt;p&gt;The Story&lt;/p&gt;
+</description>
+				
+				<pubDate>Sun, 15 Dec 2024 00:00:00 -0500</pubDate>
+				<link>http://localhost:4000/Day15</link>
+				<guid isPermaLink="true">http://localhost:4000/Day15</guid>
+			</item>
+		
+			<item>
+				<title>TryHackMe Advent of Cyber 2024 - Day 14</title>
+				
+					<dc:creator>Michael</dc:creator>
+				
+				
+					<description>&lt;p&gt;The Story&lt;/p&gt;
+</description>
+				
+				<pubDate>Sat, 14 Dec 2024 00:00:00 -0500</pubDate>
+				<link>http://localhost:4000/Day14</link>
+				<guid isPermaLink="true">http://localhost:4000/Day14</guid>
+			</item>
+		
+			<item>
+				<title>TryHackMe Advent of Cyber 2024 - Day 13</title>
+				
+					<dc:creator>Michael</dc:creator>
+				
+				
+					<description>&lt;p&gt;The Story&lt;/p&gt;
+</description>
+				
+				<pubDate>Fri, 13 Dec 2024 00:00:00 -0500</pubDate>
+				<link>http://localhost:4000/Day13</link>
+				<guid isPermaLink="true">http://localhost:4000/Day13</guid>
+			</item>
+		
+			<item>
+				<title>TrtHackMe Advent of Cyber 2024 - Day 12</title>
 				
 					<dc:creator>Miuchael</dc:creator>
 				
@@ -86,63 +142,6 @@
 				<pubDate>Sat, 07 Dec 2024 00:00:00 -0500</pubDate>
 				<link>http://localhost:4000/Day7</link>
 				<guid isPermaLink="true">http://localhost:4000/Day7</guid>
-			</item>
-		
-			<item>
-				<title>Try Hackme Advent of Cyber - Day 6</title>
-				
-					<dc:creator>Michael</dc:creator>
-				
-				
-					<description>&lt;p&gt;&lt;em&gt;Mayor Malware was scheming, quite full of delight, To ruin SOC-mas and frighten SOC teams. But Glitch and McSkidy had spoiled his plan, By uncovering secrets that exposed the man!&lt;/em&gt;&lt;/p&gt;
-</description>
-				
-				<pubDate>Fri, 06 Dec 2024 00:00:00 -0500</pubDate>
-				<link>http://localhost:4000/Day6</link>
-				<guid isPermaLink="true">http://localhost:4000/Day6</guid>
-			</item>
-		
-			<item>
-				<title>Try Hackme Advent of Cyber - Day 5</title>
-				
-					<dc:creator>Paul Le</dc:creator>
-				
-				
-					<description>&lt;h1 id=&quot;advent-of-cyber-day-5&quot;&gt;Advent of Cyber Day 5&lt;/h1&gt;
-</description>
-				
-				<pubDate>Thu, 05 Dec 2024 00:00:00 -0500</pubDate>
-				<link>http://localhost:4000/Day5</link>
-				<guid isPermaLink="true">http://localhost:4000/Day5</guid>
-			</item>
-		
-			<item>
-				<title>Try Hackme Advent of Cyber - Day 4</title>
-				
-					<dc:creator>Michael</dc:creator>
-				
-				
-					<description>&lt;h1 id=&quot;based-on-the-eventsource-field-what-aws-service-generates-the-consolelogin-eventday-4&quot;&gt;Based on the eventSource field, what AWS service generates the ConsoleLogin event?Day 4&lt;/h1&gt;
-</description>
-				
-				<pubDate>Wed, 04 Dec 2024 00:00:00 -0500</pubDate>
-				<link>http://localhost:4000/Day4</link>
-				<guid isPermaLink="true">http://localhost:4000/Day4</guid>
-			</item>
-		
-			<item>
-				<title>Try Hack Me Advent of Cyber - Day 3</title>
-				
-					<dc:creator>Michael</dc:creator>
-				
-				
-					<description>&lt;p&gt;| **:Advent of Cyber: New Task Release!** Even if I wanted to go, their vulnerabilities wouldn’t allow it. |
-|—-|&lt;/p&gt;
-</description>
-				
-				<pubDate>Tue, 03 Dec 2024 00:00:00 -0500</pubDate>
-				<link>http://localhost:4000/Day3</link>
-				<guid isPermaLink="true">http://localhost:4000/Day3</guid>
 			</item>
 		
 	</channel>

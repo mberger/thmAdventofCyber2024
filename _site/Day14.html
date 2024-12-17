@@ -1,0 +1,395 @@
+<!doctype html>
+<html>
+  <head>
+  <title>
+    
+      TryHackMe Advent of Cyber 2024 - Day 14 | THM Advent of Cyber 2024
+    
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  <!-- Use Atom -->
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="THM Advent of Cyber 2024" />
+  <!-- RSS-v2.0
+  <link href="/rss-feed.xml" type="application/rss+xml" rel="alternate" title="THM Advent of Cyber 2024 | a minimalist Jekyll theme for running a blog or publication"/>
+  //-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Source+Code+Pro">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+  <!-- Google Analytics -->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'G-MSZW3HWGH8', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  <!-- Use Jekyll SEO plugin -->
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>TryHackMe Advent of Cyber 2024 - Day 14 | THM Advent of Cyber 2024</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="TryHackMe Advent of Cyber 2024 - Day 14" />
+<meta name="author" content="Michael" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The Story" />
+<meta property="og:description" content="The Story" />
+<link rel="canonical" href="http://localhost:4000/Day14" />
+<meta property="og:url" content="http://localhost:4000/Day14" />
+<meta property="og:site_name" content="THM Advent of Cyber 2024" />
+<meta property="og:image" content="http://localhost:4000/Day14Header.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-12-14T00:00:00-05:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="http://localhost:4000/Day14Header.png" />
+<meta property="twitter:title" content="TryHackMe Advent of Cyber 2024 - Day 14" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Michael"},"dateModified":"2024-12-14T00:00:00-05:00","datePublished":"2024-12-14T00:00:00-05:00","description":"The Story","headline":"TryHackMe Advent of Cyber 2024 - Day 14","image":"http://localhost:4000/Day14Header.png","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/Day14"},"url":"http://localhost:4000/Day14"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+  <body>
+    <div class="container">
+      <header class="site-header">
+  <h3 class="site-title">
+    <a href="/">THM Advent of Cyber 2024</a>
+  </h3>
+  <nav class="menu-list">
+    
+      <a href="/about" class="menu-link">About</a>
+    
+      <a href="/contact" class="menu-link">Contact</a>
+    
+    
+      <a href="https://twitter.com/mberger" class="menu-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+    
+      <a href="feed.xml" class="menu-link" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+    
+  </nav>
+  <div class="dropdown">
+    <button class="dropbtn"><i class="fa fa-bars" aria-hidden="true"></i></button>
+    <div class="dropdown-content">
+      
+        <a href="/about" class="menu-link">About</a>
+      
+        <a href="/contact" class="menu-link">Contact</a>
+      
+      
+        <a href="https://twitter.com/mberger" class="menu-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+      
+        <a href="feed.xml" class="menu-link" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+      
+    </div>
+  </div>
+</header>
+
+      <div class="content-wrapper">
+        <div class="post-content">
+  <h1>
+    TryHackMe Advent of Cyber 2024 - Day 14
+  </h1>
+  
+    <span class="post-date">
+  Written on
+  
+  December
+  14th,
+  2024
+  by
+  
+    Michael
+  
+</span>
+
+  
+  
+    <div class="featured-image">
+      <img src="/assets/img/Day14Header.png">
+    </div>
+  
+  <article>
+    <p>The Story</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1731812568781.svg" alt="Task banner for day 14" /></p>
+
+<p><em>“It’s the Mayor” said the Glitch, he said it while sighing,</em></p>
+
+<p><em>“The people of Wareville, their browsing he’s spying!”</em></p>
+
+<p><em>“That sounds like him”, McSkidy then said,</em></p>
+
+<p><em>“Back to work then”, while scratching her head.</em></p>
+
+<p>It’s a quiet morning in the town of Wareville. A wholesome town where cheer and tech come together. McSkidy is charged to protect the GiftScheduler, the service elves use to schedule all the presents to be delivered in Wareville. She assigned Glitch to the case to make sure the site is secure for G-Day (Gift Day). In the meantime, Mayor Malware works tirelessly, hoping to not only ruin Christmas by redirecting presents to the wrong addresses but also to ensure that Glitch is blamed for the attack. After all, Glitch’s warnings about the same vulnerabilities Mayor Malware is exploiting make the hacker an easy scapegoat.</p>
+
+<h2 id="learning-objectives">Learning Objectives</h2>
+
+<p>In today’s task you will learn about:</p>
+
+<ul>
+  <li>Self-signed certificates</li>
+  <li>Man-in-the-middle attacks</li>
+  <li>Using Burp Suite proxy to intercept traffic</li>
+</ul>
+
+<h2 id="certified-to-sleigh">Certified to Sleigh</h2>
+
+<p>We hear a lot about certificates and their uses, but let’s start dissecting what a certificate is:</p>
+
+<ul>
+  <li><strong>Public key</strong>: At its core, a certificate contains a public key, part of a pair of cryptographic keys: a public key and a private key. The public key is made available to anyone and is used to encrypt data.</li>
+  <li><strong>Private key</strong>: The private key remains secret and is used by the website or server to decrypt the data.</li>
+  <li><strong>Metadata</strong>: Along with the key, it includes metadata that provides additional information about the certificate holder (the website) and the certificate. You usually find information about the Certificate Authority (CA), subject (information about the website, e.g. www.meow.thm), a uniquely identifiable number, validity period, signature, and hashing algorithm.</li>
+</ul>
+
+<h2 id="sign-here-trust-me">Sign Here, Trust Me</h2>
+
+<p>So what is a Certificate Authority (CA)?</p>
+
+<p>A CA is a trusted entity that issues certificates; for example, GlobalSign, Let’s Encrypt, and DigiCert are very common ones. The browser trusts these entities and performs a series of checks to ensure it is a trusted CA. Here is a breakdown of what happens with a certificate:</p>
+
+<ul>
+  <li><strong>Handshake</strong>: Your browser requests a secure connection, and the website responds by sending a certificate, but in this case, it only requires the public key and metadata.</li>
+  <li><strong>Verification:</strong> Your browser checks the certificate for its validity by checking if it was issued by a trusted CA. If the certificate hasn’t expired or been tampered with, and the CA is trusted, then the browser gives the green light. There are different types of checks you can do; check them <a href="https://www.sectigo.com/resource-library/dv-ov-ev-ssl-certificates">here</a>.</li>
+  <li><strong>Key exchange</strong>: The browser uses the public key to encrypt a session key, which encrypts all communications between the browser and the website.</li>
+  <li><strong>Decryption</strong>: The website (server) uses its private key to decrypt the session key, which is <a href="https://deviceauthority.com/symmetric-encryption-vs-asymmetric-encryption/">symmetric</a>. Now that both the browser and the website share a secret key (session key), we have established a secure and encrypted communication!</li>
+</ul>
+
+<p>Ever wonder what makes HTTPS be S (secure)? Thanks to certificates, we can now have authentication, encryption, and data integrity.</p>
+
+<p><strong>Self-Signed Certificates vs. Trusted CA Certificates</strong></p>
+
+<p>The process of acquiring a certificate with a CA is long, you create the certificate, and send it to a CA to sign it for you. If you don’t have tools and automation in place, this process can take weeks. Self-signed certificates are signed by an entity usually the same one that authenticates. For example, Wareville owns the GiftScheduler site, and if they create a certificate and sign it with Wareville as a CA, that becomes a self-signed certificate.</p>
+
+<ul>
+  <li><strong>Browsers</strong> generally do not trust self-signed certificates because there is no third-party verification. The browser has no way of knowing if the certificate is authentic or if it’s being used for malicious purposes (like a <strong>man-in-the-middle attack</strong>).</li>
+  <li><strong>Trusted CA certificates</strong>, on the other hand, are verified by a CA, which acts as a trusted third party to confirm the website’s identity.</li>
+</ul>
+
+<p>CA-issued certificates sometimes take a long time; if you want to test a development environment, it can make sense to use self-signed certificates. Ideally, this is an internal, air-gapped environment with no connection to the public Internet. Otherwise, it defeats the purpose of a certificate: the entire system of secure communication relies on the fact that both parties (the browser and the server) can trust the data being exchanged and that no one in the middle can intercept or modify it without detection.</p>
+
+<h2 id="connecting-to-the-machine">Connecting to the Machine</h2>
+
+<p>Before moving forward, review the questions in the connection card shown below: \n</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1731376755339.png" alt="We need to start the AttackBox and the attached VM" /> \n</p>
+
+<p>To reproduce Mayor Malware’s attack, click the <strong>Start Machine</strong> button below to deploy our target VM that has the Gift Scheduler server running.</p>
+
+<p>Start Machine</p>
+
+<p>Then click on the <strong>Start AttackBox</strong> button at the top of the page to start the machine from which we—along with Mayor Malware—will attack the website. The AttackBox machine will start in split view. If it is not visible, use the blue <strong>Show Split View</strong> button at the top of the page.</p>
+
+<h2 id="how-mayor-malware-disrupts-g-day">How Mayor Malware Disrupts G-Day</h2>
+
+<p>There are less than two weeks until G-Day, and Mayor Malware has been planning its disruption ever since Glitch raised the self-signed certificate vulnerability to McSkidy during a security briefing the other day.</p>
+
+<p>His plan is near perfect. He will hack into the Gift Scheduler and mess with the delivery schedule. No one will receive the gift destined for them: G-Day will be ruined! [<em>evil laugh</em>]</p>
+
+<p><strong>Preparation</strong></p>
+
+<p>First things first: the Glitch spoke about a self-signed certificate, but Mayor Malware can’t believe that the townspeople—usually so security-savvy it’s maddening to him—would easily disregard such a critical vulnerability. Is it a trap set up by the Glitch and McSkidy to catch him red-handed? He definitely needs to check for himself.</p>
+
+<p>Before that, though, he wants to make sure that his tracks are well covered. To prevent any DNS logs from alerting his enemies, he will resolve the Gift Scheduler’s FQDN locally on his machine.</p>
+
+<p>To achieve this, let’s add the following line to the <code class="language-plaintext highlighter-rouge">/etc/hosts</code> file on the AttackBox: <code class="language-plaintext highlighter-rouge">MACHINE_IP gift-scheduler.thm</code></p>
+
+<p>We can use the following command:</p>
+
+<p>Terminal
+root@attackbox:~# echo “MACHINE_IP gift-scheduler.thm” » /etc/hosts
+To verify that the line above was added to the file, we can execute the following:</p>
+
+<p>Terminal
+root@attackbox:~# cat /etc/hosts
+127.0.0.1       localhost
+127.0.1.1       tryhackme.lan   tryhackme</p>
+
+<h1 id="the-following-lines-are-desirable-for-ipv6-capable-hosts">The following lines are desirable for IPv6 capable hosts</h1>
+
+<p>::1     localhost ip6-localhost ip6-loopback
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+MACHINE_IP gift-scheduler.thm
+Now, Mayor Malware can navigate to the Gift Scheduler website without leaving a trace on Wareville’s DNS logs.</p>
+
+<p>Let’s open the Firefox browser and navigate to <code class="language-plaintext highlighter-rouge">https://gift-scheduler.thm</code>. We’ll be presented with the following warning page:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1732081797042.png" alt="Firefox warning page titled 'Warning: Potential Security Risk Ahead'. The page displays two buttons, the first one labelled 'Go Back (Recommended)' and the second labelled 'Advanced'. A yellow box highlights the 'Advanced' button." /></p>
+
+<p>We can click on the <code class="language-plaintext highlighter-rouge">Advanced</code> button to expand the warning’s details.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1732081843216.png" alt="Firefox warning page titled 'Warning: Potential Security Risk Ahead' showing advanced information. The details show that the host 'gift-scheduler.thm' uses a self-signed certificate. Two yellow boxes highlight a 'View Certificate' link, marked with number 1, and a button labelled 'Accept the Risk and Continue', marked with number 2." /></p>
+
+<p>When we click on the <code class="language-plaintext highlighter-rouge">View Certificate</code> link marked with a 1 in the screenshot above, a new tab opens with the certificate details.</p>
+
+<p>Mayor Malware can’t believe his luck! This is evidence that the Glitch was speaking the truth: the Gift Scheduler web server uses a self-signed certificate.</p>
+
+<p>This means that the townspeople and all the elves will be used to clicking on the <code class="language-plaintext highlighter-rouge">Accept the Risk and Continue</code> button (marked with 2 on the screenshot above) to access the website, to the point it’s become a habit.</p>
+
+<p>Mayor Malware does just that and inserts his credentials into the login form.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63588b5ef586912c7d03c4f0/room-content/be629720b11a294819516c1d4e738c92.png" alt="THM Key Credentials" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Username</strong></th>
+      <th>mayor_malware</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Password</strong></td>
+      <td>G4rbag3Day</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1732081963686.png" alt="Website login page" /></p>
+
+<p>With his credentials, he can’t do anything but send a gift request—as if he were to ever do such a sickeningly sweet gesture. To carry out his evil plan, he will need to sniff some admin credentials. Maybe some of the elves’ passwords. Or even—if he gets lucky—Marta May Ware’s account!</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1732081963676.png" alt="The 'Schedule your gift' form page" /></p>
+
+<p>To sniff the elves’ traffic, the next step will be to start a proxy on his machine and route all of Wareville’s traffic to it. This way, the <strong>Mayor</strong> will be <strong>In The Middle</strong> between the townspeople and the Gift Scheduler. This position will allow him to sniff all requests forwarded to the sickening website.</p>
+
+<p>Let’s start the Burp Suite proxy by typing <code class="language-plaintext highlighter-rouge">burp</code> in the terminal. A new window will open. We can accept the default configuration by clicking on <code class="language-plaintext highlighter-rouge">Next</code>, then <code class="language-plaintext highlighter-rouge">Start Burp</code> in the next window.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1732082529688.png" alt="Burp Suite window. Three numbered yellow boxes highlight the following: 1-the Proxy tab; 2-an Intercept On button; 3-a Proxy Settings menu." /></p>
+
+<p>Once Burp Suite loads, we will select <code class="language-plaintext highlighter-rouge">Proxy</code> (number 1 in the screenshot above) and then toggle off the <code class="language-plaintext highlighter-rouge">Intercept on</code> option (number 2) to prevent users from noticing any delays in the website responses. Finally, let’s open the <code class="language-plaintext highlighter-rouge">Proxy Settings</code> (number 3) to set a new listener on our AttackBox IP address.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1732082054712.png" alt="Burp Suite settings window open on the Proxy settings. A yellow box highlights a button labelled “Add” under the Proxy listeners section." /></p>
+
+<p>We can click on the <code class="language-plaintext highlighter-rouge">Add</code> button highlighted in the screenshot above. Burp Suite will prompt us for the new listener’s configuration.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1732082457072.png" alt="Burp Suite window labelled 'Add a proxy listener' open on the 'Binding' tab. The number 8080 is written in the box next to a 'Bind to port' option. Under the 'Bind to address' section, the 'Specific address' option is selected. A partially covered IP address is specified in a dropdown box. A yellow box highlights the 'OK' button on the lower right." /></p>
+
+<p>We must set the listening port to <code class="language-plaintext highlighter-rouge">8080</code> and toggle the <code class="language-plaintext highlighter-rouge">Specific address</code> option. The box next to it will automatically specify the IP address of our AttackBox, <code class="language-plaintext highlighter-rouge">CONNECTION_IP</code>. Finally, we can click on <code class="language-plaintext highlighter-rouge">OK</code> to apply the configuration.</p>
+
+<p>The previous settings window will get displayed and we can see that the new listener has been added under the proxy listeners list.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1732081911457.png" alt="The Burp Suite settings window open on the Proxy settings. A new listener is now listed under the Proxy listeners section. A yellow box highlights the phrase: Each installation of Burp generates its own CA certificate that Proxy listeners can use when negotiating TLS connections." /></p>
+
+<p>Mayor Malware rubs his hands together gleefully: as we can read in the yellow box in the screenshot above, Burp Suite already comes with a self-signed certificate. The users will be prompted to accept it and continue, and Mayor Malware knows they will do it out of habit, without even thinking of verifying the certificate origin first. The G-Day disruption operation will go off without a hitch!</p>
+
+<p><strong>Sniff From The Middle</strong></p>
+
+<p>Now that our machine is ready to listen, we must reroute all Wareville traffic to our machine.</p>
+
+<p>Mayor Malware has a wonderful idea to achieve this: he will set his own machine as a gateway for all other Wareville’s machines!</p>
+
+<p>Let’s add another line to the AttackBox’s <code class="language-plaintext highlighter-rouge">/etc/hosts</code> file. <strong>Note:</strong> The <code class="language-plaintext highlighter-rouge">CONNECTION_IP</code> address in the snippet should reflect the IP of our AttackBox, which can be found at the top of the page.</p>
+
+<p>Terminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">root</span><span class="p">@</span><span class="nd">attackbox</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">echo</span> <span class="dl">"</span><span class="s2">CONNECTION_IP wareville-gw</span><span class="dl">"</span> <span class="o">&gt;&gt;</span> <span class="sr">/etc/</span><span class="nx">hosts</span>
+</code></pre></div></div>
+
+<p>This will divert all of Wareville’s traffic, usually routed through the legitimate Wareville Gateway, to Mayor Malware’s machine, effectively putting him “In The Middle” of the requests. <strong>Note:</strong> In practice, the adversary can launch a similar attack if they can control the user’s gateway and their attack can easily succeed against websites not using properly signed certificates. This attack requires more than adding an entry into the <code class="language-plaintext highlighter-rouge">/etc/hosts</code> file; however, this task aims to emulate parts of the attack.</p>
+
+<p>As a last step, we must start a custom script to simualte the users’ requests to the Gift Scheduler. <strong>Note:</strong> Keep the script running so that new user requests will constantly be captured in Burp Suite.</p>
+
+<p>Terminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">root</span><span class="p">@</span><span class="nd">attackbox</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">cd</span> <span class="o">~</span><span class="sr">/Rooms/</span><span class="nx">AoC2024</span><span class="o">/</span><span class="nx">Day14</span>
+<span class="nx">root</span><span class="p">@</span><span class="nd">attackbox</span><span class="p">:</span><span class="o">~</span><span class="sr">/Rooms/</span><span class="nx">AoC2024</span><span class="o">/</span><span class="nx">Day14</span><span class="err">#</span> <span class="p">.</span><span class="o">/</span><span class="nx">route</span><span class="o">-</span><span class="nx">elf</span><span class="o">-</span><span class="nx">traffic</span><span class="p">.</span><span class="nx">sh</span>
+<span class="nx">Verifying</span> <span class="nx">archive</span> <span class="nx">integrity</span><span class="p">...</span>  <span class="mi">100</span><span class="o">%</span>   <span class="nx">MD5</span> <span class="nx">checksums</span> <span class="nx">are</span> <span class="nx">OK</span><span class="p">.</span> <span class="nx">All</span> <span class="nx">good</span><span class="p">.</span>
+<span class="nx">Uncompressing</span> <span class="nx">Intercept</span> <span class="nx">Traffic</span>  <span class="mi">100</span><span class="o">%</span>
+<span class="nx">Intercepting</span> <span class="nx">user</span> <span class="nx">traffic</span> <span class="k">in</span> <span class="nx">progress</span><span class="p">...</span>
+ <span class="nx">User</span> <span class="nx">request</span> <span class="nx">intercepted</span> <span class="nx">successfully</span> <span class="nx">at</span> <span class="mi">2024</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">11</span> <span class="mi">16</span><span class="p">:</span><span class="mi">05</span><span class="p">:</span><span class="mi">56</span>
+ <span class="nx">User</span> <span class="nx">request</span> <span class="nx">intercepted</span> <span class="nx">successfully</span> <span class="nx">at</span> <span class="mi">2024</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">11</span> <span class="mi">16</span><span class="p">:</span><span class="mi">06</span><span class="p">:</span><span class="mi">23</span>
+ <span class="nx">User</span> <span class="nx">request</span> <span class="nx">intercepted</span> <span class="nx">successfully</span> <span class="nx">at</span> <span class="mi">2024</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">11</span> <span class="mi">16</span><span class="p">:</span><span class="mi">06</span><span class="p">:</span><span class="mi">36</span>
+<span class="p">[...]</span>
+</code></pre></div></div>
+
+<p><strong>Pwn the Scheduler</strong></p>
+
+<p>At last, everything is in place. Mayor Malware’s evil plan can finally commence! [<em>evil laugh</em>]</p>
+
+<p>We can return to the open Burp Suite window and click on the <code class="language-plaintext highlighter-rouge">HTTP History</code> tab.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1732085268640.png" alt="HTTP history with some requests, one GET open." /></p>
+
+<p>There is a triumphant gleam in Mayor Malware’s eyes while he stares intently at the web requests pouring on his screen. He can finally see them: the POST requests containing clear-text credentials for the Gift Scheduler website! Now, he only needs to wait and find the password to a privileged account.</p>
+
+<h2 id="answer-the-questions-below">Answer the questions below</h2>
+
+<p>What is the name of the CA that has signed the Gift Scheduler certificate?
+THM</p>
+
+<p>Look inside the POST requests in the HTTP history. What is the password for the <code class="language-plaintext highlighter-rouge">snowballelf</code> account?
+c4rrotn0s3</p>
+
+<p>Use the credentials for any of the elves to authenticate to the Gift Scheduler website. What is the flag shown on the elves’ scheduling page?
+THM{AoC-3lf0nth3Sh3lf}</p>
+
+<p>What is the password for Marta May Ware’s account?
+H0llyJ0llySOCMAS</p>
+
+<p>Mayor Malware finally succeeded in his evil intent: with Marta May Ware’s username and password, he can finally access the administrative console for the Gift Scheduler. G-Day is cancelled! What is the flag shown on the admin page?
+THM{AoC-h0wt0ru1nG1ftD4y}</p>
+
+<p>If you enjoyed this task, feel free to check out the <a href="https://tryhackme.com/module/learn-burp-suite">Burp Suite</a> module.</p>
+
+
+  </article>
+  
+    <div class="post-share">
+  <div class="post-date">Feel free to share!</div>
+  <div class="sharing-icons">
+    <a href="https://twitter.com/intent/tweet?text=TryHackMe Advent of Cyber 2024 - Day 14&amp;url=/Day14" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=/Day14&amp;title=TryHackMe Advent of Cyber 2024 - Day 14" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+  
+  
+    <div class="related">
+  <h2>You may also enjoy...</h2>
+  
+  <ul class="related-posts">
+    
+  </ul>
+</div>
+
+  
+  
+    <section class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname = "millennial-3";
+    var disqus_identifier = "/Day14";
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+  
+</div>
+
+      </div>
+      <footer class="footer">
+  
+    <a href="https://twitter.com/mberger" class="menu-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  
+    <a href="feed.xml" class="menu-link" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+  
+  <div class="footer-description"><a href="/">THM Advent of Cyber 2024 | a minimalist Jekyll theme for running a blog or publication by Michael</a></div>
+</footer>
+
+    </div>
+  </body>
+</html>

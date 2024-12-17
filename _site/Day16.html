@@ -1,0 +1,618 @@
+<!doctype html>
+<html>
+  <head>
+  <title>
+    
+      TryHackMe Advent of Cyber 2024 -Day 16 | THM Advent of Cyber 2024
+    
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  <!-- Use Atom -->
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="THM Advent of Cyber 2024" />
+  <!-- RSS-v2.0
+  <link href="/rss-feed.xml" type="application/rss+xml" rel="alternate" title="THM Advent of Cyber 2024 | a minimalist Jekyll theme for running a blog or publication"/>
+  //-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Source+Code+Pro">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+  <!-- Google Analytics -->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'G-MSZW3HWGH8', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  <!-- Use Jekyll SEO plugin -->
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>TryHackMe Advent of Cyber 2024 -Day 16 | THM Advent of Cyber 2024</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="TryHackMe Advent of Cyber 2024 -Day 16" />
+<meta name="author" content="Michael" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The Story" />
+<meta property="og:description" content="The Story" />
+<link rel="canonical" href="http://localhost:4000/Day16" />
+<meta property="og:url" content="http://localhost:4000/Day16" />
+<meta property="og:site_name" content="THM Advent of Cyber 2024" />
+<meta property="og:image" content="http://localhost:4000/Day16Header.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-12-16T00:00:00-05:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="http://localhost:4000/Day16Header.png" />
+<meta property="twitter:title" content="TryHackMe Advent of Cyber 2024 -Day 16" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Michael"},"dateModified":"2024-12-16T00:00:00-05:00","datePublished":"2024-12-16T00:00:00-05:00","description":"The Story","headline":"TryHackMe Advent of Cyber 2024 -Day 16","image":"http://localhost:4000/Day16Header.png","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/Day16"},"url":"http://localhost:4000/Day16"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+  <body>
+    <div class="container">
+      <header class="site-header">
+  <h3 class="site-title">
+    <a href="/">THM Advent of Cyber 2024</a>
+  </h3>
+  <nav class="menu-list">
+    
+      <a href="/about" class="menu-link">About</a>
+    
+      <a href="/contact" class="menu-link">Contact</a>
+    
+    
+      <a href="https://twitter.com/mberger" class="menu-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+    
+      <a href="feed.xml" class="menu-link" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+    
+  </nav>
+  <div class="dropdown">
+    <button class="dropbtn"><i class="fa fa-bars" aria-hidden="true"></i></button>
+    <div class="dropdown-content">
+      
+        <a href="/about" class="menu-link">About</a>
+      
+        <a href="/contact" class="menu-link">Contact</a>
+      
+      
+        <a href="https://twitter.com/mberger" class="menu-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+      
+        <a href="feed.xml" class="menu-link" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+      
+    </div>
+  </div>
+</header>
+
+      <div class="content-wrapper">
+        <div class="post-content">
+  <h1>
+    TryHackMe Advent of Cyber 2024 -Day 16
+  </h1>
+  
+    <span class="post-date">
+  Written on
+  
+  December
+  16th,
+  2024
+  by
+  
+    Michael
+  
+</span>
+
+  
+  
+    <div class="featured-image">
+      <img src="/assets/img/Day16Header.png">
+    </div>
+  
+  <article>
+    <h1 id="the-story">The Story</h1>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/6228f0d4ca8e57005149c3e3/room-content/6228f0d4ca8e57005149c3e3-1730822609983.png" alt="Task banner for day 16." /></p>
+
+<p>Another day, another challenge and, unfortunately for McSkidy, another intrusion in their Azure tenant. Before joining McSkidy in her investigation, there’s some catching up to do, and this is a story best told in rhyme: \n</p>
+
+<p><em>As SOC-mas approached, so did the need,</em></p>
+
+<p><em>To provide those without, with something to read.</em></p>
+
+<p><em>Care4Wares tried, they made it their mission,</em></p>
+
+<p><em>A gift for all wares, a SOC-mas tradition.</em></p>
+
+<ul>
+  <li>\n *</li>
+</ul>
+
+<p><em>McSkidy logged on and felt some confusion,</em></p>
+
+<p><em>An alert saying here, a detected intrusion.</em></p>
+
+<p><em>Inspection began as to what was at fault,</em></p>
+
+<p><em>It seems access was gained to McSkidys key vault.</em></p>
+
+<ul>
+  <li>\n *</li>
+</ul>
+
+<p><em>She checked and she checked as she had to be sure,</em></p>
+
+<p><em>But it hadn’t been long since adopting Azure.</em></p>
+
+<p><em>Troubleshooting ensued, ideas had been tabled,</em></p>
+
+<p><em>Which would have been great, if logs were enabled.</em></p>
+
+<ul>
+  <li>\n *</li>
+</ul>
+
+<p><em>With three hours slept,</em></p>
+
+<p><em>And no records kept.</em></p>
+
+<p><em>McSkidy then knew,</em></p>
+
+<p><em>What she needed to do.</em></p>
+
+<ul>
+  <li>\n *</li>
+</ul>
+
+<p><em>It’s true that on her, this town does depend,</em></p>
+
+<p><em>But to find what was wrong, she needed a friend.</em></p>
+
+<p><em>So clearing her throat and preparing her pitch,</em></p>
+
+<p><em>She picked up her phone and called up the Glitch.</em></p>
+
+<ul>
+  <li>\n *</li>
+</ul>
+
+<p>It was late. Too late. McSkidy’s eyelids felt as though they had dumbbells attached to them. The sun had long since waved goodbye to Wareville, and the crisp night air was creeping in through the window of McSkidy’s office. If only there were a substance which would both warm and wake her up. Once McSkidy’s brain cells had started functioning again, and remembered that coffee existed. Checking her watch, she was saddened to learn it was too late to get her coffee from her favourite Wareville coffee house, Splunkin Donuts; the vending machine downstairs would have to do. Sipping her coffee, McSkidy immediately lit up and charged back into the office, ready to crack the case; however, as she entered, the Glitch had an idea of his own. He’d got it, and he figured out an attack vector the user had likely taken! McSkidy took a seat next to the Glitch, and he began to walk it through.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/6228f0d4ca8e57005149c3e3/room-content/6228f0d4ca8e57005149c3e3-1730822466501.png" alt="Azure logo wrapped in Xmas decorations" /></p>
+
+<h2 id="learning-objectives">Learning Objectives</h2>
+
+<ul>
+  <li>Learn about Azure, what it is and why it is used.</li>
+  <li>Learn about Azure services like Azure Key Vault and Microsoft Entra ID.</li>
+  <li>Learn how to interact with an Azure tenant using Azure Cloud Shell.</li>
+</ul>
+
+<h2 id="intro-to-azure-n">Intro to Azure \n</h2>
+
+<p>Before diving into the Glitch’s idea of the attacker’s path, let’s introduce some of the key concepts that will be covered in the process. We are going to start by introducing Azure. To do that, let’s consider why McSkidy is using Azure in the first place.</p>
+
+<p>It all started when McSkidy’s role as the cyber security expert of Wareville really started to take off. Before she knew it, McSkidy was in very high demand and needed to create all kinds of resources to help her organise her duties; these included a web application to handle appointment making, multiple machines running for investigations, and more machines running for evidence storing and analysis. McSkidy hosted and managed all of these machines herself, that is, on-prem (on-premises). This initially wasn’t a massive issue because, after all, she wasn’t a corporation but just helping the citizens of Wareville with cyber security matters.</p>
+
+<p>However, as time went on, McSkidy ran into issues during peak times when she would receive many requests for help, and therefore needed to process more evidence. All of this increased demand meant McSkidy had to scale up her resources to handle the load. To put a long story short, this was a lot of hassle for McSkidy. She wished there was a way for someone to handle her infrastructure on her behalf, especially when scaling her resources up (during peak times) and down (when they resumed). That’s when Azure came to the rescue.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/6228f0d4ca8e57005149c3e3/room-content/6228f0d4ca8e57005149c3e3-1730822510157.png" alt="McSkidy and Azure working together in office" /> \n</p>
+
+<p>Azure is a CSP (Cloud Service Provider), and CSPs (others include Google Cloud and AWS) provide computing resources such as computing power on demand in a highly scalable fashion. In other words, McSkidy could instead have Azure manage her underlying infrastructure, scaling it in times of increased demand and decreasing it once traffic resumed to normal levels. The best bit? McSkidy only has to pay for what she uses; gone were the days of buying physical infrastructure to handle increased loads, only for that infrastructure to go unused the majority of the time. \n</p>
+
+<p>Azure (and cloud adoption in general) boasts many benefits beyond cost optimisation. Azure also gave McSkidy access to lots of cloud services ranging from identity management to data ingestion (quite frankly, there are more services than can be abbreviated in a sentence as, at the time of writing, there are over 200), these services can be used to build, deploy, and manage McSkidy’s current infrastructure as well as give her the options to upgrade or build new applications in the future given the range of services available. A couple of Azure services will come up during the Glitch’s attack path. Let’s take a look at them now:</p>
+
+<p><strong>Azure Key Vault</strong></p>
+
+<p>Azure Key Vault is an Azure service that allows users to securely store and access secrets. These secrets can be anything from API Keys, certificates, passwords, cryptographic keys, and more. Essentially, anything you want to keep safe, away from the eyes of others, and easily configure and restrict access to is what you want to store in an Azure Key Vault.</p>
+
+<p>The secrets are stored in vaults, which are created by vault owners. Vault owners have full access and control over the vault, including the ability to enable auditing so a record is kept of who accessed what secrets and grant permissions for other users to access the vault (known as <strong>vault consumers</strong>). McSkidy uses this service to store secrets related to evidence and has been entrusted to store some of Wareville’s town secrets here.</p>
+
+<p><strong>Microsoft Entra ID</strong></p>
+
+<p>McSkidy also needed a way to grant users access to her system and be able to secure and organise their access easily. So, a Wareville town member could easily access or update their secret. Microsoft Entra ID (formerly known as Azure Active Directory) is Azure’s solution. Entra ID is an identity and access management (IAM) service. In short, it has the information needed to assess whether a user/application can access X resource. In the case of the Wareville town members, they made an Entra ID account, and McSkidy assigned the appropriate permissions to this account.</p>
+
+<p>With that covered, let’s see what the Glitch has come up with.</p>
+
+<h2 id="assumed-breach-scenario">Assumed Breach Scenario</h2>
+
+<p>Knowing that a potential breach had happened, McSkidy decided to conduct an Assumed Breach testing within their Azure tenant. The Assumed Breach scenario is a type of penetration testing setup in which an initial access or foothold is provided, mimicking the scenario in which an attacker has already established its access inside the internal network.</p>
+
+<p>In this setup, the mindset is to assess how far an attacker can go once they get inside your network, including all possible attack paths that could branch out from the defined starting point of intrusion.</p>
+
+<h2 id="connecting-to-the-environment">Connecting to the Environment</h2>
+
+<p>Before moving forward, review the questions in the connection card shown below: \n</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5dbea226085ab6182a2ee0f7/room-content/5dbea226085ab6182a2ee0f7-1731679222152.png" alt="Connection card for Cloud Access and Credentials." /> \n</p>
+
+<p>For this Assumed Breach testing of Wareville’s tenant, McSkidy will provide valid credentials. To get the credentials, click the <strong>Cloud Details</strong> button below.</p>
+
+<p>Next, click the <strong>Join Lab</strong> button to generate your credentials.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5dbea226085ab6182a2ee0f7/room-content/5dbea226085ab6182a2ee0f7-1732022044862.png" alt="Generating credentials for Azure." /> \n</p>
+
+<p>You may view the credentials by clicking the <strong>Credentials</strong> tab.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5dbea226085ab6182a2ee0f7/room-content/5dbea226085ab6182a2ee0f7-1732022071488.png" alt="Viewing the credentials in the Credentials tab." /> \n</p>
+
+<p>To use the credentials, click the <strong>Open Lab</strong> button in the <strong>Environment</strong> tab. This will open the <a href="https://portal.azure.com/">Azure Portal</a> login page, so kindly use the recently generated credentials to authenticate to the Azure Portal.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5dbea226085ab6182a2ee0f7/room-content/5dbea226085ab6182a2ee0f7-1732022209026.png" alt="Going to the Azure Portal via the Open Lab button." /> \n</p>
+
+<p>After logging in, you will encounter an MFA configuration prompt. Kindly click the <strong>Ask Later</strong> button to proceed.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5dbea226085ab6182a2ee0f7/room-content/5dbea226085ab6182a2ee0f7-1732022425034.png" alt="Skipping the MFA configuration." /> \n</p>
+
+<p>Lastly, click the <strong>Cancel</strong> button when prompted with the <strong>Welcome to Microsoft Azure</strong> banner.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5dbea226085ab6182a2ee0f7/room-content/5dbea226085ab6182a2ee0f7-1732022425433.png" alt="Skipping the Azure welcome banner." /></p>
+
+<p><strong>Note:</strong> The Azure Portal may default to your local language, so you may follow these steps if you prefer to switch it to English.</p>
+
+<ol>
+  <li>Click on the settings icon in the top panel.</li>
+  <li>On the right-hand side, click on “Language + Region”.</li>
+  <li>Change the language to English (or your preferred choice) using the dropdown menu.</li>
+  <li>Click the “Apply” button below.</li>
+</ol>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5dbea226085ab6182a2ee0f7/room-content/5dbea226085ab6182a2ee0f7-1732022969184.png" alt="Configuring the language settings." /> \n</p>
+
+<p><strong>Azure Cloud Shell</strong></p>
+
+<p>Azure Cloud Shell is a browser-based command-line interface that provides developers and IT professionals a convenient and powerful way to manage Azure resources. It integrates both Bash and PowerShell environments, allowing users to execute scripts, manage Azure services, and run commands directly from their web browser without needing local installation. Cloud Shell has built-in tools and pre-configured environments, including Azure CLI, Azure PowerShell, and popular development tools, making it an efficient solution for cloud management and automation tasks.</p>
+
+<p><strong>Azure CLI</strong></p>
+
+<p>Azure Command-Line Interface, or Azure CLI, is a command-line tool for managing and configuring Azure resources. The Glitch relied heavily on this tool while reviewing the Wareville tenant, so let’s use the same one while walking through the Azure attack path.</p>
+
+<p>As mentioned above, Azure CLI is part of the built-in tools inside the Cloud Shell, so go back to the <a href="https://portal.azure.com/">Azure portal</a> and launch Azure Cloud Shell by clicking on the terminal icon shown below:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5dbea226085ab6182a2ee0f7/room-content/5dbea226085ab6182a2ee0f7-1731679657004.png" alt="Azure Portal Cloud Shell button." /> \n</p>
+
+<p>Select Bash, since we will be executing Azure CLI commands.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5efbaebdaaea011c857b438d/room-content/5efbaebdaaea011c857b438d-1729952192089.png" alt="Bash or PowerShell options for Azure Cloud Shell." /></p>
+
+<p>To get started, select <code class="language-plaintext highlighter-rouge">No storage account required</code> and choose <code class="language-plaintext highlighter-rouge">Az-Subs-AoC</code> for the subscription.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5efbaebdaaea011c857b438d/room-content/5efbaebdaaea011c857b438d-1729952373608.png" alt="Getting started instructions for Azure Cloud Shell." /></p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5efbaebdaaea011c857b438d/room-content/5efbaebdaaea011c857b438d-1729952645147.png" alt="Initial Azure Cloud Shell prompt." /></p>
+
+<p>At this point, we are ready to execute Azure CLI commands in the Azure Cloud Shell. Note that all the following commands are to be executed in the Azure Cloud Shell. \n</p>
+
+<p>Azure Cloud Shell</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>           <span class="nx">usr</span><span class="o">-</span><span class="nx">xxxxxxxx</span> <span class="p">[</span> <span class="o">~</span> <span class="p">]</span><span class="nx">$</span> <span class="nx">az</span> <span class="nx">ad</span> <span class="nx">signed</span><span class="o">-</span><span class="k">in</span><span class="o">-</span><span class="nx">user</span> <span class="nx">show</span>
+
+</code></pre></div></div>
+
+<p>** \n Note:** You don’t need to authenticate using<code class="language-plaintext highlighter-rouge">az login</code>as you have already been authenticated into the Azure portal. \n</p>
+
+<p>You can confirm that the credentials worked if the succeeding output renders the authenticated user details.</p>
+
+<p>Azure Cloud Shell</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>           <span class="p">{</span>
+  <span class="dl">"</span><span class="s2">@odata.context</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://graph.microsoft.com/v1.0/$metadata#users/$entity</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">businessPhones</span><span class="dl">"</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="dl">"</span><span class="s2">displayName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">usr-xxxxxxxx</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">givenName</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3970058b-7741-49c5-b1a7-191540995f7a</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">jobTitle</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">mail</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">mobilePhone</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">officeLocation</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">preferredLanguage</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">surname</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">userPrincipalName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">usr-xxxxxxxx@aoc2024.onmicrosoft.com</span><span class="dl">"</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<h2 id="n-going-down-the-azure-rabbit-hole">\n Going Down the Azure Rabbit Hole</h2>
+
+<p>When the Glitch got hold of an initial account in Wareville’s Azure tenant, he had no idea what was inside it. So, he decided to enumerate first the existing users and groups within the tenant.</p>
+
+<p><strong>Entra ID Enumeration</strong></p>
+
+<p>Using the current account, let’s start by listing all the users in the tenant. \n <strong>Note:</strong> This command might take a while depending on the amount of user accounts available, so feel free to skip it.</p>
+
+<p>Azure Cloud Shell</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>           <span class="nx">usr</span><span class="o">-</span><span class="nx">xxxxxxxx</span> <span class="p">[</span> <span class="o">~</span> <span class="p">]</span><span class="nx">$</span> <span class="nx">az</span> <span class="nx">ad</span> <span class="nx">user</span> <span class="nx">list</span>
+
+</code></pre></div></div>
+
+<p>\n The Azure CLI typically uses the following command syntax:<code class="language-plaintext highlighter-rouge">az GROUP SUBGROUP ACTION OPTIONAL_PARAMETERS</code>. Given this, the command above can be broken down into:</p>
+
+<ul>
+  <li>Target group or service: <code class="language-plaintext highlighter-rouge">ad</code> (Azure AD or Entra ID)</li>
+  <li>Target subgroup: <code class="language-plaintext highlighter-rouge">user</code> (Azure AD users)</li>
+  <li>Action: <code class="language-plaintext highlighter-rouge">list</code></li>
+</ul>
+
+<p><strong>Note:</strong> To see the available commands, you may execute <code class="language-plaintext highlighter-rouge">az -h</code> or <code class="language-plaintext highlighter-rouge">az GROUP -h</code>.</p>
+
+<p>After executing the command, you might have been overwhelmed with the number of accounts listed. For a better view, let’s follow McSkidy’s suggestion to only look for the accounts prepended with <code class="language-plaintext highlighter-rouge">wvusr-</code>. According to her, these accounts are more interesting than the other ones. To do this, we will use the <code class="language-plaintext highlighter-rouge">--filter</code> parameter and filter all accounts that start with <code class="language-plaintext highlighter-rouge">wvusr-</code>.</p>
+
+<p>Azure Cloud Shell</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>           <span class="nx">usr</span><span class="o">-</span><span class="nx">xxxxxxxx</span> <span class="p">[</span> <span class="o">~</span> <span class="p">]</span><span class="nx">$</span> <span class="nx">az</span> <span class="nx">ad</span> <span class="nx">user</span> <span class="nx">list</span> <span class="o">--</span><span class="nx">filter</span> <span class="dl">"</span><span class="s2">startsWith('wvusr-', displayName)</span><span class="dl">"</span>
+
+</code></pre></div></div>
+
+<p>\n You may observe that an unusual parameter was set to a specific account in the output. One of the users,<strong>wvusr-backupware</strong>, has its password stored in one of the fields.</p>
+
+<p>Azure Cloud Shell</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>           <span class="p">...</span>
+  <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">businessPhones</span><span class="dl">"</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="dl">"</span><span class="s2">displayName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">wvusr-backupware</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">givenName</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1db95432-0c46-45b8-b126-b633ae67e06c</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">jobTitle</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">mail</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">mobilePhone</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">officeLocation</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">REDACTED</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">preferredLanguage</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">surname</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">userPrincipalName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">wvusr-backupware@aoc2024.onmicrosoft.com</span><span class="dl">"</span>
+  <span class="p">},</span>
+<span class="p">...</span>
+
+</code></pre></div></div>
+
+<p>\n When the Glitch saw this one, he immediately thought it could be the first step taken by the intruder to gain further access inside the tenant. However, he decided to continue the initial reconnaissance of users and groups. Now, let’s continue by listing the groups.</p>
+
+<p>Azure Cloud Shell</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>           <span class="nx">usr</span><span class="o">-</span><span class="nx">xxxxxxxx</span> <span class="p">[</span> <span class="o">~</span> <span class="p">]</span><span class="nx">$</span> <span class="nx">az</span> <span class="nx">ad</span> <span class="nx">group</span> <span class="nx">list</span>
+<span class="p">[</span>
+  <span class="p">{</span>
+    <span class="o">---</span><span class="nx">REDACTED</span> <span class="nx">FOR</span> <span class="nx">BREVITY</span><span class="o">---</span>
+    <span class="dl">"</span><span class="s2">description</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Group for recovering Wareville's secrets</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">displayName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Secret Recovery Group</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">expirationDateTime</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="o">---</span><span class="nx">REDACTED</span> <span class="nx">FOR</span> <span class="nx">BREVITY</span><span class="o">---</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+
+</code></pre></div></div>
+
+<p>\n <strong>Note:</strong> You may observe that we just changed the previous command from <code class="language-plaintext highlighter-rouge">az ad user list</code> to <code class="language-plaintext highlighter-rouge">az ad group list</code>.</p>
+
+<p>Given the output, it can be seen that a group named <code class="language-plaintext highlighter-rouge">Secret Recovery Group</code> exists. This is kind of an interesting group because of the description, so let’s follow the white rabbit and list the members of this group.</p>
+
+<p>Azure Cloud Shell</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>           <span class="nx">usr</span><span class="o">-</span><span class="nx">xxxxxxxx</span> <span class="p">[</span> <span class="o">~</span> <span class="p">]</span><span class="nx">$</span> <span class="nx">az</span> <span class="nx">ad</span> <span class="nx">group</span> <span class="nx">member</span> <span class="nx">list</span> <span class="o">--</span><span class="nx">group</span> <span class="dl">"</span><span class="s2">Secret Recovery Group</span><span class="dl">"</span>
+<span class="p">[</span>
+  <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">@odata.type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">#microsoft.graph.user</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">businessPhones</span><span class="dl">"</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="dl">"</span><span class="s2">displayName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">wvusr-backupware</span><span class="dl">"</span><span class="p">,</span>
+    <span class="o">---</span><span class="nx">REDACTED</span> <span class="nx">FOR</span> <span class="nx">BREVITY</span><span class="o">---</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+
+</code></pre></div></div>
+
+<p>\n Given the previous output, it looks like everything makes a little sense now. All of the previous commands seem to point to the<code class="language-plaintext highlighter-rouge">wvusr-backupware</code> account. Since we have seen a potential set of credentials, let’s jump to another user by clearing the current Azure CLI account session and logging in with the new account.</p>
+
+<p>Azure Cloud Shell</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>           <span class="nx">usr</span><span class="o">-</span><span class="nx">xxxxxxxx</span> <span class="p">[</span> <span class="o">~</span> <span class="p">]</span><span class="nx">$</span> <span class="nx">az</span> <span class="nx">account</span> <span class="nx">clear</span>
+<span class="nx">usr</span><span class="o">-</span><span class="nx">xxxxxxxx</span> <span class="p">[</span> <span class="o">~</span> <span class="p">]</span><span class="nx">$</span> <span class="nx">az</span> <span class="nx">login</span> <span class="o">-</span><span class="nx">u</span> <span class="nx">EMAIL</span> <span class="o">-</span><span class="nx">p</span> <span class="nx">PASSWORD</span>
+
+</code></pre></div></div>
+
+<p>\n <strong>Note:</strong> Replace the values with the actual email and password of the newly discovered account.</p>
+
+<p><strong>Azure Role Assignments</strong> \n</p>
+
+<p>Since the <code class="language-plaintext highlighter-rouge">wvusr-backupware</code> account belongs to an interesting group, the Glitch’s first hunch is to see whether sensitive or privileged roles are assigned to the group. And his thought was, “It doesn’t make sense to name it like this if it can’t do anything, right McSkidy?”. But before checking the assigned roles, let’s have a quick run-through of Azure Role Assignments.</p>
+
+<p><strong>Azure Role Assignments</strong> define the resources that each user or group can access. When a new user is created via Entra ID, it cannot access any resource by default due to a lack of role. To grant access, an administrator must assign a <strong>role</strong> to let users view or manage a specific resource. The privilege level configured in a role ranges from read-only to full-control. Additionally, <strong>group members can inherit a role</strong>when assigned to a group. \n</p>
+
+<p>Returning to the Azure enumeration, let’s see if a role is assigned to the Secret Recovery Group. We will be using the <code class="language-plaintext highlighter-rouge">--all</code> option to list all roles within the Azure subscription, and we will be using the <code class="language-plaintext highlighter-rouge">--assignee</code> option with the group’s ID to render only the ones related to our target group.</p>
+
+<p>Azure Cloud Shell</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>           <span class="nx">usr</span><span class="o">-</span><span class="nx">xxxxxxxx</span> <span class="p">[</span> <span class="o">~</span> <span class="p">]</span><span class="nx">$</span> <span class="nx">az</span> <span class="nx">role</span> <span class="nx">assignment</span> <span class="nx">list</span> <span class="o">--</span><span class="nx">assignee</span> <span class="nx">REPLACE_WITH_SECRET_RECOVERY_GROUP_ID</span> <span class="o">--</span><span class="nx">all</span>
+<span class="p">[</span>
+  <span class="p">{</span>
+    <span class="o">---</span><span class="nx">REDACTED</span> <span class="nx">FOR</span> <span class="nx">BREVITY</span><span class="o">---</span>
+    <span class="dl">"</span><span class="s2">principalName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Secret Recovery Group</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">roleDefinitionName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Key Vault Secrets User</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">scope</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">/subscriptions/{subscriptionId}/resourceGroups/rog-aoc-kv/providers/Microsoft.KeyVault/vaults/warevillesecrets</span><span class="dl">"</span><span class="p">,</span>
+    <span class="o">---</span><span class="nx">REDACTED</span> <span class="nx">FOR</span> <span class="nx">BREVITY</span><span class="o">---</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="o">---</span><span class="nx">REDACTED</span> <span class="nx">FOR</span> <span class="nx">BREVITY</span><span class="o">---</span>
+    <span class="dl">"</span><span class="s2">principalName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Secret Recovery Group</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">roleDefinitionName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Key Vault Reader</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">scope</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">/subscriptions/{subscriptionId}/resourceGroups/rog-aoc-kv/providers/Microsoft.KeyVault/vaults/warevillesecrets</span><span class="dl">"</span><span class="p">,</span>
+    <span class="o">---</span><span class="nx">REDACTED</span> <span class="nx">FOR</span> <span class="nx">BREVITY</span><span class="o">---</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+
+</code></pre></div></div>
+
+<p>\n <strong>Note:</strong> You may retrieve the group ID from the command executed previously: <code class="language-plaintext highlighter-rouge">az ad group list</code>.</p>
+
+<p>The output seems slightly overwhelming, so let’s break it down.</p>
+
+<ul>
+  <li>First, it can be seen that there are two entries in the output, which means two roles are assigned to the group.</li>
+  <li>Based on the <code class="language-plaintext highlighter-rouge">roleDefinitionName</code> field, the two roles are <code class="language-plaintext highlighter-rouge">Key Vault Reader</code> and <code class="language-plaintext highlighter-rouge">Key Vault Secrets User</code>.</li>
+  <li>Both entries have the same scope value, pointing to a Microsoft Key Vault resource, specifically on the <code class="language-plaintext highlighter-rouge">warevillesecrets</code> vault.</li>
+</ul>
+
+<p>Here’s the definition of the roles based on the <a href="https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles">Microsoft documentation</a>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Role</strong></th>
+      <th><strong>Microsoft Definition</strong></th>
+      <th><strong>Explanation</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Key Vault Reader</td>
+      <td>Read metadata of key vaults and its certificates, keys, and secrets.</td>
+      <td>This role allows you to read metadata of key vaults and its certificates, keys, and secrets. Cannot read sensitive values such as secret contents or key material.</td>
+    </tr>
+    <tr>
+      <td>Key Vault Secrets User</td>
+      <td>Read secret contents. Only works for key vaults that use the ‘Azure role-based access control’ permission model. \n</td>
+      <td>This special role allows you to read the contents of a Key Vault Secret.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>After seeing both of these roles, McSkidy immediately realised everything! This configuration allowed the attacker to access the sensitive data they were protecting. Now that she knew this, she asked the Glitch to confirm her assumption.</p>
+
+<p><strong>Azure Key Vault</strong></p>
+
+<p>With McSkidy’s guidance, the Glitch is now tasked to verify if the current account, <strong>wvusr-backupware</strong>, can access the sensitive data. Let’s list the accessible key vaults by executing the command below.</p>
+
+<p>Azure Cloud Shell</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>           <span class="nx">usr</span><span class="o">-</span><span class="nx">xxxxxxxx</span> <span class="p">[</span> <span class="o">~</span> <span class="p">]</span><span class="nx">$</span> <span class="nx">az</span> <span class="nx">keyvault</span> <span class="nx">list</span>
+<span class="p">[</span>
+  <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">/subscriptions/{subscriptionId}/resourceGroups/rog-aoc-kv/providers/Microsoft.KeyVault/vaults/warevillesecrets</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">location</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">eastus</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">warevillesecrets</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">resourceGroup</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">rg-aoc-kv</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">tags</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">aoc</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">rg</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Microsoft.KeyVault/vaults</span><span class="dl">"</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+
+</code></pre></div></div>
+
+<p>\n The output above confirms the key vault discovered from the role assignments named<code class="language-plaintext highlighter-rouge">warevillesecrets</code>. Now, let’s see if secrets are stored in this key vault.</p>
+
+<p>Azure Cloud Shell</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>           <span class="nx">usr</span><span class="o">-</span><span class="nx">xxxxxxxx</span> <span class="p">[</span> <span class="o">~</span> <span class="p">]</span><span class="nx">$</span> <span class="nx">az</span> <span class="nx">keyvault</span> <span class="nx">secret</span> <span class="nx">list</span> <span class="o">--</span><span class="nx">vault</span><span class="o">-</span><span class="nx">name</span> <span class="nx">warevillesecrets</span>
+<span class="p">[</span>
+  <span class="p">{</span>
+    <span class="o">---</span><span class="nx">REDACTED</span> <span class="nx">FOR</span> <span class="nx">BREVITY</span><span class="o">---</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://warevillesecrets.vault.azure.net/secrets/REDACTED</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">managed</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">REDACTED</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">tags</span><span class="dl">"</span><span class="p">:</span> <span class="p">{}</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+
+</code></pre></div></div>
+
+<p>\n After executing the two previous commands, we confirmed that the<strong>Reader</strong> role allows us to view the key vault metadata, specifically the list of key vaults and secrets. Now, the only thing left to confirm is whether the current user can access the contents of the discovered secret with the <strong>Key Vault Secrets User</strong> role. This can be done by executing the following command.</p>
+
+<p>Azure Cloud Shell</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>           <span class="nx">usr</span><span class="o">-</span><span class="nx">xxxxxxxx</span> <span class="p">[</span> <span class="o">~</span> <span class="p">]</span><span class="nx">$</span> <span class="nx">az</span> <span class="nx">keyvault</span> <span class="nx">secret</span> <span class="nx">show</span> <span class="o">--</span><span class="nx">vault</span><span class="o">-</span><span class="nx">name</span> <span class="nx">warevillesecrets</span> <span class="o">--</span><span class="nx">name</span> <span class="nx">REDACTED</span>
+<span class="p">{</span>
+  <span class="o">---</span><span class="nx">REDACTED</span> <span class="nx">FOR</span> <span class="nx">BREVITY</span><span class="o">---</span>
+  <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://warevillesecrets.vault.azure.net/secrets/REDACTED/20953fbf6d51464299b30c6356b378fd</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">kid</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">managed</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">REDACTED</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">tags</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="dl">"</span><span class="s2">value</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">REDACTED</span><span class="dl">"</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>** \n Note:** Replace the value of the<code class="language-plaintext highlighter-rouge">--name</code> parameter with the actual secret name.</p>
+
+<p>“Bingo!” the Glitch exclaimed as he saw the output above. McSkidy had confirmed her nightmare that a regular user could escalate their way into the secrets of Wareville.</p>
+
+<p>With that, the Glitch had helped McSkidy to find the attack path that had been taken to escalate a user’s privileges and a lot had been learned in the process. The only question that remained was who had initially carried out the attack in the first place. There was a very limited set of Wares who had access to this tenant and with user visibility, and with that set of permissions, only town officials who perform governance validation on the tenant to ensure all the town’s secrets are being stored securely. The focus then turns to the motive; the only thing accessed was an access key stored in the key vault, which grants access to an evidence file stored elsewhere. The evidence in this file was in relation to recent cyber events this month in Wareville. We’ll have to keep our eyes peeled in the following days to get to the bottom of this.</p>
+
+<h2 id="answer-the-questions-below">Answer the questions below</h2>
+
+<p>What is the password for backupware that was leaked?</p>
+
+<p>R3c0v3r_s3cr3ts!</p>
+
+<p>What is the group ID of the Secret Recovery Group?</p>
+
+<p>7d96660a-02e1-4112-9515-1762d0cb66b7</p>
+
+<p>What is the name of the vault secret?</p>
+
+<p>aoc2024</p>
+
+<p>What are the contents of the secret stored in the vault?</p>
+
+<p>WhereIsMyMind1999</p>
+
+<p>Liked today’s task? Check the <a href="https://tryhackme.com/r/room/exploitingad">Exploiting Active Directory</a> room to practice user and group enumeration in a similar yet different environment!</p>
+
+  </article>
+  
+    <div class="post-share">
+  <div class="post-date">Feel free to share!</div>
+  <div class="sharing-icons">
+    <a href="https://twitter.com/intent/tweet?text=TryHackMe Advent of Cyber 2024 -Day 16&amp;url=/Day16" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=/Day16&amp;title=TryHackMe Advent of Cyber 2024 -Day 16" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+  
+  
+    <div class="related">
+  <h2>You may also enjoy...</h2>
+  
+  <ul class="related-posts">
+    
+  </ul>
+</div>
+
+  
+  
+    <section class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname = "millennial-3";
+    var disqus_identifier = "/Day16";
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+  
+</div>
+
+      </div>
+      <footer class="footer">
+  
+    <a href="https://twitter.com/mberger" class="menu-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  
+    <a href="feed.xml" class="menu-link" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+  
+  <div class="footer-description"><a href="/">THM Advent of Cyber 2024 | a minimalist Jekyll theme for running a blog or publication by Michael</a></div>
+</footer>
+
+    </div>
+  </body>
+</html>

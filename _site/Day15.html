@@ -1,0 +1,538 @@
+<!doctype html>
+<html>
+  <head>
+  <title>
+    
+      TryHackMe Advent of Cyber 2024 - Day 15 | THM Advent of Cyber 2024
+    
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  <!-- Use Atom -->
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="THM Advent of Cyber 2024" />
+  <!-- RSS-v2.0
+  <link href="/rss-feed.xml" type="application/rss+xml" rel="alternate" title="THM Advent of Cyber 2024 | a minimalist Jekyll theme for running a blog or publication"/>
+  //-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Source+Code+Pro">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+  <!-- Google Analytics -->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'G-MSZW3HWGH8', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  <!-- Use Jekyll SEO plugin -->
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>TryHackMe Advent of Cyber 2024 - Day 15 | THM Advent of Cyber 2024</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="TryHackMe Advent of Cyber 2024 - Day 15" />
+<meta name="author" content="Michael" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The Story" />
+<meta property="og:description" content="The Story" />
+<link rel="canonical" href="http://localhost:4000/Day15" />
+<meta property="og:url" content="http://localhost:4000/Day15" />
+<meta property="og:site_name" content="THM Advent of Cyber 2024" />
+<meta property="og:image" content="http://localhost:4000/Day15Header.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-12-15T00:00:00-05:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="http://localhost:4000/Day15Header.png" />
+<meta property="twitter:title" content="TryHackMe Advent of Cyber 2024 - Day 15" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Michael"},"dateModified":"2024-12-15T00:00:00-05:00","datePublished":"2024-12-15T00:00:00-05:00","description":"The Story","headline":"TryHackMe Advent of Cyber 2024 - Day 15","image":"http://localhost:4000/Day15Header.png","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/Day15"},"url":"http://localhost:4000/Day15"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+  <body>
+    <div class="container">
+      <header class="site-header">
+  <h3 class="site-title">
+    <a href="/">THM Advent of Cyber 2024</a>
+  </h3>
+  <nav class="menu-list">
+    
+      <a href="/about" class="menu-link">About</a>
+    
+      <a href="/contact" class="menu-link">Contact</a>
+    
+    
+      <a href="https://twitter.com/mberger" class="menu-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+    
+      <a href="feed.xml" class="menu-link" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+    
+  </nav>
+  <div class="dropdown">
+    <button class="dropbtn"><i class="fa fa-bars" aria-hidden="true"></i></button>
+    <div class="dropdown-content">
+      
+        <a href="/about" class="menu-link">About</a>
+      
+        <a href="/contact" class="menu-link">Contact</a>
+      
+      
+        <a href="https://twitter.com/mberger" class="menu-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+      
+        <a href="feed.xml" class="menu-link" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+      
+    </div>
+  </div>
+</header>
+
+      <div class="content-wrapper">
+        <div class="post-content">
+  <h1>
+    TryHackMe Advent of Cyber 2024 - Day 15
+  </h1>
+  
+    <span class="post-date">
+  Written on
+  
+  December
+  15th,
+  2024
+  by
+  
+    Michael
+  
+</span>
+
+  
+  
+    <div class="featured-image">
+      <img src="/assets/img/Day15Header.png">
+    </div>
+  
+  <article>
+    <p>The Story</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5fc2847e1bbebc03aa89fbf2/room-content/5fc2847e1bbebc03aa89fbf2-1731939602671.png" alt="Task banner for day DAY 15" /></p>
+
+<p>Ahead of SOC-mas, the team decided to do a routine security check of one of their Active Directory domain controllers. Upon some quick auditing, the team noticed something was off. Could it be? The domain controller has been breached? With sweat on their brows, the SOC team smashed the glass and hit the panic alarm. There’s only one person who can save us…</p>
+
+<h2 id="learning-objectives">Learning Objectives</h2>
+
+<ul>
+  <li>Learn about the structures of Active Directory.</li>
+  <li>Learn about common Active Directory attacks.</li>
+  <li>Investigate a breach against an Active Directory.</li>
+</ul>
+
+<h2 id="connecting-to-the-machine">Connecting to the Machine</h2>
+
+<p>Before moving forward, review the questions in the connection card shown below.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/66c44fd9733427ea1181ad58/room-content/66c44fd9733427ea1181ad58-1730733634851.png" alt="Banner showing the connection details for this room." /></p>
+
+<p>Click the green <strong>Start Machine</strong> button below to start the virtual machine in split-view. The VM should be fully loaded in 2 minutes.</p>
+
+<p>Start Machine</p>
+
+<p>If the VM is not visible, use the blue Show Split View button at the top of the page. The credentials to connect to the machine directly using RDP have been provided below. Remember, you will need to be connected to the TryHackMe VPN to do so.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63588b5ef586912c7d03c4f0/room-content/be629720b11a294819516c1d4e738c92.png" alt="THM Key Credentials" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Username</strong></th>
+      <th>WAREVILLE\Administrator</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Password</strong></td>
+      <td>AOCInvestigations!</td>
+    </tr>
+    <tr>
+      <td><strong>IP</strong></td>
+      <td>MACHINE_IP</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="introducing-active-directory">Introducing Active Directory</h2>
+
+<p>Before diving into Active Directory, let us understand how network infrastructures can be mapped out and ensure that access to resources is well managed. This is typically done through <strong>Directory Services,</strong> which map and provide access to network resources within an organisation. The <strong>Lightweight Directory Access Protocol (LDAP)</strong> forms the core of Directory Services. It provides a mechanism for accessing and managing directory data to ensure that searching for and retrieving information about subjects and objects such as users, computers, and groups is quick.</p>
+
+<p><strong>Active Directory</strong> (AD) is, therefore, a Directory Service at the heart of most enterprise networks that stores information about objects in a network. The associated objects can include:</p>
+
+<ul>
+  <li><strong>Users</strong>: Individual accounts representing people or services</li>
+  <li><strong>Groups</strong>: Collections of users or other objects, often with specific permissions</li>
+  <li><strong>Computers</strong>: Machines that belong to the domain governed by AD policies</li>
+  <li><strong>Printers</strong> and other <strong>resources</strong>: Network-accessible devices or services</li>
+</ul>
+
+<p>The building blocks of an AD architecture include:</p>
+
+<ul>
+  <li><strong>Domains</strong>: Logical groupings of network resources such as users, computers, and services. They serve as the main boundary for AD administration and can be identified by their <strong>Domain Component and Domain Controller</strong> name. Everything inside a domain is subject to the same security policies and permissions.</li>
+  <li><strong>Organisational Units (OUs)</strong>: OUs are containers within a domain that help group objects based on departments, locations or functions for easier management. Administrators can apply Group Policy settings to specific OUs, allowing more granular control of security settings or access permissions.</li>
+  <li><strong>Forest</strong>: A collection of one or more domains that share a standard schema, configuration, and global catalogue. The forest is the top-level container in AD.</li>
+  <li><strong>Trust Relationships</strong>: Domains within a forest (and across forests) can establish trust relationships that allow users in one domain to access resources in another, subject to permission.</li>
+</ul>
+
+<p>Combining all these components allows us to establish the <strong>Distinguished Name (DN)</strong> that an object belongs to within the AD. The structure of the name would be as follows:</p>
+
+<p><code class="language-plaintext highlighter-rouge">DN=CN=Mayor Malware, OU=Management, DC=wareville, DC=thm</code></p>
+
+<p><strong>Core Active Directory Components</strong></p>
+
+<p>Active Directory contains several key components that allow it to provide a wide range of services. Understanding these components will give one a clear picture of how AD supports administrative and security operations.</p>
+
+<ul>
+  <li><strong>Domain Controllers (DCs):</strong> Domain Controllers are the servers that host Active Directory services. They store the AD database and handle authentication and authorisation requests, such as logging in users or verifying access to resources. Multiple DCs can exist within a domain for redundancy. When changes are made to AD (such as adding users or updating passwords), these changes are replicated across all DCs, ensuring that the directory remains consistent.</li>
+  <li><strong>Global Catalog:</strong> The Global Catalog (GC) is a searchable database within AD that contains a subset of information from all objects in the directory. This allows users and services to locate objects in any domain in the forest, even if those objects reside in different domains.</li>
+  <li><strong>LDAP (Lightweight Directory Access Protocol):</strong> AD uses this protocol to query and modify the directory. The protocol allows for fast searching and retrieving of information about objects such as users, computers, and groups.</li>
+  <li><strong>Kerberos Authentication:</strong> The default authentication protocol used by AD provides secure authentication by using tickets rather than passwords.</li>
+</ul>
+
+<p><strong>Group Policy</strong></p>
+
+<p>One of Active Directory’s most powerful features is <strong>Group Policy</strong>, which allows administrators to enforce policies across the domain. Group Policies can be applied to users and computers to enforce password policies, software deployment, firewall settings, and more.</p>
+
+<p><strong>Group Policy Objects (GPOs)</strong> are the containers that hold these policies. A GPO can be linked to the entire domain, an OU, or a site, giving the flexibility in applying policies.</p>
+
+<p>Let us say that McSkidy wants to ensure that all users within Wareville’s SOC follow a strict password policy, enforcing minimum password lengths and complexity rules. Here is how it would be done:</p>
+
+<ol>
+  <li>Using the Run window, open <strong>Group Policy Management</strong> from your server by typing <code class="language-plaintext highlighter-rouge">gpmc.msc</code>.</li>
+  <li>Right-click your domain and select <strong>“Create a GPO in this domain, and Link it here”</strong>. Name the new GPO <strong>“Password Policy”</strong>.</li>
+  <li>Edit the GPO by navigating to <strong>Computer Configuration -&gt; Policies -&gt; Windows Settings -&gt; Security Settings -&gt; Account Policies -&gt; Password Policy</strong>.</li>
+  <li>Configure the following settings:
+    <ul>
+      <li>Minimum password length: 12 characters</li>
+      <li>Enforce password history: 10 passwords</li>
+      <li>Maximum password age: 90 days</li>
+      <li>Password must meet complexity requirements: Enabled</li>
+    </ul>
+  </li>
+  <li>Click <strong>OK</strong>, then link this GPO to the domain or specific OUs you want to target.</li>
+</ol>
+
+<p>This policy will now be applied across the domain, ensuring all users meet these password requirements.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5fc2847e1bbebc03aa89fbf2/room-content/5fc2847e1bbebc03aa89fbf2-1732022781821.png" alt="Creating and editing GPO settings for Password Policy." /></p>
+
+<h2 id="common-active-directory-attacks">Common Active Directory Attacks</h2>
+
+<p>Adversaries are always looking for ways to breach and exploit Active Directory environments to destabilise and cause havoc to organisations. Working with Glitch to secure SOC-mas requires us to know common attacks and their mitigation measures.</p>
+
+<p><img src="https://assets.tryhackme.com/additional/tickets/ticket.svg" alt="Golden tickets representation." /></p>
+
+<p><strong>Golden Ticket Attack</strong></p>
+
+<p>A <strong>Golden Ticket</strong> attack allows attackers to exploit the Kerberos protocol and impersonate any account on the AD by forging a Ticket Granting Ticket (TGT). By compromising the <strong>krbtgt</strong> account and using its password hash, the attackers gain complete control over the domain for as long as the forged ticket remains valid. The attack requires four critical pieces of information to be successful:</p>
+
+<ul>
+  <li>Fully Qualified Domain Name (FQDN) of the domain</li>
+  <li>SID of the domain</li>
+  <li>Username of an account to impersonate</li>
+  <li>KRBTGT account password hash</li>
+</ul>
+
+<p>Detection for this type of attack involves monitoring for unusual activity involving the <strong>krbtgt</strong></p>
+
+<ul>
+  <li><strong>Event ID 4768</strong>: Look for TGT requests for high-privilege accounts.</li>
+  <li><strong>Event ID 4672</strong>: This logs when special privileges (such as SeTcbPrivilege) are assigned to a user.</li>
+</ul>
+
+<p><strong>Pass-the-Hash</strong></p>
+
+<p>This type of attack steals the hash of a password and can be used to authenticate to services without needing the actual password. This is possible because the NTLM protocol allows authentication based on password hashes.</p>
+
+<p>Key ways to mitigate this attack are enforcing strong password policies, conducting regular audits on account privileges, and implementing multi-factor authentication across the domain.</p>
+
+<p><strong>Kerberoasting</strong></p>
+
+<p><strong>Kerberoasting</strong> is an attack targeting Kerberos in which the attacker requests service tickets for accounts with Service Principal Names (SPNs), extracts the tickets and password hashes, and then attempts to crack them offline to retrieve the plaintext password.</p>
+
+<p>Mitigation for this type of attack involves ensuring that service accounts are secured with strong passwords, and therefore, implementing secure policies across the AD would be the defence.</p>
+
+<p><strong>Pass-the-Ticket</strong></p>
+
+<p>In a <strong>Pass-the-Ticket</strong> attack, attackers steal Kerberos tickets from a compromised machine and use them to authenticate as the user or service whose ticket was stolen.</p>
+
+<p>This attack can be detected through monitoring for suspicious logins using <strong>Event ID 4768</strong> (TGT request), especially if a user is logging in from unusual locations or devices. Additionally, <strong>Event ID 4624</strong> (successful login) will reveal tickets being used for authentication.</p>
+
+<p><strong>Malicious GPOs</strong></p>
+
+<p>Adversaries are known to abuse Group Policy to create persistent, privileged access accounts and distribute and execute malware by setting up policies that mimic software deployment across entire domains. With escalated privileges across the domain, attackers can create GPOs to accomplish goals at scale, including disabling core security software and features such as firewalls, antivirus, security updates, and logging. Additionally, scheduled tasks can be created to execute malicious scripts or exfiltration data from affected devices across the domain.</p>
+
+<p>To mitigate against the exploitation of Group Policy, GPOs need to be regularly audited for unauthorised changes. Strict permissions and procedures for GPO modifications should also be enforced.</p>
+
+<p><strong>Skeleton Key Attack</strong></p>
+
+<p>In a <strong>Skeleton Key</strong> attack, attackers install a malware backdoor to log into any account using a master password. The legitimate password for each account would remain unchanged, but attackers can bypass it using the skeleton key password.</p>
+
+<h2 id="investigating-an-active-directory-breach">Investigating an Active Directory Breach</h2>
+
+<p><strong>Group Policy</strong></p>
+
+<p>As previously discussed in this task, Group Policy is a means to distribute configurations and policies to enrolled devices in the domain. For attackers, Group Policy is a lucrative means of spreading malicious scripts to multiple devices.</p>
+
+<p>Reviewing Group Policy Objects (GPOs) is a great investigation step. In this section, we will use PowerShell to audit our GPOs. First, we can use the <code class="language-plaintext highlighter-rouge">Get-GPO</code> cmdlet to list all GPOs installed on the domain controller.</p>
+
+<p>Listing all GPOs viaPowerShell</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">PS</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Users</span><span class="err">\</span><span class="nx">Administrator</span><span class="o">&gt;</span> <span class="nx">Get</span><span class="o">-</span><span class="nx">GPO</span> <span class="o">-</span><span class="nx">All</span>
+
+
+<span class="nx">DisplayName</span>      <span class="p">:</span> <span class="nx">Default</span> <span class="nx">Domain</span> <span class="nx">Policy</span>
+<span class="nx">DomainName</span>       <span class="p">:</span> <span class="nx">wareville</span><span class="p">.</span><span class="nx">thm</span>
+<span class="nx">Owner</span>            <span class="p">:</span> <span class="nx">WAREVILLE</span><span class="err">\</span><span class="nx">Domain</span> <span class="nx">Admins</span>
+<span class="nx">Id</span>               <span class="p">:</span> <span class="mi">31</span><span class="nx">b2f340</span><span class="o">-</span><span class="mi">016</span><span class="nx">d</span><span class="o">-</span><span class="mi">11</span><span class="nx">d2</span><span class="o">-</span><span class="mi">945</span><span class="nx">f</span><span class="o">-</span><span class="mi">00</span><span class="nx">c04fb984f9</span>
+<span class="nx">GpoStatus</span>        <span class="p">:</span> <span class="nx">AllSettingsEnabled</span>
+<span class="nx">Description</span>      <span class="p">:</span>
+<span class="nx">CreationTime</span>     <span class="p">:</span> <span class="mi">10</span><span class="o">/</span><span class="mi">14</span><span class="o">/</span><span class="mi">2024</span> <span class="mi">12</span><span class="p">:</span><span class="mi">17</span><span class="p">:</span><span class="mi">31</span> <span class="nx">PM</span>
+<span class="nx">ModificationTime</span> <span class="p">:</span> <span class="mi">10</span><span class="o">/</span><span class="mi">14</span><span class="o">/</span><span class="mi">2024</span> <span class="mi">12</span><span class="p">:</span><span class="mi">19</span><span class="p">:</span><span class="mi">28</span> <span class="nx">PM</span>
+<span class="nx">UserVersion</span>      <span class="p">:</span> <span class="nx">AD</span> <span class="nx">Version</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">SysVol</span> <span class="nx">Version</span><span class="p">:</span> <span class="mi">0</span>
+<span class="nx">ComputerVersion</span>  <span class="p">:</span> <span class="nx">AD</span> <span class="nx">Version</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">SysVol</span> <span class="nx">Version</span><span class="p">:</span> <span class="mi">3</span>
+<span class="nx">WmiFilter</span>        <span class="p">:</span>
+
+<span class="nx">DisplayName</span>      <span class="p">:</span> <span class="nx">Default</span> <span class="nx">Domain</span> <span class="nx">Controllers</span> <span class="nx">Policy</span>
+<span class="nx">DomainName</span>       <span class="p">:</span> <span class="nx">wareville</span><span class="p">.</span><span class="nx">thm</span>
+<span class="nx">Owner</span>            <span class="p">:</span> <span class="nx">WAREVILLE</span><span class="err">\</span><span class="nx">Domain</span> <span class="nx">Admins</span>
+<span class="nx">Id</span>               <span class="p">:</span> <span class="mi">6</span><span class="nx">ac1786c</span><span class="o">-</span><span class="mi">016</span><span class="nx">f</span><span class="o">-</span><span class="mi">11</span><span class="nx">d2</span><span class="o">-</span><span class="mi">945</span><span class="nx">f</span><span class="o">-</span><span class="mi">00</span><span class="nx">c04fb984f9</span>
+<span class="nx">GpoStatus</span>        <span class="p">:</span> <span class="nx">AllSettingsEnabled</span>
+<span class="nx">Description</span>      <span class="p">:</span>
+<span class="nx">CreationTime</span>     <span class="p">:</span> <span class="mi">10</span><span class="o">/</span><span class="mi">14</span><span class="o">/</span><span class="mi">2024</span> <span class="mi">12</span><span class="p">:</span><span class="mi">17</span><span class="p">:</span><span class="mi">31</span> <span class="nx">PM</span>
+<span class="nx">ModificationTime</span> <span class="p">:</span> <span class="mi">10</span><span class="o">/</span><span class="mi">14</span><span class="o">/</span><span class="mi">2024</span> <span class="mi">12</span><span class="p">:</span><span class="mi">17</span><span class="p">:</span><span class="mi">30</span> <span class="nx">PM</span>
+<span class="nx">UserVersion</span>      <span class="p">:</span> <span class="nx">AD</span> <span class="nx">Version</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">SysVol</span> <span class="nx">Version</span><span class="p">:</span> <span class="mi">0</span>
+<span class="nx">ComputerVersion</span>  <span class="p">:</span> <span class="nx">AD</span> <span class="nx">Version</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">SysVol</span> <span class="nx">Version</span><span class="p">:</span> <span class="mi">1</span>
+<span class="nx">WmiFilter</span>        <span class="p">:</span>
+
+<span class="nx">DisplayName</span>      <span class="p">:</span> <span class="nx">SetWallpaper</span> <span class="nx">GPO</span>
+<span class="nx">DomainName</span>       <span class="p">:</span> <span class="nx">wareville</span><span class="p">.</span><span class="nx">thm</span>
+<span class="nx">Owner</span>            <span class="p">:</span> <span class="nx">WAREVILLE</span><span class="err">\</span><span class="nx">Domain</span> <span class="nx">Admins</span>
+<span class="nx">Id</span>               <span class="p">:</span> <span class="nx">d634d7c1</span><span class="o">-</span><span class="nx">db7a</span><span class="o">-</span><span class="mi">4</span><span class="nx">c7a</span><span class="o">-</span><span class="nx">bf32</span><span class="o">-</span><span class="nx">efca23d93a56</span>
+<span class="nx">GpoStatus</span>        <span class="p">:</span> <span class="nx">AllSettingsEnabled</span>
+<span class="nx">Description</span>      <span class="p">:</span> <span class="nb">Set</span> <span class="nx">the</span> <span class="nx">wallpaper</span> <span class="k">of</span> <span class="nx">every</span> <span class="nx">domain</span> <span class="nx">joined</span> <span class="nx">machine</span>
+<span class="nx">CreationTime</span>     <span class="p">:</span> <span class="mi">10</span><span class="o">/</span><span class="mi">30</span><span class="o">/</span><span class="mi">2024</span> <span class="mi">9</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">36</span> <span class="nx">AM</span>
+<span class="nx">ModificationTime</span> <span class="p">:</span> <span class="mi">10</span><span class="o">/</span><span class="mi">30</span><span class="o">/</span><span class="mi">2024</span> <span class="mi">9</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">36</span> <span class="nx">AM</span>
+<span class="nx">UserVersion</span>      <span class="p">:</span> <span class="nx">AD</span> <span class="nx">Version</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">SysVol</span> <span class="nx">Version</span><span class="p">:</span> <span class="mi">0</span>
+<span class="nx">ComputerVersion</span>  <span class="p">:</span> <span class="nx">AD</span> <span class="nx">Version</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">SysVol</span> <span class="nx">Version</span><span class="p">:</span> <span class="mi">0</span>
+<span class="nx">WmiFilter</span>        <span class="p">:</span>
+</code></pre></div></div>
+
+<p>\n</p>
+
+<p>This would allow us to look for out-of-place GPOs. We can export a GPO to an HTML file for further investigation to make it easier to see what configurations the policy enforces. For this example, we will export the “SetWallpaper” GPO.</p>
+
+<p><em>Please note that this is a demonstration GPO, and isn’t present on the practical machine for today’s task.</em></p>
+
+<p>Exporting SetWallpaperGPO \n</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">PS</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Users</span><span class="err">\</span><span class="nx">Administrator</span><span class="o">&gt;</span> <span class="nx">Get</span><span class="o">-</span><span class="nx">GPOReport</span> <span class="o">-</span><span class="nx">Name</span> <span class="dl">"</span><span class="s2">SetWallpaper</span><span class="dl">"</span> <span class="o">-</span><span class="nx">ReportType</span> <span class="nx">HTML</span> <span class="o">-</span><span class="nx">Path</span> <span class="dl">"</span><span class="s2">.</span><span class="se">\</span><span class="s2">SetWallpaper.html</span><span class="dl">"</span>
+</code></pre></div></div>
+
+<p>\n</p>
+
+<p>Then, when opening the HTML file in the browser, we are presented with an overview of things such as:</p>
+
+<ul>
+  <li>When the policy was created and modified.</li>
+  <li>What devices or users the GPO applies to.</li>
+  <li>The permissions over the GPO.</li>
+  <li>The user or computer configurations that it enforces.</li>
+</ul>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/5de96d9ca744773ea7ef8c00-1730382678827.png" alt="SetWallpaper GPO in a HTML report for easier analysis. " /> \n</p>
+
+<p>From the screenshot above, we can see that the policy sets the Desktop Wallpaper of devices using the image located in C:\THM.jpg on the domain controller.</p>
+
+<p>Domains are naturally likely to have many GPOs. We can use the same Get-GPO cmdlet, with a bit of <em>PowerShell-fu</em> to list only those GPOs that were recently modified. This is a handy snippet because it highlights policies that were recently modified - perhaps by an attacker.</p>
+
+<p>Listing recently modified GPOs</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">PS</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Users</span><span class="err">\</span><span class="nx">Administrator</span><span class="err">\</span><span class="nx">Desktop</span><span class="o">&gt;</span> <span class="nx">Get</span><span class="o">-</span><span class="nx">GPO</span> <span class="o">-</span><span class="nx">All</span> <span class="o">|</span> <span class="nx">Where</span><span class="o">-</span><span class="nb">Object</span> <span class="p">{</span> <span class="nx">$_</span><span class="p">.</span><span class="nx">ModificationTime</span> <span class="p">}</span> <span class="o">|</span> <span class="nx">Select</span><span class="o">-</span><span class="nb">Object</span> <span class="nx">DisplayName</span><span class="p">,</span> <span class="nx">ModificationTime</span>
+
+<span class="nx">DisplayName</span>                                <span class="nx">ModificationTime</span>
+<span class="o">-----------</span>                                <span class="o">----------------</span>
+<span class="nx">Default</span> <span class="nx">Domain</span> <span class="nx">Policy</span>                      <span class="mi">10</span><span class="o">/</span><span class="mi">14</span><span class="o">/</span><span class="mi">2024</span> <span class="mi">12</span><span class="p">:</span><span class="mi">19</span><span class="p">:</span><span class="mi">28</span> <span class="nx">PM</span>
+<span class="nx">Default</span> <span class="nx">Domain</span> <span class="nx">Controllers</span> <span class="nx">Policy</span>          <span class="mi">10</span><span class="o">/</span><span class="mi">14</span><span class="o">/</span><span class="mi">2024</span> <span class="mi">12</span><span class="p">:</span><span class="mi">17</span><span class="p">:</span><span class="mi">30</span> <span class="nx">PM</span>
+<span class="nx">SetWallpaper</span>                               <span class="mi">10</span><span class="o">/</span><span class="mi">31</span><span class="o">/</span><span class="mi">2024</span> <span class="mi">1</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">04</span> <span class="nx">PM</span>
+</code></pre></div></div>
+
+<p>\n</p>
+
+<h2 id="event-viewer">Event Viewer</h2>
+
+<p>Windows comes packaged with the Event Viewer. This invaluable repository stores a record of system activity, including security events, service behaviours, and so forth.</p>
+
+<p>For example, within the “Security” tab of Event Viewer, we can see the history of user logins, attempts and logoffs. The screenshot below shows a record of the user “cmnatic” attempting to log into the device.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/5de96d9ca744773ea7ef8c00-1730383327428.png" alt="Records of a user logging in shown on the Event Viewer." /> \n</p>
+
+<p>All categories of events are given an event ID. The table below provides notable event IDs for today’s task.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Event ID</strong></th>
+      <th><strong>Description</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>4624</td>
+      <td>A user account has logged on</td>
+    </tr>
+    <tr>
+      <td>4625</td>
+      <td>A user account failed to log on</td>
+    </tr>
+    <tr>
+      <td>4672</td>
+      <td>Special privileges (i.e. SeTcbPrivilege) have been assigned to a user</td>
+    </tr>
+    <tr>
+      <td>4768</td>
+      <td>A TGT (Kerberos) ticket was requested for a high-privileged account</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>\n</p>
+
+<h2 id="user-auditing">User Auditing</h2>
+
+<p>User accounts are a valuable and often successful method of attack. You can use Event Viewer IDs to review user events and PowerShell to audit their status. Attack methods such as password spraying will eventually result in user accounts being locked out, depending on the domain controller’s lockout policy.</p>
+
+<p>To view all locked accounts, you can use the Search-ADAccount cmdlet, applying some filters to show information such as the last time the user had successfully logged in.</p>
+
+<p><code class="language-plaintext highlighter-rouge">Search-ADAccount -LockedOut | Select-Object Name, SamAccountName, LockedOut, LastLogonDate, DistinguishedName</code></p>
+
+<p>\n</p>
+
+<p>Additionally, a great way to quickly review the user accounts present on a domain, as well as their group membership, is by using the <code class="language-plaintext highlighter-rouge">Get-ADUser</code> cmdlet, demonstrated below:</p>
+
+<p>Listing all users and their groups usingPowerShell</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">PS</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Users</span><span class="err">\</span><span class="nx">Administrator</span><span class="err">\</span><span class="nx">Desktop</span><span class="o">&gt;</span> <span class="nx">Get</span><span class="o">-</span><span class="nx">ADUser</span> <span class="o">-</span><span class="nx">Filter</span> <span class="o">*</span> <span class="o">-</span><span class="nx">Properties</span> <span class="nx">MemberOf</span> <span class="o">|</span> <span class="nx">Select</span><span class="o">-</span><span class="nb">Object</span> <span class="nx">Name</span><span class="p">,</span> <span class="nx">SamAccountName</span><span class="p">,</span> <span class="p">@{</span><span class="nx">Name</span><span class="o">=</span><span class="dl">"</span><span class="s2">Groups</span><span class="dl">"</span><span class="p">;</span><span class="nx">Expression</span><span class="o">=</span><span class="p">{</span><span class="nx">$_</span><span class="p">.</span><span class="nx">MemberOf</span><span class="p">}}</span>
+
+<span class="nx">Name</span>           <span class="nx">SamAccountName</span> <span class="nx">Groups</span>
+<span class="o">----</span>           <span class="o">--------------</span> <span class="o">------</span>
+<span class="nx">Administrator</span>  <span class="nx">Administrator</span>  <span class="p">{</span><span class="nx">CN</span><span class="o">=</span><span class="nx">Group</span> <span class="nx">Policy</span> <span class="nx">Creator</span> <span class="nx">Owners</span><span class="p">,</span><span class="nx">CN</span><span class="o">=</span><span class="nx">Users</span><span class="p">,</span><span class="nx">DC</span><span class="o">=</span><span class="nx">wareville</span><span class="p">,</span><span class="nx">DC</span><span class="o">=</span><span class="nx">thm</span><span class="p">,</span> <span class="nx">CN</span><span class="o">=</span><span class="nx">Domain</span> <span class="nx">Admins</span><span class="p">,</span><span class="nx">CN</span><span class="o">=</span><span class="nx">Users</span><span class="p">,</span><span class="nx">DC</span><span class="o">=</span><span class="nx">wareville</span><span class="p">,</span><span class="nx">DC</span><span class="o">=</span><span class="nx">thm</span><span class="p">,</span> <span class="nx">CN</span><span class="o">=</span><span class="nx">Enterprise</span> <span class="nx">Admins</span><span class="p">,</span><span class="nx">CN</span><span class="o">=</span><span class="nx">Users</span><span class="p">,</span><span class="nx">DC</span><span class="o">=</span><span class="nx">wareville</span><span class="p">,</span><span class="nx">DC</span><span class="o">=</span><span class="nx">thm</span><span class="p">,</span> <span class="nx">CN</span><span class="o">=</span><span class="nx">Schema</span> <span class="p">...</span>
+<span class="nx">Guest</span>          <span class="nx">Guest</span>          <span class="nx">CN</span><span class="o">=</span><span class="nx">Guests</span><span class="p">,</span><span class="nx">CN</span><span class="o">=</span><span class="nx">Builtin</span><span class="p">,</span><span class="nx">DC</span><span class="o">=</span><span class="nx">wareville</span><span class="p">,</span><span class="nx">DC</span><span class="o">=</span><span class="nx">thm</span>
+<span class="nx">krbtgt</span>         <span class="nx">krbtgt</span>         <span class="nx">CN</span><span class="o">=</span><span class="nx">Denied</span> <span class="nx">RODC</span> <span class="nx">Password</span> <span class="nx">Replication</span> <span class="nx">Group</span><span class="p">,</span><span class="nx">CN</span><span class="o">=</span><span class="nx">Users</span><span class="p">,</span><span class="nx">DC</span><span class="o">=</span><span class="nx">wareville</span><span class="p">,</span><span class="nx">DC</span><span class="o">=</span><span class="nx">thm</span>
+<span class="nx">tryhackme</span>      <span class="nx">tryhackme</span>      <span class="nx">CN</span><span class="o">=</span><span class="nx">Domain</span> <span class="nx">Admins</span><span class="p">,</span><span class="nx">CN</span><span class="o">=</span><span class="nx">Users</span><span class="p">,</span><span class="nx">DC</span><span class="o">=</span><span class="nx">wareville</span><span class="p">,</span><span class="nx">DC</span><span class="o">=</span><span class="nx">thm</span>
+<span class="nx">DAVID</span>          <span class="nx">DAVID</span>
+<span class="nx">James</span>          <span class="nx">James</span>
+<span class="nx">NewAccount</span>     <span class="nx">NewAccount</span>
+<span class="nx">cmnatic</span>        <span class="nx">cmnatic</span>        <span class="p">{</span><span class="nx">CN</span><span class="o">=</span><span class="nx">Domain</span> <span class="nx">Admins</span><span class="p">,</span><span class="nx">CN</span><span class="o">=</span><span class="nx">Users</span><span class="p">,</span><span class="nx">DC</span><span class="o">=</span><span class="nx">wareville</span><span class="p">,</span><span class="nx">DC</span><span class="o">=</span><span class="nx">thm</span><span class="p">,</span> <span class="nx">CN</span><span class="o">=</span><span class="nx">Remote</span> <span class="nx">Desktop</span> <span class="nx">Users</span><span class="p">,</span><span class="nx">CN</span><span class="o">=</span><span class="nx">Builtin</span><span class="p">,</span><span class="nx">DC</span><span class="o">=</span><span class="nx">wareville</span><span class="p">,</span><span class="nx">DC</span><span class="o">=</span><span class="nx">thm</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>\n</p>
+
+<h2 id="reviewingpowershellhistory-and-logs">Reviewing PowerShell History and Logs</h2>
+
+<p>PowerShell, like Bash on Linux, keeps a history of the commands inputted into the session. Reviewing these can be a fantastic way to see recent actions taken by the user account on the machine.</p>
+
+<p>On a Windows Server, this history file  is located at <code class="language-plaintext highlighter-rouge">%APPDATA%\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt</code>.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/5de96d9ca744773ea7ef8c00-1730974418051.png" alt="Location of the PowerShell history file on the system." /> \n</p>
+
+<p>You can use the in-built Notepad on Windows or your favourite text editor to review the PowerShell command history.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/5de96d9ca744773ea7ef8c00-1730974099222.png" alt="Contents of the PowerShell command logs." /></p>
+
+<p>Additionally, logs are recorded for every PowerShell process executed on a system. These logs are located within the Event Viewer under <code class="language-plaintext highlighter-rouge">Application and Services Logs -&gt; Microsoft -&gt; Windows -&gt; PowerShell -&gt; Operational</code> or also under <code class="language-plaintext highlighter-rouge">Application and Service Logs -&gt; Windows PowerShell</code>. The logs have a wealth of information useful for incident response.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5fc2847e1bbebc03aa89fbf2/room-content/5fc2847e1bbebc03aa89fbf2-1732022781823.png" alt="Event Viewer showing PowerShell logs recorded." /></p>
+
+<h2 id="practical">Practical</h2>
+
+<p>Your task for today is to investigate WareVille’s SOC-mas Active Directory controller for the suspected breach.</p>
+
+<h2 id="answer-the-questions-below-to-confirm-the-details-of-the-breach">Answer the questions below to confirm the details of the breach.</h2>
+
+<h3 id="answer-the-questions-below">Answer the questions below</h3>
+
+<p>Use the “Security” tab within Event Viewer to answer questions 1 and 2.</p>
+
+<p>Complete</p>
+
+<p>On what day was Glitch_Malware last logged in?
+Answer format: DD/MM/YYYY
+07/11/2024</p>
+
+<p>What event ID shows the login of the Glitch_Malware user?
+4624</p>
+
+<p>Read the PowerShell history of the Administrator account. What was the command that was used to enumerate Active Directory users?
+Get-ADUser -Filter * -Properties MemberOf | Select-Object Name</p>
+
+<p>Look in the PowerShell log file located in <code class="language-plaintext highlighter-rouge">Application and Services Logs -&gt; Windows PowerShell</code>. What was Glitch_Malware’s set password?
+SuperSecretP@ssw0rd!</p>
+
+<p>Review the Group Policy Objects present on the machine. What is the name of the installed GPO?
+Malicious GPO - Glitch_Malware Persistence</p>
+
+<p>If you enjoyed this task, feel free to check out the <a href="https://tryhackme.com/r/room/activedirectoryhardening">Active Directory Hardening </a>room.</p>
+
+  </article>
+  
+    <div class="post-share">
+  <div class="post-date">Feel free to share!</div>
+  <div class="sharing-icons">
+    <a href="https://twitter.com/intent/tweet?text=TryHackMe Advent of Cyber 2024 - Day 15&amp;url=/Day15" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=/Day15&amp;title=TryHackMe Advent of Cyber 2024 - Day 15" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+  
+  
+    <div class="related">
+  <h2>You may also enjoy...</h2>
+  
+  <ul class="related-posts">
+    
+  </ul>
+</div>
+
+  
+  
+    <section class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname = "millennial-3";
+    var disqus_identifier = "/Day15";
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+  
+</div>
+
+      </div>
+      <footer class="footer">
+  
+    <a href="https://twitter.com/mberger" class="menu-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  
+    <a href="feed.xml" class="menu-link" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+  
+  <div class="footer-description"><a href="/">THM Advent of Cyber 2024 | a minimalist Jekyll theme for running a blog or publication by Michael</a></div>
+</footer>
+
+    </div>
+  </body>
+</html>
