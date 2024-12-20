@@ -1,0 +1,504 @@
+<!doctype html>
+<html>
+  <head>
+  <title>
+    
+      TryHackMe Advent of Cyber 2024 - Day 19 | THM Advent of Cyber 2024
+    
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  <!-- Use Atom -->
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="THM Advent of Cyber 2024" />
+  <!-- RSS-v2.0
+  <link href="/rss-feed.xml" type="application/rss+xml" rel="alternate" title="THM Advent of Cyber 2024 | a minimalist Jekyll theme for running a blog or publication"/>
+  //-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Source+Code+Pro">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+  <!-- Google Analytics -->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'G-MSZW3HWGH8', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  <!-- Use Jekyll SEO plugin -->
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>TryHackMe Advent of Cyber 2024 - Day 19 | THM Advent of Cyber 2024</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="TryHackMe Advent of Cyber 2024 - Day 19" />
+<meta name="author" content="Michael" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The Story" />
+<meta property="og:description" content="The Story" />
+<link rel="canonical" href="http://localhost:4000/Day19" />
+<meta property="og:url" content="http://localhost:4000/Day19" />
+<meta property="og:site_name" content="THM Advent of Cyber 2024" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-12-19T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="TryHackMe Advent of Cyber 2024 - Day 19" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Michael"},"dateModified":"2024-12-19T00:00:00-05:00","datePublished":"2024-12-19T00:00:00-05:00","description":"The Story","headline":"TryHackMe Advent of Cyber 2024 - Day 19","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/Day19"},"url":"http://localhost:4000/Day19"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+  <body>
+    <div class="container">
+      <header class="site-header">
+  <h3 class="site-title">
+    <a href="/">THM Advent of Cyber 2024</a>
+  </h3>
+  <nav class="menu-list">
+    
+      <a href="/about" class="menu-link">About</a>
+    
+      <a href="/contact" class="menu-link">Contact</a>
+    
+    
+      <a href="https://twitter.com/mberger" class="menu-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+    
+      <a href="feed.xml" class="menu-link" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+    
+  </nav>
+  <div class="dropdown">
+    <button class="dropbtn"><i class="fa fa-bars" aria-hidden="true"></i></button>
+    <div class="dropdown-content">
+      
+        <a href="/about" class="menu-link">About</a>
+      
+        <a href="/contact" class="menu-link">Contact</a>
+      
+      
+        <a href="https://twitter.com/mberger" class="menu-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+      
+        <a href="feed.xml" class="menu-link" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+      
+    </div>
+  </div>
+</header>
+
+      <div class="content-wrapper">
+        <div class="post-content">
+  <h1>
+    TryHackMe Advent of Cyber 2024 - Day 19
+  </h1>
+  
+    <span class="post-date">
+  Written on
+  
+  December
+  19th,
+  2024
+  by
+  
+    Michael
+  
+</span>
+
+  
+  
+  <article>
+    <p>The Story</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5ed5961c6276df568891c3ea/room-content/5ed5961c6276df568891c3ea-1732331833645.svg" alt="Task banner for day DAY 19" /></p>
+
+<p><em>Dirt on the Mayor, the Glitch needed more,</em></p>
+
+<p><em>But the dirt was protected by a pesky locked door!</em></p>
+
+<p><em>But no need for panic, no need for dramatics,</em></p>
+
+<p><em>The Glitch would get through with these game mechanics.</em> </p>
+
+<p>\n</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63c131e50a24c3005eb34678/room-content/63c131e50a24c3005eb34678-1732645330854.png" alt="Meme Mayor" title="right-50" /></p>
+
+<p>Glitch was keen on uncovering Mayor Malware’s deeds. Today, he was sure he would find something neat. He knew the Mayor had an office downtown, where he kept his dirty laundry, the big old clown. He approached the site silently, not knowing the door was closed, so untimely. At the front of the door, a smart lock awaited; Glitch smiled cause he knew it could be subverted. But oh, big surprise, the lock was eerie; a game controlled it; Glith almost went teary.</p>
+
+<p>If you are wondering how this came to be, Mayor Malware himself will explain it quickly. “Technology gets broken every day” was his claim, “but nobody knows how to hack a game.”</p>
+
+<p>Will Glitch be able to pass through this door, or will he end up with zero as his score?</p>
+
+<h2 id="learning-objectives">Learning Objectives</h2>
+
+<ul>
+  <li>Understand how to interact with an executable’s API.</li>
+  <li>Intercept and modify internal APIs using Frida.</li>
+  <li>Hack a game with the help of Frida.</li>
+</ul>
+
+<h2 id="game-hacking">Game Hacking</h2>
+
+<h2 id="even-while-penetration-testing-is-becoming-increasingly-popular-game-hacking-only-makes-up-a-small-portion-of-the-larger-cyber-security-field-with-its-2023-revenue-reaching-approximately-1839-billion-the-game-industry-can-easily-attract-attackers-they-can-do-various-malicious-activities-such-as-providing-illegitimate-ways-to-activate-a-game-providing-bots-to-automate-game-actions-or-misusing-the-game-logic-to-simplify-it-therefore-hacking-a-game-can-be-pretty-complex-since-it-requires-different-skills-including-memory-management-reverse-engineering-and-networking-knowledge-if-the-game-runs-online">Even while penetration testing is becoming increasingly popular, game hacking only makes up a small portion of the larger cyber security field. With its 2023 revenue reaching approximately $183.9 billion, the game industry can easily attract attackers. They can do various malicious activities, such as providing illegitimate ways to activate a game, providing bots to automate game actions, or misusing the game logic to simplify it. Therefore, hacking a game can be pretty complex since it requires different skills, including memory management, reverse engineering, and networking knowledge if the game runs online.</h2>
+
+<h2 id="executables-and-libraries">Executables and Libraries</h2>
+
+<p>The <strong>executable</strong> file of an application is generally understood as a standalone binary file containing the compiled code we want to run. While some applications contain all the code they need to run in their executables, many applications usually rely on external code in library files with the “so” extension.</p>
+
+<p>Library files are collections of functions that many applications can reuse. Unlike applications, they can’t be directly executed as they serve no purpose by themselves. For a library function to be run, an executable will need to call it. The main idea behind libraries is to pack commonly used functions so developers don’t need to reimplement them for every new application they develop.</p>
+
+<p>For example, imagine you are developing a game that requires adding two numbers together. Since mathematical functions are so commonly used, you could implement a library called <code class="language-plaintext highlighter-rouge">libmaths</code> to handle all your math functions, one of which could be called <code class="language-plaintext highlighter-rouge">add()</code>. The function would take two arguments (<code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code>) and return the <code class="language-plaintext highlighter-rouge">sum</code> of both numbers.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5ed5961c6276df568891c3ea/room-content/5ed5961c6276df568891c3ea-1732337854743.png" alt="add call function graphic" title="left-50" /></p>
+
+<p>Note that the application trusts the library to perform the requested operation correctly. From an attacker’s standpoint, if we could somehow intercept the function calls from the executable to the library, we could alter the arguments sent or the return value. This would allow us to force the application to behave in strange ways. </p>
+
+<h2 id="hacking-with-frida">Hacking with Frida</h2>
+
+<p>Frida is a powerful instrumentation tool that allows us to analyze, modify, and interact with running applications. How does it do that? Frida creates a thread in the target process; that thread will execute some bootstrap code that allows the interaction. This interaction, known as the agent, permits the injection of JavaScript code, controlling the application’s behaviour in real-time. One of the most crucial functionalities of Frida is the Interceptor. This functionality lets us alter internal functions’ input or output or observe their behaviour. In the example above, Frida would allow us to intercept and change the values of <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> that the library would receive on the fly. It would also allow us to change the returned <code class="language-plaintext highlighter-rouge">sum</code> value that is sent to the executable:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5ed5961c6276df568891c3ea/room-content/5ed5961c6276df568891c3ea-1732337944825.png" alt="Add call function intercepted by Frida" /></p>
+
+<p>Let’s take a look at a hypothetical example. In this example, a number is simply printed on the console.</p>
+
+<p>VMTerminal</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ubuntu@tryhackme:~<span class="nv">$ </span>./main
+Hello, 1!
+Hello, 1!
+Hello, 1!
+Hello, 1!
+Hello, 1!
+Hello, 1!
+Hello, 1!
+Hello, 1!
+
+</code></pre></div></div>
+
+<p>What we want to achieve is replacing that value with an arbitrary one, let’s say 1337.</p>
+
+<p>Before proceeding, we will run <code class="language-plaintext highlighter-rouge">frida-trace</code> for the first time so that it creates <strong>handlers</strong> for each library function used by the game. By editing the handler files, we can tell Frida what to do with the intercepted values of a function call. To have Frida create the handler files, you would run the following command:</p>
+
+<p><code class="language-plaintext highlighter-rouge">frida-trace ./main -i '*'</code></p>
+
+<p>You will now see the <code class="language-plaintext highlighter-rouge">__handlers__</code> directory, containing JavaScript files for each function your application calls from a library. One such function will be called <code class="language-plaintext highlighter-rouge">say_hello()</code> and have a corresponding handler at <code class="language-plaintext highlighter-rouge">__handlers__/libhello.so/say_hello.js</code>, allowing us to interact with the target application in real-time.</p>
+
+<p>We don’t need to understand what the file does just yet; we will review this later in the task.</p>
+
+<p>Each handler will have two functions known as hooks since they are hooked into the function respectively before and after the function call:</p>
+
+<ul>
+  <li><strong>onEnter:</strong> From this function, we are mainly interested in the <code class="language-plaintext highlighter-rouge">args</code> variable, an array of pointers to the parameters used by our target function - a pointer is just an address to a value.</li>
+  <li><strong>onLeave:</strong> here, we are interested in the <code class="language-plaintext highlighter-rouge">retval</code> variable, which will contain a pointer to the variable returned.</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Frida JavaScript script to intercept `say_hello`</span>
+<span class="nx">Interceptor</span><span class="p">.</span><span class="nf">attach</span><span class="p">(</span><span class="nx">Module</span><span class="p">.</span><span class="nf">getExportByName</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="dl">"</span><span class="s2">say_hello</span><span class="dl">"</span><span class="p">),</span> <span class="p">{</span>
+    <span class="na">onEnter</span><span class="p">:</span> <span class="nf">function </span><span class="p">(</span><span class="nx">log</span><span class="p">,</span> <span class="nx">args</span><span class="p">,</span> <span class="nx">state</span><span class="p">)</span> <span class="p">{</span> <span class="p">},</span>
+    <span class="na">onLeave</span><span class="p">:</span> <span class="nf">function </span><span class="p">(</span><span class="nx">log</span><span class="p">,</span> <span class="nx">retval</span><span class="p">,</span> <span class="nx">state</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>We have pointers and not just variables because if we change any value, it has to be permanent; otherwise, we will modify a copy of the value, which will not be persistent.</p>
+
+<p>Returning to our objective, we want to set the parameter with 1337. To do so, we must replace the first arguments of the args array: <code class="language-plaintext highlighter-rouge">args[0]</code> with a pointer to a variable containing 1337.</p>
+
+<p>Frida has a function called <code class="language-plaintext highlighter-rouge">ptr()</code> that does exactly what we need: allocate some space for a variable and return its pointer. We also want to log the value of the original argument, and we have to use the function <code class="language-plaintext highlighter-rouge">toInt32()</code>, which reads the value of that pointer.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// say_hello.js</span>
+<span class="c1">// Hook the say_hello function from libhello.so</span>
+
+<span class="c1">// Attach to the running process of "main"</span>
+<span class="nx">Interceptor</span><span class="p">.</span><span class="nf">attach</span><span class="p">(</span><span class="nx">Module</span><span class="p">.</span><span class="nf">findExportByName</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="dl">"</span><span class="s2">say_hello</span><span class="dl">"</span><span class="p">),</span> <span class="p">{</span>
+    <span class="na">onEnter</span><span class="p">:</span> <span class="nf">function </span><span class="p">(</span><span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Intercept the original argument (args[0] is the first argument)</span>
+        <span class="kd">var</span> <span class="nx">originalArgument</span> <span class="o">=</span> <span class="nx">args</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nf">toInt32</span><span class="p">();</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Original argument: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">originalArgument</span><span class="p">);</span>
+        <span class="c1">// Replace the original value with 1337</span>
+        <span class="nx">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nf">ptr</span><span class="p">(</span><span class="mi">1337</span><span class="p">);</span>
+        <span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">say_hello()</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>When we rerun the executable with Frida, we notice that we can intercept the program’s logic, setting 1337 as the parameter function. The original value is logged as expected using the following command:</p>
+
+<p>VMTerminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">frida</span><span class="o">-</span><span class="nx">trace</span> <span class="p">.</span><span class="o">/</span><span class="nx">main</span> <span class="o">-</span><span class="nx">i</span> <span class="dl">'</span><span class="s1">say*</span><span class="dl">'</span>
+<span class="nx">Hello</span><span class="p">,</span> <span class="mi">1337</span><span class="o">!</span>
+<span class="nx">Original</span> <span class="nx">argument</span><span class="p">:</span> <span class="mi">1</span>
+<span class="cm">/* TID 0x5ec9 */</span>
+<span class="mi">11</span> <span class="nx">ms</span>  <span class="nf">say_hello</span><span class="p">()</span>
+<span class="nx">Hello</span><span class="p">,</span> <span class="mi">1337</span><span class="o">!</span>
+<span class="nx">Original</span> <span class="nx">argument</span><span class="p">:</span> <span class="mi">1</span>
+
+</code></pre></div></div>
+
+<p>Now that we better understand Frida’s capabilities, we can return to <code class="language-plaintext highlighter-rouge">frida-trace</code>. We have already seen that it generates the JavaScript script to hook a specific function automatically, but how does it know which function needs to be hooked? The parameter <code class="language-plaintext highlighter-rouge">-i</code> tells Frida which library to hook, and it can filter using the wildcard, tracing all the functions in all the libraries loaded.</p>
+
+<h2 id="connection-details">Connection Details</h2>
+
+<p>﻿Before moving forward, review the questions in the connection card shown below:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5ed5961c6276df568891c3ea/room-content/5ed5961c6276df568891c3ea-1732571363622.png" alt="Connection details graphic" title="right-50" /> \n</p>
+
+<p>During this task, you’ll have access to a VM that contains the game we will hack with Frida. To start the machine, click the following <code class="language-plaintext highlighter-rouge">Start Machine</code> button:</p>
+
+<p>Start Machine</p>
+
+<p>If the VM is not visible, use the blue <code class="language-plaintext highlighter-rouge">Show Split View</code>  button at the top of the page.</p>
+
+<h2 id="tryunlockme---the-frostbitten-otp">TryUnlockMe - The Frostbitten OTP</h2>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63c131e50a24c3005eb34678/room-content/63c131e50a24c3005eb34678-1732645396497.png" alt="Glitch hacking the door" /> \n</p>
+
+<p>You can start the game by running the following command on a terminal:</p>
+
+<p><code class="language-plaintext highlighter-rouge">cd /home/ubuntu/Desktop/TryUnlockMe &amp;&amp; ./TryUnlockMe</code></p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63c131e50a24c3005eb34678/room-content/63c131e50a24c3005eb34678-1732294235507.png" alt="Game Splash screen" /></p>
+
+<p>Exploring the game a bit around, you will find a penguin asking for a PIN.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63c131e50a24c3005eb34678/room-content/63c131e50a24c3005eb34678-1732292354214.png" alt="First level game " /> \n</p>
+
+<p>Terminate the previous game instance and execute the following Frida command to intercept all the functions in the <code class="language-plaintext highlighter-rouge">libaocgame.so</code> library where some of the game logic is present:</p>
+
+<p><code class="language-plaintext highlighter-rouge">frida-trace ./TryUnlockMe -i 'libaocgame.so!*'</code></p>
+
+<p>If you revisit the NPC, you can trigger the OTP function on the console displayed as <code class="language-plaintext highlighter-rouge">set_otpi</code></p>
+
+<p>GameVMTerminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="sr">/Desktop/</span><span class="nx">TryUnlockMe</span><span class="o">/</span><span class="nx">$</span> <span class="nx">frida</span><span class="o">-</span><span class="nx">trace</span> <span class="p">.</span><span class="o">/</span><span class="nx">TryUnlockMe</span> <span class="o">-</span><span class="nx">i</span> <span class="dl">'</span><span class="s1">libaocgame.so!*</span><span class="dl">'</span>
+<span class="nx">Instrumenting</span><span class="p">...</span>
+
+<span class="nx">Started</span> <span class="nx">tracing</span> <span class="mi">3</span> <span class="nx">functions</span><span class="p">.</span> <span class="nx">Web</span> <span class="nx">UI</span> <span class="nx">available</span> <span class="nx">at</span> <span class="nx">http</span><span class="p">:</span><span class="c1">//localhost:1337/</span>
+<span class="cm">/* TID 0x2240 */</span>
+<span class="mi">7975</span> <span class="nx">ms</span>  <span class="nc">_Z7set_otpi</span><span class="p">()</span>
+
+</code></pre></div></div>
+
+<p>\n Notice the output <code class="language-plaintext highlighter-rouge">_Z7set_otpi</code> indicates that the <code class="language-plaintext highlighter-rouge">set_otp</code> function is called during the NPC interaction; you can try intercepting it!</p>
+
+<p>Open a new terminal, go to the <code class="language-plaintext highlighter-rouge">/home/ubuntu/Desktop/TryUnlockMe/__handlers__/libaocgame.so/</code> folder, and open Visual Studio Code by running:</p>
+
+<p>GameVMTerminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">cd</span> <span class="o">/</span><span class="nx">home</span><span class="o">/</span><span class="nx">ubuntu</span><span class="o">/</span><span class="nx">Desktop</span><span class="o">/</span><span class="nx">TryUnlockMe</span><span class="o">/</span><span class="nx">__handlers__</span><span class="o">/</span><span class="nx">libaocgame</span><span class="p">.</span><span class="nx">so</span><span class="o">/</span>
+<span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="sr">/Desktop/</span><span class="nx">TryUnlockMe</span><span class="o">/</span><span class="nx">__handlers__</span><span class="o">/</span><span class="nx">libaocgame</span><span class="p">.</span><span class="nx">so</span><span class="o">/</span><span class="nx">$</span> <span class="nx">code</span> <span class="p">.</span>
+<span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="sr">/Desktop/</span><span class="nx">TryUnlockMe</span><span class="o">/</span><span class="nx">__handlers__</span><span class="o">/</span><span class="nx">libaocgame</span><span class="p">.</span><span class="nx">so</span><span class="o">/</span><span class="nx">$</span>
+</code></pre></div></div>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63c131e50a24c3005eb34678/room-content/63c131e50a24c3005eb34678-1732815627110.png" alt="Visual Studio Code open with the scripts" /> \n</p>
+
+<p>At this point, you should be able to select the <code class="language-plaintext highlighter-rouge">_Z7set_otpi</code> JavaScript file with the hook defined. The i at the end of the <code class="language-plaintext highlighter-rouge">set_otp</code> function indicates that an integer will be passed as a parameter. It will likely set the OTP by passing it as the first argument. To get the parameter value, you can use the <code class="language-plaintext highlighter-rouge">log</code> function, specifying the first elements of the array <code class="language-plaintext highlighter-rouge">args</code> on the <code class="language-plaintext highlighter-rouge">onEnter</code> function:</p>
+
+<p><code class="language-plaintext highlighter-rouge">log("Parameter:" + args[0].toInt32());</code></p>
+
+<p>Your JavaScript file should look like the following:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">defineHandler</span><span class="p">({</span>
+  <span class="nf">onEnter</span><span class="p">(</span><span class="nx">log</span><span class="p">,</span> <span class="nx">args</span><span class="p">,</span> <span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">_Z7set_otpi()</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Parameter:</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">args</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nf">toInt32</span><span class="p">());</span>
+  <span class="p">},</span>
+  <span class="nf">onLeave</span><span class="p">(</span><span class="nx">log</span><span class="p">,</span> <span class="nx">retval</span><span class="p">,</span> <span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>\n You should be able to log something similar:</p>
+
+<p>GameVMTerminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="sr">/Desktop/</span><span class="nx">TryUnlockMe</span><span class="o">/</span><span class="nx">$</span> <span class="nx">frida</span><span class="o">-</span><span class="nx">trace</span> <span class="p">.</span><span class="o">/</span><span class="nx">TryUnlockMe</span> <span class="o">-</span><span class="nx">i</span> <span class="dl">'</span><span class="s1">libaocgame.so!*</span><span class="dl">'</span>
+<span class="nx">Instrumenting</span><span class="p">...</span>
+
+<span class="nx">Started</span> <span class="nx">tracing</span> <span class="mi">3</span> <span class="nx">functions</span><span class="p">.</span> <span class="nx">Web</span> <span class="nx">UI</span> <span class="nx">available</span> <span class="nx">at</span> <span class="nx">http</span><span class="p">:</span><span class="c1">//localhost:1337/</span>
+           <span class="cm">/* TID 0x2240 */</span>
+ <span class="mi">39618</span> <span class="nx">ms</span>  <span class="nc">_Z7set_otpi</span><span class="p">()</span>
+ <span class="mi">39618</span> <span class="nx">ms</span>  <span class="nx">Parameter</span><span class="p">:</span><span class="mi">611696</span><span class="o">/</span><span class="nx">code</span><span class="o">&gt;</span>
+</code></pre></div></div>
+
+<p>Then, you need to use that parameter as OTP; this value changes over time, so your will be different:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63c131e50a24c3005eb34678/room-content/63c131e50a24c3005eb34678-1732658605370.png" alt="Inserting the OTP for the first level " /></p>
+
+<h2 id="tryunlockme---a-wishlist-for-billionaires">TryUnlockMe - A Wishlist for Billionaires</h2>
+
+<p>Exploring the new stage, you will find another penguin with a costly item named Right of Pass.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5ed5961c6276df568891c3ea/room-content/5ed5961c6276df568891c3ea-1732808985706.png" alt="Game image of the second stage showing the items to buy." /> \n</p>
+
+<p>The game lets you earn coins by using the old PC on the field, but getting 1.000.000 coins that way sounds tedious. You can again use Frida to intercept the function in charge of purchasing the item. This time is a bit more tricky than the previous one because the function <code class="language-plaintext highlighter-rouge">buy_item</code> displayed as: <code class="language-plaintext highlighter-rouge">_Z17validate_purchaseiii</code> has three i letters after its name to indicate that it has three integer parameters. \n</p>
+
+<p>You can log those values using the log function for each parameter trying to buy something:</p>
+
+<p><code class="language-plaintext highlighter-rouge">log("Parameter1:" + args[0].toInt32())</code> \n <code class="language-plaintext highlighter-rouge">log("Parameter2:" + args[1].toInt32())</code> \n <code class="language-plaintext highlighter-rouge">log("Parameter3:" + args[2].toInt32())</code></p>
+
+<p>Your JavaScript <code class="language-plaintext highlighter-rouge">buy_item</code> file should look like the following: \n</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">defineHandler</span><span class="p">({</span>
+  <span class="nf">onEnter</span><span class="p">(</span><span class="nx">log</span><span class="p">,</span> <span class="nx">args</span><span class="p">,</span> <span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">_Z17validate_purchaseiii()</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">PARAMETER 1: </span><span class="dl">'</span><span class="o">+</span> <span class="nx">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+    <span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">PARAMETER 2: </span><span class="dl">'</span><span class="o">+</span> <span class="nx">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+    <span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">PARAMETER 3: </span><span class="dl">'</span><span class="o">+</span> <span class="nx">args</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+
+  <span class="p">},</span>
+
+  <span class="nf">onLeave</span><span class="p">(</span><span class="nx">log</span><span class="p">,</span> <span class="nx">retval</span><span class="p">,</span> <span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>You should be able to log something similar:</p>
+
+<p>GameVMTerminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">07685</span> <span class="nx">ms</span>  <span class="nc">_Z17validate_purchaseiii</span><span class="p">()</span>
+<span class="mi">365810</span> <span class="nx">ms</span>  <span class="nx">PARAMETER</span> <span class="mi">1</span><span class="p">:</span> <span class="mh">0x1</span>
+<span class="mi">365810</span> <span class="nx">ms</span>  <span class="nx">PARAMETER</span> <span class="mi">2</span><span class="p">:</span> <span class="mh">0x5</span>
+<span class="mi">365810</span> <span class="nx">ms</span>  <span class="nx">PARAMETER</span> <span class="mi">3</span><span class="p">:</span> <span class="mh">0x1</span>
+</code></pre></div></div>
+
+<p>By simple inspection, we can determine that the first parameter is the Item ID, the second is the price, and the third is the player’s coins. If you manipulate the price and set it as zero, you can buy any item that you want:</p>
+
+<p><code class="language-plaintext highlighter-rouge">args[1] = ptr(0)</code></p>
+
+<p>Your JavaScript buy_item file should look like the following:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">defineHandler</span><span class="p">({</span>
+  <span class="nf">onEnter</span><span class="p">(</span><span class="nx">log</span><span class="p">,</span> <span class="nx">args</span><span class="p">,</span> <span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">_Z17validate_purchaseiii()</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nx">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nf">ptr</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+  <span class="p">},</span>
+
+  <span class="nf">onLeave</span><span class="p">(</span><span class="nx">log</span><span class="p">,</span> <span class="nx">retval</span><span class="p">,</span> <span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>You can buy any item now!</p>
+
+<h2 id="tryunlockme---naughty-fingers-nice-hack">TryUnlockMe - Naughty Fingers, Nice Hack</h2>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63c131e50a24c3005eb34678/room-content/63c131e50a24c3005eb34678-1732659104183.png" alt="Game third level" /> \n</p>
+
+<p>This last stage is a bit more tricky because the output displayed by Frida is <code class="language-plaintext highlighter-rouge">_Z16check_biometricsPKc()</code>, so it does not handle integers anymore but strings making a bit more complex to debug.</p>
+
+<p>By selecting the JavaScript file named <code class="language-plaintext highlighter-rouge">_Z16check_biometricsPKc</code>, you can add the following code to the <code class="language-plaintext highlighter-rouge">onEnter()</code> function as you did previously to debug the content of the parameter:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">defineHandler</span><span class="p">({</span>
+  <span class="nf">onEnter</span><span class="p">(</span><span class="nx">log</span><span class="p">,</span> <span class="nx">args</span><span class="p">,</span> <span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">_Z16check_biometricsPKc()</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">PARAMETER:</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">Memory</span><span class="p">.</span><span class="nf">readCString</span><span class="p">(</span><span class="nx">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+  <span class="p">},</span>
+
+  <span class="nf">onLeave</span><span class="p">(</span><span class="nx">log</span><span class="p">,</span> <span class="nx">retval</span><span class="p">,</span> <span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>You should be able to log something similar:</p>
+
+<p>GameVMTerminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1279884</span> <span class="nx">ms</span>  <span class="nc">_Z16check_biometricsPKc</span><span class="p">()</span>
+<span class="mi">1279884</span> <span class="nx">ms</span>  <span class="nx">PARAMETER</span><span class="p">:</span><span class="mi">1</span><span class="nx">trYRV2vJImp9QiGEreHNmJ8LUNMyfF0W4YxXYsqrcdy1JEDArUYbmguE1GDgUDA</span>
+</code></pre></div></div>
+
+<p>This output does not seem very helpful; you may have to consider another way. You can log the return value of the function by adding the following log instruction in the <code class="language-plaintext highlighter-rouge">onLeave</code> function:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">onLeave</span><span class="p">(</span><span class="nx">log</span><span class="p">,</span> <span class="nx">retval</span><span class="p">,</span> <span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">The return value is: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">retval</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>You should be able to log something similar:</p>
+
+<p>GameVMTerminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">69399931</span> <span class="nx">ms</span>  <span class="nx">The</span> <span class="k">return</span> <span class="nx">value</span> <span class="nx">is</span><span class="p">:</span> <span class="mh">0x0</span>
+</code></pre></div></div>
+
+<p>So, the value returned is 0, which may indicate that it is a boolean flag set to False. Which value will set it to True? Can you trick the game into thinking the biometrics check worked?</p>
+
+<p>The following instruction will set it the return value to True: \n <code class="language-plaintext highlighter-rouge">retval.replace(ptr(1))</code></p>
+
+<h2 id="answer-the-questions-below">Answer the questions below</h2>
+
+<p>What is the OTP flag?</p>
+
+<p>THM{one_tough_password}</p>
+
+<p>What is the billionaire item flag?</p>
+
+<p>THM{credit_card_undeclined}</p>
+
+<p>What is the biometric flag?</p>
+
+<p>THM{dont_smash_your_keyboard}</p>
+
+<p>If you liked today’s task, you can practice your skills with ”Memories of Christmas Past” from <a href="https://tryhackme.com/r/room/adventofcyber2023">Advent of Cyber 2023</a>.</p>
+
+  </article>
+  
+    <div class="post-share">
+  <div class="post-date">Feel free to share!</div>
+  <div class="sharing-icons">
+    <a href="https://twitter.com/intent/tweet?text=TryHackMe Advent of Cyber 2024 - Day 19&amp;url=/Day19" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=/Day19&amp;title=TryHackMe Advent of Cyber 2024 - Day 19" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+  
+  
+    <div class="related">
+  <h2>You may also enjoy...</h2>
+  
+  <ul class="related-posts">
+    
+  </ul>
+</div>
+
+  
+  
+    <section class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname = "millennial-3";
+    var disqus_identifier = "/Day19";
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+  
+</div>
+
+      </div>
+      <footer class="footer">
+  
+    <a href="https://twitter.com/mberger" class="menu-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  
+    <a href="feed.xml" class="menu-link" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+  
+  <div class="footer-description"><a href="/">THM Advent of Cyber 2024 | a minimalist Jekyll theme for running a blog or publication by Michael</a></div>
+</footer>
+
+    </div>
+  </body>
+</html>
