@@ -1,0 +1,658 @@
+<!doctype html>
+<html>
+  <head>
+  <title>
+    
+      TryHackMe Advent of Cyber 2024 - Day 22 | THM Advent of Cyber 2024
+    
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  <!-- Use Atom -->
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="THM Advent of Cyber 2024" />
+  <!-- RSS-v2.0
+  <link href="/rss-feed.xml" type="application/rss+xml" rel="alternate" title="THM Advent of Cyber 2024 | a minimalist Jekyll theme for running a blog or publication"/>
+  //-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Source+Code+Pro">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+  <!-- Google Analytics -->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'G-MSZW3HWGH8', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  <!-- Use Jekyll SEO plugin -->
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>TryHackMe Advent of Cyber 2024 - Day 22 | THM Advent of Cyber 2024</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="TryHackMe Advent of Cyber 2024 - Day 22" />
+<meta name="author" content="Michael" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The Story" />
+<meta property="og:description" content="The Story" />
+<link rel="canonical" href="http://localhost:4000/Day22" />
+<meta property="og:url" content="http://localhost:4000/Day22" />
+<meta property="og:site_name" content="THM Advent of Cyber 2024" />
+<meta property="og:image" content="http://localhost:4000/Day22-logo.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-12-22T00:00:00-05:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="http://localhost:4000/Day22-logo.png" />
+<meta property="twitter:title" content="TryHackMe Advent of Cyber 2024 - Day 22" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Michael"},"dateModified":"2024-12-22T00:00:00-05:00","datePublished":"2024-12-22T00:00:00-05:00","description":"The Story","headline":"TryHackMe Advent of Cyber 2024 - Day 22","image":"http://localhost:4000/Day22-logo.png","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/Day22"},"url":"http://localhost:4000/Day22"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+  <body>
+    <div class="container">
+      <header class="site-header">
+  <h3 class="site-title">
+    <a href="/">THM Advent of Cyber 2024</a>
+  </h3>
+  <nav class="menu-list">
+    
+      <a href="/about" class="menu-link">About</a>
+    
+      <a href="/contact" class="menu-link">Contact</a>
+    
+    
+      <a href="https://twitter.com/mberger" class="menu-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+    
+      <a href="feed.xml" class="menu-link" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+    
+  </nav>
+  <div class="dropdown">
+    <button class="dropbtn"><i class="fa fa-bars" aria-hidden="true"></i></button>
+    <div class="dropdown-content">
+      
+        <a href="/about" class="menu-link">About</a>
+      
+        <a href="/contact" class="menu-link">Contact</a>
+      
+      
+        <a href="https://twitter.com/mberger" class="menu-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+      
+        <a href="feed.xml" class="menu-link" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+      
+    </div>
+  </div>
+</header>
+
+      <div class="content-wrapper">
+        <div class="post-content">
+  <h1>
+    TryHackMe Advent of Cyber 2024 - Day 22
+  </h1>
+  
+    <span class="post-date">
+  Written on
+  
+  December
+  22nd
+    ,
+  2024
+  by
+  
+    Michael
+  
+</span>
+
+  
+  
+    <div class="featured-image">
+      <img src="/assets/img/Day22-logo.png">
+    </div>
+  
+  <article>
+    <h1 id="the-story">The Story</h1>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/6228f0d4ca8e57005149c3e3/room-content/6228f0d4ca8e57005149c3e3-1730975047352.png" alt="Task banner for day 22." /></p>
+
+<p><em>Mayor Malware laughed hard at what he had done,</em></p>
+
+<p><em>another scheme hatched, another scheme won.</em></p>
+
+<p><em>But a thought passed the mayor, the thought then passed twice.</em></p>
+
+<p><em>The list soon to come, the town’s “naughty or nice”!</em></p>
+
+<p><em>He paced and he paced like the week of election,</em></p>
+
+<p><em>until…that was it! A surprise mayor inspection!</em></p>
+
+<p><em>The list-making wares, well it only seemed fair</em></p>
+
+<p>would grant him temp access, an account for the mayor. \n</p>
+
+<p><em>The list makers agreed, under certain conditions.</em></p>
+
+<p><em>He logged on that day, to confirm his suspicions.</em></p>
+
+<p><em>The next day they were, when the naughty list read:</em></p>
+
+<p><em>“Mayor Malware” Line 1, he read it with dread.</em></p>
+
+<p><em>The conditions they gave, there’s something they missed.</em></p>
+
+<p><em>As somehow and someway, he accessed the list.</em></p>
+
+<p><em>Mayor Malware then smiled, as he’d find no blame.</em></p>
+
+<p><em>With this he would find, a new home for his name!</em></p>
+
+<p>\n  <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/6228f0d4ca8e57005149c3e3/room-content/6228f0d4ca8e57005149c3e3-1730976855444.png" alt="Mayor Malware moving his name into nice list" title="right-50" /> \n</p>
+
+<h2 id="learning-objectives">Learning Objectives</h2>
+
+<ul>
+  <li>Learn about Kubernetes, what it is and why it is used.</li>
+  <li>Learn about DFIR, and the challenges that come with DFIR in an ephemeral environment.</li>
+  <li>Learn how DFIR can be done in a Kubernetes environment using log analysis.</li>
+</ul>
+
+<h2 id="connecting-to-the-machine">Connecting to the Machine</h2>
+
+<h2 id="before-moving-forward-review-the-questions-in-the-connection-card-below">Before moving forward, review the questions in the connection card below:</h2>
+
+<h2 id="-n"><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/6228f0d4ca8e57005149c3e3/room-content/6228f0d4ca8e57005149c3e3-1730976197246.png" alt="Connection card details." title="right-50" /> \n</h2>
+
+<p>Click on the green <code class="language-plaintext highlighter-rouge">Start Machine</code> Button in below to start the virtual machine in split-screen view.</p>
+
+<p>Start Machine</p>
+
+<p>If the VM is not visible, use the blue <code class="language-plaintext highlighter-rouge">Show Split View</code>button at the top of the page. \n</p>
+
+<h2 id="kubernetesexplained">Kubernetes Explained</h2>
+
+<p>Back in the day, it was very common for companies/organisations to use a monolithic architecture when building their applications. A monolithic architecture is an application built as a single unit, a single code base, and usually, a single executable deployed as a single component. For many companies, this worked and still does to this day; however, for some companies, this style of architecture was causing problems, especially when it came to scaling. The problem with monolithic applications is that if one single part of the application needs scaling, the whole application has to be scaled with it. It would make far more sense for companies with applications that receive fluctuating levels of demand across their parts to break the application down component by component and run them as their own microservices. That way, if one “microservice” starts to receive an increase in demand, it can be scaled up rather than the entire application.</p>
+
+<p><strong>The Great Microservice Adoption</strong></p>
+
+<p>Microservices architecture was adopted by companies like Netflix, which is a perfect example of the hypothetical company discussed above. Their need to scale up services dedicated to streaming when a new title is released (whilst services dedicated to user registration, billing, etc, won’t need the same scaling level) made a microservices architecture a no-brainer. As time went by, companies similar to Netflix hopped aboard the Microservices Express, and it became very widely adopted. Now, as for the hosting of these microservices, containers were chosen due to their lightweight nature. Only as you may imagine, an application of this scale can require hundreds, even thousands of containers. Suddenly, a tool was needed to organise and manage these containers.</p>
+
+<p><strong>Introducing Kubernetes</strong></p>
+
+<p>Well, you guessed it! That’s exactly what Kubernetes was made for. Kubernetes is a container orchestration system. Imagine one of those microservices mentioned earlier is running in a container, and suddenly, there is an increase in traffic, and this one container can no longer handle all requests. The solution to this problem is to have another container spun up for this microservice and balance the traffic between the two. Kubernetes takes care of this solution for you, “orchestrating” those containers when needed.</p>
+
+<p>That makes things a lot easier for everyone involved, and it’s because of this (along with the widespread adoption of microservices architecture) that Kubernetes is so ubiquitous in the digital landscape today. This popularity means that it’s <strong>highly portable</strong> as no matter what technology stack is being used, it’s very likely a Kubernetes integration is available; this, along with the fact it can help make an application <strong>highly available</strong> and <strong>scalable</strong>, makes Kubernetes a no-brainer!</p>
+
+<p>In Kubernetes, containers run in <strong>pods</strong>; these pods run on <strong>nodes</strong>, and a collection of nodes makes up a Kubernetes <strong>cluster</strong>. It is within a cluster that McSkidy and co’s investigation will occur today. If you’re interested in learning more about Kubernetes, we have a range of rooms on the subject. A good place to start would be the <a href="https://tryhackme.com/r/room/introtok8s">Intro to Kubernetes</a> room; then, there’s plenty more where that came from with the <a href="https://tryhackme.com/module/kubernetes-hardening">Kubernetes Hardening</a>Module. \n</p>
+
+<h2 id="dfirbasics">DFIR Basics</h2>
+
+<p>Every cyber security professional has stumbled—or will stumble—upon <strong>DFIR</strong> at some point in their career. It is an acronym—in IT, we all <em>love</em> our acronyms—that stands for “<strong>Digital Forensics and Incident Response</strong>.” These two investigative branches of cyber security come into play during a cyber security incident. A DFIR expert will likely be called to action as soon as an incident is ascertained and will be expected to perform actions that fall into one or both of the two disciplines:</p>
+
+<ul>
+  <li><strong>Digital Forensics</strong>, like any other “forensics” discipline, aims to collect and analyse digital evidence of an incident. The artefacts collected from the affected systems are used to trace the chain of attack and uncover all facts that ultimately led to the incident. DFIR experts sometimes use the term “post-mortem” to indicate that their analysis starts <em>after</em> the incident has occurred and is performed on already compromised systems and networks.</li>
+  <li><strong>Incident Response</strong>, while still relying on data analysis to investigate the incident, focuses on “responsive” actions such as threat containment and system recovery. The incident responder will isolate infected machines, use the data collected during the analysis to identify the “hole” in the infrastructure’s security and close it, and then recover the affected systems to a clean, previous-to-compromise state.</li>
+</ul>
+
+<p>Picture the incident responder as an emergency first responder whose aim is to contain the damage, extinguish the fire, and find and stabilise all the victims. On the other hand, the digital forensics analyst is the Crime Scene Investigator (CSI) or detective trying to recreate the crime scene and ultimately find evidence to identify and frame the criminal.</p>
+
+<p>Both roles are expected to document all findings thoroughly. The incident responder will present them to explain how the incident happened and what can be learnt from it, ultimately proposing changes to improve the security stance of the entity affected by the incident. The digital forensics analyst will use the findings to demonstrate the attackers’ actions and—eventually—testify against them in court.</p>
+
+<p>In the task at hand, we will help McSkidy and the Glitch become digital forensics analysts and retrace the malicious actor’s steps. We will especially focus on collecting evidence and artefacts to uncover the perpetrator and present our analysis to Wareville townspeople.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/6228f0d4ca8e57005149c3e3/room-content/6228f0d4ca8e57005149c3e3-1730813333189.png" alt="McSkidy and The Glitch in detective and firefighter costumes" title="left-50" /></p>
+
+<h2 id="excruciatingly-ephemeral">Excruciatingly Ephemeral</h2>
+
+<p>DFIR can be a lot of fun. It’s easy to feel like a digital detective, analysing the crime scene and connecting the dots to create a narrative string of events explaining what happened. What if the crime scene vanished into thin air moments after the crime was committed? That is a problem we face regularly when carrying out DFIR in a Kubernetes environment. This is because, as mentioned, Kubernetes workloads run in containers. It is <strong>very</strong> common that a container will have a very short lifespan (either spun up to run a job quickly or to handle increased load, etc, before being spun back down again). In fact, in this year’s (2024) <a href="https://sysdig.com/2024-cloud-native-security-and-usage-report/">Cloud-Native Security and Usage Report</a>, Sysdig found that 70% of containers live less than 5 minutes.</p>
+
+<p>So what can we do about it? Well not to worry, it just means we have to expand our digital detectives toolkit. The key to keeping track of the ongoings in your often ephemeral workloads within your Kubernetes environment is increasing <strong>visibility</strong>. There are a few ways we can do this. One way is by enabling Kubernetes audit logging, a function that Kubernetes provides, allowing for requests to the API to be captured at various stages. For example, if a user makes a request to delete a pod, this request can be captured, and while the pod will be deleted (and logs contained within it lost), the request made to delete it will be persisted in the audit logs. What requests/events are captured can be defined with an audit policy. We can use these audit logs to answer questions which help us in a security/DFIR context, such as:</p>
+
+<ul>
+  <li>What happened?</li>
+  <li>When did it happen?</li>
+  <li>Who initiated it?</li>
+  <li>To what did it happen?</li>
+  <li>Where was it observed?</li>
+  <li>From where was it initiated?</li>
+  <li>To where was it going?</li>
+</ul>
+
+<p>Of course, this just scratches the surface in terms of the level of visibility we can achieve in our Kubernetes environment. We can feed these audit logs, as well as events from other security-relevant sources, into runtime security tools which help transform these raw events into actionable data (which can then be visualised using yet more tools; a digital detective should definitely invest in an <strong>extra large</strong> toolkit). If you want to learn more on that subject, check out the <a href="https://tryhackme.com/r/room/k8sruntimesecurity">Kubernetes Runtime Security</a> room.</p>
+
+<h2 id="following-the-cookie-crumbs">Following the Cookie Crumbs</h2>
+
+<p>Let’s start our investigation. As mentioned before, some of the log sources would disappear as their sources, like pods, are ephemeral. Let’s see this in action first. On the VM, open a terminal as start K8s using the following command:</p>
+
+<p>Terminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">minikube</span> <span class="nx">start</span>
+<span class="nx">minikube</span> <span class="nx">v1</span><span class="p">.</span><span class="mf">32.0</span> <span class="nx">on</span> <span class="nx">Ubuntu</span> <span class="mf">20.04</span>
+<span class="nx">Using</span> <span class="nx">the</span> <span class="nx">docker</span> <span class="nx">driver</span> <span class="nx">based</span> <span class="nx">on</span> <span class="nx">existing</span> <span class="nx">profile</span>
+<span class="nx">Starting</span> <span class="nx">control</span> <span class="nx">plane</span> <span class="nx">node</span> <span class="nx">minikube</span> <span class="k">in</span> <span class="nx">cluster</span> <span class="nx">minikube</span>
+
+<span class="o">---</span> <span class="nx">removed</span> <span class="k">for</span> <span class="nx">brevity</span> <span class="o">---</span>
+
+<span class="nx">Enabled</span> <span class="nx">addons</span><span class="p">:</span> <span class="nx">storage</span><span class="o">-</span><span class="nx">provisioner</span><span class="p">,</span> <span class="k">default</span><span class="o">-</span><span class="nx">storageclass</span>
+<span class="nx">Done</span><span class="o">!</span> <span class="nx">kubectl</span> <span class="nx">is</span> <span class="nx">now</span> <span class="nx">configured</span> <span class="nx">to</span> <span class="nx">use</span> <span class="dl">"</span><span class="s2">minikube</span><span class="dl">"</span> <span class="nx">cluster</span> <span class="nx">and</span> <span class="dl">"</span><span class="s2">default</span><span class="dl">"</span> <span class="nx">namespace</span> <span class="nx">by</span> <span class="k">default</span>
+</code></pre></div></div>
+
+<p>It will take roughly three minutes for the cluster to configure itself and start. You can verify that the cluster is up and running using the following command:</p>
+
+<p>Terminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">kubectl</span> <span class="kd">get</span> <span class="nx">pods</span> <span class="o">-</span><span class="nx">n</span> <span class="nx">wareville</span>
+<span class="nx">NAME</span>                              <span class="nx">READY</span>   <span class="nx">STATUS</span>    <span class="nx">RESTARTS</span>         <span class="nx">AGE</span>
+<span class="nx">morality</span><span class="o">-</span><span class="nx">checker</span>                  <span class="mi">1</span><span class="o">/</span><span class="mi">1</span>     <span class="nx">Running</span>   <span class="mi">8</span>  <span class="p">(</span><span class="mi">9</span><span class="nx">m16s</span> <span class="nx">ago</span><span class="p">)</span>   <span class="mi">20</span><span class="nx">d</span>
+<span class="nx">naughty</span><span class="o">-</span><span class="nx">or</span><span class="o">-</span><span class="nx">nice</span>                   <span class="mi">1</span><span class="o">/</span><span class="mi">1</span>     <span class="nx">Running</span>   <span class="mi">1</span>  <span class="p">(</span><span class="mi">9</span><span class="nx">m16s</span> <span class="nx">ago</span><span class="p">)</span>    <span class="mi">9</span><span class="nx">d</span>
+<span class="nx">naughty</span><span class="o">-</span><span class="nx">picker</span><span class="o">-</span><span class="mi">7</span><span class="nx">cbd95dd66</span><span class="o">-</span><span class="nx">gjm7r</span>   <span class="mi">1</span><span class="o">/</span><span class="mi">1</span>     <span class="nx">Running</span>   <span class="mi">32</span> <span class="p">(</span><span class="mi">9</span><span class="nx">m16s</span> <span class="nx">ago</span><span class="p">)</span>   <span class="mi">20</span><span class="nx">d</span>
+<span class="nx">naughty</span><span class="o">-</span><span class="nx">picker</span><span class="o">-</span><span class="mi">7</span><span class="nx">cbd95dd66</span><span class="o">-</span><span class="nx">gshvp</span>   <span class="mi">1</span><span class="o">/</span><span class="mi">1</span>     <span class="nx">Running</span>   <span class="mi">32</span> <span class="p">(</span><span class="mi">9</span><span class="nx">m16s</span> <span class="nx">ago</span><span class="p">)</span>   <span class="mi">20</span><span class="nx">d</span>
+<span class="nx">nice</span><span class="o">-</span><span class="nx">picker</span><span class="o">-</span><span class="mi">7</span><span class="nx">cd98989c8</span><span class="o">-</span><span class="nx">bfbqn</span>      <span class="mi">1</span><span class="o">/</span><span class="mi">1</span>     <span class="nx">Running</span>   <span class="mi">32</span> <span class="p">(</span><span class="mi">9</span><span class="nx">m16s</span> <span class="nx">ago</span><span class="p">)</span>   <span class="mi">20</span><span class="nx">d</span>
+<span class="nx">nice</span><span class="o">-</span><span class="nx">picker</span><span class="o">-</span><span class="mi">7</span><span class="nx">cd98989c8</span><span class="o">-</span><span class="nx">ttc7t</span>      <span class="mi">1</span><span class="o">/</span><span class="mi">1</span>     <span class="nx">Running</span>   <span class="mi">32</span> <span class="p">(</span><span class="mi">9</span><span class="nx">m16s</span> <span class="nx">ago</span><span class="p">)</span>   <span class="mi">20</span><span class="nx">d</span>
+</code></pre></div></div>
+
+<p>If all of the pods are up and running (based on their status), you are ready to go. This will take another <strong>2 minutes</strong>. Since we know that the web application was compromised, let’s connect to that pod and see if we can recover any logs. Connect to the pod using the following command:</p>
+
+<p>Terminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">kubectl</span> <span class="nx">exec</span> <span class="o">-</span><span class="nx">n</span> <span class="nx">wareville</span> <span class="nx">naughty</span><span class="o">-</span><span class="nx">or</span><span class="o">-</span><span class="nx">nice</span> <span class="o">-</span><span class="nx">it</span> <span class="o">--</span> <span class="sr">/bin/</span><span class="nx">bash</span>
+<span class="nx">root</span><span class="p">@</span><span class="nd">naughty</span><span class="o">-</span><span class="nx">or</span><span class="o">-</span><span class="nx">nice</span><span class="p">:</span><span class="o">/</span><span class="err">#</span>
+</code></pre></div></div>
+
+<p>Once connected, let’s review the Apache2 access log:</p>
+
+<p>Terminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">root</span><span class="p">@</span><span class="nd">naughty</span><span class="o">-</span><span class="nx">or</span><span class="o">-</span><span class="nx">nice</span><span class="p">:</span><span class="o">/</span><span class="err">#</span> <span class="nx">cat</span> <span class="o">/</span><span class="kd">var</span><span class="sr">/log/</span><span class="nx">apache2</span><span class="o">/</span><span class="nx">access</span><span class="p">.</span><span class="nx">log</span>
+<span class="mf">172.17</span><span class="p">.</span><span class="mf">0.1</span> <span class="o">-</span> <span class="o">-</span> <span class="p">[</span><span class="mi">28</span><span class="o">/</span><span class="nx">Oct</span><span class="o">/</span><span class="mi">2024</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">05</span><span class="p">:</span><span class="mi">45</span> <span class="o">+</span><span class="mi">0000</span><span class="p">]</span> <span class="dl">"</span><span class="s2">GET / HTTP/1.1</span><span class="dl">"</span> <span class="mi">200</span> <span class="mi">2038</span> <span class="dl">"</span><span class="s2">-</span><span class="dl">"</span> <span class="dl">"</span><span class="s2">Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:131.0) Gecko/20100101 Firefox/131.0</span><span class="dl">"</span>
+<span class="mf">172.17</span><span class="p">.</span><span class="mf">0.1</span> <span class="o">-</span> <span class="o">-</span> <span class="p">[</span><span class="mi">28</span><span class="o">/</span><span class="nx">Oct</span><span class="o">/</span><span class="mi">2024</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">05</span><span class="p">:</span><span class="mi">45</span> <span class="o">+</span><span class="mi">0000</span><span class="p">]</span> <span class="dl">"</span><span class="s2">GET /style/style.css HTTP/1.1</span><span class="dl">"</span> <span class="mi">200</span> <span class="mi">1207</span> <span class="dl">"</span><span class="s2">http://localhost:8081/</span><span class="dl">"</span> <span class="dl">"</span><span class="s2">Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:131.0) Gecko/20100101 Firefox/131.0</span><span class="dl">"</span>
+
+<span class="o">---</span> <span class="nx">removed</span> <span class="k">for</span> <span class="nx">brevity</span> <span class="o">---</span>
+
+<span class="mf">172.17</span><span class="p">.</span><span class="mf">0.1</span> <span class="o">-</span> <span class="o">-</span> <span class="p">[</span><span class="mi">29</span><span class="o">/</span><span class="nx">Oct</span><span class="o">/</span><span class="mi">2024</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mi">32</span><span class="p">:</span><span class="mi">37</span> <span class="o">+</span><span class="mi">0000</span><span class="p">]</span> <span class="dl">"</span><span class="s2">GET /favicon.ico HTTP/1.1</span><span class="dl">"</span> <span class="mi">404</span> <span class="mi">489</span> <span class="dl">"</span><span class="s2">http://localhost:8081/</span><span class="dl">"</span> <span class="dl">"</span><span class="s2">Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0</span><span class="dl">"</span>
+<span class="mf">172.17</span><span class="p">.</span><span class="mf">0.1</span> <span class="o">-</span> <span class="o">-</span> <span class="p">[</span><span class="mi">29</span><span class="o">/</span><span class="nx">Oct</span><span class="o">/</span><span class="mi">2024</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mi">32</span><span class="p">:</span><span class="mi">48</span> <span class="o">+</span><span class="mi">0000</span><span class="p">]</span> <span class="dl">"</span><span class="s2">GET /shelly.php?cmd=whoami HTTP/1.1</span><span class="dl">"</span> <span class="mi">200</span> <span class="mi">224</span> <span class="dl">"</span><span class="s2">-</span><span class="dl">"</span> <span class="dl">"</span><span class="s2">Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0</span><span class="dl">"</span>
+</code></pre></div></div>
+
+<p>Sadly, we only see logs from the 28th of October when our attack occurred later on. Looking at the last log, however, we do see something interesting with a request being made to a <code class="language-plaintext highlighter-rouge">shelly.php</code> file. So, this tells us we are on the right track. Terminate your session to the pod using <code class="language-plaintext highlighter-rouge">exit</code>. Fortunately, McSkidy knew that the log source was ephemeral and decided to ensure that remote backups of the log source were made. Navigate to our backup directory using <code class="language-plaintext highlighter-rouge">cd /home/ubuntu/dfir_artefacts/</code> where you will find the access logs stored in <code class="language-plaintext highlighter-rouge">pod_apache2_access.log</code>. Review these logs to see what Mayor Malware was up to on the website and answer the first 3 questions at the bottom of the task!</p>
+
+<p>Sadly, our investigation hits a bit of a brick wall here. Firstly, because the pod was configured using a port forward, we don’t see the actual IP that was used to connect to the instance. Also, we still don’t fully understand how the webshell found its way into the pod. However, we rebooted the cluster and the webshell was present, meaning it must live within the actual image of the pod itself! That means we need to investigate the docker image registry itself. To view the registry container ID, run the following command:</p>
+
+<p>Terminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">docker</span> <span class="nx">ps</span>
+<span class="nx">CONTAINER</span> <span class="nx">ID</span>   <span class="nx">IMAGE</span>         <span class="nx">COMMAND</span>                  <span class="o">---</span> <span class="nx">removed</span> <span class="k">for</span> <span class="nx">brevity</span> <span class="o">---</span>
+<span class="mi">77</span><span class="nx">fddf1ff1b8</span>   <span class="nx">registry</span><span class="p">:</span><span class="mf">2.7</span> <span class="dl">"</span><span class="s2">/entrypoint.sh /etc…</span><span class="dl">"</span>    <span class="o">---</span> <span class="nx">removed</span> <span class="k">for</span> <span class="nx">brevity</span> <span class="o">---</span>
+<span class="nx">cd9ee77b8aa5</span>   <span class="nx">gcr</span><span class="p">.</span><span class="nx">io</span><span class="o">/</span><span class="nx">k8s</span><span class="o">-</span><span class="nx">minikube</span><span class="o">/</span><span class="nx">kicbase</span><span class="p">:</span><span class="nx">v0</span><span class="p">.</span><span class="mf">0.42</span>    <span class="o">---</span> <span class="nx">removed</span> <span class="k">for</span> <span class="nx">brevity</span> <span class="o">---</span>
+</code></pre></div></div>
+
+<p>Now, let’s connect to the instance to see if we have any logs:</p>
+
+<p>Terminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">docker</span> <span class="nx">exec</span> <span class="nx">CONTAINER</span> <span class="nx">NAME</span> <span class="o">/</span> <span class="nx">ID</span> <span class="nx">ls</span> <span class="o">-</span><span class="nx">al</span> <span class="o">/</span><span class="kd">var</span><span class="sr">/lo</span><span class="err">g
+</span><span class="nx">total</span> <span class="mi">12</span>
+<span class="nx">drwxr</span><span class="o">-</span><span class="nx">xr</span><span class="o">-</span><span class="nx">x</span>    <span class="mi">2</span> <span class="nx">root</span>     <span class="nx">root</span>          <span class="mi">4096</span> <span class="nx">Nov</span> <span class="mi">12</span>  <span class="mi">2021</span> <span class="p">.</span>
+<span class="nx">drwxr</span><span class="o">-</span><span class="nx">xr</span><span class="o">-</span><span class="nx">x</span>    <span class="mi">1</span> <span class="nx">root</span>     <span class="nx">root</span>          <span class="mi">4096</span> <span class="nx">Nov</span> <span class="mi">12</span>  <span class="mi">2021</span> <span class="p">..</span>
+</code></pre></div></div>
+
+<p>Again, we hit a wall since we don’t have any registry logs. Luckily, docker itself would keep logs for us. Let’s pull these logs using the following:</p>
+
+<p>Terminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">docker</span> <span class="nx">logs</span> <span class="nx">CONTAINER</span> <span class="nx">NAME</span> <span class="o">/</span> <span class="nx">ID</span>
+<span class="mf">172.17</span><span class="p">.</span><span class="mf">0.1</span> <span class="o">-</span> <span class="o">-</span> <span class="p">[</span><span class="mi">16</span><span class="o">/</span><span class="nx">Oct</span><span class="o">/</span><span class="mi">2024</span><span class="p">:</span><span class="mi">09</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="mi">39</span> <span class="o">+</span><span class="mi">0000</span><span class="p">]</span> <span class="dl">"</span><span class="s2">GET /v2/ HTTP/1.1</span><span class="dl">"</span> <span class="mi">401</span> <span class="mi">87</span> <span class="dl">""</span> <span class="dl">"</span><span class="s2">docker/26.0.0 go/go1.21.8 git-commit/8b79278 kernel/5.15.0-1070-aws os/linux arch/amd64 UpstreamClient(Docker-Client/26.0.0 </span><span class="se">\\</span><span class="s2">(linux</span><span class="se">\\</span><span class="s2">))</span><span class="dl">"</span>
+<span class="mf">172.17</span><span class="p">.</span><span class="mf">0.1</span> <span class="o">-</span> <span class="o">-</span> <span class="p">[</span><span class="mi">16</span><span class="o">/</span><span class="nx">Oct</span><span class="o">/</span><span class="mi">2024</span><span class="p">:</span><span class="mi">09</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="mi">39</span> <span class="o">+</span><span class="mi">0000</span><span class="p">]</span> <span class="dl">"</span><span class="s2">GET /v2/ HTTP/1.1</span><span class="dl">"</span> <span class="mi">401</span> <span class="mi">87</span> <span class="dl">""</span> <span class="dl">"</span><span class="s2">docker/26.0.0 go/go1.21.8 git-commit/8b79278 kernel/5.15.0-1070-aws os/linux arch/amd64 UpstreamClient(Docker-Client/26.0.0 </span><span class="se">\\</span><span class="s2">(linux</span><span class="se">\\</span><span class="s2">))</span><span class="dl">"</span>
+
+<span class="o">---</span> <span class="nx">removed</span> <span class="k">for</span> <span class="nx">brevity</span> <span class="o">---</span>
+
+<span class="nx">time</span><span class="o">=</span><span class="dl">"</span><span class="s2">2024-11-08T04:32:42.87960937Z</span><span class="dl">"</span> <span class="nx">level</span><span class="o">=</span><span class="nx">info</span> <span class="nx">msg</span><span class="o">=</span><span class="dl">"</span><span class="s2">using inmemory blob descriptor cache</span><span class="dl">"</span> <span class="nx">go</span><span class="p">.</span><span class="nx">version</span><span class="o">=</span><span class="nx">go1</span><span class="p">.</span><span class="mf">11.2</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">id</span><span class="o">=</span><span class="nx">ef35cf6e</span><span class="o">-</span><span class="nx">fd01</span><span class="o">-</span><span class="mi">4041</span><span class="o">-</span><span class="nx">abba</span><span class="o">-</span><span class="mi">2</span><span class="nx">c082fd682f0</span> <span class="nx">service</span><span class="o">=</span><span class="nx">registry</span> <span class="nx">version</span><span class="o">=</span><span class="nx">v2</span><span class="p">.</span><span class="mf">7.1</span>
+<span class="nx">time</span><span class="o">=</span><span class="dl">"</span><span class="s2">2024-11-08T04:32:42.880803524Z</span><span class="dl">"</span> <span class="nx">level</span><span class="o">=</span><span class="nx">info</span> <span class="nx">msg</span><span class="o">=</span><span class="dl">"</span><span class="s2">listening on [::]:5000</span><span class="dl">"</span> <span class="nx">go</span><span class="p">.</span><span class="nx">version</span><span class="o">=</span><span class="nx">go1</span><span class="p">.</span><span class="mf">11.2</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">id</span><span class="o">=</span><span class="nx">ef35cf6e</span><span class="o">-</span><span class="nx">fd01</span><span class="o">-</span><span class="mi">4041</span><span class="o">-</span><span class="nx">abba</span><span class="o">-</span><span class="mi">2</span><span class="nx">c082fd682f0</span> <span class="nx">service</span><span class="o">=</span><span class="nx">registry</span> <span class="nx">version</span><span class="o">=</span><span class="nx">v2</span><span class="p">.</span><span class="mf">7.1</span>
+</code></pre></div></div>
+
+<p>Now we have something we can use! These logs have been pulled for you and are stored in the <code class="language-plaintext highlighter-rouge">/home/ubuntu/dfir_artefacts/docker-registry-logs.log</code> file. Let’s start by seeing all the different connections that were made to the registry by searching for the HEAD HTTP request code and restricting it down to only the first item, which is the IP:</p>
+
+<p>Terminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="sr">/dfir_artefacts$ cat docker-registry-logs.log | grep "HEAD" | cut -d ' ' -f </span><span class="err">1
+</span><span class="mf">172.17</span><span class="p">.</span><span class="mf">0.1</span>
+<span class="mf">172.17</span><span class="p">.</span><span class="mf">0.1</span>
+<span class="mf">172.17</span><span class="p">.</span><span class="mf">0.1</span>
+
+<span class="o">---</span> <span class="nx">removed</span> <span class="k">for</span> <span class="nx">brevity</span> <span class="o">---</span>
+
+<span class="mf">10.10</span><span class="p">.</span><span class="mf">130.253</span>
+<span class="mf">10.10</span><span class="p">.</span><span class="mf">130.253</span>
+<span class="mf">10.10</span><span class="p">.</span><span class="mf">130.253</span>
+</code></pre></div></div>
+
+<p>Here we can see that most of the connections to our registry was made from the expected IP of 172.17.0.1, however, we can see that connections were also made by 10.10.130.253, which is not an IP known to us. Let’s find all of the requests made by this IP:</p>
+
+<p>Terminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="sr">/dfir_artefacts$ cat docker-registry-logs.log | grep "10.10.130.253</span><span class="err">"
+</span><span class="mf">10.10</span><span class="p">.</span><span class="mf">130.253</span> <span class="o">-</span> <span class="o">-</span> <span class="p">[</span><span class="mi">29</span><span class="o">/</span><span class="nx">Oct</span><span class="o">/</span><span class="mi">2024</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">06</span><span class="p">:</span><span class="mi">33</span> <span class="o">+</span><span class="mi">0000</span><span class="p">]</span> <span class="dl">"</span><span class="s2">GET /v2/ HTTP/1.1</span><span class="dl">"</span> <span class="mi">401</span> <span class="mi">87</span> <span class="dl">""</span> <span class="dl">"</span><span class="s2">docker/19.03.12 go/go1.13.10 git-commit/48a66213fe kernel/4.15.0-213-generic os/linux arch/amd64 UpstreamClient(Docker-Client/19.03.12 </span><span class="se">\\</span><span class="s2">(linux</span><span class="se">\\</span><span class="s2">))</span><span class="dl">"</span>
+<span class="mf">10.10</span><span class="p">.</span><span class="mf">130.253</span> <span class="o">-</span> <span class="o">-</span> <span class="p">[</span><span class="mi">29</span><span class="o">/</span><span class="nx">Oct</span><span class="o">/</span><span class="mi">2024</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">06</span><span class="p">:</span><span class="mi">33</span> <span class="o">+</span><span class="mi">0000</span><span class="p">]</span> <span class="dl">"</span><span class="s2">GET /v2/ HTTP/1.1</span><span class="dl">"</span> <span class="mi">200</span> <span class="mi">2</span> <span class="dl">""</span> <span class="dl">"</span><span class="s2">docker/19.03.12 go/go1.13.10 git-commit/48a66213fe kernel/4.15.0-213-generic os/linux arch/amd64 UpstreamClient(Docker-Client/19.03.12 </span><span class="se">\\</span><span class="s2">(linux</span><span class="se">\\</span><span class="s2">))</span><span class="dl">"</span>
+
+<span class="o">---</span> <span class="nx">removed</span> <span class="k">for</span> <span class="nx">brevity</span> <span class="o">---</span>
+
+<span class="mf">10.10</span><span class="p">.</span><span class="mf">130.253</span> <span class="o">-</span> <span class="o">-</span> <span class="p">[</span><span class="mi">29</span><span class="o">/</span><span class="nx">Oct</span><span class="o">/</span><span class="mi">2024</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mi">34</span><span class="p">:</span><span class="mi">31</span> <span class="o">+</span><span class="mi">0000</span><span class="p">]</span> <span class="dl">"</span><span class="s2">PUT /v2/wishlistweb/manifests/latest HTTP/1.1</span><span class="dl">"</span> <span class="mi">201</span> <span class="mi">0</span> <span class="dl">""</span> <span class="dl">"</span><span class="s2">docker/19.03.12 go/go1.13.10 git-commit/48a66213fe kernel/4.15.0-213-generic os/linux arch/amd64 UpstreamClient(Docker-Client/19.03.12 </span><span class="se">\\</span><span class="s2">(linux</span><span class="se">\\</span><span class="s2">))</span><span class="dl">"</span>
+</code></pre></div></div>
+
+<p>Now, we are getting somewhere. If we review the first few requests, we can see that several authentication attempts were made. But, we can also see that the request to read the manifest for the wishlistweb image succeeded, as the HTTP status code of 200 is returned in this log entry:</p>
+
+<p><code class="language-plaintext highlighter-rouge">10.10.130.253 - - [29/Oct/2024:12:26:40 +0000] "GET /v2/wishlistweb/manifests/latest HTTP/1.1" 200 6366 "" "docker/19.03.12 go/go1.13.10 git-commit/48a66213fe kernel/4.15.0-213-generic os/linux arch/amd64 UpstreamClient(Docker-Client/19.03.12 \\(linux\\))"</code></p>
+
+<p>What we also notice is the User Agent in the request is docker, meaning this was a request made through the docker CLI to pull the image. This is confirmed as we see several requests then to download the image. From this, we learn several things:</p>
+
+<ul>
+  <li>The docker CLI application was used to connect to the registry.</li>
+  <li>Connections came from 10.10.130.253, which is unexpected since we only upload images from 172.17.0.1.</li>
+  <li>The client was authenticated, which allowed the image to be pulled. This means that whoever made the request had access to credentials.</li>
+</ul>
+
+<p>If they had access to credentials to pull an image, the same credentials might have allowed them to also push a new image.  We can verify this by narrowing our search to any PATCH HTTP methods. The PATCH method is used to update docker images in a registry:</p>
+
+<p>Terminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="sr">/dfir_artefacts$ cat docker-registry-logs.log | grep "10.10.130.253" | grep "PATCH</span><span class="err">"
+</span><span class="mf">10.10</span><span class="p">.</span><span class="mf">130.253</span> <span class="o">-</span> <span class="o">-</span> <span class="p">[</span><span class="mi">29</span><span class="o">/</span><span class="nx">Oct</span><span class="o">/</span><span class="mi">2024</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mi">34</span><span class="p">:</span><span class="mi">28</span> <span class="o">+</span><span class="mi">0000</span><span class="p">]</span> <span class="dl">"</span><span class="s2">PATCH /v2/wishlistweb/blobs/uploads/2966 --- removed for brevity ---
+10.10.130.253 - - [29/Oct/2024:12:34:31 +0000] </span><span class="dl">"</span><span class="nx">PATCH</span> <span class="o">/</span><span class="nx">v2</span><span class="o">/</span><span class="nx">wishlistweb</span><span class="o">/</span><span class="nx">blobs</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">7</span><span class="nx">d53</span> <span class="o">---</span> <span class="nx">removed</span> <span class="k">for</span> <span class="nx">brevity</span> <span class="o">---</span>
+</code></pre></div></div>
+
+<p>This is not good! It means that Mayor Malware could push a new version of our image! This would explain how the webshell made its way into the image, since Mayor Malware pulled the image, made malicious updates, and then pushed this compromised image back to the registry! Use the information to answer questions 4 through 6 at the bottom of the task. Now that we know Mayor Malware had access to the credentials of the docker registry, we need to learn how he could have gained access to them. We use these credentials in our Kubernetes cluster to read the image from the registry, so let’s see what could have happened to disclose them!</p>
+
+<p>Okay, so it looks like the attack happened via an authenticated docker registry push. Now, it’s time to return to our Kubernetes environment and determine how this was possible.</p>
+
+<p>McSkidy was made aware that Mayor Malware was given user access to the naughty or nice Kubernetes environment but was assured by the DevSecOps team that he wouldn’t have sufficient permissions to view secrets, etc. The first thing we should do is make sure this is the case. To do this, McSkidy decides to check what role was assigned to the mayor. She first checks the rolebindings (binds a role to a user):</p>
+
+<p>Get Rolebindings</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="sr">/dfir_artefacts$ kubectl get rolebindings -n warevill</span><span class="err">e
+</span><span class="nx">NAME</span>                 <span class="nx">ROLE</span>              <span class="nx">AGE</span>
+<span class="nx">job</span><span class="o">-</span><span class="nx">runner</span><span class="o">-</span><span class="nx">binding</span>   <span class="nx">Role</span><span class="o">/</span><span class="nx">job</span><span class="o">-</span><span class="nx">runner</span>   <span class="mi">20</span><span class="nx">d</span>
+<span class="nx">mayor</span><span class="o">-</span><span class="nx">user</span><span class="o">-</span><span class="nx">binding</span>   <span class="nx">Role</span><span class="o">/</span><span class="nx">mayor</span><span class="o">-</span><span class="nx">user</span>   <span class="mi">20</span><span class="nx">d</span>
+</code></pre></div></div>
+
+<p>McSkidy then sees a rolebinding named after Mayor Malware and decides to take a closer look:</p>
+
+<p>Describe Rolebinding</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="sr">/dfir_artefacts$ kubectl describe rolebinding mayor-user-binding -n warevill</span><span class="err">e
+</span><span class="nx">Name</span><span class="p">:</span>         <span class="nx">mayor</span><span class="o">-</span><span class="nx">user</span><span class="o">-</span><span class="nx">binding</span>
+<span class="nx">Labels</span><span class="p">:</span>       <span class="o">&lt;</span><span class="nx">none</span><span class="o">&gt;</span>
+<span class="nx">Annotations</span><span class="p">:</span>  <span class="o">&lt;</span><span class="nx">none</span><span class="o">&gt;</span>
+<span class="nx">Role</span><span class="p">:</span>
+  <span class="nx">Kind</span><span class="p">:</span>  <span class="nx">Role</span>
+  <span class="nx">Name</span><span class="p">:</span>  <span class="nx">mayor</span><span class="o">-</span><span class="nx">user</span>
+<span class="nx">Subjects</span><span class="p">:</span>
+  <span class="nx">Kind</span>  <span class="nx">Name</span>           <span class="nx">Namespace</span>
+  <span class="o">----</span>  <span class="o">----</span>           <span class="o">---------</span>
+  <span class="nx">User</span>  <span class="nx">mayor</span><span class="o">-</span><span class="nx">malware</span>
+</code></pre></div></div>
+
+<p>From the output, she could see that there is a role “mayor-user” that is bound to the user “mayor-malware”. McSkidy then checked this role to see what permissions it has (and therefore Mayor Malware had):</p>
+
+<p>Describe Role</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="sr">/dfir_artefacts$ kubectl describe role mayor-user -n warevill</span><span class="err">e
+</span><span class="nx">Name</span><span class="p">:</span>         <span class="nx">mayor</span><span class="o">-</span><span class="nx">user</span>
+<span class="nx">Labels</span><span class="p">:</span>       <span class="o">&lt;</span><span class="nx">none</span><span class="o">&gt;</span>
+<span class="nx">Annotations</span><span class="p">:</span>  <span class="o">&lt;</span><span class="nx">none</span><span class="o">&gt;</span>
+<span class="nx">PolicyRule</span><span class="p">:</span>
+  <span class="nx">Resources</span>                               <span class="nx">Non</span><span class="o">-</span><span class="nx">Resource</span> <span class="nx">URLs</span>  <span class="nx">Resource</span> <span class="nx">Names</span>  <span class="nx">Verbs</span>
+  <span class="o">---------</span>                               <span class="o">-----------------</span>  <span class="o">--------------</span>  <span class="o">-----</span>
+  <span class="nx">pods</span><span class="o">/</span><span class="nx">exec</span>                               <span class="p">[]</span>                 <span class="p">[]</span>              <span class="p">[</span><span class="nx">create</span> <span class="kd">get</span> <span class="nx">list</span><span class="p">]</span>
+  <span class="nx">rolebindings</span><span class="p">.</span><span class="nx">rbac</span><span class="p">.</span><span class="nx">authorization</span><span class="p">.</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">io</span>  <span class="p">[]</span>                 <span class="p">[]</span>              <span class="p">[</span><span class="kd">get</span> <span class="nx">list</span> <span class="nx">describe</span><span class="p">]</span>
+  <span class="nx">roles</span><span class="p">.</span><span class="nx">rbac</span><span class="p">.</span><span class="nx">authorization</span><span class="p">.</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">io</span>         <span class="p">[]</span>                 <span class="p">[]</span>              <span class="p">[</span><span class="kd">get</span> <span class="nx">list</span> <span class="nx">describe</span><span class="p">]</span>
+  <span class="nx">pods</span>                                    <span class="p">[]</span>                 <span class="p">[]</span>              <span class="p">[</span><span class="kd">get</span> <span class="nx">list</span> <span class="nx">watch</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>The output here tells McSkidy something very important. A lot of the permissions listed here are as you would expect for a non-admin user in a Kubernetes environment, all of those except for the permissions associated with “pods/exec”. Exec allows the user to shell into the containers running within a pod. This gives McSkidy an idea of what Mayor Malware might have done. To confirm her suspicious, she checks the audit logs for Mayor Malware’s activity:</p>
+
+<p><code class="language-plaintext highlighter-rouge">cat audit.log | grep --color=always '"user":{"username":"mayor-malware"' | grep --color=always '"resource"' | grep --color=always '"verb"'</code> \n</p>
+
+<p>This returns a lot of logs, let’s go through them as Mcskidy starts to form the attack path taken by Mayor Malware:</p>
+
+<p><strong>Get Secrets</strong></p>
+
+<p>Terminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="sr">/dfir_artefacts$ cat audit.log | grep --color=always '"user":{"username":"mayor-malware"' | grep --color=always '"resource"' | grep --color=always '"verb"</span><span class="err">'
+</span><span class="o">---</span> <span class="nx">removed</span> <span class="k">for</span> <span class="nx">brevity</span> <span class="o">---</span>
+
+<span class="p">{</span><span class="dl">"</span><span class="s2">kind</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Event</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">apiVersion</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">audit.k8s.io/v1</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">level</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">RequestResponse</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">auditID</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">a02486f1-3a7c-4bca-8bcb-9019fa43dac4</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">stage</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">ResponseComplete</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">requestURI</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">/api/v1/namespaces/wareville/secrets?limit=500</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">verb</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">user</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">username</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">mayor-malware</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">groups</span><span class="dl">"</span><span class="p">:[</span><span class="dl">"</span><span class="s2">example</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">system:authenticated</span><span class="dl">"</span><span class="p">]},</span><span class="dl">"</span><span class="s2">sourceIPs</span><span class="dl">"</span><span class="p">:[</span><span class="dl">"</span><span class="s2">192.168.49.1</span><span class="dl">"</span><span class="p">],</span><span class="dl">"</span><span class="s2">userAgent</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">kubectl/v1.29.3 (linux/amd64) kubernetes/6813625</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">objectRef</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">resource</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">secrets</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">namespace</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">wareville</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">apiVersion</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">v1</span><span class="dl">"</span><span class="p">},</span><span class="dl">"</span><span class="s2">responseStatus</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">metadata</span><span class="dl">"</span><span class="p">:{},</span><span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Failure</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">message</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">secrets is forbidden: User </span><span class="se">\"</span><span class="s2">mayor-malware</span><span class="se">\"</span><span class="s2"> cannot list resource </span><span class="se">\"</span><span class="s2">secrets</span><span class="se">\"</span><span class="s2"> in API group </span><span class="se">\"\"</span><span class="s2"> in the namespace </span><span class="se">\"</span><span class="s2">wareville</span><span class="se">\"</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">reason</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Forbidden</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">details</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">kind</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">secrets</span><span class="dl">"</span><span class="p">},</span><span class="dl">"</span><span class="s2">code</span><span class="dl">"</span><span class="p">:</span><span class="mi">403</span><span class="p">},</span><span class="dl">"</span><span class="s2">responseObject</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">kind</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Status</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">apiVersion</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">v1</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">metadata</span><span class="dl">"</span><span class="p">:{},</span><span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Failure</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">message</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">secrets is forbidden: User </span><span class="se">\"</span><span class="s2">mayor-malware</span><span class="se">\"</span><span class="s2"> cannot list resource </span><span class="se">\"</span><span class="s2">secrets</span><span class="se">\"</span><span class="s2"> in API group </span><span class="se">\"\"</span><span class="s2"> in the namespace </span><span class="se">\"</span><span class="s2">wareville</span><span class="se">\"</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">reason</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Forbidden</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">details</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">kind</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">secrets</span><span class="dl">"</span><span class="p">},</span><span class="dl">"</span><span class="s2">code</span><span class="dl">"</span><span class="p">:</span><span class="mi">403</span><span class="p">},</span><span class="dl">"</span><span class="s2">requestReceivedTimestamp</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2024-10-29T12:20:30.664633Z</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">stageTimestamp</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2024-10-29T12:20:30.666165Z</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">annotations</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">authorization.k8s.io/decision</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">forbid</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">authorization.k8s.io/reason</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">}</span>
+
+<span class="o">---</span> <span class="nx">removed</span> <span class="k">for</span> <span class="nx">brevity</span> <span class="o">---</span>
+</code></pre></div></div>
+
+<p>This log snippet tells us that Mayor Malware attempted to get the secrets stored on the cluster but received a 403 response as he didn’t have sufficient permissions to do so (Note: a plural get command runs a list on the backend, and is why it appears as so in the logs).</p>
+
+<p><strong>Get Roles</strong></p>
+
+<p>\n</p>
+
+<p>Terminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="sr">/dfir_artefacts$ cat audit.log | grep --color=always '"user":{"username":"mayor-malware"' | grep --color=always '"resource"' | grep --color=always '"verb"</span><span class="err">'
+</span>
+<span class="o">---</span> <span class="nx">removed</span> <span class="k">for</span> <span class="nx">brevity</span> <span class="o">---</span>
+
+<span class="p">{</span><span class="dl">"</span><span class="s2">kind</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Event</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">apiVersion</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">audit.k8s.io/v1</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">level</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Metadata</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">auditID</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">8084daec-f59f-4d90-b343-f59f4f3cd67c</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">stage</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">ResponseComplete</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">requestURI</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">/apis/rbac.authorization.k8s.io/v1/namespaces/wareville/roles?limit=500</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">verb</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">user</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">username</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">mayor-malware</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">groups</span><span class="dl">"</span><span class="p">:[</span><span class="dl">"</span><span class="s2">example</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">system:authenticated</span><span class="dl">"</span><span class="p">]},</span><span class="dl">"</span><span class="s2">sourceIPs</span><span class="dl">"</span><span class="p">:[</span><span class="dl">"</span><span class="s2">192.168.49.1</span><span class="dl">"</span><span class="p">],</span><span class="dl">"</span><span class="s2">userAgent</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">kubectl/v1.29.3 (linux/amd64) kubernetes/6813625</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">objectRef</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">resource</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">roles</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">namespace</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">wareville</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">apiGroup</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">rbac.authorization.k8s.io</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">apiVersion</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">v1</span><span class="dl">"</span><span class="p">},</span><span class="dl">"</span><span class="s2">responseStatus</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">metadata</span><span class="dl">"</span><span class="p">:{},</span><span class="dl">"</span><span class="s2">code</span><span class="dl">"</span><span class="p">:</span><span class="mi">200</span><span class="p">},</span><span class="dl">"</span><span class="s2">requestReceivedTimestamp</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2024-10-29T12:20:39.761026Z</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">stageTimestamp</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2024-10-29T12:20:39.762868Z</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">annotations</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">authorization.k8s.io/decision</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">allow</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">authorization.k8s.io/reason</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">RBAC: allowed by RoleBinding </span><span class="se">\"</span><span class="s2">mayor-user-binding/wareville</span><span class="se">\"</span><span class="s2"> of Role </span><span class="se">\"</span><span class="s2">mayor-user</span><span class="se">\"</span><span class="s2"> to User </span><span class="se">\"</span><span class="s2">mayor-malware</span><span class="se">\"</span><span class="dl">"</span><span class="p">}}</span>
+
+<span class="o">---</span> <span class="nx">removed</span> <span class="k">for</span> <span class="nx">brevity</span> <span class="o">---</span>
+</code></pre></div></div>
+
+<p>After being denied secret access, Mayor Malware then started snooping to see what roles were present on the cluster.</p>
+
+<p><strong>Describe Role</strong></p>
+
+<p>Terminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="sr">/dfir_artefacts$ cat audit.log | grep --color=always '"user":{"username":"mayor-malware"' | grep --color=always '"resource"' | grep --color=always '"verb"</span><span class="err">'
+</span>
+<span class="o">---</span> <span class="nx">removed</span> <span class="k">for</span> <span class="nx">brevity</span> <span class="o">---</span>
+
+<span class="p">{</span><span class="dl">"</span><span class="s2">kind</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Event</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">apiVersion</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">audit.k8s.io/v1</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">level</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Metadata</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">auditID</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">6ef973f4-82ab-4326-b66b-24d7036cae64</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">stage</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">ResponseComplete</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">requestURI</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">/apis/rbac.authorization.k8s.io/v1/namespaces/wareville/roles/job-runner</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">verb</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">get</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">user</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">username</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">mayor-malware</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">groups</span><span class="dl">"</span><span class="p">:[</span><span class="dl">"</span><span class="s2">example</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">system:authenticated</span><span class="dl">"</span><span class="p">]},</span><span class="dl">"</span><span class="s2">sourceIPs</span><span class="dl">"</span><span class="p">:[</span><span class="dl">"</span><span class="s2">192.168.49.1</span><span class="dl">"</span><span class="p">],</span><span class="dl">"</span><span class="s2">userAgent</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">kubectl/v1.29.3 (linux/amd64) kubernetes/6813625</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">objectRef</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">resource</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">roles</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">namespace</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">wareville</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">job-runner</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">apiGroup</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">rbac.authorization.k8s.io</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">apiVersion</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">v1</span><span class="dl">"</span><span class="p">},</span><span class="dl">"</span><span class="s2">responseStatus</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">metadata</span><span class="dl">"</span><span class="p">:{},</span><span class="dl">"</span><span class="s2">code</span><span class="dl">"</span><span class="p">:</span><span class="mi">200</span><span class="p">},</span><span class="dl">"</span><span class="s2">requestReceivedTimestamp</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2024-10-29T12:20:49.497325Z</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">stageTimestamp</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2024-10-29T12:20:49.498588Z</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">annotations</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">authorization.k8s.io/decision</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">allow</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">authorization.k8s.io/reason</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">RBAC: allowed by RoleBinding </span><span class="se">\"</span><span class="s2">mayor-user-binding/wareville</span><span class="se">\"</span><span class="s2"> of Role </span><span class="se">\"</span><span class="s2">mayor-user</span><span class="se">\"</span><span class="s2"> to User </span><span class="se">\"</span><span class="s2">mayor-malware</span><span class="se">\"</span><span class="dl">"</span><span class="p">}}</span>
+
+<span class="o">---</span> <span class="nx">removed</span> <span class="k">for</span> <span class="nx">brevity</span> <span class="o">---</span>
+</code></pre></div></div>
+
+<p>Whilst running the previous “get roles” command, Mayor Malware will have found a role named “job-runner”. These logs tell us that Mayor Malware then described this role, which would have given him key pieces of information regarding the role. Most importantly for our investigation, it would have told him this role has secret read access.</p>
+
+<p><strong>Get Rolebindings</strong></p>
+
+<p>Terminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="sr">/dfir_artefacts$ cat audit.log | grep --color=always '"user":{"username":"mayor-malware"' | grep --color=always '"resource"' | grep --color=always '"verb"</span><span class="err">'
+</span>
+<span class="o">---</span> <span class="nx">removed</span> <span class="k">for</span> <span class="nx">brevity</span> <span class="o">---</span>
+
+<span class="p">{</span><span class="dl">"</span><span class="s2">kind</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Event</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">apiVersion</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">audit.k8s.io/v1</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">level</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Metadata</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">auditID</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">25b7417e-550c-4b9a-bb2c-dad64662cce0</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">stage</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">ResponseComplete</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">requestURI</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">/apis/rbac.authorization.k8s.io/v1/namespaces/wareville/rolebindings?limit=500</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">verb</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">user</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">username</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">mayor-malware</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">groups</span><span class="dl">"</span><span class="p">:[</span><span class="dl">"</span><span class="s2">example</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">system:authenticated</span><span class="dl">"</span><span class="p">]},</span><span class="dl">"</span><span class="s2">sourceIPs</span><span class="dl">"</span><span class="p">:[</span><span class="dl">"</span><span class="s2">192.168.49.1</span><span class="dl">"</span><span class="p">],</span><span class="dl">"</span><span class="s2">userAgent</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">kubectl/v1.29.3 (linux/amd64) kubernetes/6813625</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">objectRef</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">resource</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">rolebindings</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">namespace</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">wareville</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">apiGroup</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">rbac.authorization.k8s.io</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">apiVersion</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">v1</span><span class="dl">"</span><span class="p">},</span><span class="dl">"</span><span class="s2">responseStatus</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">metadata</span><span class="dl">"</span><span class="p">:{},</span><span class="dl">"</span><span class="s2">code</span><span class="dl">"</span><span class="p">:</span><span class="mi">200</span><span class="p">},</span><span class="dl">"</span><span class="s2">requestReceivedTimestamp</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2024-10-29T12:20:59.570824Z</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">stageTimestamp</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2024-10-29T12:20:59.575620Z</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">annotations</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">authorization.k8s.io/decision</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">allow</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">authorization.k8s.io/reason</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">RBAC: allowed by RoleBinding </span><span class="se">\"</span><span class="s2">mayor-user-binding/wareville</span><span class="se">\"</span><span class="s2"> of Role </span><span class="se">\"</span><span class="s2">mayor-user</span><span class="se">\"</span><span class="s2"> to User </span><span class="se">\"</span><span class="s2">mayor-malware</span><span class="se">\"</span><span class="dl">"</span><span class="p">}}</span>
+
+<span class="o">---</span> <span class="nx">removed</span> <span class="k">for</span> <span class="nx">brevity</span> <span class="o">---</span>
+</code></pre></div></div>
+
+<p>Now, knowing this role can view secrets, Mayor Malware tried to find its role binding to see what was using this role.</p>
+
+<p>\n</p>
+
+<p><strong>Describe Rolebinding</strong></p>
+
+<p>Terminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="sr">/dfir_artefacts$ cat audit.log | grep --color=always '"user":{"username":"mayor-malware"' | grep --color=always '"resource"' | grep --color=always '"verb"</span><span class="err">'
+</span>
+<span class="o">---</span> <span class="nx">removed</span> <span class="k">for</span> <span class="nx">brevity</span> <span class="o">---</span>
+
+<span class="p">{</span><span class="dl">"</span><span class="s2">kind</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Event</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">apiVersion</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">audit.k8s.io/v1</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">level</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Metadata</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">auditID</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">b0f9aa98-9039-4df8-b990-9bf6ca48ab2f</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">stage</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">ResponseComplete</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">requestURI</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">/apis/rbac.authorization.k8s.io/v1/namespaces/wareville/rolebindings/job-runner-binding</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">verb</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">get</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">user</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">username</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">mayor-malware</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">groups</span><span class="dl">"</span><span class="p">:[</span><span class="dl">"</span><span class="s2">example</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">system:authenticated</span><span class="dl">"</span><span class="p">]},</span><span class="dl">"</span><span class="s2">sourceIPs</span><span class="dl">"</span><span class="p">:[</span><span class="dl">"</span><span class="s2">192.168.49.1</span><span class="dl">"</span><span class="p">],</span><span class="dl">"</span><span class="s2">userAgent</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">kubectl/v1.29.3 (linux/amd64) kubernetes/6813625</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">objectRef</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">resource</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">rolebindings</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">namespace</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">wareville</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">job-runner-binding</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">apiGroup</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">rbac.authorization.k8s.io</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">apiVersion</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">v1</span><span class="dl">"</span><span class="p">},</span><span class="dl">"</span><span class="s2">responseStatus</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">metadata</span><span class="dl">"</span><span class="p">:{},</span><span class="dl">"</span><span class="s2">code</span><span class="dl">"</span><span class="p">:</span><span class="mi">200</span><span class="p">},</span><span class="dl">"</span><span class="s2">requestReceivedTimestamp</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2024-10-29T12:21:11.521236Z</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">stageTimestamp</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2024-10-29T12:21:11.523301Z</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">annotations</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">authorization.k8s.io/decision</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">allow</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">authorization.k8s.io/reason</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">RBAC: allowed by RoleBinding </span><span class="se">\"</span><span class="s2">mayor-user-binding/wareville</span><span class="se">\"</span><span class="s2"> of Role </span><span class="se">\"</span><span class="s2">mayor-user</span><span class="se">\"</span><span class="s2"> to User </span><span class="se">\"</span><span class="s2">mayor-malware</span><span class="se">\"</span><span class="dl">"</span><span class="p">}}</span>
+
+<span class="o">---</span> <span class="nx">removed</span> <span class="k">for</span> <span class="nx">brevity</span> <span class="o">---</span>
+</code></pre></div></div>
+
+<p>After seeing a role binding named “job-runner-binding”, Mayor Malware described it and found out this role is bound to a service account named “job-runner-sa” (aka this service account has permission to view secrets)</p>
+
+<p>\n</p>
+
+<p><strong>Get Pods</strong></p>
+
+<p>Terminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="sr">/dfir_artefacts$ cat audit.log | grep --color=always '"user":{"username":"mayor-malware"' | grep --color=always '"resource"' | grep --color=always '"verb"</span><span class="err">'
+</span>
+<span class="o">---</span> <span class="nx">removed</span> <span class="k">for</span> <span class="nx">brevity</span> <span class="o">---</span>
+
+<span class="p">{</span><span class="dl">"</span><span class="s2">kind</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Event</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">apiVersion</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">audit.k8s.io/v1</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">level</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Metadata</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">auditID</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">9d13a9b6-78d2-4cfc-8dc5-889b83aafc44</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">stage</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">ResponseComplete</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">requestURI</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">/api/v1/namespaces/wareville/pods?limit=500</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">verb</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">user</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">username</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">mayor-malware</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">groups</span><span class="dl">"</span><span class="p">:[</span><span class="dl">"</span><span class="s2">example</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">system:authenticated</span><span class="dl">"</span><span class="p">]},</span><span class="dl">"</span><span class="s2">sourceIPs</span><span class="dl">"</span><span class="p">:[</span><span class="dl">"</span><span class="s2">192.168.49.1</span><span class="dl">"</span><span class="p">],</span><span class="dl">"</span><span class="s2">userAgent</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">kubectl/v1.29.3 (linux/amd64) kubernetes/6813625</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">objectRef</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">resource</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">pods</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">namespace</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">wareville</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">apiVersion</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">v1</span><span class="dl">"</span><span class="p">},</span><span class="dl">"</span><span class="s2">responseStatus</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">metadata</span><span class="dl">"</span><span class="p">:{},</span><span class="dl">"</span><span class="s2">code</span><span class="dl">"</span><span class="p">:</span><span class="mi">200</span><span class="p">},</span><span class="dl">"</span><span class="s2">requestReceivedTimestamp</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2024-10-29T12:21:22.660584Z</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">stageTimestamp</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2024-10-29T12:21:22.664112Z</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">annotations</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">authorization.k8s.io/decision</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">allow</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">authorization.k8s.io/reason</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">RBAC: allowed by RoleBinding </span><span class="se">\"</span><span class="s2">mayor-user-binding/wareville</span><span class="se">\"</span><span class="s2"> of Role </span><span class="se">\"</span><span class="s2">mayor-user</span><span class="se">\"</span><span class="s2"> to User </span><span class="se">\"</span><span class="s2">mayor-malware</span><span class="se">\"</span><span class="dl">"</span><span class="p">}}</span>
+
+<span class="o">---</span> <span class="nx">removed</span> <span class="k">for</span> <span class="nx">brevity</span> <span class="o">---</span>
+</code></pre></div></div>
+
+<p>Here, we can see that Mayor Malware, now armed with the knowledge that a service account has the permissions he needs, lists all of the pods running in the Wareville namespace with a kubectl get pods command.</p>
+
+<p>\n</p>
+
+<p><strong>Describe Pod</strong></p>
+
+<p>Terminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="sr">/dfir_artefacts$ cat audit.log | grep --color=always '"user":{"username":"mayor-malware"' | grep --color=always '"resource"' | grep --color=always '"verb"</span><span class="err">'
+</span>
+<span class="o">---</span> <span class="nx">removed</span> <span class="k">for</span> <span class="nx">brevity</span> <span class="o">---</span>
+
+<span class="p">{</span><span class="dl">"</span><span class="s2">kind</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Event</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">apiVersion</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">audit.k8s.io/v1</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">level</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Metadata</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">auditID</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">5965471b-4fb9-49c9-9a16-7fd466c762c8</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">stage</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">ResponseComplete</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">requestURI</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">/api/v1/namespaces/wareville/pods/morality-checker</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">verb</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">get</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">user</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">username</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">mayor-malware</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">groups</span><span class="dl">"</span><span class="p">:[</span><span class="dl">"</span><span class="s2">example</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">system:authenticated</span><span class="dl">"</span><span class="p">]},</span><span class="dl">"</span><span class="s2">sourceIPs</span><span class="dl">"</span><span class="p">:[</span><span class="dl">"</span><span class="s2">192.168.49.1</span><span class="dl">"</span><span class="p">],</span><span class="dl">"</span><span class="s2">userAgent</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">kubectl/v1.29.3 (linux/amd64) kubernetes/6813625</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">objectRef</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">resource</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">pods</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">namespace</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">wareville</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">morality-checker</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">apiVersion</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">v1</span><span class="dl">"</span><span class="p">},</span><span class="dl">"</span><span class="s2">responseStatus</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">metadata</span><span class="dl">"</span><span class="p">:{},</span><span class="dl">"</span><span class="s2">code</span><span class="dl">"</span><span class="p">:</span><span class="mi">200</span><span class="p">},</span><span class="dl">"</span><span class="s2">requestReceivedTimestamp</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2024-10-29T12:21:33.182365Z</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">stageTimestamp</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2024-10-29T12:21:33.185006Z</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">annotations</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">authorization.k8s.io/decision</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">allow</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">authorization.k8s.io/reason</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">RBAC: allowed by RoleBinding </span><span class="se">\"</span><span class="s2">mayor-user-binding/wareville</span><span class="se">\"</span><span class="s2"> of Role </span><span class="se">\"</span><span class="s2">mayor-user</span><span class="se">\"</span><span class="s2"> to User </span><span class="se">\"</span><span class="s2">mayor-malware</span><span class="se">\"</span><span class="dl">"</span><span class="p">}}</span>
+
+<span class="o">---</span> <span class="nx">removed</span> <span class="k">for</span> <span class="nx">brevity</span> <span class="o">---</span>
+</code></pre></div></div>
+
+<p>Mayor Malware describes the pod as a “morality-checker” he then would have found out that this pod runs with the job-runner-sa service account attached. Meaning that if he were able to gain access to this pod, he would be able to gain secret read access.</p>
+
+<p>\n</p>
+
+<p><strong>Exec</strong></p>
+
+<p>Terminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="sr">/dfir_artefacts$ cat audit.log | grep --color=always '"user":{"username":"mayor-malware"' | grep --color=always '"resource"' | grep --color=always '"verb"</span><span class="err">'
+</span>
+<span class="o">---</span> <span class="nx">removed</span> <span class="k">for</span> <span class="nx">brevity</span> <span class="o">---</span>
+
+<span class="p">{</span><span class="dl">"</span><span class="s2">kind</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Event</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">apiVersion</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">audit.k8s.io/v1</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">level</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Metadata</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">auditID</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">927fcde7-74e5-4a57-af53-dceacefaf47c</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">stage</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">ResponseStarted</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">requestURI</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">/api/v1/namespaces/wareville/pods/morality-checker/exec?command=%2Fbin%2Fsh</span><span class="se">\</span><span class="s2">u0026container=kubectl-container</span><span class="se">\</span><span class="s2">u0026stdin=true</span><span class="se">\</span><span class="s2">u0026stdout=true</span><span class="se">\</span><span class="s2">u0026tty=true</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">verb</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">create</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">user</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">username</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">mayor-malware</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">groups</span><span class="dl">"</span><span class="p">:[</span><span class="dl">"</span><span class="s2">example</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">system:authenticated</span><span class="dl">"</span><span class="p">]},</span><span class="dl">"</span><span class="s2">sourceIPs</span><span class="dl">"</span><span class="p">:[</span><span class="dl">"</span><span class="s2">192.168.49.1</span><span class="dl">"</span><span class="p">],</span><span class="dl">"</span><span class="s2">userAgent</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">kubectl/v1.29.3 (linux/amd64) kubernetes/6813625</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">objectRef</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">resource</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">pods</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">namespace</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">wareville</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">morality-checker</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">apiVersion</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">v1</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">subresource</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">exec</span><span class="dl">"</span><span class="p">},</span><span class="dl">"</span><span class="s2">responseStatus</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">metadata</span><span class="dl">"</span><span class="p">:{},</span><span class="dl">"</span><span class="s2">code</span><span class="dl">"</span><span class="p">:</span><span class="mi">101</span><span class="p">},</span><span class="dl">"</span><span class="s2">requestReceivedTimestamp</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2024-10-29T12:21:44.189258Z</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">stageTimestamp</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2024-10-29T12:21:44.214173Z</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">annotations</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">authorization.k8s.io/decision</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">allow</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">authorization.k8s.io/reason</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">RBAC: allowed by RoleBinding </span><span class="se">\"</span><span class="s2">mayor-user-binding/wareville</span><span class="se">\"</span><span class="s2"> of Role </span><span class="se">\"</span><span class="s2">mayor-user</span><span class="se">\"</span><span class="s2"> to User </span><span class="se">\"</span><span class="s2">mayor-malware</span><span class="se">\"</span><span class="dl">"</span><span class="p">}}</span>
+
+<span class="o">---</span> <span class="nx">removed</span> <span class="k">for</span> <span class="nx">brevity</span> <span class="o">---</span>
+</code></pre></div></div>
+
+<p>As mentioned in the role discussion, exec is permission usually not included in a non-admin role. It is for this exact reason that this is the case; McSkidy feels confident that the DevSecOps team had overly permissive Role-Based Access Control (RBAC) in place in the Kubernetes environment, and it was this that allowed Mayor Malware to run an exec command (as captured by the logs above) and gain shell access into morality-checker. To confirm her suspicions further, McSkidy runs the following command to retrieve audit logs captured from the job-runner-sa service account:</p>
+
+<p>Describe Role</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="sr">/dfir_artefacts$ cat audit.log | grep --color=always '"user":{"username":"system:serviceaccount:wareville:job-runner-sa"' | grep --color=always '"resource"' | grep --color=always '"verb"</span><span class="err">'
+</span></code></pre></div></div>
+
+<p>Here we can see a few commands being run. We can see Mayor Malware is able to now run “get” commands on secrets to list them, but most importantly, we can see he has indeed been able to escalate his privileges and gain access to the “pull-creds” secret using the job-runner-sa service account:</p>
+
+<p>Terminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="sr">/dfir_artefacts$ cat audit.log | grep --color=always '"user":{"username":"system:serviceaccount:wareville:job-runner-sa"' | grep --color=always '"resource"' | grep --color=always '"verb"</span><span class="err">'
+</span>
+<span class="o">---</span> <span class="nx">removed</span> <span class="k">for</span> <span class="nx">brevity</span> <span class="o">---</span>
+
+<span class="p">{</span><span class="dl">"</span><span class="s2">kind</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Event</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">apiVersion</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">audit.k8s.io/v1</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">level</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">RequestResponse</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">auditID</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">c59d6a7c-1e07-43cb-8bf6-4d41a9c98ddb</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">stage</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">ResponseComplete</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">requestURI</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">/api/v1/namespaces/wareville/secrets/pull-creds</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">verb</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">get</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">user</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">username</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">system:serviceaccount:wareville:job-runner-sa</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">uid</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">9e88bb94-e5e3-4e13-9187-4eaf898d0a7e</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">groups</span><span class="dl">"</span><span class="p">:[</span><span class="dl">"</span><span class="s2">system:serviceaccounts</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">system:serviceaccounts:wareville</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">system:authenticated</span><span class="dl">"</span><span class="p">],</span><span class="dl">"</span><span class="s2">extra</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">authentication.kubernetes.io/pod-name</span><span class="dl">"</span><span class="p">:[</span><span class="dl">"</span><span class="s2">morality-checker</span><span class="dl">"</span><span class="p">],</span><span class="dl">"</span><span class="s2">authentication.kubernetes.io/pod-uid</span><span class="dl">"</span><span class="p">:[</span><span class="dl">"</span><span class="s2">a20761b8-1a36-4318-a048-96d61644b436</span><span class="dl">"</span><span class="p">]}},</span><span class="dl">"</span><span class="s2">sourceIPs</span><span class="dl">"</span><span class="p">:[</span><span class="dl">"</span><span class="s2">10.244.120.126</span><span class="dl">"</span><span class="p">],</span><span class="dl">"</span><span class="s2">userAgent</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">kubectl/v1.31.1 (linux/amd64) kubernetes/948afe5</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">objectRef</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">resource</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">secrets</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">namespace</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">wareville</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">pull-creds</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">apiVersion</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">v1</span><span class="dl">"</span><span class="p">},</span><span class="dl">"</span><span class="s2">responseStatus</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">metadata</span><span class="dl">"</span><span class="p">:{},</span><span class="dl">"</span><span class="s2">code</span><span class="dl">"</span><span class="p">:</span><span class="mi">200</span><span class="p">},</span><span class="dl">"</span><span class="s2">responseObject</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">kind</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Secret</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">apiVersion</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">v1</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">metadata</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">pull-creds</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">namespace</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">wareville</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">uid</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">c3854acc-f67b-4e82-a975-816e0c6ab04b</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">resourceVersion</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">174795</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">creationTimestamp</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2024-10-17T18:10:27Z</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">managedFields</span><span class="dl">"</span><span class="p">:[{</span><span class="dl">"</span><span class="s2">manager</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">kubectl-create</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">operation</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Update</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">apiVersion</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">v1</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2024-10-17T18:10:27Z</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">fieldsType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">FieldsV1</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">fieldsV1</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">f:data</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">.</span><span class="dl">"</span><span class="p">:{},</span><span class="dl">"</span><span class="s2">f:.dockerconfigjson</span><span class="dl">"</span><span class="p">:{}},</span><span class="dl">"</span><span class="s2">f:type</span><span class="dl">"</span><span class="p">:{}}}]},</span><span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">.dockerconfigjson</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">eyJhdXRocyI6eyJodHRwOi8vZG9ja2VyLXJlZ2lzdHJ5Lm5pY2V0b3duLmxvYzo1MDAwIjp7InVzZXJuYW1lIjoibXIubmljZSIsInBhc3N3b3JkIjoiTXIuTjR1Z2h0eSIsImF1dGgiOiJiWEl1Ym1salpUcE5jaTVPTkhWbmFIUjUifX19</span><span class="dl">"</span><span class="p">},</span><span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">kubernetes.io/dockerconfigjson</span><span class="dl">"</span><span class="p">},</span><span class="dl">"</span><span class="s2">requestReceivedTimestamp</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2024-10-29T12:22:15.861424Z</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">stageTimestamp</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2024-10-29T12:22:15.864166Z</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">annotations</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">authorization.k8s.io/decision</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">allow</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">authorization.k8s.io/reason</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">RBAC: allowed by RoleBinding </span><span class="se">\"</span><span class="s2">job-runner-binding/wareville</span><span class="se">\"</span><span class="s2"> of Role </span><span class="se">\"</span><span class="s2">job-runner</span><span class="se">\"</span><span class="s2"> to ServiceAccount </span><span class="se">\"</span><span class="s2">job-runner-sa/wareville</span><span class="se">\"</span><span class="dl">"</span><span class="p">}}</span>
+
+<span class="o">---</span> <span class="nx">removed</span> <span class="k">for</span> <span class="nx">brevity</span> <span class="o">---</span>
+</code></pre></div></div>
+
+<p>The final piece of the puzzle revolved around this secret. Finally, she runs the command, and the attack path is confirmed:</p>
+
+<p>Describe Role</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="sr">/dfir_artefacts$ kubectl get secret pull-creds -n wareville -o jsonpath='{.data.</span><span class="se">\.</span><span class="sr">dockerconfigjson}' | base64 --decod</span><span class="err">e
+</span></code></pre></div></div>
+
+<p>Shaking her head, McSkidy then confirms that the docker registry pull password is the same as the push password. This means that after retrieving these credentials, Mayor Malware would have been able to make the docker registry push we saw earlier and ensure his malicious web shell was deployed into the Kubernetes environment and gain persistence. It is for this reason that push and pull credentials should always be different. With that, the investigation is all tied up, the conclusion being that Mayor Malware most certainly belongs on the naughty list this year!</p>
+
+<p>Answer the questions below</p>
+
+<p>What is the name of the webshell that was used by Mayor Malware?</p>
+
+<p>What file did Mayor Malware read from the pod?</p>
+
+<p>shelly.php</p>
+
+<p>What tool did Mayor Malware search for that could be used to create a remote connection from the pod?</p>
+
+<p>db.php</p>
+
+<p>What IP connected to the docker registry that was unexpected?</p>
+
+<p>nc</p>
+
+<p>At what time is the first connection made from this IP to the docker registry?</p>
+
+<p>10.10.130.253</p>
+
+<p>At what time is the updated malicious image pushed to the registry?</p>
+
+<p>29/Oct/2024:10:06:33 +0000</p>
+
+<p>What is the value stored in the “pull-creds” secret?</p>
+
+<p>{“auths”:{“<a href="http://docker-registry.nicetown.loc:5000">http://docker-registry.nicetown.loc:5000</a>”:{“username”:”mr.nice”,”password”:”Mr.N4ughty”,”auth”:”bXIubmljZTpNci5ONHVnaHR5”}}}</p>
+
+<p>Enjoy today’s lesson? Check out our <a href="https://tryhackme.com/r/room/introtok8s">Intro to Kubernetes</a> for a more in-depth introduction to Kubernetes!</p>
+
+  </article>
+  
+    <div class="post-share">
+  <div class="post-date">Feel free to share!</div>
+  <div class="sharing-icons">
+    <a href="https://twitter.com/intent/tweet?text=TryHackMe Advent of Cyber 2024 - Day 22&amp;url=/Day22" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=/Day22&amp;title=TryHackMe Advent of Cyber 2024 - Day 22" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+  
+  
+    <div class="related">
+  <h2>You may also enjoy...</h2>
+  
+  <ul class="related-posts">
+    
+  </ul>
+</div>
+
+  
+  
+    <section class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname = "millennial-3";
+    var disqus_identifier = "/Day22";
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+  
+</div>
+
+      </div>
+      <footer class="footer">
+  
+    <a href="https://twitter.com/mberger" class="menu-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  
+    <a href="feed.xml" class="menu-link" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+  
+  <div class="footer-description"><a href="/">THM Advent of Cyber 2024 | a minimalist Jekyll theme for running a blog or publication by Michael</a></div>
+</footer>
+
+    </div>
+  </body>
+</html>
