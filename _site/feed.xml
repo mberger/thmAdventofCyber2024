@@ -1,4 +1,196 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-12-27T13:16:48-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">THM Advent of Cyber 2024</title><subtitle>a minimalist Jekyll theme for running a blog or publication</subtitle><author><name>Michael</name></author><entry><title type="html">TryHackMe Advent of Cyber 2024 - Day 23</title><link href="http://localhost:4000/Day23" rel="alternate" type="text/html" title="TryHackMe Advent of Cyber 2024 - Day 23" /><published>2024-12-23T00:00:00-05:00</published><updated>2024-12-23T00:00:00-05:00</updated><id>http://localhost:4000/Day23</id><content type="html" xml:base="http://localhost:4000/Day23"><![CDATA[<p>The Story</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-12-27T13:22:47-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">THM Advent of Cyber 2024</title><subtitle>a minimalist Jekyll theme for running a blog or publication</subtitle><author><name>Michael</name></author><entry><title type="html">TryHackMe ADvent of Cyber 2024 - Day 25 - FINAL!</title><link href="http://localhost:4000/Day25" rel="alternate" type="text/html" title="TryHackMe ADvent of Cyber 2024 - Day 25 - FINAL!" /><published>2024-12-25T00:00:00-05:00</published><updated>2024-12-25T00:00:00-05:00</updated><id>http://localhost:4000/Day25</id><content type="html" xml:base="http://localhost:4000/Day25"><![CDATA[<h2 id="congratulations-on-completing-advent-of-cyber-2024">Congratulations on completing Advent of Cyber 2024!</h2>
+
+<p>Welcome to the last task of Advent of Cyber 2024! We are so proud that you reached it! Advent of Cyber is a beginner-friendly event; the challenge lies not in the difficulty of each day’s task but in the persistence in coming back and learning regularly! For some, that means every day; for some, it’s a few days a week; and for some, it’s catching up on the weekends, and it truly doesn’t matter, as you all did your absolute best and got to the end. In addition to all the new cyber security skills you have learned, you have now proven to yourself that you can be consistent about growing as a cyber security professional, and that’s the most important skill of them all. </p>
+
+<p>We hope you enjoyed saving SOC-mas with Glitch and McSkidy. We certainly enjoyed putting the event together for you, and we already can’t wait for the next one! Advent of Cyber will be back in 2025. To make it even better next year, we would like to invite you to give us some feedback. We made a survey for you to fill out. It’s not a long one; it should only take 3 minutes to fill out! </p>
+
+<p>You can access the survey <a href="https://forms.gle/7vsWJB8e9dNVHAmc6">here</a>. </p>
+
+<p>See you in Advent of Cyber 2025, </p>
+
+<p>TryHackMe Team </p>
+
+<p>Answer the questions below</p>
+
+<p>THM{we_will_be_back_in_2025}</p>
+
+<p>What is the flag you get at the end of the <a href="https://forms.gle/7vsWJB8e9dNVHAmc6">survey</a>? </p>]]></content><author><name>Michael</name></author><summary type="html"><![CDATA[Congratulations on completing Advent of Cyber 2024!]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/Day25Final.png" /><media:content medium="image" url="http://localhost:4000/Day25Final.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">TryHackMe Advent of Cyber 2024</title><link href="http://localhost:4000/Day24" rel="alternate" type="text/html" title="TryHackMe Advent of Cyber 2024" /><published>2024-12-24T00:00:00-05:00</published><updated>2024-12-24T00:00:00-05:00</updated><id>http://localhost:4000/Day24</id><content type="html" xml:base="http://localhost:4000/Day24"><![CDATA[<p>The Story</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1731490380964.svg" alt="Task banner for day 24" /></p>
+
+<p><em>In Wareville the townspeople started to frown,</em></p>
+
+<p><em>A problem with smart lights all over the town!</em></p>
+
+<p><em>Was SOC-mas ruined? The chances were zero,</em></p>
+
+<p><em>Because this they knew, the Glitch was their hero!</em></p>
+
+<p>\n</p>
+
+<p>The city of Wareville has invested in smart lights and heating, ventilation, and air conditioning (HVAC). Oh, it was so easy to control the lights and heating remotely. Following the recent incidents, McSkidy started monitoring these smart devices’ communication protocols. Not long after the lights and heating were up and running, Mayor Malware figured out how these devices were controlled and sabotaged them. Luckily, McSkidy was one step ahead and picked up the malicious commands that had been sent. Can you help McSkidy figure out which commands were sent? We can then use our findings to update the devices’ configuration and save the day!</p>
+
+<h2 id="learning-objectives">Learning Objectives</h2>
+
+<p>In this task, you will learn about:</p>
+
+<ul>
+  <li>The basics of the MQTT protocol</li>
+  <li>How to use Wireshark to analyze MQTT traffic</li>
+  <li>Reverse engineering a simple network protocol \n</li>
+</ul>
+
+<h2 id="how-smart-is-smart">How Smart is Smart</h2>
+
+<p>Smart devices make our lives very easy. We no longer physically need to move and turn on or off a switch to control them. With smart HVAC systems, we can maintain the temperature of our homes and ensure they are not too cold or too hot when we come home from outside. Smart vacuum cleaners can clean our house while we work on other things or go out for dinner. Many smart devices come with apps that allow us to control them using our mobile phones. Even better, since these devices can be controlled remotely through apps and interfaces connected to the Internet, we can make their designs more minimalistic and aesthetically independent, and the need for adding switches or controls on the device itself is minimized.</p>
+
+<h2 id="is-it-smart">Is It Smart</h2>
+
+<p>While they make our lives easier, most smart devices need a network connection to provide control to the users. Many smart devices are connected over the Internet (hence the term Internet of Things or IoT), which, from a security point of view, means that anyone can potentially take control of these devices. We can limit the exposure of these devices by adding security controls such as network isolation and authentication mechanisms. Still, if we fail to do so, the results can be catastrophic. However, the most secure system is a system that is shut down, but that does not deter us from using different systems to help us out in our daily lives, and the same should be the case with smart devices. Instead, we can ensure that we understand how our smart devices work and have adequate security set up for them.</p>
+
+<p><img src="https://assets.tryhackme.com/additional/aoc2024/gifs/AoC%20Day%2024%20-%20Reverse%20engineering%20animation.gif" alt="a map of devices connecting together, zooming out to a globe showing communication between different geographical areas" /></p>
+
+<h2 id="the-language-ofiot">The Language of IoT</h2>
+
+<p>Although different IoT and smart devices use various programming languages, depending on the platform and vendor, they often need to speak the same language to be able to communicate with each other. For example, while IoT devices might use C++ or Java to talk to the compiler and the underlying hardware, they will need a language like HTTP or MQTT to talk with your system or mobile device.</p>
+
+<h2 id="how-to-speak-mqtt">How to Speak MQTT</h2>
+
+<p>MQTT stands for Message Queuing Telemetry Transport. It is a language very commonly used in IoT devices for communication purposes. It works on a publish/subscribe model, where any client device can publish messages, and other client devices can subscribe to the messages if they are related to a topic of interest. An MQTT broker connects the different clients, publishing and subscribing to messages.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1732161467165.png" alt="MQTT example network" /></p>
+
+<p>To further understand MQTT, let’s explore some key concepts used in MQTT protocols.</p>
+
+<p><strong>MQTT Clients:</strong> MQTT clients are IoT devices, such as sensors and controllers, that publish or subscribe to messages using the MQTT protocol. For example, a temperature sensor can be a client that publishes temperature sensors at different places. An HVAC controller can also act as a client that subscribes to messages from the temperature sensor and turns the HVAC system on or off based on the input received.</p>
+
+<p><strong>MQTT Broker:</strong> An MQTT broker receives messages from publishing clients and distributes them to the subscribing clients based on their preferences.</p>
+
+<p><strong>MQTT Topics:</strong> Topics are used to classify the different types of messages. Clients can subscribe to messages based on their topics of interest. For example, a temperature sensor sending temperature readings can use the topic of “room temperature”, while an HVAC controller would subscribe to messages under the topic of “room temperature”. However, a light sensor can publish messages with the topic “light readings”. An HVAC controller does not need to subscribe to this topic. On the other hand, a light controller would subscribe to “light readings” but not to the topic of “room temperature”.</p>
+
+<h2 id="connecting-to-the-machine">Connecting to the Machine</h2>
+
+<p>Before moving forward, review the questions in the connection card shown below:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1731491792619.png" alt="You will need a VM that displays in split-screen; you are also given VNC credentials." /> \n</p>
+
+<p>Click on the green <strong>Start Machine</strong> button in below to start the virtual machine in split-screen view. If the VM is not visible, use the blue <strong>Show Split View</strong> button at the top of the page.</p>
+
+<p>Start Machine</p>
+
+<p>Alternatively, you can connect to the machine with a VNC client using the credentials below:</p>
+
+<ul>
+  <li>Username: <code class="language-plaintext highlighter-rouge">ubuntu</code></li>
+  <li>Password: <code class="language-plaintext highlighter-rouge">TryHackMe!</code></li>
+</ul>
+
+<h2 id="demonstration">Demonstration</h2>
+
+<p>Learning about a protocol theoretically can be confusing. Let’s see how it works in practice. The files related to this task are in the <code class="language-plaintext highlighter-rouge">~/Desktop/MQTTSIM/</code> directory. The walkthrough and the challenge files are shown in the terminal below.</p>
+
+<p>AttackBox Terminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="sr">/Desktop/</span><span class="nx">MQTTSIM$</span> <span class="nx">tree</span>
+<span class="p">.</span>
+<span class="err">├──</span> <span class="nx">challenge</span>
+<span class="err">│</span>   <span class="err">├──</span> <span class="nx">challenge</span><span class="p">.</span><span class="nx">pcapng</span>
+<span class="err">│</span>   <span class="err">├──</span> <span class="nx">challenge</span><span class="p">.</span><span class="nx">sh</span>
+<span class="err">│</span>   <span class="err">└──</span> <span class="nx">lights</span><span class="p">.</span><span class="nx">py</span>
+<span class="err">└──</span> <span class="nx">walkthrough</span>
+    <span class="err">├──</span> <span class="nx">hvac</span><span class="p">.</span><span class="nx">py</span>
+    <span class="err">└──</span> <span class="nx">walkthrough</span><span class="p">.</span><span class="nx">sh</span>
+</code></pre></div></div>
+
+<p>As we discussed, different IoT devices communicate with each other using MQTT, a network protocol. Therefore, we must monitor network communication to see what is going on. We will use Wireshark to monitor network communication. On the left side, we can click the Wireshark logo to start Wireshark. On the home screen, we can select ‘any’ for the network interface to see traffic from all the network interfaces.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/61306d87a330ed00419e22e7/room-content/61306d87a330ed00419e22e7-1729327245985.png" alt="Wirshark and the available interfaces" /></p>
+
+<p>The screenshot below shows the traffic from all the interfaces on the network as we have selected ‘any’ for the network interface.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/61306d87a330ed00419e22e7/room-content/61306d87a330ed00419e22e7-1729327245982.png" alt="Wireshark capturing on the any interface" /></p>
+
+<p>Since we only want to see traffic from the MQTT protocol, we can filter for this protocol only. To do that, we can type <code class="language-plaintext highlighter-rouge">mqtt</code> in the filter box and press enter.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/61306d87a330ed00419e22e7/room-content/61306d87a330ed00419e22e7-1729327245981.png" alt="Wireshark filtering for MQTT traffic" /></p>
+
+<p>There will be no traffic for now as no MQTT broker or client is running. Let’s start the MQTT broker and client to see the traffic. For that, there is a shortcut for a directory on the Desktop named <code class="language-plaintext highlighter-rouge">Link to MQTT</code>. The directory has different scripts in it. We will start the <code class="language-plaintext highlighter-rouge">walkthrough.sh</code> script to learn how the MQTT protocol works. </p>
+
+<p>Let’s run the <code class="language-plaintext highlighter-rouge">walkthrough.sh</code> script.</p>
+
+<p>AttackBox Terminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">cd</span> <span class="nx">Desktop</span><span class="o">/</span><span class="nx">MQTTSIM</span><span class="o">/</span><span class="nx">walkthrough</span><span class="o">/</span>
+<span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="sr">/Desktop/</span><span class="nx">MQTTSIM</span><span class="o">/</span><span class="nx">walkthrough$</span> <span class="p">.</span><span class="o">/</span><span class="nx">walkthrough</span><span class="p">.</span><span class="nx">sh</span>
+<span class="nx">Starting</span> <span class="nx">MQTT</span> <span class="nx">broker</span> <span class="k">in</span> <span class="nx">Docker</span><span class="p">...</span>
+<span class="nx">Starting</span> <span class="nx">the</span> <span class="nx">HVAC</span> <span class="nx">controller</span> <span class="nx">script</span><span class="p">...</span>
+<span class="nx">All</span> <span class="nx">processes</span> <span class="nx">started</span><span class="p">.</span>
+<span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="sr">/MQTTSIM</span><span class="err">$
+</span></code></pre></div></div>
+
+<p>Once we run it, three windows will pop up. The window with the red text is the MQTT broker, the one with the blue text is the MQTT client, and the third is the application UI we might see as the end user. We can look at the logs on each of these windows if we like, but as an end user, we will only interact with the application UI.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1731497886233.png" alt="Heater control interface" /> \n</p>
+
+<p>Currently, the application is in automatic mode, the heater is off, the target temperature is 22 degrees, and the current temperature is 22.3 degrees. Let’s head over to Wireshark to see what kind of communication we can see. The below screenshot shows how the communication started.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/61306d87a330ed00419e22e7/room-content/61306d87a330ed00419e22e7-1729328816053.png" alt="Wireshark displaying MQTT traffic" /></p>
+
+<p><strong>Note:</strong> If you do not see any traffic in Wireshark. Close all windows and restart your steps.</p>
+
+<p>The first two events show the connection establishment, showing the <code class="language-plaintext highlighter-rouge">Connect Command</code> and <code class="language-plaintext highlighter-rouge">Connect Ack</code> text in the info. The next two events show that one of the clients wants to subscribe to the <code class="language-plaintext highlighter-rouge">home/temperature</code> topic, shown in the square brackets. This must be the HVAC controller, which needs to know the temperature to turn the heater on or off. Below, we can see the messages published by different clients, with their topics in the square brackets. The events from the <code class="language-plaintext highlighter-rouge">home/temperature</code> topic are from the temperature sensor, and the events from the <code class="language-plaintext highlighter-rouge">home/heater</code> are published by the HVAC controller. The screenshot below shows the details of the <code class="language-plaintext highlighter-rouge">home/temperature</code> topic message.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/61306d87a330ed00419e22e7/room-content/61306d87a330ed00419e22e7-1729330687305.png" alt="Wireshark displaying an MQTT packet with a topic and a message being the home temperature and its value" /></p>
+
+<p>In the lower pane, we can see that it is publishing a temperature of -9.6877475608946. That is very cold. Therefore, we see a message from the heater right after the temperature is broadcast. This message shows that the heater was turned on, as seen in the highlighted part in the lower pane.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/61306d87a330ed00419e22e7/room-content/61306d87a330ed00419e22e7-1729330687304.png" alt="Wireshark displaying an MQTT packet with a topic and a message being the home heater and its state" /></p>
+
+<p>The illustration below shows the overall communication between the heater controller and the temperature sensor, as we have deduced from Wireshark communication.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1732161673647.png" alt="Communication between the temperature sensor and the MQTT broker and between the MQTT broker and the heater controller" /> \n</p>
+
+<p>Before proceeding to the challenge, quit all the HVAC controller scripts. Use <strong>CTRL+C</strong> for the window with the red text. It is time to use our knowledge to fix things.</p>
+
+<h2 id="challenge">Challenge</h2>
+
+<p>Great! Now we understand how the MQTT publish/subscribe model works with a broker. McSkidy can use our help; the lights have gone off in all the major factories and halls. Mayor Malware has sabotaged the lighting system implemented by a contractor company. Their support will take some time to respond, as it is the holiday season. But McSkidy needs to get the lights back on now!</p>
+
+<p>To see what Mayor Malware has done, we can run the script <code class="language-plaintext highlighter-rouge">challenge.sh</code> as shown below. This will open three windows, including the lights controller interface.</p>
+
+<p>AttackBox Terminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="sr">/Desktop/</span><span class="nx">MQTTSIM</span><span class="o">/</span><span class="nx">walkthrough$</span> <span class="nx">cd</span> <span class="o">~</span><span class="sr">/Desktop/</span><span class="nx">MQTTSIM</span><span class="o">/</span><span class="nx">challenge</span><span class="o">/</span>
+<span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="sr">/Desktop/</span><span class="nx">MQTTSIM</span><span class="o">/</span><span class="nx">challenge$</span> <span class="p">.</span><span class="o">/</span><span class="nx">challenge</span><span class="p">.</span><span class="nx">sh</span>
+<span class="p">[...]</span>
+</code></pre></div></div>
+
+<p>We can see the lights controller interface; however, nothing works, and there is no way to turn the lights back on.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1730312441669.png" alt="Lights controller interface" /> \n</p>
+
+<p>Now that we have basic knowledge of the MQTT protocol, we must find the command to turn the lights back on. The <code class="language-plaintext highlighter-rouge">challenge.pcapng</code> file is inside the <code class="language-plaintext highlighter-rouge">challenge</code> directory. This packet capture file contains various MQTT protocol messages related to turning the lights “on” and “off.” Start Wireshark then go to the <strong>File</strong> menu, choose <strong>Open</strong>, locate the <code class="language-plaintext highlighter-rouge">challenge.pcapng</code> file, and open it in Wireshark to take a closer look. \n</p>
+
+<p>You plan to publish a message to the MQTT broker in order to turn on the lights. As a result, all the lighting devices subscribed to this MQTT broker will turn their lights on. You can achieve this from the command line using the <code class="language-plaintext highlighter-rouge">mosquitto_pub</code> command. Consider the following example:</p>
+
+<p><code class="language-plaintext highlighter-rouge">mosquitto_pub -h localhost -t "some_topic" -m "message"</code></p>
+
+<p>We are publishing a message under a specific topic to a broker.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">mosquitto_pub</code> is the command-line utility to publish an MQTT message</li>
+  <li><code class="language-plaintext highlighter-rouge">-h localhost</code> refers to the MQTT broker, which is <code class="language-plaintext highlighter-rouge">localhost</code> in this task</li>
+  <li><code class="language-plaintext highlighter-rouge">-t "some_topic"</code> specifies the <strong>topic</strong></li>
+  <li><code class="language-plaintext highlighter-rouge">-m "message"</code> sets the <strong>message</strong>, such as <code class="language-plaintext highlighter-rouge">"on"</code> and <code class="language-plaintext highlighter-rouge">"off"</code></li>
+</ul>
+
+<p>To determine the correct topic and message to turn on the lights, you must study the captured packets in <code class="language-plaintext highlighter-rouge">challenge.pcapng</code>. Once you figure it out, ensure you are running <code class="language-plaintext highlighter-rouge">challenge.sh</code> and use <code class="language-plaintext highlighter-rouge">mosquitto_pub</code> to publish a message to turn on the lights. Once you successfully manage to turn on the lights, a flag will appear on the lights controller interface.</p>
+
+<h2 id="answer-the-questions-below">Answer the questions below</h2>
+
+<p>What is the flag?</p>
+
+<p>If you enjoyed this task, feel free to check out the <a href="https://tryhackme.com/module/wireshark">Wireshark</a> module.</p>]]></content><author><name>Michael</name></author><summary type="html"><![CDATA[The Story]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/Day24Header.png" /><media:content medium="image" url="http://localhost:4000/Day24Header.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">TryHackMe Advent of Cyber 2024 - Day 23</title><link href="http://localhost:4000/Day23" rel="alternate" type="text/html" title="TryHackMe Advent of Cyber 2024 - Day 23" /><published>2024-12-23T00:00:00-05:00</published><updated>2024-12-23T00:00:00-05:00</updated><id>http://localhost:4000/Day23</id><content type="html" xml:base="http://localhost:4000/Day23"><![CDATA[<p>The Story</p>
 
 <p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1731561346191.svg" alt="Task banner for day 23" /></p>
 
@@ -2688,594 +2880,4 @@ user@tryhackme<span class="nv">$ </span><span class="nb">cat </span>cctv_logs.lo
 
 <p>WhereIsMyMind1999</p>
 
-<p>Liked today’s task? Check the <a href="https://tryhackme.com/r/room/exploitingad">Exploiting Active Directory</a> room to practice user and group enumeration in a similar yet different environment!</p>]]></content><author><name>Michael</name></author><summary type="html"><![CDATA[The Story]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/Day16Header.png" /><media:content medium="image" url="http://localhost:4000/Day16Header.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">TryHackMe Advent of Cyber 2024 - Day 15</title><link href="http://localhost:4000/Day15" rel="alternate" type="text/html" title="TryHackMe Advent of Cyber 2024 - Day 15" /><published>2024-12-15T00:00:00-05:00</published><updated>2024-12-15T00:00:00-05:00</updated><id>http://localhost:4000/Day15</id><content type="html" xml:base="http://localhost:4000/Day15"><![CDATA[<p>The Story</p>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5fc2847e1bbebc03aa89fbf2/room-content/5fc2847e1bbebc03aa89fbf2-1731939602671.png" alt="Task banner for day DAY 15" /></p>
-
-<p>Ahead of SOC-mas, the team decided to do a routine security check of one of their Active Directory domain controllers. Upon some quick auditing, the team noticed something was off. Could it be? The domain controller has been breached? With sweat on their brows, the SOC team smashed the glass and hit the panic alarm. There’s only one person who can save us…</p>
-
-<h2 id="learning-objectives">Learning Objectives</h2>
-
-<ul>
-  <li>Learn about the structures of Active Directory.</li>
-  <li>Learn about common Active Directory attacks.</li>
-  <li>Investigate a breach against an Active Directory.</li>
-</ul>
-
-<h2 id="connecting-to-the-machine">Connecting to the Machine</h2>
-
-<p>Before moving forward, review the questions in the connection card shown below.</p>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/66c44fd9733427ea1181ad58/room-content/66c44fd9733427ea1181ad58-1730733634851.png" alt="Banner showing the connection details for this room." /></p>
-
-<p>Click the green <strong>Start Machine</strong> button below to start the virtual machine in split-view. The VM should be fully loaded in 2 minutes.</p>
-
-<p>Start Machine</p>
-
-<p>If the VM is not visible, use the blue Show Split View button at the top of the page. The credentials to connect to the machine directly using RDP have been provided below. Remember, you will need to be connected to the TryHackMe VPN to do so.</p>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63588b5ef586912c7d03c4f0/room-content/be629720b11a294819516c1d4e738c92.png" alt="THM Key Credentials" /></p>
-
-<table>
-  <thead>
-    <tr>
-      <th><strong>Username</strong></th>
-      <th>WAREVILLE\Administrator</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Password</strong></td>
-      <td>AOCInvestigations!</td>
-    </tr>
-    <tr>
-      <td><strong>IP</strong></td>
-      <td>MACHINE_IP</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="introducing-active-directory">Introducing Active Directory</h2>
-
-<p>Before diving into Active Directory, let us understand how network infrastructures can be mapped out and ensure that access to resources is well managed. This is typically done through <strong>Directory Services,</strong> which map and provide access to network resources within an organisation. The <strong>Lightweight Directory Access Protocol (LDAP)</strong> forms the core of Directory Services. It provides a mechanism for accessing and managing directory data to ensure that searching for and retrieving information about subjects and objects such as users, computers, and groups is quick.</p>
-
-<p><strong>Active Directory</strong> (AD) is, therefore, a Directory Service at the heart of most enterprise networks that stores information about objects in a network. The associated objects can include:</p>
-
-<ul>
-  <li><strong>Users</strong>: Individual accounts representing people or services</li>
-  <li><strong>Groups</strong>: Collections of users or other objects, often with specific permissions</li>
-  <li><strong>Computers</strong>: Machines that belong to the domain governed by AD policies</li>
-  <li><strong>Printers</strong> and other <strong>resources</strong>: Network-accessible devices or services</li>
-</ul>
-
-<p>The building blocks of an AD architecture include:</p>
-
-<ul>
-  <li><strong>Domains</strong>: Logical groupings of network resources such as users, computers, and services. They serve as the main boundary for AD administration and can be identified by their <strong>Domain Component and Domain Controller</strong> name. Everything inside a domain is subject to the same security policies and permissions.</li>
-  <li><strong>Organisational Units (OUs)</strong>: OUs are containers within a domain that help group objects based on departments, locations or functions for easier management. Administrators can apply Group Policy settings to specific OUs, allowing more granular control of security settings or access permissions.</li>
-  <li><strong>Forest</strong>: A collection of one or more domains that share a standard schema, configuration, and global catalogue. The forest is the top-level container in AD.</li>
-  <li><strong>Trust Relationships</strong>: Domains within a forest (and across forests) can establish trust relationships that allow users in one domain to access resources in another, subject to permission.</li>
-</ul>
-
-<p>Combining all these components allows us to establish the <strong>Distinguished Name (DN)</strong> that an object belongs to within the AD. The structure of the name would be as follows:</p>
-
-<p><code class="language-plaintext highlighter-rouge">DN=CN=Mayor Malware, OU=Management, DC=wareville, DC=thm</code></p>
-
-<p><strong>Core Active Directory Components</strong></p>
-
-<p>Active Directory contains several key components that allow it to provide a wide range of services. Understanding these components will give one a clear picture of how AD supports administrative and security operations.</p>
-
-<ul>
-  <li><strong>Domain Controllers (DCs):</strong> Domain Controllers are the servers that host Active Directory services. They store the AD database and handle authentication and authorisation requests, such as logging in users or verifying access to resources. Multiple DCs can exist within a domain for redundancy. When changes are made to AD (such as adding users or updating passwords), these changes are replicated across all DCs, ensuring that the directory remains consistent.</li>
-  <li><strong>Global Catalog:</strong> The Global Catalog (GC) is a searchable database within AD that contains a subset of information from all objects in the directory. This allows users and services to locate objects in any domain in the forest, even if those objects reside in different domains.</li>
-  <li><strong>LDAP (Lightweight Directory Access Protocol):</strong> AD uses this protocol to query and modify the directory. The protocol allows for fast searching and retrieving of information about objects such as users, computers, and groups.</li>
-  <li><strong>Kerberos Authentication:</strong> The default authentication protocol used by AD provides secure authentication by using tickets rather than passwords.</li>
-</ul>
-
-<p><strong>Group Policy</strong></p>
-
-<p>One of Active Directory’s most powerful features is <strong>Group Policy</strong>, which allows administrators to enforce policies across the domain. Group Policies can be applied to users and computers to enforce password policies, software deployment, firewall settings, and more.</p>
-
-<p><strong>Group Policy Objects (GPOs)</strong> are the containers that hold these policies. A GPO can be linked to the entire domain, an OU, or a site, giving the flexibility in applying policies.</p>
-
-<p>Let us say that McSkidy wants to ensure that all users within Wareville’s SOC follow a strict password policy, enforcing minimum password lengths and complexity rules. Here is how it would be done:</p>
-
-<ol>
-  <li>Using the Run window, open <strong>Group Policy Management</strong> from your server by typing <code class="language-plaintext highlighter-rouge">gpmc.msc</code>.</li>
-  <li>Right-click your domain and select <strong>“Create a GPO in this domain, and Link it here”</strong>. Name the new GPO <strong>“Password Policy”</strong>.</li>
-  <li>Edit the GPO by navigating to <strong>Computer Configuration -&gt; Policies -&gt; Windows Settings -&gt; Security Settings -&gt; Account Policies -&gt; Password Policy</strong>.</li>
-  <li>Configure the following settings:
-    <ul>
-      <li>Minimum password length: 12 characters</li>
-      <li>Enforce password history: 10 passwords</li>
-      <li>Maximum password age: 90 days</li>
-      <li>Password must meet complexity requirements: Enabled</li>
-    </ul>
-  </li>
-  <li>Click <strong>OK</strong>, then link this GPO to the domain or specific OUs you want to target.</li>
-</ol>
-
-<p>This policy will now be applied across the domain, ensuring all users meet these password requirements.</p>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5fc2847e1bbebc03aa89fbf2/room-content/5fc2847e1bbebc03aa89fbf2-1732022781821.png" alt="Creating and editing GPO settings for Password Policy." /></p>
-
-<h2 id="common-active-directory-attacks">Common Active Directory Attacks</h2>
-
-<p>Adversaries are always looking for ways to breach and exploit Active Directory environments to destabilise and cause havoc to organisations. Working with Glitch to secure SOC-mas requires us to know common attacks and their mitigation measures.</p>
-
-<p><img src="https://assets.tryhackme.com/additional/tickets/ticket.svg" alt="Golden tickets representation." /></p>
-
-<p><strong>Golden Ticket Attack</strong></p>
-
-<p>A <strong>Golden Ticket</strong> attack allows attackers to exploit the Kerberos protocol and impersonate any account on the AD by forging a Ticket Granting Ticket (TGT). By compromising the <strong>krbtgt</strong> account and using its password hash, the attackers gain complete control over the domain for as long as the forged ticket remains valid. The attack requires four critical pieces of information to be successful:</p>
-
-<ul>
-  <li>Fully Qualified Domain Name (FQDN) of the domain</li>
-  <li>SID of the domain</li>
-  <li>Username of an account to impersonate</li>
-  <li>KRBTGT account password hash</li>
-</ul>
-
-<p>Detection for this type of attack involves monitoring for unusual activity involving the <strong>krbtgt</strong></p>
-
-<ul>
-  <li><strong>Event ID 4768</strong>: Look for TGT requests for high-privilege accounts.</li>
-  <li><strong>Event ID 4672</strong>: This logs when special privileges (such as SeTcbPrivilege) are assigned to a user.</li>
-</ul>
-
-<p><strong>Pass-the-Hash</strong></p>
-
-<p>This type of attack steals the hash of a password and can be used to authenticate to services without needing the actual password. This is possible because the NTLM protocol allows authentication based on password hashes.</p>
-
-<p>Key ways to mitigate this attack are enforcing strong password policies, conducting regular audits on account privileges, and implementing multi-factor authentication across the domain.</p>
-
-<p><strong>Kerberoasting</strong></p>
-
-<p><strong>Kerberoasting</strong> is an attack targeting Kerberos in which the attacker requests service tickets for accounts with Service Principal Names (SPNs), extracts the tickets and password hashes, and then attempts to crack them offline to retrieve the plaintext password.</p>
-
-<p>Mitigation for this type of attack involves ensuring that service accounts are secured with strong passwords, and therefore, implementing secure policies across the AD would be the defence.</p>
-
-<p><strong>Pass-the-Ticket</strong></p>
-
-<p>In a <strong>Pass-the-Ticket</strong> attack, attackers steal Kerberos tickets from a compromised machine and use them to authenticate as the user or service whose ticket was stolen.</p>
-
-<p>This attack can be detected through monitoring for suspicious logins using <strong>Event ID 4768</strong> (TGT request), especially if a user is logging in from unusual locations or devices. Additionally, <strong>Event ID 4624</strong> (successful login) will reveal tickets being used for authentication.</p>
-
-<p><strong>Malicious GPOs</strong></p>
-
-<p>Adversaries are known to abuse Group Policy to create persistent, privileged access accounts and distribute and execute malware by setting up policies that mimic software deployment across entire domains. With escalated privileges across the domain, attackers can create GPOs to accomplish goals at scale, including disabling core security software and features such as firewalls, antivirus, security updates, and logging. Additionally, scheduled tasks can be created to execute malicious scripts or exfiltration data from affected devices across the domain.</p>
-
-<p>To mitigate against the exploitation of Group Policy, GPOs need to be regularly audited for unauthorised changes. Strict permissions and procedures for GPO modifications should also be enforced.</p>
-
-<p><strong>Skeleton Key Attack</strong></p>
-
-<p>In a <strong>Skeleton Key</strong> attack, attackers install a malware backdoor to log into any account using a master password. The legitimate password for each account would remain unchanged, but attackers can bypass it using the skeleton key password.</p>
-
-<h2 id="investigating-an-active-directory-breach">Investigating an Active Directory Breach</h2>
-
-<p><strong>Group Policy</strong></p>
-
-<p>As previously discussed in this task, Group Policy is a means to distribute configurations and policies to enrolled devices in the domain. For attackers, Group Policy is a lucrative means of spreading malicious scripts to multiple devices.</p>
-
-<p>Reviewing Group Policy Objects (GPOs) is a great investigation step. In this section, we will use PowerShell to audit our GPOs. First, we can use the <code class="language-plaintext highlighter-rouge">Get-GPO</code> cmdlet to list all GPOs installed on the domain controller.</p>
-
-<p>Listing all GPOs viaPowerShell</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">PS</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Users</span><span class="err">\</span><span class="nx">Administrator</span><span class="o">&gt;</span> <span class="nx">Get</span><span class="o">-</span><span class="nx">GPO</span> <span class="o">-</span><span class="nx">All</span>
-
-
-<span class="nx">DisplayName</span>      <span class="p">:</span> <span class="nx">Default</span> <span class="nx">Domain</span> <span class="nx">Policy</span>
-<span class="nx">DomainName</span>       <span class="p">:</span> <span class="nx">wareville</span><span class="p">.</span><span class="nx">thm</span>
-<span class="nx">Owner</span>            <span class="p">:</span> <span class="nx">WAREVILLE</span><span class="err">\</span><span class="nx">Domain</span> <span class="nx">Admins</span>
-<span class="nx">Id</span>               <span class="p">:</span> <span class="mi">31</span><span class="nx">b2f340</span><span class="o">-</span><span class="mi">016</span><span class="nx">d</span><span class="o">-</span><span class="mi">11</span><span class="nx">d2</span><span class="o">-</span><span class="mi">945</span><span class="nx">f</span><span class="o">-</span><span class="mi">00</span><span class="nx">c04fb984f9</span>
-<span class="nx">GpoStatus</span>        <span class="p">:</span> <span class="nx">AllSettingsEnabled</span>
-<span class="nx">Description</span>      <span class="p">:</span>
-<span class="nx">CreationTime</span>     <span class="p">:</span> <span class="mi">10</span><span class="o">/</span><span class="mi">14</span><span class="o">/</span><span class="mi">2024</span> <span class="mi">12</span><span class="p">:</span><span class="mi">17</span><span class="p">:</span><span class="mi">31</span> <span class="nx">PM</span>
-<span class="nx">ModificationTime</span> <span class="p">:</span> <span class="mi">10</span><span class="o">/</span><span class="mi">14</span><span class="o">/</span><span class="mi">2024</span> <span class="mi">12</span><span class="p">:</span><span class="mi">19</span><span class="p">:</span><span class="mi">28</span> <span class="nx">PM</span>
-<span class="nx">UserVersion</span>      <span class="p">:</span> <span class="nx">AD</span> <span class="nx">Version</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">SysVol</span> <span class="nx">Version</span><span class="p">:</span> <span class="mi">0</span>
-<span class="nx">ComputerVersion</span>  <span class="p">:</span> <span class="nx">AD</span> <span class="nx">Version</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">SysVol</span> <span class="nx">Version</span><span class="p">:</span> <span class="mi">3</span>
-<span class="nx">WmiFilter</span>        <span class="p">:</span>
-
-<span class="nx">DisplayName</span>      <span class="p">:</span> <span class="nx">Default</span> <span class="nx">Domain</span> <span class="nx">Controllers</span> <span class="nx">Policy</span>
-<span class="nx">DomainName</span>       <span class="p">:</span> <span class="nx">wareville</span><span class="p">.</span><span class="nx">thm</span>
-<span class="nx">Owner</span>            <span class="p">:</span> <span class="nx">WAREVILLE</span><span class="err">\</span><span class="nx">Domain</span> <span class="nx">Admins</span>
-<span class="nx">Id</span>               <span class="p">:</span> <span class="mi">6</span><span class="nx">ac1786c</span><span class="o">-</span><span class="mi">016</span><span class="nx">f</span><span class="o">-</span><span class="mi">11</span><span class="nx">d2</span><span class="o">-</span><span class="mi">945</span><span class="nx">f</span><span class="o">-</span><span class="mi">00</span><span class="nx">c04fb984f9</span>
-<span class="nx">GpoStatus</span>        <span class="p">:</span> <span class="nx">AllSettingsEnabled</span>
-<span class="nx">Description</span>      <span class="p">:</span>
-<span class="nx">CreationTime</span>     <span class="p">:</span> <span class="mi">10</span><span class="o">/</span><span class="mi">14</span><span class="o">/</span><span class="mi">2024</span> <span class="mi">12</span><span class="p">:</span><span class="mi">17</span><span class="p">:</span><span class="mi">31</span> <span class="nx">PM</span>
-<span class="nx">ModificationTime</span> <span class="p">:</span> <span class="mi">10</span><span class="o">/</span><span class="mi">14</span><span class="o">/</span><span class="mi">2024</span> <span class="mi">12</span><span class="p">:</span><span class="mi">17</span><span class="p">:</span><span class="mi">30</span> <span class="nx">PM</span>
-<span class="nx">UserVersion</span>      <span class="p">:</span> <span class="nx">AD</span> <span class="nx">Version</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">SysVol</span> <span class="nx">Version</span><span class="p">:</span> <span class="mi">0</span>
-<span class="nx">ComputerVersion</span>  <span class="p">:</span> <span class="nx">AD</span> <span class="nx">Version</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">SysVol</span> <span class="nx">Version</span><span class="p">:</span> <span class="mi">1</span>
-<span class="nx">WmiFilter</span>        <span class="p">:</span>
-
-<span class="nx">DisplayName</span>      <span class="p">:</span> <span class="nx">SetWallpaper</span> <span class="nx">GPO</span>
-<span class="nx">DomainName</span>       <span class="p">:</span> <span class="nx">wareville</span><span class="p">.</span><span class="nx">thm</span>
-<span class="nx">Owner</span>            <span class="p">:</span> <span class="nx">WAREVILLE</span><span class="err">\</span><span class="nx">Domain</span> <span class="nx">Admins</span>
-<span class="nx">Id</span>               <span class="p">:</span> <span class="nx">d634d7c1</span><span class="o">-</span><span class="nx">db7a</span><span class="o">-</span><span class="mi">4</span><span class="nx">c7a</span><span class="o">-</span><span class="nx">bf32</span><span class="o">-</span><span class="nx">efca23d93a56</span>
-<span class="nx">GpoStatus</span>        <span class="p">:</span> <span class="nx">AllSettingsEnabled</span>
-<span class="nx">Description</span>      <span class="p">:</span> <span class="nb">Set</span> <span class="nx">the</span> <span class="nx">wallpaper</span> <span class="k">of</span> <span class="nx">every</span> <span class="nx">domain</span> <span class="nx">joined</span> <span class="nx">machine</span>
-<span class="nx">CreationTime</span>     <span class="p">:</span> <span class="mi">10</span><span class="o">/</span><span class="mi">30</span><span class="o">/</span><span class="mi">2024</span> <span class="mi">9</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">36</span> <span class="nx">AM</span>
-<span class="nx">ModificationTime</span> <span class="p">:</span> <span class="mi">10</span><span class="o">/</span><span class="mi">30</span><span class="o">/</span><span class="mi">2024</span> <span class="mi">9</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">36</span> <span class="nx">AM</span>
-<span class="nx">UserVersion</span>      <span class="p">:</span> <span class="nx">AD</span> <span class="nx">Version</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">SysVol</span> <span class="nx">Version</span><span class="p">:</span> <span class="mi">0</span>
-<span class="nx">ComputerVersion</span>  <span class="p">:</span> <span class="nx">AD</span> <span class="nx">Version</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">SysVol</span> <span class="nx">Version</span><span class="p">:</span> <span class="mi">0</span>
-<span class="nx">WmiFilter</span>        <span class="p">:</span>
-</code></pre></div></div>
-
-<p>\n</p>
-
-<p>This would allow us to look for out-of-place GPOs. We can export a GPO to an HTML file for further investigation to make it easier to see what configurations the policy enforces. For this example, we will export the “SetWallpaper” GPO.</p>
-
-<p><em>Please note that this is a demonstration GPO, and isn’t present on the practical machine for today’s task.</em></p>
-
-<p>Exporting SetWallpaperGPO \n</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">PS</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Users</span><span class="err">\</span><span class="nx">Administrator</span><span class="o">&gt;</span> <span class="nx">Get</span><span class="o">-</span><span class="nx">GPOReport</span> <span class="o">-</span><span class="nx">Name</span> <span class="dl">"</span><span class="s2">SetWallpaper</span><span class="dl">"</span> <span class="o">-</span><span class="nx">ReportType</span> <span class="nx">HTML</span> <span class="o">-</span><span class="nx">Path</span> <span class="dl">"</span><span class="s2">.</span><span class="se">\</span><span class="s2">SetWallpaper.html</span><span class="dl">"</span>
-</code></pre></div></div>
-
-<p>\n</p>
-
-<p>Then, when opening the HTML file in the browser, we are presented with an overview of things such as:</p>
-
-<ul>
-  <li>When the policy was created and modified.</li>
-  <li>What devices or users the GPO applies to.</li>
-  <li>The permissions over the GPO.</li>
-  <li>The user or computer configurations that it enforces.</li>
-</ul>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/5de96d9ca744773ea7ef8c00-1730382678827.png" alt="SetWallpaper GPO in a HTML report for easier analysis. " /> \n</p>
-
-<p>From the screenshot above, we can see that the policy sets the Desktop Wallpaper of devices using the image located in C:\THM.jpg on the domain controller.</p>
-
-<p>Domains are naturally likely to have many GPOs. We can use the same Get-GPO cmdlet, with a bit of <em>PowerShell-fu</em> to list only those GPOs that were recently modified. This is a handy snippet because it highlights policies that were recently modified - perhaps by an attacker.</p>
-
-<p>Listing recently modified GPOs</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">PS</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Users</span><span class="err">\</span><span class="nx">Administrator</span><span class="err">\</span><span class="nx">Desktop</span><span class="o">&gt;</span> <span class="nx">Get</span><span class="o">-</span><span class="nx">GPO</span> <span class="o">-</span><span class="nx">All</span> <span class="o">|</span> <span class="nx">Where</span><span class="o">-</span><span class="nb">Object</span> <span class="p">{</span> <span class="nx">$_</span><span class="p">.</span><span class="nx">ModificationTime</span> <span class="p">}</span> <span class="o">|</span> <span class="nx">Select</span><span class="o">-</span><span class="nb">Object</span> <span class="nx">DisplayName</span><span class="p">,</span> <span class="nx">ModificationTime</span>
-
-<span class="nx">DisplayName</span>                                <span class="nx">ModificationTime</span>
-<span class="o">-----------</span>                                <span class="o">----------------</span>
-<span class="nx">Default</span> <span class="nx">Domain</span> <span class="nx">Policy</span>                      <span class="mi">10</span><span class="o">/</span><span class="mi">14</span><span class="o">/</span><span class="mi">2024</span> <span class="mi">12</span><span class="p">:</span><span class="mi">19</span><span class="p">:</span><span class="mi">28</span> <span class="nx">PM</span>
-<span class="nx">Default</span> <span class="nx">Domain</span> <span class="nx">Controllers</span> <span class="nx">Policy</span>          <span class="mi">10</span><span class="o">/</span><span class="mi">14</span><span class="o">/</span><span class="mi">2024</span> <span class="mi">12</span><span class="p">:</span><span class="mi">17</span><span class="p">:</span><span class="mi">30</span> <span class="nx">PM</span>
-<span class="nx">SetWallpaper</span>                               <span class="mi">10</span><span class="o">/</span><span class="mi">31</span><span class="o">/</span><span class="mi">2024</span> <span class="mi">1</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">04</span> <span class="nx">PM</span>
-</code></pre></div></div>
-
-<p>\n</p>
-
-<h2 id="event-viewer">Event Viewer</h2>
-
-<p>Windows comes packaged with the Event Viewer. This invaluable repository stores a record of system activity, including security events, service behaviours, and so forth.</p>
-
-<p>For example, within the “Security” tab of Event Viewer, we can see the history of user logins, attempts and logoffs. The screenshot below shows a record of the user “cmnatic” attempting to log into the device.</p>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/5de96d9ca744773ea7ef8c00-1730383327428.png" alt="Records of a user logging in shown on the Event Viewer." /> \n</p>
-
-<p>All categories of events are given an event ID. The table below provides notable event IDs for today’s task.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th><strong>Event ID</strong></th>
-      <th><strong>Description</strong></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>4624</td>
-      <td>A user account has logged on</td>
-    </tr>
-    <tr>
-      <td>4625</td>
-      <td>A user account failed to log on</td>
-    </tr>
-    <tr>
-      <td>4672</td>
-      <td>Special privileges (i.e. SeTcbPrivilege) have been assigned to a user</td>
-    </tr>
-    <tr>
-      <td>4768</td>
-      <td>A TGT (Kerberos) ticket was requested for a high-privileged account</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>\n</p>
-
-<h2 id="user-auditing">User Auditing</h2>
-
-<p>User accounts are a valuable and often successful method of attack. You can use Event Viewer IDs to review user events and PowerShell to audit their status. Attack methods such as password spraying will eventually result in user accounts being locked out, depending on the domain controller’s lockout policy.</p>
-
-<p>To view all locked accounts, you can use the Search-ADAccount cmdlet, applying some filters to show information such as the last time the user had successfully logged in.</p>
-
-<p><code class="language-plaintext highlighter-rouge">Search-ADAccount -LockedOut | Select-Object Name, SamAccountName, LockedOut, LastLogonDate, DistinguishedName</code></p>
-
-<p>\n</p>
-
-<p>Additionally, a great way to quickly review the user accounts present on a domain, as well as their group membership, is by using the <code class="language-plaintext highlighter-rouge">Get-ADUser</code> cmdlet, demonstrated below:</p>
-
-<p>Listing all users and their groups usingPowerShell</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">PS</span> <span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Users</span><span class="err">\</span><span class="nx">Administrator</span><span class="err">\</span><span class="nx">Desktop</span><span class="o">&gt;</span> <span class="nx">Get</span><span class="o">-</span><span class="nx">ADUser</span> <span class="o">-</span><span class="nx">Filter</span> <span class="o">*</span> <span class="o">-</span><span class="nx">Properties</span> <span class="nx">MemberOf</span> <span class="o">|</span> <span class="nx">Select</span><span class="o">-</span><span class="nb">Object</span> <span class="nx">Name</span><span class="p">,</span> <span class="nx">SamAccountName</span><span class="p">,</span> <span class="p">@{</span><span class="nx">Name</span><span class="o">=</span><span class="dl">"</span><span class="s2">Groups</span><span class="dl">"</span><span class="p">;</span><span class="nx">Expression</span><span class="o">=</span><span class="p">{</span><span class="nx">$_</span><span class="p">.</span><span class="nx">MemberOf</span><span class="p">}}</span>
-
-<span class="nx">Name</span>           <span class="nx">SamAccountName</span> <span class="nx">Groups</span>
-<span class="o">----</span>           <span class="o">--------------</span> <span class="o">------</span>
-<span class="nx">Administrator</span>  <span class="nx">Administrator</span>  <span class="p">{</span><span class="nx">CN</span><span class="o">=</span><span class="nx">Group</span> <span class="nx">Policy</span> <span class="nx">Creator</span> <span class="nx">Owners</span><span class="p">,</span><span class="nx">CN</span><span class="o">=</span><span class="nx">Users</span><span class="p">,</span><span class="nx">DC</span><span class="o">=</span><span class="nx">wareville</span><span class="p">,</span><span class="nx">DC</span><span class="o">=</span><span class="nx">thm</span><span class="p">,</span> <span class="nx">CN</span><span class="o">=</span><span class="nx">Domain</span> <span class="nx">Admins</span><span class="p">,</span><span class="nx">CN</span><span class="o">=</span><span class="nx">Users</span><span class="p">,</span><span class="nx">DC</span><span class="o">=</span><span class="nx">wareville</span><span class="p">,</span><span class="nx">DC</span><span class="o">=</span><span class="nx">thm</span><span class="p">,</span> <span class="nx">CN</span><span class="o">=</span><span class="nx">Enterprise</span> <span class="nx">Admins</span><span class="p">,</span><span class="nx">CN</span><span class="o">=</span><span class="nx">Users</span><span class="p">,</span><span class="nx">DC</span><span class="o">=</span><span class="nx">wareville</span><span class="p">,</span><span class="nx">DC</span><span class="o">=</span><span class="nx">thm</span><span class="p">,</span> <span class="nx">CN</span><span class="o">=</span><span class="nx">Schema</span> <span class="p">...</span>
-<span class="nx">Guest</span>          <span class="nx">Guest</span>          <span class="nx">CN</span><span class="o">=</span><span class="nx">Guests</span><span class="p">,</span><span class="nx">CN</span><span class="o">=</span><span class="nx">Builtin</span><span class="p">,</span><span class="nx">DC</span><span class="o">=</span><span class="nx">wareville</span><span class="p">,</span><span class="nx">DC</span><span class="o">=</span><span class="nx">thm</span>
-<span class="nx">krbtgt</span>         <span class="nx">krbtgt</span>         <span class="nx">CN</span><span class="o">=</span><span class="nx">Denied</span> <span class="nx">RODC</span> <span class="nx">Password</span> <span class="nx">Replication</span> <span class="nx">Group</span><span class="p">,</span><span class="nx">CN</span><span class="o">=</span><span class="nx">Users</span><span class="p">,</span><span class="nx">DC</span><span class="o">=</span><span class="nx">wareville</span><span class="p">,</span><span class="nx">DC</span><span class="o">=</span><span class="nx">thm</span>
-<span class="nx">tryhackme</span>      <span class="nx">tryhackme</span>      <span class="nx">CN</span><span class="o">=</span><span class="nx">Domain</span> <span class="nx">Admins</span><span class="p">,</span><span class="nx">CN</span><span class="o">=</span><span class="nx">Users</span><span class="p">,</span><span class="nx">DC</span><span class="o">=</span><span class="nx">wareville</span><span class="p">,</span><span class="nx">DC</span><span class="o">=</span><span class="nx">thm</span>
-<span class="nx">DAVID</span>          <span class="nx">DAVID</span>
-<span class="nx">James</span>          <span class="nx">James</span>
-<span class="nx">NewAccount</span>     <span class="nx">NewAccount</span>
-<span class="nx">cmnatic</span>        <span class="nx">cmnatic</span>        <span class="p">{</span><span class="nx">CN</span><span class="o">=</span><span class="nx">Domain</span> <span class="nx">Admins</span><span class="p">,</span><span class="nx">CN</span><span class="o">=</span><span class="nx">Users</span><span class="p">,</span><span class="nx">DC</span><span class="o">=</span><span class="nx">wareville</span><span class="p">,</span><span class="nx">DC</span><span class="o">=</span><span class="nx">thm</span><span class="p">,</span> <span class="nx">CN</span><span class="o">=</span><span class="nx">Remote</span> <span class="nx">Desktop</span> <span class="nx">Users</span><span class="p">,</span><span class="nx">CN</span><span class="o">=</span><span class="nx">Builtin</span><span class="p">,</span><span class="nx">DC</span><span class="o">=</span><span class="nx">wareville</span><span class="p">,</span><span class="nx">DC</span><span class="o">=</span><span class="nx">thm</span><span class="p">}</span>
-</code></pre></div></div>
-
-<p>\n</p>
-
-<h2 id="reviewingpowershellhistory-and-logs">Reviewing PowerShell History and Logs</h2>
-
-<p>PowerShell, like Bash on Linux, keeps a history of the commands inputted into the session. Reviewing these can be a fantastic way to see recent actions taken by the user account on the machine.</p>
-
-<p>On a Windows Server, this history file  is located at <code class="language-plaintext highlighter-rouge">%APPDATA%\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt</code>.</p>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/5de96d9ca744773ea7ef8c00-1730974418051.png" alt="Location of the PowerShell history file on the system." /> \n</p>
-
-<p>You can use the in-built Notepad on Windows or your favourite text editor to review the PowerShell command history.</p>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/5de96d9ca744773ea7ef8c00-1730974099222.png" alt="Contents of the PowerShell command logs." /></p>
-
-<p>Additionally, logs are recorded for every PowerShell process executed on a system. These logs are located within the Event Viewer under <code class="language-plaintext highlighter-rouge">Application and Services Logs -&gt; Microsoft -&gt; Windows -&gt; PowerShell -&gt; Operational</code> or also under <code class="language-plaintext highlighter-rouge">Application and Service Logs -&gt; Windows PowerShell</code>. The logs have a wealth of information useful for incident response.</p>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5fc2847e1bbebc03aa89fbf2/room-content/5fc2847e1bbebc03aa89fbf2-1732022781823.png" alt="Event Viewer showing PowerShell logs recorded." /></p>
-
-<h2 id="practical">Practical</h2>
-
-<p>Your task for today is to investigate WareVille’s SOC-mas Active Directory controller for the suspected breach.</p>
-
-<h2 id="answer-the-questions-below-to-confirm-the-details-of-the-breach">Answer the questions below to confirm the details of the breach.</h2>
-
-<h3 id="answer-the-questions-below">Answer the questions below</h3>
-
-<p>Use the “Security” tab within Event Viewer to answer questions 1 and 2.</p>
-
-<p>Complete</p>
-
-<p>On what day was Glitch_Malware last logged in?
-Answer format: DD/MM/YYYY
-07/11/2024</p>
-
-<p>What event ID shows the login of the Glitch_Malware user?
-4624</p>
-
-<p>Read the PowerShell history of the Administrator account. What was the command that was used to enumerate Active Directory users?
-Get-ADUser -Filter * -Properties MemberOf | Select-Object Name</p>
-
-<p>Look in the PowerShell log file located in <code class="language-plaintext highlighter-rouge">Application and Services Logs -&gt; Windows PowerShell</code>. What was Glitch_Malware’s set password?
-SuperSecretP@ssw0rd!</p>
-
-<p>Review the Group Policy Objects present on the machine. What is the name of the installed GPO?
-Malicious GPO - Glitch_Malware Persistence</p>
-
-<p>If you enjoyed this task, feel free to check out the <a href="https://tryhackme.com/r/room/activedirectoryhardening">Active Directory Hardening </a>room.</p>]]></content><author><name>Michael</name></author><summary type="html"><![CDATA[The Story]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/Day15Header.png" /><media:content medium="image" url="http://localhost:4000/Day15Header.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">TryHackMe Advent of Cyber 2024 - Day 14</title><link href="http://localhost:4000/Day14" rel="alternate" type="text/html" title="TryHackMe Advent of Cyber 2024 - Day 14" /><published>2024-12-14T00:00:00-05:00</published><updated>2024-12-14T00:00:00-05:00</updated><id>http://localhost:4000/Day14</id><content type="html" xml:base="http://localhost:4000/Day14"><![CDATA[<p>The Story</p>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1731812568781.svg" alt="Task banner for day 14" /></p>
-
-<p><em>“It’s the Mayor” said the Glitch, he said it while sighing,</em></p>
-
-<p><em>“The people of Wareville, their browsing he’s spying!”</em></p>
-
-<p><em>“That sounds like him”, McSkidy then said,</em></p>
-
-<p><em>“Back to work then”, while scratching her head.</em></p>
-
-<p>It’s a quiet morning in the town of Wareville. A wholesome town where cheer and tech come together. McSkidy is charged to protect the GiftScheduler, the service elves use to schedule all the presents to be delivered in Wareville. She assigned Glitch to the case to make sure the site is secure for G-Day (Gift Day). In the meantime, Mayor Malware works tirelessly, hoping to not only ruin Christmas by redirecting presents to the wrong addresses but also to ensure that Glitch is blamed for the attack. After all, Glitch’s warnings about the same vulnerabilities Mayor Malware is exploiting make the hacker an easy scapegoat.</p>
-
-<h2 id="learning-objectives">Learning Objectives</h2>
-
-<p>In today’s task you will learn about:</p>
-
-<ul>
-  <li>Self-signed certificates</li>
-  <li>Man-in-the-middle attacks</li>
-  <li>Using Burp Suite proxy to intercept traffic</li>
-</ul>
-
-<h2 id="certified-to-sleigh">Certified to Sleigh</h2>
-
-<p>We hear a lot about certificates and their uses, but let’s start dissecting what a certificate is:</p>
-
-<ul>
-  <li><strong>Public key</strong>: At its core, a certificate contains a public key, part of a pair of cryptographic keys: a public key and a private key. The public key is made available to anyone and is used to encrypt data.</li>
-  <li><strong>Private key</strong>: The private key remains secret and is used by the website or server to decrypt the data.</li>
-  <li><strong>Metadata</strong>: Along with the key, it includes metadata that provides additional information about the certificate holder (the website) and the certificate. You usually find information about the Certificate Authority (CA), subject (information about the website, e.g. www.meow.thm), a uniquely identifiable number, validity period, signature, and hashing algorithm.</li>
-</ul>
-
-<h2 id="sign-here-trust-me">Sign Here, Trust Me</h2>
-
-<p>So what is a Certificate Authority (CA)?</p>
-
-<p>A CA is a trusted entity that issues certificates; for example, GlobalSign, Let’s Encrypt, and DigiCert are very common ones. The browser trusts these entities and performs a series of checks to ensure it is a trusted CA. Here is a breakdown of what happens with a certificate:</p>
-
-<ul>
-  <li><strong>Handshake</strong>: Your browser requests a secure connection, and the website responds by sending a certificate, but in this case, it only requires the public key and metadata.</li>
-  <li><strong>Verification:</strong> Your browser checks the certificate for its validity by checking if it was issued by a trusted CA. If the certificate hasn’t expired or been tampered with, and the CA is trusted, then the browser gives the green light. There are different types of checks you can do; check them <a href="https://www.sectigo.com/resource-library/dv-ov-ev-ssl-certificates">here</a>.</li>
-  <li><strong>Key exchange</strong>: The browser uses the public key to encrypt a session key, which encrypts all communications between the browser and the website.</li>
-  <li><strong>Decryption</strong>: The website (server) uses its private key to decrypt the session key, which is <a href="https://deviceauthority.com/symmetric-encryption-vs-asymmetric-encryption/">symmetric</a>. Now that both the browser and the website share a secret key (session key), we have established a secure and encrypted communication!</li>
-</ul>
-
-<p>Ever wonder what makes HTTPS be S (secure)? Thanks to certificates, we can now have authentication, encryption, and data integrity.</p>
-
-<p><strong>Self-Signed Certificates vs. Trusted CA Certificates</strong></p>
-
-<p>The process of acquiring a certificate with a CA is long, you create the certificate, and send it to a CA to sign it for you. If you don’t have tools and automation in place, this process can take weeks. Self-signed certificates are signed by an entity usually the same one that authenticates. For example, Wareville owns the GiftScheduler site, and if they create a certificate and sign it with Wareville as a CA, that becomes a self-signed certificate.</p>
-
-<ul>
-  <li><strong>Browsers</strong> generally do not trust self-signed certificates because there is no third-party verification. The browser has no way of knowing if the certificate is authentic or if it’s being used for malicious purposes (like a <strong>man-in-the-middle attack</strong>).</li>
-  <li><strong>Trusted CA certificates</strong>, on the other hand, are verified by a CA, which acts as a trusted third party to confirm the website’s identity.</li>
-</ul>
-
-<p>CA-issued certificates sometimes take a long time; if you want to test a development environment, it can make sense to use self-signed certificates. Ideally, this is an internal, air-gapped environment with no connection to the public Internet. Otherwise, it defeats the purpose of a certificate: the entire system of secure communication relies on the fact that both parties (the browser and the server) can trust the data being exchanged and that no one in the middle can intercept or modify it without detection.</p>
-
-<h2 id="connecting-to-the-machine">Connecting to the Machine</h2>
-
-<p>Before moving forward, review the questions in the connection card shown below: \n</p>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1731376755339.png" alt="We need to start the AttackBox and the attached VM" /> \n</p>
-
-<p>To reproduce Mayor Malware’s attack, click the <strong>Start Machine</strong> button below to deploy our target VM that has the Gift Scheduler server running.</p>
-
-<p>Start Machine</p>
-
-<p>Then click on the <strong>Start AttackBox</strong> button at the top of the page to start the machine from which we—along with Mayor Malware—will attack the website. The AttackBox machine will start in split view. If it is not visible, use the blue <strong>Show Split View</strong> button at the top of the page.</p>
-
-<h2 id="how-mayor-malware-disrupts-g-day">How Mayor Malware Disrupts G-Day</h2>
-
-<p>There are less than two weeks until G-Day, and Mayor Malware has been planning its disruption ever since Glitch raised the self-signed certificate vulnerability to McSkidy during a security briefing the other day.</p>
-
-<p>His plan is near perfect. He will hack into the Gift Scheduler and mess with the delivery schedule. No one will receive the gift destined for them: G-Day will be ruined! [<em>evil laugh</em>]</p>
-
-<p><strong>Preparation</strong></p>
-
-<p>First things first: the Glitch spoke about a self-signed certificate, but Mayor Malware can’t believe that the townspeople—usually so security-savvy it’s maddening to him—would easily disregard such a critical vulnerability. Is it a trap set up by the Glitch and McSkidy to catch him red-handed? He definitely needs to check for himself.</p>
-
-<p>Before that, though, he wants to make sure that his tracks are well covered. To prevent any DNS logs from alerting his enemies, he will resolve the Gift Scheduler’s FQDN locally on his machine.</p>
-
-<p>To achieve this, let’s add the following line to the <code class="language-plaintext highlighter-rouge">/etc/hosts</code> file on the AttackBox: <code class="language-plaintext highlighter-rouge">MACHINE_IP gift-scheduler.thm</code></p>
-
-<p>We can use the following command:</p>
-
-<p>Terminal
-root@attackbox:~# echo “MACHINE_IP gift-scheduler.thm” » /etc/hosts
-To verify that the line above was added to the file, we can execute the following:</p>
-
-<p>Terminal
-root@attackbox:~# cat /etc/hosts
-127.0.0.1       localhost
-127.0.1.1       tryhackme.lan   tryhackme</p>
-
-<h1 id="the-following-lines-are-desirable-for-ipv6-capable-hosts">The following lines are desirable for IPv6 capable hosts</h1>
-
-<p>::1     localhost ip6-localhost ip6-loopback
-ff02::1 ip6-allnodes
-ff02::2 ip6-allrouters
-MACHINE_IP gift-scheduler.thm
-Now, Mayor Malware can navigate to the Gift Scheduler website without leaving a trace on Wareville’s DNS logs.</p>
-
-<p>Let’s open the Firefox browser and navigate to <code class="language-plaintext highlighter-rouge">https://gift-scheduler.thm</code>. We’ll be presented with the following warning page:</p>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1732081797042.png" alt="Firefox warning page titled 'Warning: Potential Security Risk Ahead'. The page displays two buttons, the first one labelled 'Go Back (Recommended)' and the second labelled 'Advanced'. A yellow box highlights the 'Advanced' button." /></p>
-
-<p>We can click on the <code class="language-plaintext highlighter-rouge">Advanced</code> button to expand the warning’s details.</p>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1732081843216.png" alt="Firefox warning page titled 'Warning: Potential Security Risk Ahead' showing advanced information. The details show that the host 'gift-scheduler.thm' uses a self-signed certificate. Two yellow boxes highlight a 'View Certificate' link, marked with number 1, and a button labelled 'Accept the Risk and Continue', marked with number 2." /></p>
-
-<p>When we click on the <code class="language-plaintext highlighter-rouge">View Certificate</code> link marked with a 1 in the screenshot above, a new tab opens with the certificate details.</p>
-
-<p>Mayor Malware can’t believe his luck! This is evidence that the Glitch was speaking the truth: the Gift Scheduler web server uses a self-signed certificate.</p>
-
-<p>This means that the townspeople and all the elves will be used to clicking on the <code class="language-plaintext highlighter-rouge">Accept the Risk and Continue</code> button (marked with 2 on the screenshot above) to access the website, to the point it’s become a habit.</p>
-
-<p>Mayor Malware does just that and inserts his credentials into the login form.</p>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/63588b5ef586912c7d03c4f0/room-content/be629720b11a294819516c1d4e738c92.png" alt="THM Key Credentials" /></p>
-
-<table>
-  <thead>
-    <tr>
-      <th><strong>Username</strong></th>
-      <th>mayor_malware</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Password</strong></td>
-      <td>G4rbag3Day</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1732081963686.png" alt="Website login page" /></p>
-
-<p>With his credentials, he can’t do anything but send a gift request—as if he were to ever do such a sickeningly sweet gesture. To carry out his evil plan, he will need to sniff some admin credentials. Maybe some of the elves’ passwords. Or even—if he gets lucky—Marta May Ware’s account!</p>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1732081963676.png" alt="The 'Schedule your gift' form page" /></p>
-
-<p>To sniff the elves’ traffic, the next step will be to start a proxy on his machine and route all of Wareville’s traffic to it. This way, the <strong>Mayor</strong> will be <strong>In The Middle</strong> between the townspeople and the Gift Scheduler. This position will allow him to sniff all requests forwarded to the sickening website.</p>
-
-<p>Let’s start the Burp Suite proxy by typing <code class="language-plaintext highlighter-rouge">burp</code> in the terminal. A new window will open. We can accept the default configuration by clicking on <code class="language-plaintext highlighter-rouge">Next</code>, then <code class="language-plaintext highlighter-rouge">Start Burp</code> in the next window.</p>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1732082529688.png" alt="Burp Suite window. Three numbered yellow boxes highlight the following: 1-the Proxy tab; 2-an Intercept On button; 3-a Proxy Settings menu." /></p>
-
-<p>Once Burp Suite loads, we will select <code class="language-plaintext highlighter-rouge">Proxy</code> (number 1 in the screenshot above) and then toggle off the <code class="language-plaintext highlighter-rouge">Intercept on</code> option (number 2) to prevent users from noticing any delays in the website responses. Finally, let’s open the <code class="language-plaintext highlighter-rouge">Proxy Settings</code> (number 3) to set a new listener on our AttackBox IP address.</p>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1732082054712.png" alt="Burp Suite settings window open on the Proxy settings. A yellow box highlights a button labelled “Add” under the Proxy listeners section." /></p>
-
-<p>We can click on the <code class="language-plaintext highlighter-rouge">Add</code> button highlighted in the screenshot above. Burp Suite will prompt us for the new listener’s configuration.</p>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1732082457072.png" alt="Burp Suite window labelled 'Add a proxy listener' open on the 'Binding' tab. The number 8080 is written in the box next to a 'Bind to port' option. Under the 'Bind to address' section, the 'Specific address' option is selected. A partially covered IP address is specified in a dropdown box. A yellow box highlights the 'OK' button on the lower right." /></p>
-
-<p>We must set the listening port to <code class="language-plaintext highlighter-rouge">8080</code> and toggle the <code class="language-plaintext highlighter-rouge">Specific address</code> option. The box next to it will automatically specify the IP address of our AttackBox, <code class="language-plaintext highlighter-rouge">CONNECTION_IP</code>. Finally, we can click on <code class="language-plaintext highlighter-rouge">OK</code> to apply the configuration.</p>
-
-<p>The previous settings window will get displayed and we can see that the new listener has been added under the proxy listeners list.</p>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1732081911457.png" alt="The Burp Suite settings window open on the Proxy settings. A new listener is now listed under the Proxy listeners section. A yellow box highlights the phrase: Each installation of Burp generates its own CA certificate that Proxy listeners can use when negotiating TLS connections." /></p>
-
-<p>Mayor Malware rubs his hands together gleefully: as we can read in the yellow box in the screenshot above, Burp Suite already comes with a self-signed certificate. The users will be prompted to accept it and continue, and Mayor Malware knows they will do it out of habit, without even thinking of verifying the certificate origin first. The G-Day disruption operation will go off without a hitch!</p>
-
-<p><strong>Sniff From The Middle</strong></p>
-
-<p>Now that our machine is ready to listen, we must reroute all Wareville traffic to our machine.</p>
-
-<p>Mayor Malware has a wonderful idea to achieve this: he will set his own machine as a gateway for all other Wareville’s machines!</p>
-
-<p>Let’s add another line to the AttackBox’s <code class="language-plaintext highlighter-rouge">/etc/hosts</code> file. <strong>Note:</strong> The <code class="language-plaintext highlighter-rouge">CONNECTION_IP</code> address in the snippet should reflect the IP of our AttackBox, which can be found at the top of the page.</p>
-
-<p>Terminal</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">root</span><span class="p">@</span><span class="nd">attackbox</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">echo</span> <span class="dl">"</span><span class="s2">CONNECTION_IP wareville-gw</span><span class="dl">"</span> <span class="o">&gt;&gt;</span> <span class="sr">/etc/</span><span class="nx">hosts</span>
-</code></pre></div></div>
-
-<p>This will divert all of Wareville’s traffic, usually routed through the legitimate Wareville Gateway, to Mayor Malware’s machine, effectively putting him “In The Middle” of the requests. <strong>Note:</strong> In practice, the adversary can launch a similar attack if they can control the user’s gateway and their attack can easily succeed against websites not using properly signed certificates. This attack requires more than adding an entry into the <code class="language-plaintext highlighter-rouge">/etc/hosts</code> file; however, this task aims to emulate parts of the attack.</p>
-
-<p>As a last step, we must start a custom script to simualte the users’ requests to the Gift Scheduler. <strong>Note:</strong> Keep the script running so that new user requests will constantly be captured in Burp Suite.</p>
-
-<p>Terminal</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">root</span><span class="p">@</span><span class="nd">attackbox</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">cd</span> <span class="o">~</span><span class="sr">/Rooms/</span><span class="nx">AoC2024</span><span class="o">/</span><span class="nx">Day14</span>
-<span class="nx">root</span><span class="p">@</span><span class="nd">attackbox</span><span class="p">:</span><span class="o">~</span><span class="sr">/Rooms/</span><span class="nx">AoC2024</span><span class="o">/</span><span class="nx">Day14</span><span class="err">#</span> <span class="p">.</span><span class="o">/</span><span class="nx">route</span><span class="o">-</span><span class="nx">elf</span><span class="o">-</span><span class="nx">traffic</span><span class="p">.</span><span class="nx">sh</span>
-<span class="nx">Verifying</span> <span class="nx">archive</span> <span class="nx">integrity</span><span class="p">...</span>  <span class="mi">100</span><span class="o">%</span>   <span class="nx">MD5</span> <span class="nx">checksums</span> <span class="nx">are</span> <span class="nx">OK</span><span class="p">.</span> <span class="nx">All</span> <span class="nx">good</span><span class="p">.</span>
-<span class="nx">Uncompressing</span> <span class="nx">Intercept</span> <span class="nx">Traffic</span>  <span class="mi">100</span><span class="o">%</span>
-<span class="nx">Intercepting</span> <span class="nx">user</span> <span class="nx">traffic</span> <span class="k">in</span> <span class="nx">progress</span><span class="p">...</span>
- <span class="nx">User</span> <span class="nx">request</span> <span class="nx">intercepted</span> <span class="nx">successfully</span> <span class="nx">at</span> <span class="mi">2024</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">11</span> <span class="mi">16</span><span class="p">:</span><span class="mi">05</span><span class="p">:</span><span class="mi">56</span>
- <span class="nx">User</span> <span class="nx">request</span> <span class="nx">intercepted</span> <span class="nx">successfully</span> <span class="nx">at</span> <span class="mi">2024</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">11</span> <span class="mi">16</span><span class="p">:</span><span class="mi">06</span><span class="p">:</span><span class="mi">23</span>
- <span class="nx">User</span> <span class="nx">request</span> <span class="nx">intercepted</span> <span class="nx">successfully</span> <span class="nx">at</span> <span class="mi">2024</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">11</span> <span class="mi">16</span><span class="p">:</span><span class="mi">06</span><span class="p">:</span><span class="mi">36</span>
-<span class="p">[...]</span>
-</code></pre></div></div>
-
-<p><strong>Pwn the Scheduler</strong></p>
-
-<p>At last, everything is in place. Mayor Malware’s evil plan can finally commence! [<em>evil laugh</em>]</p>
-
-<p>We can return to the open Burp Suite window and click on the <code class="language-plaintext highlighter-rouge">HTTP History</code> tab.</p>
-
-<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1732085268640.png" alt="HTTP history with some requests, one GET open." /></p>
-
-<p>There is a triumphant gleam in Mayor Malware’s eyes while he stares intently at the web requests pouring on his screen. He can finally see them: the POST requests containing clear-text credentials for the Gift Scheduler website! Now, he only needs to wait and find the password to a privileged account.</p>
-
-<h2 id="answer-the-questions-below">Answer the questions below</h2>
-
-<p>What is the name of the CA that has signed the Gift Scheduler certificate?
-THM</p>
-
-<p>Look inside the POST requests in the HTTP history. What is the password for the <code class="language-plaintext highlighter-rouge">snowballelf</code> account?
-c4rrotn0s3</p>
-
-<p>Use the credentials for any of the elves to authenticate to the Gift Scheduler website. What is the flag shown on the elves’ scheduling page?
-THM{AoC-3lf0nth3Sh3lf}</p>
-
-<p>What is the password for Marta May Ware’s account?
-H0llyJ0llySOCMAS</p>
-
-<p>Mayor Malware finally succeeded in his evil intent: with Marta May Ware’s username and password, he can finally access the administrative console for the Gift Scheduler. G-Day is cancelled! What is the flag shown on the admin page?
-THM{AoC-h0wt0ru1nG1ftD4y}</p>
-
-<p>If you enjoyed this task, feel free to check out the <a href="https://tryhackme.com/module/learn-burp-suite">Burp Suite</a> module.</p>]]></content><author><name>Michael</name></author><summary type="html"><![CDATA[The Story]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/Day14Header.png" /><media:content medium="image" url="http://localhost:4000/Day14Header.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>Liked today’s task? Check the <a href="https://tryhackme.com/r/room/exploitingad">Exploiting Active Directory</a> room to practice user and group enumeration in a similar yet different environment!</p>]]></content><author><name>Michael</name></author><summary type="html"><![CDATA[The Story]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/Day16Header.png" /><media:content medium="image" url="http://localhost:4000/Day16Header.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

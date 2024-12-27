@@ -7,6 +7,34 @@
 		<atom:link href="/rss-feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>TryHackMe ADvent of Cyber 2024 - Day 25 - FINAL!</title>
+				
+					<dc:creator>Michael</dc:creator>
+				
+				
+					<description>&lt;h2 id=&quot;congratulations-on-completing-advent-of-cyber-2024&quot;&gt;Congratulations on completing Advent of Cyber 2024!&lt;/h2&gt;
+</description>
+				
+				<pubDate>Wed, 25 Dec 2024 00:00:00 -0500</pubDate>
+				<link>http://localhost:4000/Day25</link>
+				<guid isPermaLink="true">http://localhost:4000/Day25</guid>
+			</item>
+		
+			<item>
+				<title>TryHackMe Advent of Cyber 2024</title>
+				
+					<dc:creator>Michael</dc:creator>
+				
+				
+					<description>&lt;p&gt;The Story&lt;/p&gt;
+</description>
+				
+				<pubDate>Tue, 24 Dec 2024 00:00:00 -0500</pubDate>
+				<link>http://localhost:4000/Day24</link>
+				<guid isPermaLink="true">http://localhost:4000/Day24</guid>
+			</item>
+		
+			<item>
 				<title>TryHackMe Advent of Cyber 2024 - Day 23</title>
 				
 					<dc:creator>Michael</dc:creator>
@@ -116,34 +144,6 @@
 				<pubDate>Mon, 16 Dec 2024 00:00:00 -0500</pubDate>
 				<link>http://localhost:4000/Day16</link>
 				<guid isPermaLink="true">http://localhost:4000/Day16</guid>
-			</item>
-		
-			<item>
-				<title>TryHackMe Advent of Cyber 2024 - Day 15</title>
-				
-					<dc:creator>Michael</dc:creator>
-				
-				
-					<description>&lt;p&gt;The Story&lt;/p&gt;
-</description>
-				
-				<pubDate>Sun, 15 Dec 2024 00:00:00 -0500</pubDate>
-				<link>http://localhost:4000/Day15</link>
-				<guid isPermaLink="true">http://localhost:4000/Day15</guid>
-			</item>
-		
-			<item>
-				<title>TryHackMe Advent of Cyber 2024 - Day 14</title>
-				
-					<dc:creator>Michael</dc:creator>
-				
-				
-					<description>&lt;p&gt;The Story&lt;/p&gt;
-</description>
-				
-				<pubDate>Sat, 14 Dec 2024 00:00:00 -0500</pubDate>
-				<link>http://localhost:4000/Day14</link>
-				<guid isPermaLink="true">http://localhost:4000/Day14</guid>
 			</item>
 		
 	</channel>

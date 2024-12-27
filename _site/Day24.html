@@ -1,0 +1,347 @@
+<!doctype html>
+<html>
+  <head>
+  <title>
+    
+      TryHackMe Advent of Cyber 2024 | THM Advent of Cyber 2024
+    
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  <!-- Use Atom -->
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="THM Advent of Cyber 2024" />
+  <!-- RSS-v2.0
+  <link href="/rss-feed.xml" type="application/rss+xml" rel="alternate" title="THM Advent of Cyber 2024 | a minimalist Jekyll theme for running a blog or publication"/>
+  //-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Source+Code+Pro">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+  <!-- Google Analytics -->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'G-MSZW3HWGH8', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  <!-- Use Jekyll SEO plugin -->
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>TryHackMe Advent of Cyber 2024 | THM Advent of Cyber 2024</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="TryHackMe Advent of Cyber 2024" />
+<meta name="author" content="Michael" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The Story" />
+<meta property="og:description" content="The Story" />
+<link rel="canonical" href="http://localhost:4000/Day24" />
+<meta property="og:url" content="http://localhost:4000/Day24" />
+<meta property="og:site_name" content="THM Advent of Cyber 2024" />
+<meta property="og:image" content="http://localhost:4000/Day24Header.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-12-24T00:00:00-05:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="http://localhost:4000/Day24Header.png" />
+<meta property="twitter:title" content="TryHackMe Advent of Cyber 2024" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Michael"},"dateModified":"2024-12-24T00:00:00-05:00","datePublished":"2024-12-24T00:00:00-05:00","description":"The Story","headline":"TryHackMe Advent of Cyber 2024","image":"http://localhost:4000/Day24Header.png","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/Day24"},"url":"http://localhost:4000/Day24"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+  <body>
+    <div class="container">
+      <header class="site-header">
+  <h3 class="site-title">
+    <a href="/">THM Advent of Cyber 2024</a>
+  </h3>
+  <nav class="menu-list">
+    
+      <a href="/about" class="menu-link">About</a>
+    
+      <a href="/contact" class="menu-link">Contact</a>
+    
+    
+      <a href="https://twitter.com/mberger" class="menu-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+    
+      <a href="feed.xml" class="menu-link" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+    
+  </nav>
+  <div class="dropdown">
+    <button class="dropbtn"><i class="fa fa-bars" aria-hidden="true"></i></button>
+    <div class="dropdown-content">
+      
+        <a href="/about" class="menu-link">About</a>
+      
+        <a href="/contact" class="menu-link">Contact</a>
+      
+      
+        <a href="https://twitter.com/mberger" class="menu-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+      
+        <a href="feed.xml" class="menu-link" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+      
+    </div>
+  </div>
+</header>
+
+      <div class="content-wrapper">
+        <div class="post-content">
+  <h1>
+    TryHackMe Advent of Cyber 2024
+  </h1>
+  
+    <span class="post-date">
+  Written on
+  
+  December
+  24th,
+  2024
+  by
+  
+    Michael
+  
+</span>
+
+  
+  
+    <div class="featured-image">
+      <img src="/assets/img/Day24Header.png">
+    </div>
+  
+  <article>
+    <p>The Story</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1731490380964.svg" alt="Task banner for day 24" /></p>
+
+<p><em>In Wareville the townspeople started to frown,</em></p>
+
+<p><em>A problem with smart lights all over the town!</em></p>
+
+<p><em>Was SOC-mas ruined? The chances were zero,</em></p>
+
+<p><em>Because this they knew, the Glitch was their hero!</em></p>
+
+<p>\n</p>
+
+<p>The city of Wareville has invested in smart lights and heating, ventilation, and air conditioning (HVAC). Oh, it was so easy to control the lights and heating remotely. Following the recent incidents, McSkidy started monitoring these smart devices’ communication protocols. Not long after the lights and heating were up and running, Mayor Malware figured out how these devices were controlled and sabotaged them. Luckily, McSkidy was one step ahead and picked up the malicious commands that had been sent. Can you help McSkidy figure out which commands were sent? We can then use our findings to update the devices’ configuration and save the day!</p>
+
+<h2 id="learning-objectives">Learning Objectives</h2>
+
+<p>In this task, you will learn about:</p>
+
+<ul>
+  <li>The basics of the MQTT protocol</li>
+  <li>How to use Wireshark to analyze MQTT traffic</li>
+  <li>Reverse engineering a simple network protocol \n</li>
+</ul>
+
+<h2 id="how-smart-is-smart">How Smart is Smart</h2>
+
+<p>Smart devices make our lives very easy. We no longer physically need to move and turn on or off a switch to control them. With smart HVAC systems, we can maintain the temperature of our homes and ensure they are not too cold or too hot when we come home from outside. Smart vacuum cleaners can clean our house while we work on other things or go out for dinner. Many smart devices come with apps that allow us to control them using our mobile phones. Even better, since these devices can be controlled remotely through apps and interfaces connected to the Internet, we can make their designs more minimalistic and aesthetically independent, and the need for adding switches or controls on the device itself is minimized.</p>
+
+<h2 id="is-it-smart">Is It Smart</h2>
+
+<p>While they make our lives easier, most smart devices need a network connection to provide control to the users. Many smart devices are connected over the Internet (hence the term Internet of Things or IoT), which, from a security point of view, means that anyone can potentially take control of these devices. We can limit the exposure of these devices by adding security controls such as network isolation and authentication mechanisms. Still, if we fail to do so, the results can be catastrophic. However, the most secure system is a system that is shut down, but that does not deter us from using different systems to help us out in our daily lives, and the same should be the case with smart devices. Instead, we can ensure that we understand how our smart devices work and have adequate security set up for them.</p>
+
+<p><img src="https://assets.tryhackme.com/additional/aoc2024/gifs/AoC%20Day%2024%20-%20Reverse%20engineering%20animation.gif" alt="a map of devices connecting together, zooming out to a globe showing communication between different geographical areas" /></p>
+
+<h2 id="the-language-ofiot">The Language of IoT</h2>
+
+<p>Although different IoT and smart devices use various programming languages, depending on the platform and vendor, they often need to speak the same language to be able to communicate with each other. For example, while IoT devices might use C++ or Java to talk to the compiler and the underlying hardware, they will need a language like HTTP or MQTT to talk with your system or mobile device.</p>
+
+<h2 id="how-to-speak-mqtt">How to Speak MQTT</h2>
+
+<p>MQTT stands for Message Queuing Telemetry Transport. It is a language very commonly used in IoT devices for communication purposes. It works on a publish/subscribe model, where any client device can publish messages, and other client devices can subscribe to the messages if they are related to a topic of interest. An MQTT broker connects the different clients, publishing and subscribing to messages.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1732161467165.png" alt="MQTT example network" /></p>
+
+<p>To further understand MQTT, let’s explore some key concepts used in MQTT protocols.</p>
+
+<p><strong>MQTT Clients:</strong> MQTT clients are IoT devices, such as sensors and controllers, that publish or subscribe to messages using the MQTT protocol. For example, a temperature sensor can be a client that publishes temperature sensors at different places. An HVAC controller can also act as a client that subscribes to messages from the temperature sensor and turns the HVAC system on or off based on the input received.</p>
+
+<p><strong>MQTT Broker:</strong> An MQTT broker receives messages from publishing clients and distributes them to the subscribing clients based on their preferences.</p>
+
+<p><strong>MQTT Topics:</strong> Topics are used to classify the different types of messages. Clients can subscribe to messages based on their topics of interest. For example, a temperature sensor sending temperature readings can use the topic of “room temperature”, while an HVAC controller would subscribe to messages under the topic of “room temperature”. However, a light sensor can publish messages with the topic “light readings”. An HVAC controller does not need to subscribe to this topic. On the other hand, a light controller would subscribe to “light readings” but not to the topic of “room temperature”.</p>
+
+<h2 id="connecting-to-the-machine">Connecting to the Machine</h2>
+
+<p>Before moving forward, review the questions in the connection card shown below:</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1731491792619.png" alt="You will need a VM that displays in split-screen; you are also given VNC credentials." /> \n</p>
+
+<p>Click on the green <strong>Start Machine</strong> button in below to start the virtual machine in split-screen view. If the VM is not visible, use the blue <strong>Show Split View</strong> button at the top of the page.</p>
+
+<p>Start Machine</p>
+
+<p>Alternatively, you can connect to the machine with a VNC client using the credentials below:</p>
+
+<ul>
+  <li>Username: <code class="language-plaintext highlighter-rouge">ubuntu</code></li>
+  <li>Password: <code class="language-plaintext highlighter-rouge">TryHackMe!</code></li>
+</ul>
+
+<h2 id="demonstration">Demonstration</h2>
+
+<p>Learning about a protocol theoretically can be confusing. Let’s see how it works in practice. The files related to this task are in the <code class="language-plaintext highlighter-rouge">~/Desktop/MQTTSIM/</code> directory. The walkthrough and the challenge files are shown in the terminal below.</p>
+
+<p>AttackBox Terminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="sr">/Desktop/</span><span class="nx">MQTTSIM$</span> <span class="nx">tree</span>
+<span class="p">.</span>
+<span class="err">├──</span> <span class="nx">challenge</span>
+<span class="err">│</span>   <span class="err">├──</span> <span class="nx">challenge</span><span class="p">.</span><span class="nx">pcapng</span>
+<span class="err">│</span>   <span class="err">├──</span> <span class="nx">challenge</span><span class="p">.</span><span class="nx">sh</span>
+<span class="err">│</span>   <span class="err">└──</span> <span class="nx">lights</span><span class="p">.</span><span class="nx">py</span>
+<span class="err">└──</span> <span class="nx">walkthrough</span>
+    <span class="err">├──</span> <span class="nx">hvac</span><span class="p">.</span><span class="nx">py</span>
+    <span class="err">└──</span> <span class="nx">walkthrough</span><span class="p">.</span><span class="nx">sh</span>
+</code></pre></div></div>
+
+<p>As we discussed, different IoT devices communicate with each other using MQTT, a network protocol. Therefore, we must monitor network communication to see what is going on. We will use Wireshark to monitor network communication. On the left side, we can click the Wireshark logo to start Wireshark. On the home screen, we can select ‘any’ for the network interface to see traffic from all the network interfaces.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/61306d87a330ed00419e22e7/room-content/61306d87a330ed00419e22e7-1729327245985.png" alt="Wirshark and the available interfaces" /></p>
+
+<p>The screenshot below shows the traffic from all the interfaces on the network as we have selected ‘any’ for the network interface.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/61306d87a330ed00419e22e7/room-content/61306d87a330ed00419e22e7-1729327245982.png" alt="Wireshark capturing on the any interface" /></p>
+
+<p>Since we only want to see traffic from the MQTT protocol, we can filter for this protocol only. To do that, we can type <code class="language-plaintext highlighter-rouge">mqtt</code> in the filter box and press enter.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/61306d87a330ed00419e22e7/room-content/61306d87a330ed00419e22e7-1729327245981.png" alt="Wireshark filtering for MQTT traffic" /></p>
+
+<p>There will be no traffic for now as no MQTT broker or client is running. Let’s start the MQTT broker and client to see the traffic. For that, there is a shortcut for a directory on the Desktop named <code class="language-plaintext highlighter-rouge">Link to MQTT</code>. The directory has different scripts in it. We will start the <code class="language-plaintext highlighter-rouge">walkthrough.sh</code> script to learn how the MQTT protocol works. </p>
+
+<p>Let’s run the <code class="language-plaintext highlighter-rouge">walkthrough.sh</code> script.</p>
+
+<p>AttackBox Terminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">cd</span> <span class="nx">Desktop</span><span class="o">/</span><span class="nx">MQTTSIM</span><span class="o">/</span><span class="nx">walkthrough</span><span class="o">/</span>
+<span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="sr">/Desktop/</span><span class="nx">MQTTSIM</span><span class="o">/</span><span class="nx">walkthrough$</span> <span class="p">.</span><span class="o">/</span><span class="nx">walkthrough</span><span class="p">.</span><span class="nx">sh</span>
+<span class="nx">Starting</span> <span class="nx">MQTT</span> <span class="nx">broker</span> <span class="k">in</span> <span class="nx">Docker</span><span class="p">...</span>
+<span class="nx">Starting</span> <span class="nx">the</span> <span class="nx">HVAC</span> <span class="nx">controller</span> <span class="nx">script</span><span class="p">...</span>
+<span class="nx">All</span> <span class="nx">processes</span> <span class="nx">started</span><span class="p">.</span>
+<span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="sr">/MQTTSIM</span><span class="err">$
+</span></code></pre></div></div>
+
+<p>Once we run it, three windows will pop up. The window with the red text is the MQTT broker, the one with the blue text is the MQTT client, and the third is the application UI we might see as the end user. We can look at the logs on each of these windows if we like, but as an end user, we will only interact with the application UI.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1731497886233.png" alt="Heater control interface" /> \n</p>
+
+<p>Currently, the application is in automatic mode, the heater is off, the target temperature is 22 degrees, and the current temperature is 22.3 degrees. Let’s head over to Wireshark to see what kind of communication we can see. The below screenshot shows how the communication started.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/61306d87a330ed00419e22e7/room-content/61306d87a330ed00419e22e7-1729328816053.png" alt="Wireshark displaying MQTT traffic" /></p>
+
+<p><strong>Note:</strong> If you do not see any traffic in Wireshark. Close all windows and restart your steps.</p>
+
+<p>The first two events show the connection establishment, showing the <code class="language-plaintext highlighter-rouge">Connect Command</code> and <code class="language-plaintext highlighter-rouge">Connect Ack</code> text in the info. The next two events show that one of the clients wants to subscribe to the <code class="language-plaintext highlighter-rouge">home/temperature</code> topic, shown in the square brackets. This must be the HVAC controller, which needs to know the temperature to turn the heater on or off. Below, we can see the messages published by different clients, with their topics in the square brackets. The events from the <code class="language-plaintext highlighter-rouge">home/temperature</code> topic are from the temperature sensor, and the events from the <code class="language-plaintext highlighter-rouge">home/heater</code> are published by the HVAC controller. The screenshot below shows the details of the <code class="language-plaintext highlighter-rouge">home/temperature</code> topic message.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/61306d87a330ed00419e22e7/room-content/61306d87a330ed00419e22e7-1729330687305.png" alt="Wireshark displaying an MQTT packet with a topic and a message being the home temperature and its value" /></p>
+
+<p>In the lower pane, we can see that it is publishing a temperature of -9.6877475608946. That is very cold. Therefore, we see a message from the heater right after the temperature is broadcast. This message shows that the heater was turned on, as seen in the highlighted part in the lower pane.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/61306d87a330ed00419e22e7/room-content/61306d87a330ed00419e22e7-1729330687304.png" alt="Wireshark displaying an MQTT packet with a topic and a message being the home heater and its state" /></p>
+
+<p>The illustration below shows the overall communication between the heater controller and the temperature sensor, as we have deduced from Wireshark communication.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1732161673647.png" alt="Communication between the temperature sensor and the MQTT broker and between the MQTT broker and the heater controller" /> \n</p>
+
+<p>Before proceeding to the challenge, quit all the HVAC controller scripts. Use <strong>CTRL+C</strong> for the window with the red text. It is time to use our knowledge to fix things.</p>
+
+<h2 id="challenge">Challenge</h2>
+
+<p>Great! Now we understand how the MQTT publish/subscribe model works with a broker. McSkidy can use our help; the lights have gone off in all the major factories and halls. Mayor Malware has sabotaged the lighting system implemented by a contractor company. Their support will take some time to respond, as it is the holiday season. But McSkidy needs to get the lights back on now!</p>
+
+<p>To see what Mayor Malware has done, we can run the script <code class="language-plaintext highlighter-rouge">challenge.sh</code> as shown below. This will open three windows, including the lights controller interface.</p>
+
+<p>AttackBox Terminal</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="sr">/Desktop/</span><span class="nx">MQTTSIM</span><span class="o">/</span><span class="nx">walkthrough$</span> <span class="nx">cd</span> <span class="o">~</span><span class="sr">/Desktop/</span><span class="nx">MQTTSIM</span><span class="o">/</span><span class="nx">challenge</span><span class="o">/</span>
+<span class="nx">ubuntu</span><span class="p">@</span><span class="nd">tryhackme</span><span class="p">:</span><span class="o">~</span><span class="sr">/Desktop/</span><span class="nx">MQTTSIM</span><span class="o">/</span><span class="nx">challenge$</span> <span class="p">.</span><span class="o">/</span><span class="nx">challenge</span><span class="p">.</span><span class="nx">sh</span>
+<span class="p">[...]</span>
+</code></pre></div></div>
+
+<p>We can see the lights controller interface; however, nothing works, and there is no way to turn the lights back on.</p>
+
+<p><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1730312441669.png" alt="Lights controller interface" /> \n</p>
+
+<p>Now that we have basic knowledge of the MQTT protocol, we must find the command to turn the lights back on. The <code class="language-plaintext highlighter-rouge">challenge.pcapng</code> file is inside the <code class="language-plaintext highlighter-rouge">challenge</code> directory. This packet capture file contains various MQTT protocol messages related to turning the lights “on” and “off.” Start Wireshark then go to the <strong>File</strong> menu, choose <strong>Open</strong>, locate the <code class="language-plaintext highlighter-rouge">challenge.pcapng</code> file, and open it in Wireshark to take a closer look. \n</p>
+
+<p>You plan to publish a message to the MQTT broker in order to turn on the lights. As a result, all the lighting devices subscribed to this MQTT broker will turn their lights on. You can achieve this from the command line using the <code class="language-plaintext highlighter-rouge">mosquitto_pub</code> command. Consider the following example:</p>
+
+<p><code class="language-plaintext highlighter-rouge">mosquitto_pub -h localhost -t "some_topic" -m "message"</code></p>
+
+<p>We are publishing a message under a specific topic to a broker.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">mosquitto_pub</code> is the command-line utility to publish an MQTT message</li>
+  <li><code class="language-plaintext highlighter-rouge">-h localhost</code> refers to the MQTT broker, which is <code class="language-plaintext highlighter-rouge">localhost</code> in this task</li>
+  <li><code class="language-plaintext highlighter-rouge">-t "some_topic"</code> specifies the <strong>topic</strong></li>
+  <li><code class="language-plaintext highlighter-rouge">-m "message"</code> sets the <strong>message</strong>, such as <code class="language-plaintext highlighter-rouge">"on"</code> and <code class="language-plaintext highlighter-rouge">"off"</code></li>
+</ul>
+
+<p>To determine the correct topic and message to turn on the lights, you must study the captured packets in <code class="language-plaintext highlighter-rouge">challenge.pcapng</code>. Once you figure it out, ensure you are running <code class="language-plaintext highlighter-rouge">challenge.sh</code> and use <code class="language-plaintext highlighter-rouge">mosquitto_pub</code> to publish a message to turn on the lights. Once you successfully manage to turn on the lights, a flag will appear on the lights controller interface.</p>
+
+<h2 id="answer-the-questions-below">Answer the questions below</h2>
+
+<p>What is the flag?</p>
+
+<p>If you enjoyed this task, feel free to check out the <a href="https://tryhackme.com/module/wireshark">Wireshark</a> module.</p>
+
+  </article>
+  
+    <div class="post-share">
+  <div class="post-date">Feel free to share!</div>
+  <div class="sharing-icons">
+    <a href="https://twitter.com/intent/tweet?text=TryHackMe Advent of Cyber 2024&amp;url=/Day24" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=/Day24&amp;title=TryHackMe Advent of Cyber 2024" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+  
+  
+    <div class="related">
+  <h2>You may also enjoy...</h2>
+  
+  <ul class="related-posts">
+    
+  </ul>
+</div>
+
+  
+  
+    <section class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname = "millennial-3";
+    var disqus_identifier = "/Day24";
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+  
+</div>
+
+      </div>
+      <footer class="footer">
+  
+    <a href="https://twitter.com/mberger" class="menu-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  
+    <a href="feed.xml" class="menu-link" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+  
+  <div class="footer-description"><a href="/">THM Advent of Cyber 2024 | a minimalist Jekyll theme for running a blog or publication by Michael</a></div>
+</footer>
+
+    </div>
+  </body>
+</html>
