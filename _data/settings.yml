@@ -1,7 +1,7 @@
 # Change 'comments' to true for Disqus comments
 disqus:
   comments: true
-  disqus_shortname: 'millennial-3'
+  disqus_shortname: 'tryhackme-advent-of-cyber-2024-mberger-writeup'
 
 # If you are not using Google Analytics, please change 'google-ID' to an empty string
 google-ID: 'G-MSZW3HWGH8'
